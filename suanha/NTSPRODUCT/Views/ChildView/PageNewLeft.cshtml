@@ -1,0 +1,46 @@
+﻿@model IList<NTSPRODUCT.Models.Support>
+@{
+    var cateNew = (List<NTSPRODUCT.Models.Category>)ViewBag.cateNew;
+    var cateParent = cateNew.Where(u => u.catepar_id.Equals("-1")).OrderBy(u => u.cateOrder).ToList();
+}
+<div class="col-md-3 col-xs-12 col-lg-3">
+    <div class="aside_catalog">
+        <div class="title_module">
+            <h2><span>Dịch vụ</span></h2>
+        </div>
+        <div class="categories-box">
+            <ul class="nav navbar-pills">
+                @foreach (var item in cateParent)
+                {
+                    <li class="nav-item ">
+                        <a href="/nhom-dich-vu/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
+                        @Html.Raw(ClassExten.GetNewSiteLevel2(item.id, cateNew.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="aside_support support_online">
+        <div class="title_module">
+            <h2><span>@ClassExten.GetLangKey("key_httt")</span></h2>
+        </div>
+        <div class="support_content">
+            <div class="list_support">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        if (item.sType == 1)
+                        {
+                            <li><a href="skype:@item.nick?chat" title="@item.fullName"><span class="ico"><i class="fa  fa-skype"></i></span><span class="title_">@item.fullName</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="tel:@item.phone" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName: @item.phone</span></a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

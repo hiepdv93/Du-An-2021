@@ -1,0 +1,207 @@
+﻿.w700 {
+    width: 700px;
+}
+
+.w800 {
+    width: 800px;
+}
+
+.w900 {
+    width: 900px;
+}
+
+.w1000 {
+    width: 1000px;
+}
+.modal-header {
+    background-color: #5db2ff;
+    color: white;
+}
+.modal-footer {
+    padding-bottom: 10px !important
+}
+
+.titleSlide, .dntitle, .titleBrand, .titleAdv, .titleSayWe, .h4Title {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important
+}
+
+.tag-ngonngu {
+    color: white;
+    font-size: 18px;
+    margin-right: 10px;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+#slNgonngu {
+    margin-top: 7px;
+    color: white;
+    text-transform: uppercase;
+    background: none;
+}
+
+    #slNgonngu option {
+        background: #3c8dbc !important
+    }
+
+.modal-content h4 {
+    text-transform: uppercase
+}
+
+.avata-admin {
+    max-width: 100px;
+    max-height: 40px
+}
+
+.mouse-pointer {
+    cursor: pointer
+}
+
+.font18 {
+    font-size: 18px;
+    margin-right: 5px
+}
+
+table {
+    text-align: left
+}
+
+#tab_3 input[type=checkbox] {
+    width: 30px;
+    height: 16px
+}
+
+.text-red {
+    color: red;
+    font-weight: bold
+}
+
+.display-block {
+    display: block
+}
+
+.combobox-padding {
+    display: inline-block;
+    width: 65px;
+}
+
+.pagination li span {
+    background-color: #269abc;
+    color: white
+}
+
+.table thead tr {
+    background-color: #3c8dbc;
+    color: white
+}
+/*css xoay*/
+.loader {
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    z-index: 1000000;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 14px solid blue;
+    border-right: 14px solid green;
+    border-bottom: 14px solid red;
+    border-left: 14px solid pink;
+    width: 75px;
+    height: 75px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.no-border {
+    border: none !important;
+}
+
+.required {
+    color: #f00;
+    font-weight: 700;
+}
+/*css switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }

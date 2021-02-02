@@ -1,0 +1,47 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page-detail">
+    <div class="container">
+        <div class="row">
+            @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+            <div class="col-lg-9 col-md-9 col-xs-12">
+                <div class="title-portfolio">
+                    <h3 class="font-taviraj">@ViewBag.key_tintuc</h3>
+                </div>
+                <div class="row">
+                    <section class="list-blogs blog-main flex-margin-20">
+                        @foreach (var item in Model)
+                        {
+                            <article class="blog-item">
+                                <div class="blog-item-thumbnail">
+                                    <a href="/dich-vu/@item.new_key" title="@item.title">
+                                        <img src="@item.newImage" style="max-width:100%;" class="img-responsive" alt="@item.title">
+                                    </a>
+                                </div>
+                                <div class="date">
+                                    <p>
+                                        @("T" + item.createDate.Value.ToString("MM"))
+                                    </p>
+                                    <p>
+                                        @item.createDate.Value.ToString("dd")
+                                    </p>
+                                </div>
+                                <div class="blog-item-info">
+                                    <a href="/dich-vu/@item.new_key" title="@item.title">
+                                        <h3 class="blog-item-name">@item.title</h3>
+                                    </a>
+                                    <p class="blog-item-summary margin-bottom-5">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 100)</p>
+                                </div>
+                            </article>
+                        }
+                    </section>
+                    <nav aria-label="Page navigation example">
+                        @Html.Raw(ViewBag.pages)
+                    </nav>
+                </div>
+            </div>
+        </div>
+</section>

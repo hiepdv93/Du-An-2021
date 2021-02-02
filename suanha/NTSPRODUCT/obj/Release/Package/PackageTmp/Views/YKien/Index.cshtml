@@ -1,0 +1,351 @@
+﻿@model IList<NTSPRODUCT.Models.Ykien>
+@{
+    ViewBag.Title = "Danh  sách ý kiến";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string searchemail = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["searchemail"] != null)
+    {
+        searchemail = Request["searchemail"];
+    }
+}
+<head>
+    <script type="text/javascript">
+        function DeleteConfim(id) {
+            $('#lbHeader1').html('Xóa ý kiến!');
+            $('#linkDel1').attr('href', '/YKien/Delete/' + id);
+            $('#myModaldel').modal({
+                show: 'true'
+
+            });
+        }
+
+        function AddNew() {
+            $("#idEdit").val("-1");
+            $("#editmodam").modal({
+                show: true
+            });
+        }
+
+        function Edit(id) {
+            $("#idEdit").val(id);
+            $.ajax({
+                url: "/YKien/GetEditById",
+                data: { id: id },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    debugger;
+                    $("#customer").val(data.y.cusId);
+                    $("#name").val(data.y.yName);
+                    if (data.catid != -1) {
+                        LoadProductDefalt(data.catid, data.y.yPro);
+                    }
+                    else {
+                        $("#product").html("").show();
+                    }
+                    $("#cat").val(data.catid);
+                    if (data.catid != data.y.yPro)
+                        $("#product").val(data.y.yPro);
+                    //$("#note").val(data.y.ynote);
+                    CKEDITOR.instances["note"].setData(data.y.ynote)
+                    $("#email").val(data.y.yEmail);
+                    $("#order").val(data.y.yOrder);
+                    $("#phone").val(data.y.yPhone);
+                    $("#img").val(data.y.yImg);
+
+                    var active = data.active;
+                    $("#active").val(active == true ? "1" : "0");
+
+                    $('#editmodam').modal({
+                        show: 'true'
+
+                    });
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+            $("#editmodam").modal({
+                show: true
+            });
+
+        }
+        function LoadProductDefalt(catId, proId) {
+            $.ajax({
+                url: "/YKien/GetProductByCatId",
+                data: { catId },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    var str = "<option selected disabled>Chọn sản phẩm</option>";
+                    for (var i = 0 ; i < data.length ; i++)
+                        str += "<option value =" + data[i].id + ">" + data[i].name + "</option>";
+                    $("#product").html(str).show();
+                    if (proId != -1)
+                        $("#product").val(proId);
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+    </script>
+
+</head>
+
+<div class="row">
+    @*<button class="btn btn-primary classbtAdd" id="addnew" onclick="AddNew()"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Ykien/IndexSearch">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Nhập họ tên.." />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@searchemail" class="form-control" placeholder="Nhập email/phone.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info" type="button"  id="addnew" onclick="AddNew()"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th width="100px">Ảnh</th>
+                        @*<th>Customer</th>*@
+                        <th>Name</th>
+                        <th width="150px">Email</th>
+                        <th width="150px">Phone</th>
+                        <th width="130px">Thứ tự</th>
+                        <th width="130px">Trạng thái</th>
+                        @*<th width="15%">Sản phẩm liên kết</th>*@
+                        <th width="130px">Chức năng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td><img class="imgadmin" src="@data.yImg" /></td>
+                            @*<td>@data.customerName</td>*@
+                            <td>@data.yName</td>
+                            <td>@data.yEmail</td>
+                            <td>@data.yPhone</td>
+                            <td>@data.yOrder</td>
+                            @if (data.yActive == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            @*<td>@data.productName</td>*@
+                            <td>
+                                <a href="#" class="fa fa-edit" onclick="Edit(@data.yId)" title="Sửa">Sửa</a>|
+                                <a href="#" onclick="DeleteConfim(@data.yId)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+@* ADD EDIT *@
+@using (Html.BeginForm("Add", "YKien"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog divw700">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa ý kiến</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="form-group" style="display:none">
+                                        <label>Khách hàng</label>
+                                        <input hidden id="url" value="@Request.Url" name="url" />
+                                        <input hidden id="idEdit" value="-1" name="idEdit" />
+                                        <select class="form-control csinput csinput" id="customer" name="customer"></select>
+                                        @*@Html.DropDownList("Customer", new SelectList(Model, "id", "email"), new { @class = "form-control csinput" })*@
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Họ tên(*)</label>
+                                        <input type="text" class="form-control csinput" id="name" name="name" placeholder="Tên" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control csinput" name="email" id="email" placeholder="Email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ảnh</label>
+                                        <input type="text" class="form-control csinput" id="img" name="img" placeholder="Chọn ảnh" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Số điện thoại</label>
+                                        <input type="number" class="form-control csinput" id="phone" name="phone" placeholder="Phone" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Thứ tự(*)</label>
+                                        <input type="number" class="form-control csinput" value="1" id="order" name="order" placeholder="thứ tự" required="required" />
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Sản phẩm liên kết</label>
+                                        <select class="form-control csinput" id="cat" name="cat"></select>
+                                        <select class="form-control csinput" id="product" name="product"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <select class="form-control csinput" id="active" name="active">
+                                            <option value="1" selected="selected">Kích hoạt</option>
+                                            <option value="0">Ko kích hoạt</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Note</label>
+                                        <textarea class="form-control" type="text" placeholder="Note" name="note" id="note"></textarea>
+                                    </div>
+
+                                </div>
+
+                                <div class="box-footer text-right">
+                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                                    <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!--/.col (left) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@*REGION ADD/EDIT*@
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+        createEditor('vi', 'note');
+    });
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+
+    //load data category
+    function getCategory() {
+        $.ajax({
+            url: "/YKien/GetCategory",
+            data: {},
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                var str = "<option value=-1 selected disabled>Chọn danh mục sản phẩm</option>";
+
+                for (var i = 0 ; i < data.length ; i++)
+                    str += "<option value =" + data[i].id + ">" + data[i].name + "</option>";
+                $("#cat").html(str).show();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+    getCategory();
+
+    //load customer type =-1
+    function getCustomer() {
+        $.ajax({
+            url: "/YKien/GetCustomer",
+            data: {},
+            type: "POST",
+            success: function (data) {
+                var str = "<option selected disabled>Chọn Khách hàng</option>";
+
+                for (var i = 0 ; i < data.length ; i++)
+                    str += "<option value =" + data[i].id + ">" + data[i].name + "</option>";
+                $("#customer").html(str).show();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+
+    getCustomer();
+
+    $(function () {
+        $("#cat").change(function () {
+            var catId = $("#cat").val();
+            LoadProductDefalt(catId, -1);
+        });
+    });
+</script>
+<style>
+    /*.csinput {
+            width: 90%;
+        }*/
+    .csinput {
+        width: 60%;
+    }
+
+    #product #cat {
+        width: 30%;
+    }
+</style>
+@* END *@
+<script>
+    function Lammoi()
+    {
+        window.location.href = '/Ykien/';
+    }
+</script>

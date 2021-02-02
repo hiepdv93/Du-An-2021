@@ -1,0 +1,58 @@
+﻿@model IList<NTSPRODUCT.Models.Partner>
+@{ int index = ViewBag.Index;}
+<div class="col-sm-12">
+    <table class="table table-bordered table-hover" style="min-width:1000px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th width="100px" class="text-center">Ảnh</th>
+                <th>Tên đối tác</th>
+                <th width="220px">Nhóm</th>
+                <th width="100px">Thứ tự</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td class="text-center">
+                        <a href="javascript:void(0)" onclick="UpdateSlide('@item.id');" title="Sửa"><span class="fa fa-edit font18"></span> </a>
+                        <a href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                    </td>
+                    <td class="text-center"><img class="avata-admin" src="@item.pImage" /></td>
+                    <td>@item.pName</td>
+                    <td>@ClassExten.getGroupParner(item.groupId)</td>
+                    <td>@item.numberOder</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+<div class="col-sm-5">
+    <div class="form-group">
+        <div class="controls">
+            <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+            <span>bản ghi/Trang</span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-7">
+    @Html.Raw(ViewBag.pages)
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

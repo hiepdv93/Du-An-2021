@@ -1,0 +1,53 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+}
+
+<section class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-3 slogan text-center">
+                <div class="input-group">
+                    <input type="text" class="search-auto form-control" id="homeSearch1" placeholder="@ClassExten.GetLangKey("key_timkiem") ..">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="btnHomeSearch1" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-pull-6 logo hidden-sm hidden-xs">
+                <a href="@conf.linkLogo" class="logo-wrapper" title="@conf.shopName">
+                    <img src="@conf.logoTop" alt="@conf.shopName" class="img-responsive center-block">
+                </a>
+            </div>
+            <div class="col-md-3 hotline hidden-sm hidden-xs">
+                <div class="evo-hotline hidden-md">
+                    <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:@conf.hotLine" title="@conf.hotLine">@conf.hotLine</a>
+                </div>
+                @*<div class="evo-hotline header-langue hidden-md">
+                        <span id="btnLangVN" class="langue active"><img src="~/Content/CssSite/images/flag_vi.gif"></span>
+                        <span id="btnLangEN" class="langue"><img src="~/Content/CssSite/images/flag_en.gif"></span>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+<section id="navBar" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
+            <div id="overlay"></div>
+            <nav id="menu">
+                <ul>
+                    @foreach (var item in cateParent)
+                    {
+                        <li>
+                            <a href='@item.link' title="@item.name">@item.name</a>
+                            @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()))
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

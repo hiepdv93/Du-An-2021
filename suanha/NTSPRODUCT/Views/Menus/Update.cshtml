@@ -1,0 +1,171 @@
+﻿@model NTSPRODUCT.Models.Menu
+@{
+    ViewBag.controller = "Cập nhật menu";
+    ViewBag.Title = "Administrator - Cập nhật menu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nhóm cha</label><span class="text-red">(*)</span>
+                                @Html.Action("GetMenuUpdate", "Menus", new { idUpdate = Model.id })
+                                <input type="hidden" value="@Model.par_id" id="pid_hid" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Tên menu<span class="text-red">(*)</span></label>
+                                <input type="text" maxlength="250" class="form-control csinput" name="title" id="title" value="@Model.name" placeholder="Tên menu" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Icons (click vào <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank"> đây </a>để lấy icon)</label>
+                                <input type="text" maxlength="250" class="form-control csinput" name="icon" id="icon" value="@Model.icon" placeholder="Chọn icon" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Thứ tự<span class="text-red">(*)</span></label>
+                                <input type="number" class="form-control csinput" value="@Model.mOrder" name="thutu" id="thutu" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Vị trí</label><span class="text-red">(*)</span>
+                                <input type="hidden" value="@Model.mPosition" id="vitri_hid" />
+                                <select name="vitri" id="vitri" class="form-control csinput">
+                                    <option value="1">Menu trên</option>
+                                    <option value="2">Menu dưới</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Loại menu</label><span class="text-red">(*)</span>
+                                <select name="loaimenu" id="loaimenu" class="form-control csinput">
+                                    <option value="1">Menu link</option>
+                                    <option value="2">Menu nội dung</option>
+                                    <option value="3">Menu liên kết</option>
+                                </select>
+                                <input type="hidden" value="@Model.mtype" id="type_hid" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="menu_link">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Link menu</label>
+                                <input type="text" maxlength="450" class="form-control csinput" value="@Model.link" name="linkmenu" id="linkmenu" placeholder="Link menu" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="menu_lienket" style="display:none">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Loại liên kết</label>
+                                    <select name="typecate" id="typecate" class="form-control csinput">
+                                        <option value="0">Trang chủ</option>
+                                        <option value="2">Tin tức</option>
+                                        <option value="3">Đối tác</option>
+                                        <option value="7">Liên hệ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="hidden" value="@Model.mtypeOf" id="typecate_hid" />
+                                    @if (Model.mtypeOf == "1" || Model.mtypeOf == "2" )
+                                    {
+                                        <div id="idchon_nhom">
+                                            <label>Chọn nhóm </label>
+                                            <select name="cateid" id="cateid" class="form-control csinput">
+                                                @Html.Action("Nhomdanhmuc", "Menus", new { id = Model.mtypeOf })
+                                            </select>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div id="idchon_nhom" style="display:none">
+                                            <label>Chọn nhóm </label>
+                                            <select name="cateid" id="cateid" class="form-control csinput"></select>
+                                        </div>
+                                    }
+
+                                    <input type="hidden" id="cateid_hid" value="@ViewBag.idcateLK" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="menu_noidung" style="display:none">
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            @Html.TextAreaFor(u => u.note)
+                        </div>
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <textarea type="text" class="form-control" maxlength="800" rows="2" name="titleseo" placeholder="Tile seo">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <textarea type="text" class="form-control" maxlength="800" rows="2" name="keyseo" placeholder="Keyword seo">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <textarea type="text" class="form-control" maxlength="800" rows="2" name="desseo" placeholder="Description seo">@Model.desSeo</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="display-block">Hiển thị</label>
+                        <label class="switch">
+                            <input type="checkbox" name="active" @(Model.active == true ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                        <a href="/Menus/Index" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+
+                    </div>
+                </div>
+
+                <!--/.col (left) -->
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Content/AdminJSController/MenusUpdateControllers.js"></script>
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'note');
+    });
+</script>
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }
