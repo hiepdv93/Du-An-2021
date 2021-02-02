@@ -3,6 +3,26 @@
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="rows">
+            <div class="col-xs-12 a-left">
+                <ul class="breadcrumb" itemscope="">
+                    <li class="home">
+                        <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                   
+                        <li><strong><span itemprop="title">Tìm kiếm</span></strong></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="page-detail">
     <div class="container">
         <div class="row">
