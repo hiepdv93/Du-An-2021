@@ -1,0 +1,315 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var faq = (List<NTSPRODUCT.Models.Faq>)ViewBag.faq;
+    var pro = (NTSPRODUCT.Models.Product)ViewBag.pro;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumb_background">
+    <span class="overlay"></span>
+    <div class="title_full">
+        <div class="container a-center">
+            <h1 class="title_page">@pro.pro_name</h1>
+        </div>
+    </div>
+</div>
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="rows">
+            <div class="col-xs-12 a-left">
+                <ul class="breadcrumb" itemscope="">
+                    <li class="home">
+                        <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                    @if (catePSub != null)
+                    {
+                        <li>
+                            <a itemprop="url" href="/danh-muc/@catePSub.cateKey" title="@catePSub.cateName"><span itemprop="title">@catePSub.cateName</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                    }
+                    <li>
+                        <a itemprop="url" href="/danh-muc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                    @if (pro != null)
+                    {
+                        <li><strong><span itemprop="title">@pro.pro_name</span></strong></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12 col-lg-9 details-product">
+                <div class="row">
+
+                    <div class="col-md-6 col-xs-12 col-lg-6">
+                        <div class="img-product">
+                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                <li data-thumb="@pro.proAvata">
+                                    <img src="@pro.proAvata" />
+                                </li>
+                                @if (!string.IsNullOrEmpty(pro.proImages1))
+                                {
+                                    <li data-thumb="@pro.proImages1">
+                                        <img src="@pro.proImages1" />
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages2))
+                                {
+                                    <li data-thumb="@pro.proImages2">
+                                        <img src="@pro.proImages2" />
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages3))
+                                {
+                                    <li data-thumb="@pro.proImages3">
+                                        <img src="@pro.proImages3" />
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages4))
+                                {
+                                    <li data-thumb="@pro.proImages4">
+                                        <img src="@pro.proImages4" />
+                                    </li>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages5))
+                                {
+                                    <li data-thumb="@pro.proImages5">
+                                        <img src="@pro.proImages5" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-lg-6 details-pro">
+                        <div class="product-top clearfix">
+                            <h1 class="title-head">@pro.pro_name</h1>
+                        </div>
+                        <div class="price-box clearfix" itemscope="">
+                            <span class="special-price">
+                                @ClassExten.GetLangKey("key_gia"):
+                                <span class="price product-price" itemprop="price">@(pro.proPrice_sale != 0 ? pro.proPrice_sale.Value.ToString("N0") : @ClassExten.GetLangKey("contact"))</span>
+                            </span>
+                        </div>
+                        <div class="product-summary product_description margin-bottom-15 margin-top-15">
+                            <div class="rte description">
+                                @Html.Raw(pro.introContent)
+                            </div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(pro.proFile))
+                        {
+                            <div class="down-document">
+                                <a href="@pro.proFile" title="@ClassExten.GetLangKey("key_downLib")">
+                                    <i class="fa fa-download"></i> @ClassExten.GetLangKey("key_downLib")
+                                </a>
+                            </div>
+                        }
+                        <div class="form-product">
+                            @*<div class="form-group">
+                                <div class="clearfix">
+                                    <button type="button" class="btn btn-lg btn-gray btn-cart add_to_cart btn_buy add_to_cart" data-toggle="modal" data-target="#exampleModal"><span class="txt-main">@ClassExten.GetLangKey("key_contac_Pro")</span></button>
+                                </div>
+                            </div>*@
+                            <div class="quanlity">
+                                <span>Mua ngay:</span>
+                                <div class="input-quanlity">
+                                    <button class="btn left" onclick="DownNumber()" type="button"><strong>-</strong></button>
+                                    <input type="text" value="1" min="1" max="100" step="1" class="form-control" id="numberPro" />
+                                    <button class="btn right" onclick="UpNumber()" type="button"><strong>+</strong></button>
+                                </div>
+                                <input type="hidden" value="@pro.id" id="idPro" />
+                            </div>
+                            <div class="BulkDiscount form-group">
+                                <button type="button" onclick="PushProduct()" class="btn btn-lg btn-gray btn-cart add_to_cart btn_buy add_to_cart">
+                                    <span>Mua ngay</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                        <div class="info-product">
+                            <ul class="tabs-product">
+                                <li class="tab-link current" data-tab="tab-1">@ClassExten.GetLangKey("key_spthongtinn")</li>
+                                <li class="tab-link" data-tab="tab-2">@ClassExten.GetLangKey("key_spmota")</li>
+                            </ul>
+                            <div id="tab-1" class="info-product-tab-content current">
+                                @Html.Raw(pro.proContentTab1)
+                            </div>
+                            <div id="tab-2" class="info-product-tab-content">
+                                @Html.Raw(pro.proContentTab2)
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Action("PageProLeft", "ChildView", new { lang = ViewBag.lang, typePage = "detail", cateKey = cateP.cateKey })
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="heading_spbc">
+                    <h2 class="title-head">
+                        <a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@ClassExten.GetLangKey("key_spcungchuyenmuc")</a>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div id="owl-pro-detail" class="owl-carousel owl-theme owl-pro-home">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item">
+                            <div class="col-item col-item-grid">
+                                <div class="sale-label sale-top-right">
+                                    <span>New</span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="product-wrapper ">
+                                        <div class="thumb-wrapper">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="info-inner">
+                                            <div class="item-title">
+                                                <h3 class="text2line">
+                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                                </h3>
+                                            </div>
+                                            <div class="item-content">
+                                                <div class="price-box price-loop-style">
+                                                    <span class="special-price">
+                                                        <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
+                                                    </span>
+                                                    @if (item.proPrice != 0)
+                                                    {
+                                                        <span class="old-price">
+                                                            <span class="price">
+                                                                @item.proPrice.Value.ToString("N0")
+                                                            </span>
+                                                        </span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="view-detail">
+                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@ClassExten.GetLangKey("key_chitiet")</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@ClassExten.GetLangKey("key_tskt")</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 col-xs-12 col-lg-12">
+                    <div class="form-contact">
+                        <form action="" method="post" class="img-responsive">
+                            <div class="card-body p-3">
+                                <!--Body-->
+                                <div class="form-group col-lg-6 col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-texts"><i class="fa fa-user"></i></div>
+                                        </div>
+                                        <input type="hidden" id="referencesId" value="@pro.id">
+                                        <input type="text" class="form-control" id="ctName" name="nombre" placeholder="@ClassExten.GetLangKey("key_hoten") (*)">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-texts"><i class="fa fa-envelope"></i></div>
+                                        </div>
+                                        <input type="email" class="form-control" id="ctEmail" name="email" placeholder="Email...">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-texts"><i class="fa fa-phone"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="ctPhone" name="nombre" placeholder="@ClassExten.GetLangKey("key_sdt") (*)">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 col-sm-6">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-texts"><i class="fa fa-home"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="ctAddress" name="nombre" placeholder="@ClassExten.GetLangKey("key_diachi") ..">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-sm-12">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-texts"><i class="fa fa-pencil"></i></div>
+                                        </div>
+                                        <textarea class="form-control" id="ctNote" rows="6" placeholder="@ClassExten.GetLangKey("key_ndmota") (*)"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@ClassExten.GetLangKey("key_huy")</button>
+                <button type="button" onclick="SendContact()" class="btn btn-primary">@ClassExten.GetLangKey("key_dathang")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#numberPro").on('keyup', function () {
+        var numberPro = $('#numberPro').val();
+        if (isNaN(numberPro)) {
+            $('#numberPro').val('1');
+        }
+    });
+    function DownNumber() {
+        var numberPro = parseInt($('#numberPro').val());
+        if (numberPro != 1) {
+            numberPro--;
+            $('#numberPro').val(numberPro + '')
+        }
+
+    }
+    function UpNumber() {
+        var numberPro = parseInt($('#numberPro').val());
+        if (numberPro < 100) {
+            numberPro++;
+            $('#numberPro').val(numberPro + '')
+        }
+
+    }
+</script>

@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cus = (NTSPRODUCT.Models.Customer)ViewBag.cusInfo;
+}
+<div id="main" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="clearfix wcontent contact">
+                <div class="title-contact col-12 col-md-12 col-lg-12 col-xs-12">
+                    <h2>@ClassExten.GetLangKey("key_thongtindh")</h2>
+                </div>
+                <div class="col-12 col-md-8 col-lg-8 col-xs-12">
+                    <div class="woocommerce row row-large row-divided">
+                        <table class="shop_table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th class="product-name" width="40px"></th>
+                                    <th class="product-name" width="100px">hình ảnh</th>
+                                    <th class="product-name">Sản phẩm</th>
+                                    <th class="product-quantity">Số lượng</th>
+                                    <th class="product-price">Giá</th>
+                                    <th class="product-subtotal">Tổng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartContent">
+                                @Html.Action("GetList", "Carts")
+                            </tbody>
+                        </table>
+                        <div class="pull">
+                            <div class="pull-left">
+                                <a class="is-outline" href="/danh-muc/" title="@ClassExten.GetLangKey("key_tieptuc_muasp")">
+                                    ← @ClassExten.GetLangKey("key_tieptuc_muasp")
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-xs-12">
+                    <div class="cart-collaterals">
+                        <div class="cart-sidebar col-inner ">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-12">@ClassExten.GetLangKey("key_hoten") <span>*</span></label>
+                                    <div class="col-sm-12">
+                                        <input type="text" maxlength="150" value="@(cus!=null?cus.fullName:string.Empty)" class="form-control" id="cartName" name="hotenlh" placeholder="@ClassExten.GetLangKey("key_hoten") .." required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-12">Email <span>*</span></label>
+                                    <div class="col-sm-12">
+                                        <input type="email" maxlength="100" value="@(cus!=null?cus.email:string.Empty)" class="form-control" id="cartEmail" placeholder="Email.." required="required" name="emaillh">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-12">@ClassExten.GetLangKey("key_sdt") <span>*</span></label>
+                                    <div class="col-sm-12">
+                                        <input type="text" maxlength="50" value="@(cus!=null?cus.phone:string.Empty)" class="form-control" id="cartPhone" name="phone" placeholder="@ClassExten.GetLangKey("key_sdt") ..">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-12">@ClassExten.GetLangKey("key_diachi") </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" maxlength="150"  value="@(cus!=null?cus.addresss:string.Empty)" class="form-control" id="cartAddress" name="address" placeholder="@ClassExten.GetLangKey("key_diachi") ..">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-12">@ClassExten.GetLangKey("key_ghichu")</label>
+                                    <div class="col-sm-12">
+                                        <textarea name="messagelh" class="form-control" id="cartNote" rows="5" cols="25" required="required" maxlength="500" placeholder="@ClassExten.GetLangKey("key_ghichu") .."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        @if (Session["KhohangUser"] != null)
+                                        {
+                                            <button type="button" onclick="AddCart()" class="btn btn-primary pull-right" style="width:100%;padding:10px 10px;text-transform:uppercase" id="btnContactUs">@ClassExten.GetLangKey("key_guidh")</button>
+
+                                        }
+                                        else
+                                        {
+                                            <a href="/CustomerSite/Login?return=cart" class="btn btn-primary pull-right" style="width:100%;padding:10px 10px;text-transform:uppercase" id="btnContactUs">Đăng nhập mua hàng</a>
+                                        }
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

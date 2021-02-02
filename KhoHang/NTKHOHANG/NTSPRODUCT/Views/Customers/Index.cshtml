@@ -1,0 +1,73 @@
+﻿@model IList<NTSPRODUCT.Models.Customer>
+
+@{
+    ViewBag.Title = "Administrator - Danh sách khách hàng";
+    ViewBag.controller = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<!-- SELECT2 EXAMPLE -->
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Thông tin tìm kiếm</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" id="nameSearch" class="form-control" placeholder="Tên khách hàng.." />
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="email" class="form-control" placeholder="Email.." />
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="phone" class="form-control" placeholder="Số điện thoại.." />
+            </div>
+            <div class="col-md-3 text-right">
+                <button type="button" class="btn  btn-success" onclick="SearchCustomers()"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                <button class="btn btn-default" type="button" onclick="RefreshCustomers()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách khách hàng</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>
+                                Tổng số <b class="badge badge-primary" id="count_data">0</b> bản ghi
+                            </h4>
+                       
+                    </div>
+                    <div class="row" id="row_data">
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+</div>
+<div id="divModam"></div>
+<script src="~/Content/AdminJSController/Customers/CustomersListControllers.js"></script>

@@ -1,0 +1,38 @@
+﻿<div id="modamResetPass" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog w700">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #5db2ff; color: white">
+                <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                <h4>Reset mật khẩu</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Mật khẩu</label><span class="text-red"></span>
+                                <input type="hidden" value="" id="idUpdate" />
+                                <input type="password" class="form-control" name="rspass" id="rspass" maxlength="250" placeholder="mật khẩu.." required>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Nhập lại</label><span class="text-red"></span>
+                                <input type="password" class="form-control" name="re_rspass" id="re_rspass" maxlength="250" placeholder="Nhập lại.." required>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="modal-footer" style="margin-top: -20px;">
+                    <button type="submit" class="btn btn-primary" onclick="OnResetPass()"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

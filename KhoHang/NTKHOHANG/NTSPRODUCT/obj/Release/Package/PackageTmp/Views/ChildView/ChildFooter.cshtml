@@ -1,0 +1,109 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+
+<footer class="footer">
+    <div class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="row">
+                    <div class="block block-cs col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="footer-widget">
+                            <h4>
+                                <span>
+                                    THÔNG TIN LIÊN HỆ
+                                </span>
+                            </h4>
+                            @Html.Raw(conf.infoPage)
+                        </div>
+                    </div>
+                    <div class="block block-cs col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <div class="footer-widget">
+                            <h4>
+                                <span>
+                                    HỆ THỐNG HOWROOM
+                                </span>
+                            </h4>
+                            @Html.Raw(conf.infoHN)
+                        </div>
+                    </div>
+                 
+                    <div class="block block-cs col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <div class="footer-widget">
+                            <h4>
+                                <span>Facebook</span>
+                            </h4>
+                            @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                            @Html.Raw(fb)
+                            <ul class="list-menu has-toggle social-media-footer" style="display: block;">
+                                @if (!string.IsNullOrEmpty(conf.twiter))
+                                {
+                                    <li><a href="@conf.twiter" title="twitter"><i class="fa fa-twitter"> </i></a></li>
+                                }
+                                @if (!string.IsNullOrEmpty(conf.faceBook))
+                                {
+                                    <li><a href="@conf.faceBook" title="facebook"><i class="fa fa-facebook"> </i></a></li>
+                                }
+                                @if (!string.IsNullOrEmpty(conf.google))
+                                {
+                                    <li><a href="@conf.google" title="instagram"><i class="fa fa-google-plus"> </i></a></li>
+                                }
+                                @if (!string.IsNullOrEmpty(conf.youTube))
+                                {
+                                    <li><a href="@conf.youTube" title="youtube"><i class="fa fa-youtube"> </i></a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright clearfix">
+        <div class="container">
+            <div class="inner clearfix">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center copy-right-text">
+                            <span class="cungcap"><a href="#" style="color:white" title="@conf.shopName">@conf.fax</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<section id="hotline-zalo-fb" style="display:none">
+    @if (!string.IsNullOrEmpty(conf.hotLine))
+    {
+        <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+            <img src="~/Content/CssSite/images/hotline.png" />
+            <span>Hotline</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.zaloChat))
+    {
+        <a href="@("http://zalo.me/"+conf.zaloChat)" class="zalo">
+            <img src="~/Content/CssSite/images/zalo.png" />
+            <span>Zalo</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.fbChat))
+    {
+        <a href="@conf.fbChat" target="_blank" class="mes">
+            <img src="~/Content/CssSite/images/fb.png" />
+            <span>Facebook</span>
+        </a>
+    }
+</section>
+<style>
+    .footer {
+    background-color: #00709E;
+}
+    .footer .site-footer h4 span{
+    color: white;
+}
+</style>
+<!--End footer-->
+@Html.Raw(conf.liveChat)
+@Html.Raw(conf.googleAnalytics)
+@Html.Raw(conf.googleAdsense)

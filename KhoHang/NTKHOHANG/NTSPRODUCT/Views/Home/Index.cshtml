@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Administrator - Hệ thống quản trị website";
+    ViewBag.controller = "Hệ thống quản trị website " + Request.Url.Host;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- SELECT2 EXAMPLE -->
+<div class="box box-default">
+    <div class="box-header with-border">
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>@ViewBag.teacherCount</h3>
+                            <p>Danh mục hãng</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="/Categorys/Catepro" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>@ViewBag.proCount</h3>
+                            <p>Sản phẩm</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="/Prodcuts/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>@ViewBag.contactCount</h3>
+                            <p>Liên hệ tư vấn</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="/Contacts/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>@ViewBag.newsCount</h3>
+                            <p>Tin tức</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="/News/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+         
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.box-body -->
+</div>

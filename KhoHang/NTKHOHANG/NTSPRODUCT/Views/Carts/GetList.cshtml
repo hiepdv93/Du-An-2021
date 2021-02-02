@@ -1,0 +1,111 @@
+﻿@model NTSPRODUCT.Models.ShoppingCartViewModel
+@if (Model != null)
+{
+    foreach (var item in Model.CartItems)
+    {
+        <tr class="cart_item">
+            <td class="product-remove">
+                <i class="fa fa-trash-o" aria-hidden="true" onclick="RemovePro('@item.productId')"></i>
+            </td>
+            <td class="product-thumbnail">
+                <a href="/san-pham/@item.key" title="@item.productName"><img src="@item.productImg" alt="@item.productName"></a>
+            </td>
+            <td class="product-name">
+                <a href="/san-pham/@item.key" title="@item.productName">@item.productName</a>
+            </td>
+            <td class="product-quantity" data-title="Số lượng">
+                <div class="input-quanlity">
+                    <button class="btn left" onclick="DownNumberCart('@item.productId')" type="button"><strong>-</strong></button>
+                    <input style="width:100px" type="text" value="@item.count" min="0" max="100" step="1" data-id="@item.productId" id="input_@item.productId" class="quantityCart" />
+                    <button class="btn right" onclick="UpNumberCart('@item.productId')" type="button"><strong>+</strong></button>
+                </div>
+            </td>
+
+            <td class="product-price" data-title="Giá">
+                <span class="amount">@item.price.ToString("N0")<span></span></span>
+            </td>
+
+            <td class="product-subtotal">
+                <span class="amount">@item.total.ToString("N0")<span></span></span>
+            </td>
+        </tr>
+    }
+    <tr class="cart_item">
+        <td colspan="5"></td>
+        <td class="product-subtotal">
+            <span class="amount">@Model.CartTotal.ToString("N0")<span></span></span>
+        </td>
+    </tr>
+    <script type="text/javascript">
+        function RemovePro(id) {
+            OpenWaiting();
+            $.ajax({
+                url: "/Carts/RemoveFromCart?id=" + id,
+                type: "POST",
+                //  data: model,
+                success: function (data) {
+                    if (data.ok === true) {
+                        toastr.success(GetNotifyByKey('delete_Cart_ok'), { timeOut: 5000 });
+                        LoadCart();
+                    } else {
+                        toastr.error(GetNotifyByKey('delete_Cart_error'), { timeOut: 5000 });
+                    }
+                    CloseWaiting();
+                },
+                error: function (response) {
+                    CloseWaiting();
+                    toastr.error(GetNotifyByKey('rs_Cart_error'), { timeOut: 5000 });
+                }
+            });
+        }
+        function UpdateCart(id, countToUpdate) {
+            OpenWaiting();
+            $.ajax({
+                url: "/Carts/UpdateCartCountItem?id=" + id + '&cartCount=' + countToUpdate,
+                type: "POST",
+                // data: model,
+                success: function (data) {
+                    if (data.ok === true) {
+                        toastr.success(GetNotifyByKey('update_Cart_ok'), { timeOut: 5000 });
+                        LoadCart();
+                    } else {
+                        toastr.error(GetNotifyByKey('update_Cart_error'), { timeOut: 5000 });
+                    }
+                    CloseWaiting();
+                },
+                error: function (response) {
+                    CloseWaiting();
+                    toastr.error(GetNotifyByKey('update_Cart_error'), { timeOut: 5000 });
+                }
+            });
+        }
+        $(".quantityCart").on('keyup', function () {
+            var id = $(this).attr("data-id");
+            //Set quantity number to 0 if input value is empty
+            var countToUpdate = $(this).val();
+            if (countToUpdate == '') {
+                countToUpdate = '1';
+            }
+            if (isNaN(countToUpdate)) {
+                countToUpdate = '1';
+            }
+            UpdateCart(id, countToUpdate);
+        });
+        function DownNumberCart(id) {
+            var numberPro = parseInt($('#input_' + id).val());
+            if (numberPro != 1) {
+                numberPro--;
+                UpdateCart(id, numberPro);
+            }
+
+        }
+        function UpNumberCart(id) {
+            var numberPro = parseInt($('#input_' + id).val());
+            if (numberPro < 100) {
+                numberPro++;
+                UpdateCart(id, numberPro);
+            }
+
+        }
+    </script>
+}

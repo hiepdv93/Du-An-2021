@@ -1,0 +1,37 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var newNew = (List<NTSPRODUCT.Models.News>)ViewBag.newNew;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+    var advs = (List<NTSPRODUCT.Models.Adv>)ViewBag.advs;
+    var dateNow = DateTime.Now;
+}
+   
+<section class="awe-section-3">
+    <div class="section_dich_vu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 evo_dich_vu_title text-center">
+                    <h4 class="section_dich_vu_title">danh mục sản phẩm</h4>
+                </div>
+            </div>
+            <div class="row row-dich-vu">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 col-sm-3 col-xs-4">
+                        <div class="evo-box-dich-vu">
+                            <div class="evo-box-dich-vu-group">
+                                <div class="evo-box-dich-vu-image">
+                                    <img src="@item.proAvata" alt="@item.pro_name" class="img-responsive center-block">
+                                </div>
+                                <div class="content-box-dich-vu hidden-sm hidden-xs">@Html.Raw(item.desPro)</div>
+                            </div>
+                            <h3><a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a></h3>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
