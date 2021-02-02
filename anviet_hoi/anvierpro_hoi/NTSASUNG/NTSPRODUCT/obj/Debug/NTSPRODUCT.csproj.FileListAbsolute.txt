@@ -1,0 +1,700 @@
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\ApplicationInsights.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\csc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\vbc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Antlr3.Runtime.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\CKFinder.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Newtonsoft.Json.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Helpers.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Mvc.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Optimization.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\WebGrease.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Helpers.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Mvc.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Optimization.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Newtonsoft.Json.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSWEB\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\ApplicationInsights.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\csc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\vbc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Antlr3.Runtime.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\CKFinder.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Newtonsoft.Json.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Helpers.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Mvc.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Optimization.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\WebGrease.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Helpers.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Mvc.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Optimization.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Newtonsoft.Json.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\NTSPRODUCT\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\ApplicationInsights.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\csc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\vbc.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Antlr3.Runtime.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\CKFinder.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Newtonsoft.Json.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Owin.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Helpers.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Mvc.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Optimization.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\WebGrease.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Helpers.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Mvc.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Optimization.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Newtonsoft.Json.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\HIEPNHANTIN\WEBNTS\SourceCode\MAYTUDONG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\ApplicationInsights.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\csc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\vbc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Antlr3.Runtime.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\CKFinder.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Newtonsoft.Json.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Helpers.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Mvc.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Optimization.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\WebGrease.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Helpers.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Mvc.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Optimization.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Newtonsoft.Json.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSEDUCATE\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\ApplicationInsights.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\csc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\vbc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Antlr3.Runtime.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\CKFinder.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Newtonsoft.Json.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Helpers.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Mvc.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Optimization.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\WebGrease.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Helpers.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Mvc.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Optimization.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Newtonsoft.Json.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSSTEM\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\ApplicationInsights.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\csc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\vbc.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\CKFinder.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Owin.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\WebGrease.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+D:\NHANTIN\2019-Web-Development\SourceCode\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\ApplicationInsights.config
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\csc.exe
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\vbc.exe
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.pdb
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\CKFinder.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\EntityFramework.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Owin.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\WebGrease.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\EntityFramework.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\DATA\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+D:\DATA\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+D:\DATA\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+D:\DATA\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\ApplicationInsights.config
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\csc.exe
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Collections.Immutable.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\System.Reflection.Metadata.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\vbc.exe
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\roslyn\VBCSCompiler.exe.config
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll.config
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\NTSPRODUCT.pdb
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\CKFinder.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\EntityFramework.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Web.Infrastructure.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Owin.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Syncfusion.Compression.Base.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Syncfusion.DocIO.Base.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Syncfusion.XlsIO.Base.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\WebGrease.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.DependencyCollector.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.Web.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Helpers.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Mvc.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Optimization.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.Razor.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Deployment.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\System.Web.WebPages.Razor.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Antlr3.Runtime.pdb
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Newtonsoft.Json.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\EntityFramework.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\EntityFramework.SqlServer.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
+E:\Project Old\anviet_hoi\anvierpro_hoi\NTSASUNG\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb

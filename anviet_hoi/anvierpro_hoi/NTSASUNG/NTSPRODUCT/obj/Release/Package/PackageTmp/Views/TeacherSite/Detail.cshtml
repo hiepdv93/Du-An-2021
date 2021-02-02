@@ -1,0 +1,97 @@
+﻿@model IList<NTSPRODUCT.Models.Teacher>
+@{
+    var newData = (NTSPRODUCT.Models.Teacher)ViewBag.newData;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-page">
+    <div class="u-teacher-top">
+        <div class="container">
+            <div class="row">
+                <div class="utt-bot">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-7 col-sm-8 padNo">
+                                <div class="u-teacher-left">
+                                    <div class="u-teacher-avatar">
+                                        <img width="160px" height="160px" src="@newData.avata" alt="@newData.name">
+                                    </div>
+                                    <div class="u-teacher-info">
+                                        <h1>@newData.name</h1>
+                                        <span>@newData.title </span>
+                                        <div class="uti-link">
+                                            <a target="_blank" href="@newData.facebook" title="@newData.name"> <i class="fa fa-facebook-official" aria-hidden="true"></i>@ClassExten.GetLangKey("key_follow")</a>
+                                            <a target="_blank" href="@newData.facebook" title="@newData.name"> <i class="fa fa-commenting-o" aria-hidden="true"></i>@ClassExten.GetLangKey("key_messfor")</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-5 col-sm-4 padNo">
+                                <div class="u-teacher-right">
+                                    <ul>
+                                        <li>
+                                            <p>@newData.courseCount</p>
+                                            <span>@ClassExten.GetLangKey("key_Countkh")</span>
+                                        </li>
+                                        <li>
+                                            <p>@newData.studentCount</p>
+                                            <span>@ClassExten.GetLangKey("key_Countstd")</span>
+                                        </li>
+                                        <li>
+                                            <p>@newData.levels</p>
+                                            <span>@ClassExten.GetLangKey("key_Countlevel")</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="u-teacher-box pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6">
+                    <div class="intro-teacher-left">
+                        <div class="u-teacher-intro">@Html.Raw(newData.note)</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="teac-video-right">
+                        <div class="u-teacher-video">
+                            <img alt="@newData.name" src="@newData.imgIntro">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lecturers pt-5 pb-5">
+    <div class="container">
+        <div class="title-portfolio">
+            <h3 class="font-taviraj">@ClassExten.GetLangKey("key_gvkhac")</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div id="owl-lecturers" class="owl-carousel owl-theme">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item">
+                            <div class="lecturers">
+                                <a href="/xem-giang-vien/@item.tkey" title="@item.name"><img alt="@item.name" src="@item.avata"></a>
+                                <div class="lecturers-title">
+                                    <a href="/xem-giang-vien/@item.tkey" title="@item.name" class="font-taviraj">@item.name</a>
+                                    <div class="info">
+                                        @ClassExten.GetLangKey("key_chuyenmon"): <span class="font-taviraj">@item.title</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

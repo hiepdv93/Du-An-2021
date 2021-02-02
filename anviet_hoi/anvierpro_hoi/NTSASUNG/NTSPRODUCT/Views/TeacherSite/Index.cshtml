@@ -1,0 +1,98 @@
+﻿@model IList<NTSPRODUCT.Models.Teacher>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("ChildSlogan", "ChildView", new { lang = ViewBag.lang })
+<div class="content-page">
+    <div class="product pt-5">
+        <div class="container">
+            <div class="row">
+                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+                <div class="col-lg-9 col-md-9 col-xs-12">
+                    <div class="title-portfolio">
+                        <h3 class="font-taviraj">@ViewBag.giangvien</h3>
+                    </div>
+                    <div class="news-body">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 col-md-6 col-xs-12">
+                                    <div class="news">
+                                        <div class="news-img">
+                                            <a href="/xem-giang-vien/@item.tkey" title="@item.title"><img alt="@item.title" src="@item.avata"></a>
+                                        </div>
+                                        <a href="/xem-giang-vien/@item.tkey" title="@item.name" class="font-taviraj">@item.name</a>
+                                        <div class="info">
+                                            @ClassExten.GetLangKey("key_chuyenmon"): <span class="font-taviraj">@item.title</span>
+                                        </div>
+                                      @*  <div class="news-des">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 280)</div>*@
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            @Html.Raw(ViewBag.pages)
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Action("ChildCustomer", "ChildView", new { lang = ViewBag.lang })
+<div class="statistics-home pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-duration="2s">
+                <div class="hau-statistic-number">
+                    <span data-count="2500">@conf.countHome1 </span>+
+                </div>
+                <div class="hau-stastic-border"></div>
+                <div class="rating">
+                    <i class="fa fa-bar-chart"></i>
+                </div>
+                <div class="hau-statistic-text">
+                    @ClassExten.GetLangKey("key_countHome1")
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInDown" data-wow-duration="2s">
+                <div class="hau-statistic-number">
+                    <span data-count="2500">@conf.countHome2 </span>+
+                </div>
+                <div class="hau-stastic-border"></div>
+                <div class="rating">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <div class="hau-statistic-text">
+                    @ClassExten.GetLangKey("key_countHome2")
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-duration="2s">
+                <div class="hau-statistic-number">
+                    <span data-count="2500">@conf.countHome3 </span>+
+                </div>
+                <div class="hau-stastic-border"></div>
+                <div class="rating">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="hau-statistic-text">
+                    @ClassExten.GetLangKey("key_countHome3")
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInDown" data-wow-duration="2s">
+                <div class="hau-statistic-number">
+                    <span data-count="2500">@conf.countHome4 </span>+
+                </div>
+                <div class="hau-stastic-border"></div>
+                <div class="rating">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="hau-statistic-text">
+                    @ClassExten.GetLangKey("key_countHome4")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Action("ChildTeacherImg", "ChildView", new { lang = ViewBag.lang })

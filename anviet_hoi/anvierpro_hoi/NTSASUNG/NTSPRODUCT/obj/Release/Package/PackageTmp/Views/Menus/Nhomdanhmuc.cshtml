@@ -1,0 +1,8 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+@{var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).ToList();}
+@Html.Raw(ViewBag.nhomcha)
+@for (int i = 0; i < cateParent.Count; i++)
+{
+    <option value="@cateParent[i].id">@cateParent[i].cateName</option>
+    @Html.Raw(ClassExten.GetChildLevel2(cateParent[i].id, string.Empty, Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
+}
