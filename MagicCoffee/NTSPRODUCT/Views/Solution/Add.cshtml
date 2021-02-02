@@ -1,0 +1,209 @@
+﻿@model NTSPRODUCT.Models.Solution
+@{
+    ViewBag.Title = "Administrator - Thêm mới giải pháp kho";
+    ViewBag.controller = "Thêm mới giải pháp kho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Ảnh</label>
+                                    <input type="text" value="@Model.solutionImage" maxlength="450" class="form-control " name="solutionImage" id="solutionImage" placeholder="Chọn ảnh" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Ảnh icon</label>
+                                    <input type="text" value="@Model.solutionIcon" maxlength="450" class="form-control " name="solutionIcon" id="solutionIcon" placeholder="Chọn ảnh" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Thứ tự</label><span class="text-red">(*)</span>
+                                    <input type="number" value="@Model.solutionOrder" class="form-control " name="solutionOrder" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="display-block">Hiển thị</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="status" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tiêu đề</label><span class="text-red">(*)</span>
+                            <input name="name" maxlength="450" id="name" value="@Model.name" placeholder="Giải pháp.." class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Url </label><span class="text-red">(*)</span>
+                            <input name="name_url" maxlength="450" id="name_url" value="@Model.name_url" placeholder="Url.." class="form-control" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mô tả ngắn</label>
+                            @Html.TextAreaFor(u => u.solutionDescription)
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            @Html.TextAreaFor(u => u.solutionDetail)
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <textarea name="titleSeo" placeholder="Tile seo" class="form-control" maxlength="800" rows="2">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <textarea name="keySeo" placeholder="Keyword seo" class="form-control" maxlength="800" rows="2">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <textarea name="desSeo" placeholder="Description seo" class="form-control" maxlength="800" rows="2">@Model.desSeo</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <input type="hidden" id="addType" name="addType" value="0" />
+                    <input type="submit" hidden id="btn-Submit" />
+                    <button type="button" onclick="addNomal()" class="btn btn-primary  margin-r-5"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <button type="button" onclick="addContinue()" class="btn btn-primary  margin-r-5"><i class="glyphicon glyphicon-floppy-save"></i> Lưu và tiếp tục</button>
+                    <a href="/Solution/Index" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }
+
+@if (Session["ok"] != null)
+{
+    <script type="text/javascript">
+        toastr.success('@Session["ok"].ToString()');
+    </script>
+}
+@if (Session["ok"] != null) { Session["ok"] = null; }
+<script type="text/javascript">
+    $('#name').on('keyup', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#name').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#name_url').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    $('#name').on('change', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#name').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#name_url').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+
+    function CheckKey() {
+        var id = '';
+        var name_url = $('#name_url').val();
+        if (name_url == '' || name_url == ' ') {
+            toastr.error("Chưa nhập url", { timeOut: 5000 }); return;
+        }
+        var model = {
+            id: id,
+            name_url: name_url
+        };
+        OpenWaiting();
+        $.ajax({
+            url: "/Solution/CheckKeyCreate",
+            type: "POST",
+            data: model,
+            success: function (data) {
+                CloseWaiting();
+                if (data.ok === 2) {
+                    toastr.error('Url đã tồn tại', { timeOut: 5000 }); return;
+                } else if (data.ok === 3) {
+                    toastr.error('Đã xảy ra lỗi vui lòng thử lại', { timeOut: 5000 }); return;
+                } else {
+                    $('#btn-Submit').click();
+                }
+            },
+            error: function (response) {
+                CloseWaiting();
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+    }
+    function addNomal() {
+        $('#addType').val('0');
+        CheckKey();
+    }
+
+    function addContinue() {
+        $('#addType').val('1');
+        CheckKey()
+    }
+    //trình soạn thảo
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'solutionDetail');
+        createEditor('vi', 'solutionDescription');
+
+    });
+    //up ảnh
+    $(function () {
+        $("#solutionIcon").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#solutionIcon").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#solutionImage").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#solutionImage").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>

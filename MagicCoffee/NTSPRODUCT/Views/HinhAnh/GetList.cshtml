@@ -1,0 +1,80 @@
+﻿@model IList<NTSPRODUCT.Models.Adv>
+@{ int index = ViewBag.Index;}
+<div class="col-sm-12">
+    <table class="table table-bordered table-hover" style="min-width:1000px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th width="100px" class="text-center">Ảnh</th>
+                <th>Tên hình ảnh</th>
+                <th width="220px">Link</th>
+                <th width="170px">Loại hình ảnh</th>
+                <th width="100px">Thứ tự</th>
+                <th width="120px" class="text-center">Trạng thái</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td class="text-center">
+                        <a href="javascript:void(0)" onclick="UpdateAdv('@item.id');" title="Sửa"><span class="fa fa-edit font18"></span> </a>
+                        <a href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                    </td>
+                    <td class="text-center"><img class="avata-admin" src="@item.advImage" /></td>
+                    <td>@item.advName</td>
+                    <td>@item.advLink</td>
+
+                    @if (item.advType == 1)
+                    {
+                        <td>Top trang</td>
+                    }
+                    else if (item.advType == 2)
+                    {
+                        <td>Dưới Slide</td>
+                    }
+                    else
+                    {
+                        <td>Giữa trang</td>
+                    }
+                    <td>@item.advOrder</td>
+                    <td class="text-center">
+                        <label class="switch">
+                            <input type="checkbox" onchange="ChangeStatus('@item.id')" @(item.advActive == Constants.Checked ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+<div class="col-sm-5">
+    <div class="form-group">
+        <div class="controls">
+            <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+            <span>bản ghi/Trang</span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-7">
+    @Html.Raw(ViewBag.pages)
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

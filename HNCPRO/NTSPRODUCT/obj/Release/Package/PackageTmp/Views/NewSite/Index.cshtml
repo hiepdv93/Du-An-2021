@@ -1,0 +1,75 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    NTSPRODUCT.Models.Category cateP = ViewBag.cateP;
+}
+
+<!-- Breadcrumb-->
+<section class="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <ul>
+                    <li><a href="/" title="Trang chủ">Trang chủ </a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="/tin-tuc" title="Tin tức" class="text-news">Tin tức <i class="fa fa-caret-down"></i></a></li>
+                    @if (cateP != null)
+                    {
+                        <li class="text-news">&#187;</li>
+                        <li><a href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName" class="text-news">@cateP.cateName <i class="fa fa-caret-down"></i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Breadcrumb -->
+
+<div class="tab-content">
+    <div id="news" class="tab-pane fade in active">
+        <!-- News -->
+        <section class="children_toy_main cloting_fashion_main news_pages_main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="children_toy_inner">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="clearfix vi-header">
+                                        <h3 class="vi-left-title pull-left">@(cateP!=null?cateP.cateName: "TIN TỨC") </h3>
+                                        <div class="vi-right-link pull-right">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="content_children_toy">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="col-md-3 col-sm-6 col-xs-6">
+                                                <div class="box_content_news_page">
+                                                    <figure class="images_box_content_news_page">
+                                                        <a href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
+                                                    </figure>
+                                                    <figcaption class="info_box_content_news_page">
+                                                        <h2><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h2>
+                                                        <p>@(NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 100))</p>
+                                                    </figcaption>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="pagination_main">
+                                        @Html.Raw(ViewBag.pages)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End News -->
+    </div>
+</div>

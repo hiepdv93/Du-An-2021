@@ -1,0 +1,117 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int tienChenh = 0;
+    decimal percen = 0;
+}
+
+<!-- Breadcrumb-->
+<section class="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul>
+                    <li><a href="/" title="Trang chủ">Trang chủ </a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="/danh-muc" title="Sản phẩm" class="text-news">Sản phẩm <i class="fa fa-caret-down"></i></a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="#" title="Tìm kiếm" class="text-news">Tìm kiếm<i class="fa fa-caret-down"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Breadcrumb -->
+<!-- Products-Main-Page-Inner -->
+<section class="products_main_page">
+    <div class="container">
+        <div class="row">
+            <!-- Menu-News-Left -->
+            @Html.Action("PageProLeft", "ChildView", new { category = ViewBag.cateP })
+            <!-- End Menu-News-Left -->
+            <!-- Products-Right-Page -->
+            <div class="col-md-9 col-sm-12 col-xs-12 border no-padding-news">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12  no-padding-banner-products">
+                        <div class="banner_products_page">
+                        </div>
+                    </div>
+                </div>
+                <div class="category_featured_products">
+                    <div class="title_category_featured_products">
+                        <h2>@ViewBag.cateName  <span class="numbers_products">(1.908 sản phẩm)</span></h2>
+                        <select name="" id="title_category_featured_products_dropdow">
+                            <option value="">Sắp xếp theo</option>
+                            <option value="">Sắp xếp theo</option>
+                            <option value="">Sắp xếp theo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="category_featured_products">
+                    <div class="list_selling_products">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                percen = 0;
+                                tienChenh = (item.proPrice.HasValue && item.proPrice_sale.HasValue) ? (item.proPrice.Value - item.proPrice_sale.Value) : 0;
+                                if (tienChenh != 0)
+                                {
+                                    percen = (tienChenh * 100) / item.proPrice.Value;
+                                    percen = Math.Round(percen, 0);
+                                }
+                                <div class="col-md-3 col-sm-6 col-xs-12 no-padding-selling_products-first">
+                                    <figure class="img_list_selling_products">
+                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
+                                    </figure>
+                                    <div class="title_list_selling_products">
+                                        <h3>
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                @(NTSPRODUCT.Models.StringClass.FormatContentNews(item.pro_name, 58))
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="price_list_selling_products">
+                                        @if (item.proPrice_sale.HasValue)
+                                        {
+                                            <p>
+                                                @item.proPrice_sale.Value.ToString("N0") ₫
+                                                @if (item.proPrice.HasValue)
+                                                {
+                                                    <span class="price_seling_sales_products">@item.proPrice.Value.ToString("N0") ₫</span>
+                                                }
+                                                <span class="seling_sales_products">-@percen%</span>
+                                            </p>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- Pagination-->
+                    <div class="pagination_main">
+                        @Html.Raw(ViewBag.pages)
+                    </div>
+                    <!-- End Pagination-->
+                </div>
+            </div>
+            <!-- End Products-Right-Page -->
+        </div>
+    </div>
+</section>
+<!-- End Products-Main-Inner -->
+<!--Slogan-products-->
+<section class="slogan_products">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="slogan_products_inner">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Slogan-products-->

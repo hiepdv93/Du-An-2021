@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="~/Content/CssSite/images/logo_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+    <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+    <script src="~/Content/CssSite/js/jquery.js"></script>
+
+    <style>
+        .pagination span {
+            background-color: #0072bc !important;
+            color: #fff !important;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <link href="~/Content/CssSite/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/CssSite/skins/default/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/CssSite/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/CssSite/js/jquery_alerts/jquery.alerts.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/CssSite/js/slick/slick.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/CssSite/js/menumobile/menumobile.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/CssSite/skins/default/style/screen3860.css?v=1" rel="stylesheet" type="text/css" />
+    <script language="javascript">var ROOT = "/"; var ROOT_MOD = "/"; var DIR_IMAGE = "/"; var cmd = "vnTRUST"; var lang = "vn"; var mem_id = 0; var js_lang = new Array(); js_lang['announce'] = "Thông báo"; js_lang['error'] = "Báo lỗi";</script>
+    <script type="text/javascript" src="~/Content/CssSite/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/fancybox/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/jquery_alerts/jquery.alerts.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/menumobile/menumobile.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/mnfixed/mnfixed.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/core.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/javascript1bce.js?v=6"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/style.js"></script>
+    <link rel="stylesheet" href="~/Content/CssSite/js/my_effect_scroll/lazyloading.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CssSite/js/my_effect_scroll/animate.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CssSite/modules/main/css/main.css" type="text/css" />
+    <script type="text/javascript" src="~/Content/CssSite/js/my_effect_scroll/my_effect_scroll.js"></script>
+    <script type="text/javascript" src="~/Content/CssSite/modules/main/js/mainc619.js?v=1.0"></script>
+    <link href="~/Content/CssSite/skins/default/style/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CssSite/modules/product/css/product.css" type="text/css" />
+    <script type="text/javascript" src="~/Content/CssSite/modules/product/js/product.js"></script>
+</head>
+<body>
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+    @{string path = HttpContext.Current.Request.Url.AbsolutePath; bool isMobile = Request.Browser.IsMobileDevice;}
+    <div id="vnt-wrapper">
+        <div id="vnt-container">
+            @Html.Action("ChildHeader", "ChildView", new {isMobile= isMobile })
+            @RenderBody()
+            @Html.Action("ChildFooter", "ChildView",new { path= path })
+        </div>
+    </div>
+    @if (isMobile)
+    {
+        <div class="menu_mobile">
+
+        </div>
+    }
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Content/AdminJSController/script_validate.js"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+    @if (path.Equals("/") || path.Equals(""))
+    {
+
+    }
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+    <select name="catep" id="catep" class="form-control csinput">
+        <option value="-1">Nhóm cha</option>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <option value="@Model[i].id">@Model[i].cateName</option>
+            @Html.Raw(ClassExten.GetCon(Model[i].id,ViewBag.idthis))
+
+        }
+    </select>

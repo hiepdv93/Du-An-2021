@@ -1,0 +1,50 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var newData = (NTSPRODUCT.Models.Department)ViewBag.newData;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("ChildSlogan", "ChildView", new { lang = ViewBag.lang })
+<div class="content-page">
+    <div class="product pt-4">
+        <div class="container">
+            <div class="row">
+                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+                <div class="col-lg-9 col-md-9 col-xs-12">
+                    <div class="page-detail">
+                        <h1 class="font-taviraj">@newData.name</h1>
+                        <div class="page-text">@Html.Raw(newData.contents)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="news-home pt-5 pb-5">
+    <div class="container">
+        <div class="title-portfolio">
+            <h3 class="font-taviraj">@ClassExten.GetLangKey("key_tinmn")</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="news-body">
+                    <div id="owl-news" class="owl-carousel owl-theme">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <div class="news">
+                                    <div class="news-img">
+                                        <a href="/tin/@item.new_key" title="@item.title"><img alt="@item.title" src="@item.newImage"></a>
+                                    </div>
+                                    <a href="/tin/@item.new_key" title="@item.title">
+                                        <h6>@item.title</h6>
+                                    </a>
+                                    <div class="news-des">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 280)</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

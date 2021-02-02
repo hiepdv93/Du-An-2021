@@ -1,0 +1,91 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var pro = (NTSPRODUCT.Models.Product)ViewBag.pro;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="vnt-content">
+    <div id="vnt-content">
+        <div class="menuOTher">
+            <div class="wrapper">
+                <div class="mod-content row">
+                    <div id="vnt-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <div class="boxBB">
+                            <div class="productTitle">
+                                <h1>@pro.pro_name <p class="en-sp">@pro.pro_nameSub</p></h1>
+                            </div>
+                            <div class="gridP">
+                                <div class="col">
+                                    <div class="productThumnail">
+                                        <div id="vnt-thumbnail-for" class="slick-init">
+                                            <div class="item">
+                                                <div class="img"><img src="@pro.proAvata" alt="@pro.pro_name" /></div>
+                                            </div>
+                                        </div>
+                                        <div id="vnt-thumbnail-nav" class="slick-init">
+                                            <div class="item">
+                                                <div class="img"><img src="@pro.proAvata" alt="@pro.pro_name" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="productDes desc">
+                                        <p><a href="tel:@conf.hotLine">@Html.Raw(pro.proContentTab1)</a></p>
+                                        <p><a href="tel:@conf.hotLine"><img alt="Đặt mua" data-ck-zoom="yes" src="images/65-dat-mua-kmk.png" style="width: 400px; height: 99px;" /></a></p>
+                                    </div>
+                                    @*<div class="productBox">
+                                            <div class="title-box">Size :</div>
+                                            <div class="content-box">
+                                                <div class="size">
+                                                    <ul>
+                                                        <li class="current"><a href="javascript:void(0)" data-id="3" data-price="39,000 VNĐ">S</a></li>
+                                                        <li><a href="javascript:void(0)" data-id="1" data-price="49,000 VNĐ">M</a></li>
+                                                        <li><a href="javascript:void(0)" data-id="2" data-price="55,000 VNĐ">L</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                    @if (pro.proPrice_sale != null && @pro.proPrice_sale != 0)
+                                    {
+                                        <div class="productPrice">Giá : <strong id="ext_price">@pro.proPrice_sale.Value.ToString("N0") VNĐ</strong></div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box_mid">
+                            <div class="mid-title">
+                                <div class="titleL">
+                                    <h2>Trà khác</h2>
+                                </div>
+                                <div class="titleR"></div>
+                            </div>
+                            <div class="mid-content">
+                                <div id="slideOther" class="slideOther slick-init">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="item">
+                                            <div class="product">
+                                                <div class="img"><a href="/thuc-don/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name" /></a></div>
+                                                <div class="tend2">
+                                                    <h3><a href="/thuc-don/@item.pro_key" title="@item.pro_name">@item.pro_name<p class="en-sp">@item.pro_nameSub</p></a></h3>
+                                                </div>
+                                                @if (item.proPrice_sale != null && item.proPrice_sale != 0)
+                                                {
+                                                    <div class="price">Giá: <strong>@item.proPrice_sale.Value.ToString("N0") VNĐ</strong></div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

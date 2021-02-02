@@ -1,0 +1,40 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+@{
+    var brands = (List<NTSPRODUCT.Models.Brand>)ViewBag.brands;
+    NTSPRODUCT.Models.Category category = ViewBag.category;
+    NTSPRODUCT.Models.Category categoryP = ViewBag.categoryP;
+}
+
+<div class="col-md-3 col-sm-12 col-xs-12">
+    <div class="menu_news_left_top_main">
+        <div class="menu_news_left_top">
+            @if (category != null)
+            {
+                <a href="/danh-muc/@categoryP.cateKey" title="@categoryP.cateName"> <h2>@categoryP.cateName</h2></a>
+            }
+            else
+            {
+                <a href="/danh-muc" title="Danh mục sản phẩm"> <h2>Danh mục sản phẩm</h2></a>
+            }
+
+            <ul class="menu_submenu_top">
+                @foreach (var item in Model)
+                {
+                    <li class="menu_submenu_inner"><a href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a></li>
+                }
+            </ul>
+        </div>
+        <div class="menu_news_left_top">
+            <h2>Thương Hiệu</h2>
+            <div class="checbox_trademark" id="scrollbar">
+                @foreach (var item in brands)
+                {
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="@item.id" class="checkbox_highlights"><span class="checkbox_text">@item.bkName<span class="checkbox_text_later">0</span></span></label>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

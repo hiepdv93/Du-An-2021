@@ -1,0 +1,42 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+    int index = 0;
+}
+
+<div id="vnt-content">
+    <div class="slide-top">
+        <div class="container">
+            <div id="vnt-slide-home" class="slick-init lazyloading">
+                @foreach (var item in slide)
+                {
+                    <div class="item">
+                        <div class="bannerHome right hidden-sm hidden-xs">
+                            <div class="img"><a href="@item.sLink" title="@item.name" target="_blank"><img src="@item.images" alt="@item.name"></a></div>
+                            <div class="captionWrap">
+                            </div>
+                        </div>
+                        <div class="bannerHomeMobile hidden-lg hidden-md">
+                            <a href="@item.sLink" title="@item.name" target="_blank"><img src="@item.images" alt="@item.name"></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        index++;
+        <div class="@(index%2!=0?"bannerHome right":"bannerHome left")">
+            <div class="img"><a href="@(item.cateType==ClassExten.typePro?"/nhom-thuc-don/":"/tin-tuc/")@item.cateKey" title="@item.cateName" onmousedown="return rwt(this,'advertise',@(index%2!=0?29:75)" target="_blank"><img src="@item.cateImageHome" alt="@item.cateName"></a></div>
+            <div class="captionWrap">
+                <div class="wrapper">
+                    <div class="link">
+                        <a href="@(item.cateType==ClassExten.typePro?"/nhom-thuc-don/":"/tin-tuc/")@item.cateKey" title="@item.cateName"><span>KHÁM PHÁ THÊM</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NTSWEBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="100" />
+    <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" />
+    <Property Name="active" Type="bit" />
+    <Property Name="subAdmin" Type="bit" />
+    <Property Name="dateStart" Type="datetime" />
+    <Property Name="dateEnd" Type="datetime" />
+    <Property Name="keyFogot" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Adv">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="advName" Type="nvarchar" MaxLength="250" />
+    <Property Name="advImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="advLink" Type="nvarchar" MaxLength="256" />
+    <Property Name="advType" Type="int" />
+    <Property Name="advOrder" Type="int" />
+    <Property Name="advNote" Type="ntext" />
+    <Property Name="advLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="advActive" Type="bit" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Categorys">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cateNameSub" Type="nvarchar" MaxLength="600" />
+    <Property Name="cateName" Type="nvarchar" MaxLength="600" />
+    <Property Name="cateKey" Type="nvarchar" MaxLength="600" />
+    <Property Name="cateLang" Type="nvarchar" MaxLength="10" />
+    <Property Name="cateLevel" Type="nvarchar" MaxLength="250" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="cateDescriptionShot" Type="nvarchar" MaxLength="800" />
+    <Property Name="cateDescription" Type="ntext" />
+    <Property Name="cateImage" Type="nvarchar" MaxLength="450" />
+    <Property Name="cateImageOther" Type="nvarchar" MaxLength="450" />
+    <Property Name="cateImageHome" Type="nvarchar" MaxLength="450" />
+    <Property Name="catepar_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="cateOrder" Type="int" />
+    <Property Name="cate_cap" Type="int" />
+    <Property Name="cateType" Type="int" />
+    <Property Name="cateActiveHome" Type="bit" />
+    <Property Name="cateActive" Type="bit" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="proId" Type="nvarchar" MaxLength="50" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="address" Type="nvarchar" MaxLength="450" />
+    <Property Name="title" Type="nvarchar" MaxLength="450" />
+    <Property Name="contents" Type="nvarchar" MaxLength="800" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="cType" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hotLine" Type="nvarchar" MaxLength="250" />
+    <Property Name="phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="email_Inbox" Type="nvarchar" MaxLength="50" />
+    <Property Name="email_Send" Type="nvarchar" MaxLength="50" />
+    <Property Name="emailPass" Type="nvarchar" MaxLength="50" />
+    <Property Name="mail_Port" Type="int" />
+    <Property Name="addresss" Type="nvarchar" MaxLength="350" />
+    <Property Name="shopName" Type="nvarchar" MaxLength="350" />
+    <Property Name="logoBottom" Type="nvarchar" MaxLength="350" />
+    <Property Name="logoTop" Type="nvarchar" MaxLength="350" />
+    <Property Name="linkLogo" Type="nvarchar" MaxLength="550" />
+    <Property Name="copyrightLink" Type="nvarchar" MaxLength="250" />
+    <Property Name="copyright" Type="nvarchar" MaxLength="250" />
+    <Property Name="google" Type="nvarchar" MaxLength="550" />
+    <Property Name="instagram" Type="nvarchar" MaxLength="800" />
+    <Property Name="twiter" Type="nvarchar" MaxLength="800" />
+    <Property Name="youTube" Type="nvarchar" MaxLength="800" />
+    <Property Name="faceBook" Type="nvarchar" MaxLength="800" />
+    <Property Name="zaloChat" Type="nvarchar" MaxLength="800" />
+    <Property Name="homeVideo" Type="ntext" />
+    <Property Name="footer" Type="ntext" />
+    <Property Name="infoPage" Type="ntext" />
+    <Property Name="conTact" Type="ntext" />
+    <Property Name="mapSmall" Type="nvarchar" MaxLength="550" />
+    <Property Name="map" Type="ntext" />
+    <Property Name="mapImg" Type="nvarchar" MaxLength="350" />
+    <Property Name="liveChat" Type="ntext" />
+    <Property Name="googleAdsense" Type="ntext" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="viewNewPageList" Type="int" />
+    <Property Name="viewNewPageDetail" Type="int" />
+    <Property Name="viewNewPageHome" Type="int" />
+    <Property Name="viewProPageHome" Type="int" />
+    <Property Name="viewProPageDetail" Type="int" />
+    <Property Name="viewProPageList" Type="int" />
+    <Property Name="viewLibPageList" Type="int" />
+    <Property Name="conLang" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="address" Type="nvarchar" MaxLength="450" />
+    <Property Name="title" Type="nvarchar" MaxLength="450" />
+    <Property Name="contents" Type="nvarchar" MaxLength="800" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="referencesId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="emails">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nameSub" Type="nvarchar" MaxLength="250" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="nvarchar" MaxLength="450" />
+    <Property Name="mtypeOf" Type="nvarchar" MaxLength="50" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="icon" Type="nvarchar" MaxLength="250" />
+    <Property Name="note" Type="ntext" />
+    <Property Name="mLang" Type="nvarchar" MaxLength="10" />
+    <Property Name="mOrder" Type="int" />
+    <Property Name="par_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="mtype" Type="int" />
+    <Property Name="mcap" Type="int" />
+    <Property Name="mPosition" Type="int" />
+    <Property Name="active" Type="bit" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="cateProductId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="groupId" Type="nvarchar" MaxLength="50" />
+    <Property Name="newImage" Type="nvarchar" MaxLength="256" />
+    <Property Name="title" Type="nvarchar" MaxLength="800" />
+    <Property Name="descript" Type="nvarchar" MaxLength="800" />
+    <Property Name="contents" Type="ntext" />
+    <Property Name="new_key" Type="nvarchar" MaxLength="800" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="newLang" Type="nvarchar" MaxLength="10" />
+    <Property Name="newOrder" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="viewCount" Type="int" />
+    <Property Name="newHot" Type="bit" />
+    <Property Name="newNew" Type="bit" />
+    <Property Name="newFile" Type="nvarchar" MaxLength="256" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pName" Type="nvarchar" MaxLength="250" />
+    <Property Name="pImage" Type="nvarchar" MaxLength="350" />
+    <Property Name="pNote" Type="ntext" />
+    <Property Name="numberOder" Type="int" />
+    <Property Name="pLink" Type="nvarchar" MaxLength="450" />
+    <Property Name="lang" Type="nchar" MaxLength="10" />
+    <Property Name="type" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pro_nameSub" Type="nvarchar" MaxLength="800" />
+    <Property Name="pro_name" Type="nvarchar" MaxLength="800" />
+    <Property Name="proCode" Type="nvarchar" MaxLength="250" />
+    <Property Name="pro_key" Type="nvarchar" MaxLength="800" />
+    <Property Name="proPrice" Type="int" />
+    <Property Name="proPrice_sale" Type="int" />
+    <Property Name="pro_view" Type="int" />
+    <Property Name="proOrder" Type="int" />
+    <Property Name="proAvata" Type="nvarchar" MaxLength="450" />
+    <Property Name="proImages5" Type="nvarchar" MaxLength="450" />
+    <Property Name="proImages4" Type="nvarchar" MaxLength="450" />
+    <Property Name="proImages3" Type="nvarchar" MaxLength="450" />
+    <Property Name="proImages2" Type="nvarchar" MaxLength="450" />
+    <Property Name="proImages1" Type="nvarchar" MaxLength="450" />
+    <Property Name="proFile" Type="nvarchar" MaxLength="456" />
+    <Property Name="brank" Type="nvarchar" MaxLength="250" />
+    <Property Name="proContentTab1" Type="ntext" />
+    <Property Name="proContentTab2" Type="ntext" />
+    <Property Name="introContent" Type="ntext" />
+    <Property Name="pro_hot" Type="bit" />
+    <Property Name="active" Type="bit" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="pLang" Type="nvarchar" MaxLength="10" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="updateDate" Type="datetime" />
+    <Property Name="cateId" Type="nvarchar" MaxLength="50" />
+    <Property Name="pType" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ProTag">
+    <Key>
+      <PropertyRef Name="idPT" />
+    </Key>
+    <Property Name="idPT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="proId" Type="varchar" MaxLength="50" />
+    <Property Name="tagId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Slide">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" />
+    <Property Name="images" Type="nvarchar" MaxLength="250" />
+    <Property Name="contents" Type="ntext" />
+    <Property Name="active" Type="bit" />
+    <Property Name="slang" Type="nvarchar" MaxLength="50" />
+    <Property Name="sLink" Type="nvarchar" MaxLength="250" />
+    <Property Name="numberOder" Type="int" />
+  </EntityType>
+  <EntityType Name="Sologan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="avata" Type="nvarchar" MaxLength="450" />
+    <Property Name="name" Type="nvarchar" MaxLength="450" />
+    <Property Name="descript" Type="nvarchar" MaxLength="800" />
+    <Property Name="dOrder" Type="int" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="lang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="450" />
+    <Property Name="name_url" Type="nvarchar" MaxLength="450" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="solutionDescription" Type="ntext" />
+    <Property Name="solutionDetail" Type="ntext" />
+    <Property Name="lang" Type="nvarchar" MaxLength="10" />
+    <Property Name="solutionOrder" Type="int" />
+    <Property Name="solutionActive" Type="bit" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="solutionImage" Type="nvarchar" MaxLength="450" />
+    <Property Name="solutionIcon" Type="nvarchar" MaxLength="450" />
+  </EntityType>
+  <EntityType Name="Tagpro">
+    <Key>
+      <PropertyRef Name="tagId" />
+    </Key>
+    <Property Name="tagId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tagName" Type="nvarchar" MaxLength="250" />
+    <Property Name="tagKey" Type="nvarchar" MaxLength="250" />
+    <Property Name="tagOrder" Type="int" />
+    <Property Name="tagType" Type="int" />
+    <Property Name="lang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WhyChooseUss">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" />
+    <Property Name="image" Type="nvarchar" MaxLength="350" />
+    <Property Name="contents" Type="ntext" />
+    <Property Name="active" Type="bit" />
+    <Property Name="slang" Type="nvarchar" MaxLength="10" />
+    <Property Name="createDate" Type="datetime" />
+    <Property Name="numberOder" Type="int" />
+  </EntityType>
+  <Association Name="FK__News__groupid__1BFD2C07">
+    <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NTSWEBModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adv" EntityType="Self.Adv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProTag" EntityType="Self.ProTag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sologan" EntityType="Self.Sologan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solution" EntityType="Self.Solution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tagpro" EntityType="Self.Tagpro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WhyChooseUss" EntityType="Self.WhyChooseUss" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+      <End Role="Categorys" EntitySet="Categorys" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

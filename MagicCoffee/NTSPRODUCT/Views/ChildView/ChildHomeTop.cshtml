@@ -1,0 +1,58 @@
+﻿@{
+    var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.catepro;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    int numberItem = 0;
+
+}
+<section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;visibility:hidden;">
+    <!-- Loading Screen -->
+    <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+        <img alt="" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/Content/CssSite/images/spin.svg" />
+    </div>
+    <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;">
+        @foreach (var item in slide)
+        {
+            <div>
+                <img alt="@item.name" data-u="image" src="@item.images" />
+            </div>
+        }
+    </div>
+    <!-- Arrow Navigator -->
+    <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+        </svg>
+    </div>
+    <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+        </svg>
+    </div>
+</section>
+<section id="catalog-home">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in catepro)
+            {
+                numberItem++;
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <div class="catalog-item @("item"+numberItem)">
+                        <div class="item-cata">
+                            <div class="img-inner dark">
+                                <a href="/danh-muc/@item.cateKey" title="@item.cateName">
+                                    <img src="@item.cateImage.Replace("uploads", "uploads/_thumbs")" class="img-fluid" alt="@item.cateName">
+                                </a>
+                            </div>
+                            <div class="cata-text">
+                                <a href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+

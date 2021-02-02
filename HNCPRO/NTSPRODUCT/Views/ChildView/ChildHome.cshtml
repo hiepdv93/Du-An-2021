@@ -1,0 +1,165 @@
+﻿@model IList<NTSPRODUCT.Models.ProductHome>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var qc = (List<NTSPRODUCT.Models.Adv>)ViewBag.qc;
+    var brand = (List<NTSPRODUCT.Models.Brand>)ViewBag.brand;
+    var sologan = (List<NTSPRODUCT.Models.Sologan>)ViewBag.slogan;
+    int tienChenh = 0;
+    decimal percen = 0;
+    bool isMobile = ViewBag.isMobile;
+}
+
+<!--Slogan-->
+<section class="slogan_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="slogan_main_inner">
+                    <div class="row">
+                        @foreach (var item in sologan)
+                        {
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                <div class="title_slogan_inner">
+                                    <h2><img src="@item.avata" alt="@item.name">@item.name</h2>
+                                </div>
+                                <div class="info_slogan_inner">
+                                    <p>@item.descript</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Slogan-->
+<!--Event Adv-->
+<section class="event_adv_main">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in qc)
+            {
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <figure class="event_adv_inner">
+                        <a href="@item.advLink" title="@item.advName"><img src="@item.advImage" alt="@item.advName"></a>
+                    </figure>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!--End Event Adv-->
+<!--Brand-->
+@if (!isMobile)
+{
+<section class="brand_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="brand_main_inner">
+                    <div class="brand_owl_main">
+                        <div class="brand_owl owl-carousel owl-theme">
+                            @foreach (var item in brand)
+                            {
+                                <div class="item">
+                                    <figure class="image_brand_owl">
+                                        <a href="" title="@item.bkName"><img src="@item.bkImage" alt="@item.bkName"></a>
+                                    </figure>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Band-->
+}
+@foreach (var item in Model)
+{
+    <section class="children_toy_main cosmetic_main">
+        <div class="container">
+            <div class="row row-small">
+                <div class="col col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                    <div class="col-inner">
+                        <div class="clearfix vi-header">
+                            <a href="/danh-muc/@item.Item.cateKey" title="@item.Item.cateName">
+                                <h3 class="vi-left-title pull-left">@item.Item.cateName</h3>
+                            </a>
+                            <div class="vi-right-link pull-right">
+                                @foreach (var itemSub in item.ListItem)
+                                {
+                                    <a href="/danh-muc/@itemSub.cateKey" title="@itemSub.cateName">@itemSub.cateName</a>
+                                }
+                                <a class="vi-more" href="/danh-muc/@item.Item.cateKey" title="@item.Item.cateName">
+                                    Xem tất cả
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (!isMobile)
+                {
+                    <div class="col col-md-2 col-xs-12 col-lg-2 col-sm-12">
+                        <div class="col-inner">
+                            <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1432809365">
+                                <div class="img-inner dark">
+                                    <img src="@item.Item.cateImage" class="attachment-large size-large" alt="@item.Item.cateName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col col-md-10 col-xs-12 col-lg-10 col-sm-12">
+                    <div class="col-inner">
+                        <div class="large-columns-5 medium-columns-3 small-columns-2 row-small">
+                            @foreach (var itemSub in item.ListProduct)
+                            {
+                                percen = 0;
+                                tienChenh = (itemSub.proPrice.HasValue && itemSub.proPrice_sale.HasValue) ? (itemSub.proPrice.Value - itemSub.proPrice_sale.Value) : 0;
+                                if (tienChenh != 0)
+                                {
+                                    percen = (tienChenh * 100) / itemSub.proPrice.Value;
+                                    percen = Math.Round(percen, 0);
+                                }
+                                <!-- box -->
+                                <div class="col-md-3 col-sm-6 col-xs-12 no-padding-selling_products-first">
+                                    <figure class="img_list_selling_products">
+                                        <a href="/san-pham/@itemSub.pro_key" title="@itemSub.pro_name"><img src="@itemSub.proAvata" alt="@itemSub.pro_name"></a>
+                                    </figure>
+                                    <div class="title_list_selling_products">
+                                        <h3>
+                                            <a href="/san-pham/@itemSub.pro_key" title="@itemSub.pro_name">
+                                                @(NTSPRODUCT.Models.StringClass.FormatContentNews(itemSub.pro_name, 58))
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="price_list_selling_products">
+                                        @if (itemSub.proPrice_sale.HasValue)
+                                        {
+                                            <p>
+                                                @itemSub.proPrice_sale.Value.ToString("N0") ₫
+                                                @if (itemSub.proPrice.HasValue)
+                                                {
+                                                    <span class="price_seling_sales_products">@itemSub.proPrice.Value.ToString("N0") ₫</span>
+                                                }
+                                                <span class="seling_sales_products">-@percen%</span>
+                                            </p>
+                                        }
+                                    </div>
+                                </div>
+                                <!-- box -->
+                            }
+
+                        </div>
+                    </div>
+                    <!-- .col-inner -->
+                </div>
+                <!-- col -->
+            </div>
+        </div>
+    </section>
+}

@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Languages>
+  <!--Global variable-->
+  <Items>
+    <Id>home</Id>
+    <Name><![CDATA[Trang chủ]]></Name>
+  </Items>
+  <Items>
+    <Id>news</Id>
+    <Name><![CDATA[Tin tức]]></Name>
+  </Items>
+  <Items>
+    <Id>contact</Id>
+    <Name><![CDATA[Liên hệ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gia</Id>
+    <Name><![CDATA[Giá]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gia_sale</Id>
+    <Name><![CDATA[Chỉ còn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gia_root</Id>
+    <Name><![CDATA[Giá gốc]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tiengviet</Id>
+    <Name><![CDATA[Tiếng Việt]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tienganh</Id>
+    <Name><![CDATA[Tiếng Anh]]></Name>
+  </Items>
+  <Items>
+    <Id>key_timkiem</Id>
+    <Name><![CDATA[Tìm kiếm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ketquatimkiem</Id>
+    <Name><![CDATA[Kết quả tìm kiếm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dienthoai247</Id>
+    <Name><![CDATA[Điện thoại hỗ trợ 24/7]]></Name>
+  </Items>
+  <Items>
+    <Id>key_khongtinthaynoidung</Id>
+    <Name><![CDATA[Không tìm thấy nội dung bài viết]]></Name>
+  </Items>
+  <Items>
+    <Id>key_baivietcungchuyenmuc</Id>
+    <Name><![CDATA[Bài viết cùng chuyên mục]]></Name>
+  </Items>
+  <Items>
+    <Id>key_xemthem</Id>
+    <Name><![CDATA[Xem thêm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_file</Id>
+    <Name><![CDATA[File đính kèm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_capnhat</Id>
+    <Name><![CDATA[Cập nhật]]></Name>
+  </Items>
+ <Items>
+    <Id>key_luotxem</Id>
+    <Name><![CDATA[lượt xem]]></Name>
+  </Items>
+   <Items>
+    <Id>key_sanphamtanphat</Id>
+    <Name><![CDATA[SẢN PHẨM CỦA TÂN PHÁT]]></Name>
+  </Items>
+  <Items>
+    <Id>key_doitac</Id>
+    <Name><![CDATA[Đối tác]]></Name>
+  </Items>
+ <Items>
+    <Id>key_khachhang</Id>
+    <Name><![CDATA[Khách hàng]]></Name>
+  </Items>
+ <Items>
+    <Id>key_thuvien</Id>
+    <Name><![CDATA[Thư viện]]></Name>
+  </Items>
+ <Items>
+    <Id>key_Downloadtailieu</Id>
+    <Name><![CDATA[Download tài liệu]]></Name>
+  </Items>
+ <Items>
+    <Id>key_Anhsp</Id>
+    <Name><![CDATA[Ảnh sản phẩm]]></Name>
+  </Items>
+ <Items>
+    <Id>key_Tensp</Id>
+    <Name><![CDATA[Tên sản phẩm]]></Name>
+  </Items>
+<Items>
+    <Id>key_thongsokt</Id>
+    <Name><![CDATA[Thông số kỹ thuật]]></Name>
+  </Items>
+<Items>
+    <Id>key_Danhmuctin</Id>
+    <Name><![CDATA[Danh mục tin tức]]></Name>
+  </Items>
+<Items>
+    <Id>key_Download</Id>
+    <Name><![CDATA[Download]]></Name>
+  </Items>
+  <Items>
+    <Id>key_hoten</Id>
+    <Name><![CDATA[Họ tên]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_diachiemail</Id>
+    <Name><![CDATA[Địa chỉ email]]></Name>
+  </Items>
+  <Items>
+    <Id>key_sdt</Id>
+    <Name><![CDATA[Điện thoại]]></Name>
+  </Items>
+  <Items>
+    <Id>key_vanphong</Id>
+    <Name><![CDATA[Văn phòng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_nhanvao</Id>
+    <Name><![CDATA[Nhấn vào]]></Name>
+  </Items>
+  <Items>
+    <Id>key_day</Id>
+    <Name><![CDATA[đây]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guitinnhan</Id>
+    <Name><![CDATA[Gửi tin nhắn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinnhan</Id>
+    <Name><![CDATA[Tin nhắn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_danhmuckh</Id>
+    <Name><![CDATA[Danh mục khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_danhmuc</Id>
+    <Name><![CDATA[Danh mục]]></Name>
+  </Items>
+ <Items>
+    <Id>key_sanpham</Id>
+    <Name><![CDATA[Sản phẩm]]></Name>
+  </Items>
+<Items>
+    <Id>key_lienhe</Id>
+    <Name><![CDATA[Liên hệ]]></Name>
+  </Items>
+<Items>
+    <Id>key_modelsp</Id>
+    <Name><![CDATA[Model]]></Name>
+  </Items>
+<Items>
+    <Id>key_baohanh</Id>
+    <Name><![CDATA[Bảo hành]]></Name>
+  </Items>
+<Items>
+    <Id>key_chatlieu</Id>
+    <Name><![CDATA[Chất liệu]]></Name>
+  </Items>
+<Items>
+    <Id>key_thuonghieu</Id>
+    <Name><![CDATA[Thương hiệu]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spcungchuyenmuc</Id>
+    <Name><![CDATA[Sản phẩm cùng chuyên mục]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tbcungchuyenmuc</Id>
+    <Name><![CDATA[Thiết bị cùng chuyên mục]]></Name>
+  </Items>
+  <Items>
+    <Id>key_motathem</Id>
+    <Name><![CDATA[Mô Tả Thêm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_muangay</Id>
+    <Name><![CDATA[Mua ngay]]></Name>
+  </Items>
+
+  <Items>
+    <Id>key_mota</Id>
+    <Name><![CDATA[Mô tả]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_giohang</Id>
+    <Name><![CDATA[Giỏ hàng]]></Name>
+  </Items>
+ <Items>
+    <Id>key_ndyeucau</Id>
+    <Name><![CDATA[Nội dung yêu cầu]]></Name>
+  </Items>
+ <Items>
+    <Id>key_guiyeucau</Id>
+    <Name><![CDATA[Gửi yêu cầu]]></Name>
+  </Items>
+ <Items>
+    <Id>key_xemchitiet</Id>
+    <Name><![CDATA[Xem chi tiết]]></Name>
+  </Items>
+  <Items>
+    <Id>key_chitiet</Id>
+    <Name><![CDATA[Chi tiết]]></Name>
+  </Items>
+   <Items>
+    <Id>key_linhvuchd</Id>
+    <Name><![CDATA[LĨNH VỰC HOẠT ĐỘNG]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thietbi</Id>
+    <Name><![CDATA[Thiết bị]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guilienhe</Id>
+    <Name><![CDATA[Gửi liên hệ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thoat</Id>
+    <Name><![CDATA[Thoát]]></Name>
+  </Items>
+  <Items>
+    <Id>key_anh</Id>
+    <Name><![CDATA[Ảnh]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tentl</Id>
+    <Name><![CDATA[Tài liệu]]></Name>
+  </Items>
+  <Items>
+    <Id>key_lienket</Id>
+    <Name><![CDATA[LIÊN KẾT]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tskt</Id>
+    <Name><![CDATA[Thông tin liên hệ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_vechungtoi</Id>
+    <Name><![CDATA[VỀ CHÚNG TÔI]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinTPA</Id>
+    <Name><![CDATA[Tin TPA]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinmoi</Id>
+    <Name><![CDATA[Tin mới nhất]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spnoibat</Id>
+    <Name><![CDATA[Sản phẩm nổi bật]]></Name>
+  </Items>
+  <Items>
+    <Id>key_giaiphap</Id>
+    <Name><![CDATA[Giải pháp]]></Name>
+  </Items>
+  <Items>
+    <Id>key_nganhnghe</Id>
+    <Name><![CDATA[Ngành nghề]]></Name>
+  </Items>
+  <Items>
+    <Id>key_hangsp</Id>
+    <Name><![CDATA[Hãng sản phẩm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ungdung</Id>
+    <Name><![CDATA[Ứng dụng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dathang</Id>
+    <Name><![CDATA[Đặt hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thietbi</Id>
+    <Name><![CDATA[Thiết bị]]></Name>
+  </Items>
+  <Items>
+    <Id>key_hangsx</Id>
+    <Name><![CDATA[Hãng sản xuất]]></Name>
+  </Items>
+  <Items>
+    <Id>key_xuatxu</Id>
+    <Name><![CDATA[Xuất xứ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spcungloai</Id>
+    <Name><![CDATA[Sản phẩm cùng loại]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spthongtinn</Id>
+    <Name><![CDATA[Thông tin sản phẩm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spmota</Id>
+    <Name><![CDATA[Mô tả chi tiết]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guibl</Id>
+    <Name><![CDATA[Gửi bình luận]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ykien</Id>
+    <Name><![CDATA[Ý kiến của bạn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thongtindh</Id>
+    <Name><![CDATA[Thông tin đơn hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_soluong</Id>
+    <Name><![CDATA[Số lượng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tong</Id>
+    <Name><![CDATA[Tổng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ghichu</Id>
+    <Name><![CDATA[Ghi chú]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tongdh</Id>
+    <Name><![CDATA[Tổng đơn hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tieptuc_muasp</Id>
+    <Name><![CDATA[Tiếp tục mua sản phẩm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_blsp</Id>
+    <Name><![CDATA[Bình luận sản phẩm]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guidh</Id>
+    <Name><![CDATA[Gửi đơn hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_capnhatdh</Id>
+    <Name><![CDATA[Cập nhật giỏ hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_diachi</Id>
+    <Name><![CDATA[Địa chỉ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_donvikd</Id>
+    <Name><![CDATA[Đơn vị kinh doanh]]></Name>
+  </Items>
+  <Items>
+    <Id>key_visao</Id>
+    <Name><![CDATA[Vì sao chọn robot stem của TPA]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dkKhoahoc</Id>
+    <Name><![CDATA[Đăng ký khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_phongdt</Id>
+    <Name><![CDATA[Các phòng đào tạo]]></Name>
+  </Items>
+  <Items>
+    <Id>key_cackh</Id>
+    <Name><![CDATA[Các khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dk</Id>
+    <Name><![CDATA[Đăng ký]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinnb</Id>
+    <Name><![CDATA[Tin tức nổi bật]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ykkh</Id>
+    <Name><![CDATA[Ý kiến khách hàng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_lhtv</Id>
+    <Name><![CDATA[Liên hệ tư vấn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ndmota</Id>
+    <Name><![CDATA[Nội dung mô tả]]></Name>
+  </Items>
+  <Items>
+    <Id>key_countHome1</Id>
+    <Name><![CDATA[Khóa học đào tạo]]></Name>
+  </Items>
+  <Items>
+    <Id>key_countHome2</Id>
+    <Name><![CDATA[Giảng viên]]></Name>
+  </Items>
+  <Items>
+    <Id>key_countHome3</Id>
+    <Name><![CDATA[Học viên]]></Name>
+  </Items>
+  <Items>
+    <Id>key_countHome4</Id>
+    <Name><![CDATA[Khách hàng - đối tác]]></Name>
+  </Items>
+  <Items>
+    <Id>key_imgkh</Id>
+    <Name><![CDATA[Hình ảnh các khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ttgiangvien</Id>
+    <Name><![CDATA[Thông tin giảng viên]]></Name>
+  </Items>
+  <Items>
+    <Id>key_chuyenmon</Id>
+    <Name><![CDATA[Chuyên môn]]></Name>
+  </Items>
+  <Items>
+    <Id>key_kh_nb</Id>
+    <Name><![CDATA[Khóa học nổi bật]]></Name>
+  </Items>
+  <Items>
+    <Id>key_kh</Id>
+    <Name><![CDATA[Khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinnb</Id>
+    <Name><![CDATA[Tin nổi bật]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinmn</Id>
+    <Name><![CDATA[Tin tức mới nhất]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gvkhac</Id>
+    <Name><![CDATA[Giảng viên khác]]></Name>
+  </Items>
+  <Items>
+    <Id>key_follow</Id>
+    <Name><![CDATA[Follow mình]]></Name>
+  </Items>
+  <Items>
+    <Id>key_messfor</Id>
+    <Name><![CDATA[Nhắn cho mình]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Countkh</Id>
+    <Name><![CDATA[khóa học]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Countstd</Id>
+    <Name><![CDATA[học viên]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Countlevel</Id>
+    <Name><![CDATA[Số năm trong nghành]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dkngay</Id>
+    <Name><![CDATA[Đăng ký ngay]]></Name>
+  </Items>
+  <Items>
+    <Id>key_introStep1</Id>
+    <Name><![CDATA[Robot Stem]]></Name>
+  </Items>
+  <Items>
+    <Id>key_introStep2</Id>
+    <Name><![CDATA[Lịch sử phát triển]]></Name>
+  </Items>
+  <Items>
+    <Id>key_introStep3</Id>
+    <Name><![CDATA[Công nghệ]]></Name>
+  </Items>
+  <Items>
+    <Id>key_videoHome</Id>
+    <Name><![CDATA[Video thực tế]]></Name>
+  </Items>
+  <Items>
+    <Id>key_huy</Id>
+    <Name><![CDATA[Đóng]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ttdt</Id>
+    <Name><![CDATA[Trung tâm đào tạo]]></Name>
+  </Items>
+  <Items>
+    <Id>key_xembd</Id>
+    <Name><![CDATA[Xem bản đồ]]></Name>
+  </Items>
+</Languages>

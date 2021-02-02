@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Administrator - Danh sách giải pháp kho";
+    ViewBag.controller = "Quản lý giải pháp kho";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="box ">
+    <div class="box-header with-border">
+        <h3 class="box-title">Thông tin tìm kiếm</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" id="nameSearch" class="form-control" placeholder="Tiêu đề.." />
+            </div>
+            <div class="col-md-3">
+                <select id="sttSearch" class="form-control">
+                    <option value="">Trạng thái</option>
+                    <option value="1">Hiển thị</option>
+                    <option value="0"> Không hiển thị</option>
+                </select>
+            </div>
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn  btn-success margin-r-5" onclick="SearchSolution()"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                <button class="btn btn-default" type="button" onclick="RefreshSolution()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách giải pháp kho</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>
+                                Tổng số <b class="badge badge-primary" id="count_data">0</b> bản ghi
+                            </h4>
+                        </div><div class="col-sm-6 text-right">
+                            <a class="btn btn-info" href="/Solution/Add"><i class="fa fa-fw fa-plus"></i>Thêm mới</a>
+                        </div>
+                    </div>
+                    <div class="row" id="row_data">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Session["ok"] != null)
+{
+    <script type="text/javascript">
+        toastr.success('@Session["ok"].ToString()');
+    </script>
+}
+@if (Session["ok"] != null) { Session["ok"] = null; }
+<script src="~/Content/AdminJSController/SolutionListControllers.js"></script>

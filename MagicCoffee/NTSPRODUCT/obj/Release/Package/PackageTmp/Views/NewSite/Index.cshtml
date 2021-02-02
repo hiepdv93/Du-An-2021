@@ -1,0 +1,54 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    NTSPRODUCT.Models.Category cateP = ViewBag.cateP;
+}
+
+<div id="vnt-content">
+    <div id="vnt-news">
+        <div class="wrapper">
+            <div class="mod-content row">
+                <div id="vnt-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="box_mid">
+                        <div class="mid-title">
+                            <div class="titleL">
+                                <h1>@(cateP!=null? cateP.cateName: "Tin tức") </h1>
+                            </div>
+                            <div class="titleR"></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mid-content">
+                            <div id="resultNews">
+                                <div class="row" id="ListItem">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                            <div class="news">
+                                                <div class="img" itemprop="image">
+                                                    <a href="/tin/@item.new_key" title="@item.title">
+                                                        <img src="@item.newImage" alt="@item.title">
+                                                    </a>
+                                                </div>
+                                                <div class="tend">
+                                                    <h3 itemprop="headline"><a src="@item.newImage" alt="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.title, 35)</a></h3>
+                                                </div>
+                                                <div class="date"><span>@item.updateDate.Value.ToString("dd/MM/yyyy")</span></div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="div-more-list">
+                                <div class="pagination_main">
+                                    @Html.Raw(ViewBag.pages)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

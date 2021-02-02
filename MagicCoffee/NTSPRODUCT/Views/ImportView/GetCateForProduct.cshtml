@@ -1,0 +1,7 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+@{var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderByDescending(u => u.cateType).ThenByDescending(u => u.cateOrder).ToList();}
+@foreach (var item in cateParent)
+{
+    <option value="@item.id">@item.cateName (@(item.cateType==ClassExten.typePro?"Nhóm thực đơn":"Nhóm tin"))</option>
+    @Html.Raw(ClassExten.GetChildLevel2(item.id, string.Empty, Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
+}

@@ -1,0 +1,243 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var pro = (NTSPRODUCT.Models.Product)ViewBag.pro;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int tienChenh = 0;
+    decimal percen = 0;
+
+    percen = 0;
+    tienChenh = (pro.proPrice.HasValue && pro.proPrice_sale.HasValue) ? (pro.proPrice.Value - pro.proPrice_sale.Value) : 0;
+    if (tienChenh != 0)
+    {
+        percen = (tienChenh * 100) / pro.proPrice.Value;
+        percen = Math.Round(percen, 0);
+    }
+}
+
+<!-- Breadcrumb-->
+<section class="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <ul>
+                    <li><a href="/" title="Trang chủ">Trang chủ </a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="/danh-muc" title="Sản phẩm" class="text-news">Sản phẩm <i class="fa fa-caret-down"></i></a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName" class="text-news">@cateP.cateName <i class="fa fa-caret-down"></i></a></li>
+                    @if (pro != null)
+                    {
+                        <li class="text-news">&#187;</li>
+                        <li><a href="#" title="@pro.pro_name" class="text-news">@pro.pro_name <i class="fa fa-caret-down"></i></a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 text-right">
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Breadcrumb -->
+<!-- Details-Products_Main -->
+<section class="details_products_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="detail_products_inner_left">
+                    <div class="box_info_products_details_left">
+                        <figure class="images_products_info_left">
+                            <div class="sp-wrap">
+                                <a href="@pro.proAvata" title="@pro.pro_name">
+                                    <img src="@pro.proAvata" alt="@pro.pro_name" class="zoom_products_inner">
+                                </a>
+                                <img src="~/Content/CssSite/images/icon_zoom.png" alt="zoom_products" class="zoom_products">
+                                @if (!string.IsNullOrEmpty(pro.proImages1))
+                                {
+                                    <a href="@pro.proImages1" title="@pro.pro_name">
+                                        <img src="@pro.proImages1" alt="@pro.pro_name">
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages2))
+                                {
+                                    <a href="@pro.proImages2" title="@pro.pro_name">
+                                        <img src="@pro.proImages2" alt="@pro.pro_name">
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages3))
+                                {
+                                    <a href="@pro.proImages3" title="@pro.pro_name">
+                                        <img src="@pro.proImages3" alt="@pro.pro_name">
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages4))
+                                {
+                                    <a href="@pro.proImages4" title="@pro.pro_name">
+                                        <img src="@pro.proImages4" alt="@pro.pro_name">
+                                    </a>
+                                }
+                                @if (!string.IsNullOrEmpty(pro.proImages5))
+                                {
+                                    <a href="@pro.proImages5" title="@pro.pro_name">
+                                        <img src="@pro.proImages5" alt="@pro.pro_name">
+                                    </a>
+                                }
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="box_info_products_details_right">
+                        <div class="title_box_info_products_details">
+                            <h2>@pro.pro_name</h2>
+                        </div>
+                        <div class="view_products">
+                            <span>Số lượt xem: <span class="counter">@pro.pro_view lượt</span> - Số lượt mua:<span class="counter">@pro.pro_view lượt</span></span>
+                        </div>
+                        <div class="box_description_main">
+                            <p class="trademark_products">Thương hiệu:<span class="trademark_products1"> @pro.Brand.bkName | @pro.Category.cateName</span></p>
+                            <p class="short_description">
+                                @Html.Raw(pro.proFile)
+                            </p>
+                        </div>
+                        <div class="price_list_selling_products">
+                            <div class="price_list_selling_products_inner_left">
+                                @if (pro.proPrice_sale.HasValue)
+                                {
+                                    <p>
+                                        @pro.proPrice_sale.Value.ToString("N0") ₫
+                                        @if (pro.proPrice.HasValue)
+                                        {
+                                            <span class="price_seling_sales_products">@pro.proPrice.Value.ToString("N0") ₫</span>
+                                        }
+                                        <span class="seling_sales_products">-@percen%</span>
+                                    </p>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form_buy_cart">
+                            <input type="hidden" value="@pro.id" id="idPro" />
+                            <form action="">
+                                <label for="" class="number">Số lượng:</label>
+                                <div class="group">
+                                    <input type="text" name="quantity" value="1" class="input-control" id="qty">
+                                    <button class="btn_plus" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;">
+                                        -
+                                    </button>
+                                    <button class="btn_plus" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">
+                                        +
+                                    </button>
+                                    <input type="button" onclick="PushProduct()" value="Mua ngay" class="btn_buy_now">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="transport_slogan">
+                            <div class="transport_slogan_inner">
+                                <figure>
+                                    <img src="~/Content/CssSite/images/icon_giao_hang.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <p>Giao hàng toàn quốc</p>
+                                </figcaption>
+                            </div>
+                            <div class="transport_slogan_inner">
+                                <figure>
+                                    <img src="~/Content/CssSite/images/icon_doi_tra.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <p>Giao hàng toàn quốc</p>
+                                </figcaption>
+                            </div>
+                            <div class="transport_slogan_inner">
+                                <figure>
+                                    <img src="~/Content/CssSite/images/icon_chinh_hang.png" alt="">
+                                </figure>
+                                <figcaption>
+                                    <p>Giao hàng toàn quốc</p>
+                                </figcaption>
+                            </div>
+                        </div>
+                        <div class="transport">
+                            <p class="transport_text">Giao hàng: Giao hàng từ 2 - 7 ngày làm việc.</p>
+                            <img src="~/Content/CssSite/images/icon_phone_products.png" alt="">
+                            <p class="hotline">Hotline mua hàng:  <span class="phone_transport">@conf.hotLine</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="box_info_products_details_bottom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true">Thông Tin chi tiết</a></li>
+                        <li class=""><a data-toggle="tab" href="#menu1" aria-expanded="false">Chính Sách đổi trả</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade active in">
+                            @Html.Raw(pro.proContentTab1)
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            @Html.Raw(pro.proContentTab2)
+                        </div>
+
+                    </div>
+                    <div class="tags_products">
+                        @*<i class="fa fa-tags"></i> Tags:<a href="">Nước Hoa</a>,<a href="">Nước Hoa 1</a>,<a href="">Nước Hoa 2</a>,<a href="">Nước Hoa 3</a>,<a href="">Nước Hoa 4</a>,<a href="">Nước Hoa 5</a>,<a href="">Nước Hoa 6</a>*@
+                    </div>
+                </div>
+            </div>
+            <!-- Similar_Products -->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="title_similar_products">
+                    <h2>sản phẩm cùng loại</h2>
+                </div>
+                <div class="similar_products">
+                    <div class="span12">
+                        <div class="similar_products_slideshow owl-carousel">
+                            @foreach (var item in Model)
+                            {
+                                percen = 0;
+                                tienChenh = (item.proPrice.HasValue && item.proPrice_sale.HasValue) ? (item.proPrice.Value - item.proPrice_sale.Value) : 0;
+                                if (tienChenh != 0)
+                                {
+                                    percen = (tienChenh * 100) / item.proPrice.Value;
+                                    percen = Math.Round(percen, 0);
+                                }
+                                <div class="item">
+                                    <div class="similar_products_slideshow_inner">
+                                        <figure class="img_list_selling_products">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
+                                        </figure>
+                                        <div class="title_list_selling_products">
+                                            <h3>
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                    @(NTSPRODUCT.Models.StringClass.FormatContentNews(item.pro_name, 58))
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="price_list_selling_products">
+                                            @if (item.proPrice_sale.HasValue)
+                                            {
+                                                <p>
+                                                    @item.proPrice_sale.Value.ToString("N0") ₫
+                                                    @if (item.proPrice.HasValue)
+                                                    {
+                                                        <span class="price_seling_sales_products">@item.proPrice.Value.ToString("N0") ₫</span>
+                                                    }
+                                                    <span class="seling_sales_products">-@percen%</span>
+                                                </p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Similar_Products -->
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,81 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb">
+                        <li class="home">
+                            <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </li>
+                        @if (cateP != null)
+                        {
+                            <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="page-detail">
+    <div class="container">
+        <div class="row flex-wrap">
+            @Html.Action("PageProLeft", "ChildView", new { lang = ViewBag.lang, type = cateP.cateType })
+            <section class="main_container collection col-lg-9 col-md-9 col-md-push-3 col-lg-push-3">
+                <div class="category-products products">
+                    <div class="titel-home">
+                        <h2 class="uppercase text-center">@(cateP != null ? cateP.cateName : ClassExten.GetLangKey("key_sanpham"))</h2>
+                    </div>
+                    <section class="products-view products-view-grid">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-6 col-sm-4 col-md-3 col-lg-4">
+                                    <div class="product-box on-sale-box ">
+                                        <div class="product-thumbnail">
+                                            <a href="/thiet-bi/@item.pro_key" title="@item.pro_name" class="image_thumb">
+                                                <img class="img-responsive" src="@item.proAvata.Replace("uploads", "uploads/_thumbs")" alt="@item.pro_name">
+                                            </a>
+                                            <div class="product-action clearfix hidden-md hidden-sm hidden-xs">
+                                                <a href="/thiet-bi/@item.pro_key" title="@item.pro_name" class="btn-buy btn-cart btn btn-gray">
+                                                    <span><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
+                                                </a>
+                                            </div>
+                                            <a href="/thiet-bi/@item.pro_key" title="@item.pro_name" class="btn-white btn_view btn right-to quick-view">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </div>
+                                        <div class="product-info a-left">
+                                            <h3 class="product-name"><a href="/thiet-bi/@item.pro_key" title="@item.pro_name">@item.pro_name</a></h3>
+                                            <div class="price-box clearfix">
+                                                <div class="old-price">
+                                                    <span class="price product-price-old">
+                                                        @ClassExten.GetLangKey("key_gia"):
+                                                    </span>
+                                                </div>
+                                                <div class="special-price">
+                                                    <span class="price product-price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                    <nav aria-label="Page navigation example">
+                        @Html.Raw(ViewBag.pages)
+                    </nav>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var pro = (List<NTSPRODUCT.Models.Product>)ViewBag.pro;
+    var cate = (List<NTSPRODUCT.Models.Category>)ViewBag.cate;
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+}
+
+<div id="vnt-header">
+    <div class="wrapper">
+        <div class="logo">
+            <h1><a href='@conf.linkLogo' title='@conf.shopName'><img src='@conf.logoTop' alt='@conf.shopName' /></a></h1>
+        </div>
+        <div class="header-tools">
+            <div class="menu_mobile hidden-lg hidden-md">
+                <div class="icon_menu"><span class="style_icon"></span>Menu</div>
+            </div>
+            <!-- menu pc-->
+            <div class="menuTop hidden-sm hidden-xs">
+                <ul>
+                    @foreach (var item in cateParent)
+                    {
+                        <li class='menu-mega'>
+                            <a href="@item.link" title="@item.name" target="_self"><span>@item.name</span><p class="en-menu">@item.nameSub</p></a>
+                            @if (!string.IsNullOrEmpty(item.cateProductId))
+                            {
+                                @Html.Raw(ClassExten.GetMenuSiteLevel2(item.cateProductId, cate, pro, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()));
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+            <!--moblie-->
+            <div class="menu_mobile">
+                <div class="divmm">
+                    <div class="mmContent">
+                        <div class="mmMenu">
+                            <ul class="mmMain">
+                                @foreach (var item in cateParent)
+                                {
+                                    <li>
+                                        <a href="@item.link" title="@item.name" target="_self">@item.name</a>
+                                        @if (!string.IsNullOrEmpty(item.cateProductId))
+                                        {
+                                            @Html.Raw(ClassExten.GetMenuSite_MobileLevel2(item.id, pro, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()));
+                                        }
+
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                        @*<div class="mmSearch">
+                                <form id="formSearch" name="formSearch" method="post" action="" onSubmit="return check_search(this);" class="box_search">
+                                    <input name="keyword" id="keyword" type="text" class="text_search" placeholder="Từ khóa" value="" />
+                                    <button name="btn-search" type="submit" value=""><img src="~/Content/CssSite/skins/default/images/i-search.svg" alt="search" /></button>
+                                    <input name="do_search" value="1" type="hidden" />
+                                </form>
+                            </div>*@
+                        <div class="close-mmenu"><i class="fa fa-times"></i></div>
+                    </div>
+                    <div class="divmmbg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

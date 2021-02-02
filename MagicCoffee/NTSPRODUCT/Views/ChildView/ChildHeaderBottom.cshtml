@@ -1,0 +1,88 @@
+﻿@{
+    bool isHome = ViewBag.isHome;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+}
+@if (isHome)
+{
+
+    <!-- Menu -->
+    <nav class="main_menu_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 list_menu_main menu_fixed_top">
+                    <div class="list_categories_menu_left">
+                        <h2><i class="fa fa-reorder"></i> Danh mục sản phẩm</h2>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                    @Html.Action("RightMenu", "ChildView")
+                </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="main_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Action("LeftCate", "ChildView")
+                </div>
+
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            @foreach (var item in slide)
+                            {
+                                <div class="swiper-slide"><img src="@item.images" alt="@item.name" class="img-responsive" style="width:100%"></div>
+                            }
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <figure class="list_image_menu_big_right">
+                        <div class="box_list_image_menu_big_right">
+                            <a href=""><img src="~/Content/CssSite/images/icon_banner_right.png" alt="#" class="icon_banner_right"></a>
+                            <p><a href="">Các bước mua hàng</a></p>
+                            <img src="~/Content/CssSite/images/icon_banner_arrow_down.png" alt="#">
+                        </div>
+                        <div class="box_list_image_menu_big_right">
+                            <a href=""><img src="~/Content/CssSite/images/icon_banner_right1.png" alt="#" class="icon_banner_right"></a>
+                            <p><a href="">Phương thức vận chuyển</a></p>
+                            <img src="~/Content/CssSite/images/icon_banner_arrow_down.png" alt="#">
+                        </div>
+                        <div class="box_list_image_menu_big_right">
+                            <a href=""><img src="~/Content/CssSite/images/icon_banner_right2.png" alt="#" class="icon_banner_right"></a>
+                            <p><a href="">Cách thức thanh toán</a></p>
+                        </div>
+                    </figure>
+                </div><!--end col-md-9-->
+            </div>
+        </div>
+    </nav>
+    <!-- End Menu -->
+
+}
+else
+{
+    <!-- Menu -->
+    <nav class="main_menu_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 list_menu_main menu_fixed_top">
+                    <div class="list_categories_menu_left">
+                        <h2><i class="fa fa-reorder"></i> Danh mục sản phẩm</h2>
+                    </div>
+                    <!-- Nav Fixed Top -->
+                    @Html.Action("LeftCate", "ChildView")
+                    <!-- End Nav Fixed Top -->
+                </div>
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                    @Html.Action("RightMenu", "ChildView")
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- End Menu -->
+}

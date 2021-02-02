@@ -1,0 +1,77 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var newData = (NTSPRODUCT.Models.News)ViewBag.newData;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb-->
+<section class="breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <ul>
+                    <li><a href="/" title="Trang chủ">Trang chủ </a></li>
+                    <li class="text-news">&#187;</li>
+                    <li><a href="/tin-tuc" title="Tin tức" class="text-news">Tin tức <i class="fa fa-caret-down"></i></a></li>
+                    @if (cateP != null)
+                    {
+                        <li class="text-news">&#187;</li>
+                        <li><a href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName" class="text-news">@cateP.cateName <i class="fa fa-caret-down"></i></a></li>
+                    }
+                    @if (newData != null)
+                    {
+                        <li class="text-news">&#187;</li>
+                        <li><a href="#" title="@newData.title" class="text-news">@newData.title <i class="fa fa-caret-down"></i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Breadcrumb -->
+<!--Details_news_main-->
+<section class="details_news_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="box_news_right">
+                    <div class="title_news_right">
+                        <h2>@newData.title</h2>
+                    </div>
+                    <div class="box_news_right_date">
+                        <div class="box_news_right_view">
+                            <img src="images/icon_date.png"> Cập nhật: @newData.updateDate.Value.ToString("dd/MM/yyyy") <img src="images/icon_time.png"> Lượt xem: @newData.viewCount
+                        </div>
+                        <div class="box_news_right_size">
+                        </div>
+                    </div>
+                    <div class="box_news_right_news">
+                        @Html.Raw(newData.contents)
+                    </div>
+                    <div class="tags_products">
+                        @*  <i class="fa fa-tags"></i> Tags:<a href="">Nước Hoa</a>,<a href="">Nước Hoa 1</a>,<a href="">Nước Hoa 2</a>,<a href="">Nước Hoa 3</a>,<a href="">Nước Hoa 4</a>,<a href="">Nước Hoa 5</a>,<a href="">Nước Hoa 6</a>*@
+                    </div>
+                    @*<div class="box_news_right_date two">
+                            <div class="box_news_right_top">
+                                <a href=""><img src="images/icon_images1.png"> Về đầu trang</a> <a href=""><img src="images/icon_images2.png"> Lên đầu trang</a>
+                            </div>
+                            <div class="box_news_right_information">
+                                <a href=""><span class="glyphicon glyphicon-envelope"></span> Gửi email</a><a href=""><i class="fa fa-print"></i> In trang</a><a href=""><img src="images/icon_images3.png"></a>
+                            </div>
+                        </div>*@
+                    <div class="box_news_right_list_news">
+                        <p class="box_news_right_list_news_title">Các bài viết khác</p>
+                        <ul>
+                            @foreach (var item in Model)
+                            {
+                                <li><span>›</span><a href="/tin/@item.new_key" title="@item.title">@item.title" <span class="box_news_right_list_news_title_view">(@item.viewCount" lượt xem)</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Details_news_main-->

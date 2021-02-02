@@ -1,0 +1,178 @@
+﻿@model NTSPRODUCT.Models.Sologan
+    @{
+        ViewBag.Title = "Administrator - Cập nhật tin slide";
+        ViewBag.controller = "Cập nhật tin slide";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Ảnh</label>
+                                        <input type="text" value="@Model.avata" maxlength="256" class="form-control " name="avata" id="avata" placeholder="Chọn ảnh" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Thứ tự</label><span class="text-red">(*)</span>
+                                        <input type="number" value="@Model.dOrder" class="form-control " name="dOrder" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="display-block">Hiển thị</label>
+                                        <label class="switch">
+                                            <input type="checkbox" name="status" @(Model.status == true ? "checked" : "")>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tiêu đề</label><span class="text-red">(*)</span>
+                                <input name="name" maxlength="450" id="name" value="@Model.name" placeholder="Tiêu đề.." class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Url </label><span class="text-red">(*)</span>
+                                <input name="skey" maxlength="450" id="skey" value="@Model.skey" placeholder="Url.." class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả ngắn</label>
+                                <textarea name="descript" maxlength="800" placeholder="Nội dung mô tả..." class="form-control" rows="3">@Model.descript</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nội dung</label>
+                                @Html.TextAreaFor(u => u.contents)
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_3">
+                            <div class="form-group">
+                                <label>Tile seo </label>
+                                <textarea name="titleSeo" placeholder="Tile seo" class="form-control" maxlength="800" rows="2">@Model.titleSeo</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Keyword seo </label>
+                                <textarea name="keySeo" placeholder="Keyword seo" class="form-control" maxlength="800" rows="2">@Model.keySeo</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Description seo </label>
+                                <textarea name="desSeo" placeholder="Description seo" class="form-control" maxlength="800" rows="2">@Model.desSeo</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" hidden id="btn-Submit" />
+                        <button type="button" onclick="CheckKey()" class="btn btn-primary  margin-r-5"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <a href="/Department/Index" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (Session["erro"] != null)
+    {
+        <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+        </script>
+    }
+    @if (Session["erro"] != null) { Session["erro"] = null; }
+    <script type="text/javascript">
+    $('#name').on('keyup', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#name').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#skey').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    $('#name').on('change', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#name').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#skey').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    function CheckKey() {
+        var id = '@Model.id';
+        var skey = $('#skey').val();
+        if (skey == '' || skey == ' ') {
+            toastr.error("Chưa nhập url", { timeOut: 5000 }); return;
+        }
+        var model = {
+            id: id,
+            skey: skey
+        };
+        OpenWaiting();
+        $.ajax({
+            url: "/Sologan/CheckKeyUpdate",
+            type: "POST",
+            data: model,
+            success: function (data) {
+                CloseWaiting();
+                if (data.ok === 2) {
+                    toastr.error('Url đã tồn tại', { timeOut: 5000 }); return ;
+                } else if (data.ok === 3) {
+                    toastr.error('Đã xảy ra lỗi vui lòng thử lại', { timeOut: 5000 }); return ;
+                } else {
+                    $('#btn-Submit').click();
+                }
+
+            },
+            error: function (response) {
+                CloseWaiting();
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+    }
+
+    //trình soạn thảo
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'contents');
+
+    });
+    //up ảnh
+    $(function () {
+        $("#avata").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#avata").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+    </script>

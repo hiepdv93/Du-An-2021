@@ -1,0 +1,21 @@
+﻿@model NTSPRODUCT.Models.Config
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="vnt-content">
+    <div id="vnt-contact">
+        <div class="wrapper">
+            <div class="mod-content row">
+                <div class="col-md-5">
+                    <form>
+                        <h3 class="contact_main_page_address">Magic Wind Coffee</h3>
+                        <div class="contact_main_page_address_news">
+                            @Html.Raw(Model.conTact)
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7"> @Html.Raw(Model.map) </div>
+            </div>
+        </div>
+    </div>
+</div>

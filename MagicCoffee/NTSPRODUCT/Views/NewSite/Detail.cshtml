@@ -1,0 +1,41 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var newData = (NTSPRODUCT.Models.News)ViewBag.newData;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="vnt-news">
+    <div class="wrapper">
+        <div class="mod-content row">
+            <div id="vnt-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="newsTitle">
+                    <h1>@newData.title</h1>
+                </div>
+                <div class="newsDate"><span>@newData.updateDate.Value.ToString("dd/MM/yyyy HH:mm")</span></div>
+                <div class="the-content desc">
+                    <div align="justify">
+                        @Html.Raw(newData.contents)
+                    </div>
+                </div>
+                <div class="myTools">
+
+                </div>
+                <div class="newsOther">
+                    <div class="title">
+                        <h2>Các tin khác</h2>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            @foreach (var item in Model)
+                            {
+                                <li><a href="/tin/@item.new_key" title="@item.title">@item.title <span>(@item.updateDate.Value.ToString("dd/MM/yyyy HH:mm"))</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

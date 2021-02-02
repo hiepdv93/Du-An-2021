@@ -1,0 +1,140 @@
+﻿@model NTSPRODUCT.Models.Category
+@{
+    ViewBag.controller = "Cập nhật nhóm tin tức";
+    ViewBag.Title = "Administrator - Cập nhật nhóm tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="">
+                            <div class="box-body">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Tên nhóm</label><span class="text-red">(*)</span>
+                                            <input type="hidden" id="catetype" name="catetype" value="2" />
+                                            <input type="hidden" id="catepar" name="catepar" value="@Model.catepar_id" />
+                                            <input type="text" class="form-control csinput" name="catename" maxlength="600" placeholder="Tên nhóm" value="@Model.cateName" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nhóm cha</label>
+                                            @Html.Action("GetCateForUpdate", "ImportView", new { type = ClassExten.typeNew, idUpdate = Model.id })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label> <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Chọn icon</a></label>
+                                            <input type="text" class="form-control csinput" name="cateicon" maxlength="250" placeholder="Chọn icon" value="@Model.cateicon"  />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Ảnh đại diện</label>
+                                            <input type="text" class="form-control csinput" name="cateImage" id="cateAvata" maxlength="450" value="@Model.cateImage" placeholder="Ảnh đại diện" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Thứ tự</label>
+                                            <input type="number" class="form-control csinput" name="order" value="@Model.cateOrder" placeholder="Thứ tự" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả </label>
+                                    @Html.TextAreaFor(u => u.cateDescription)
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label class="display-block">Hiển thị</label>
+                                            <label class="switch">
+                                                <input type="checkbox" name="ckActive" @(Model.cateActive == true ? "checked" : "")>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="form-group">
+                                            <label class="display-block">Hiển thị trang chủ</label>
+                                            <label class="switch">
+                                                <input type="checkbox" name="ckHome" @(Model.cateActiveHome == true ? "checked" : "")>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <textarea type="text" class="form-control" rows="2" name="titleseo" placeholder="Tile seo">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <textarea type="text" class="form-control" rows="2" name="keyseo" placeholder="Keyword seo">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <textarea type="text" class="form-control" rows="2" name="desseo" placeholder="Description seo">@Model.desSeo</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                    <a href="/Categorys/Catenew" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'cateDescription');
+    });
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#cateAvata").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#cateAvata").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $('#cateId').val('@Model.catepar_id');
+</script>
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }

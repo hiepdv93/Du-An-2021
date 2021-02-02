@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /Admins/Login
+Disallow: /Home/Index
+Allow: /upload/
+
+Sitemap: http://robotstemtpa.vn/sitemap.xml

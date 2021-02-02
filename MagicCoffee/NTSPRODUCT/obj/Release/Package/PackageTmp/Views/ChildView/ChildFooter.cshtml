@@ -1,0 +1,80 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    bool isMobile = Request.Browser.IsMobileDevice;}
+
+<div id="top-footer">
+    <div class="wrapper bgfooter clearfix">
+        <div class="footer-shop-name">
+            <div class="footer-top">
+                <div class="bg-over">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 box box-1">
+                                <h3>VỀ CHÚNG TÔI</h3>
+                                <div class="desc">
+                                    <div class="desc">@Html.Raw(conf.infoPage)</div>
+                                </div>
+                                <div class="map-desktop hidden-sm hidden-xs">
+                                    <a href="/lien-he" title="@conf.shopName"><img src="@conf.mapSmall" alt="@conf.shopName" /></a>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-6 box box-2">
+                                <h3>Tin tức mới</h3>
+                                <div class="content">
+                                    <div class="listNew">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="news">
+                                                <div class="img">
+                                                    <div class="wrap">
+                                                        <a href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage.Replace("/uploads","/uploads/_thumbs")" alt="@item.title" /></a>
+                                                    </div>
+                                                </div>
+                                                <div class="caption">
+                                                    <div class="tend">
+                                                        <h3><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                                                    </div>
+                                                    <div class="date"><span>@item.updateDate.Value.ToString("dd/MM/yyyy")</span></div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 box box-4">
+                                <h3>Facebook Page</h3>
+                                <div class="page-fb">
+                                    @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                                    @Html.Raw(fb)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="vnt-footer">
+    <div class="wrapper">
+        <div class="vnt-button hidden-lg hidden-md">
+            <div class="button-wrap">
+                <div class="buttons">
+                    <a href="tel:@conf.hotLine" class="btn-mm" title="@conf.hotLine"><span class="fa-phone">Call now</span></a>
+                </div>
+                <div class="buttons">
+                    <a href="/lien-he" title="@conf.shopName" class="btn-mm"><span class="fa-map-marker">VIEW MAP</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="socialFoot">
+            <ul>
+                <li><a style="color: #;" href="@conf.faceBook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a style="color: #;" href="@conf.youTube" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a style="color: #;" href="@conf.instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="copyRight">© 2018 Magic Wind Coffee</div>
+    </div>
+</div>
