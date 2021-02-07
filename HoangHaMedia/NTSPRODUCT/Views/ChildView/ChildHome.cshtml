@@ -1,0 +1,566 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var sologanSukien = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologanSukien;
+    var sologanHoiTruong = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologanHoiTruong;
+
+    var SayWeHoiTruong = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWeHoiTruong;
+    var SayWeSukien = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWeSukien;
+
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var newNew = (List<NTSPRODUCT.Models.News>)ViewBag.newNew;
+    var newHot = (List<NTSPRODUCT.Models.News>)ViewBag.newHot;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+
+    var doiTac = (List<NTSPRODUCT.Models.Partner>)ViewBag.doiTac;
+    var hoitruong = (List<NTSPRODUCT.Models.Category>)ViewBag.hoitruong;
+
+    var quaTang = (List<NTSPRODUCT.Models.Category>)ViewBag.quaTang;
+    var lstQua = (List<NTSPRODUCT.Models.News>)ViewBag.lstQua;
+    int countQua = lstQua.Count();
+    var isMobile = Request.Browser.IsMobileDevice;
+    List<NTSPRODUCT.Models.News> lstTemp;
+    int countTemp = 0;
+    NTSPRODUCT.Models.Category quaTempFirst = quaTang.FirstOrDefault();
+    string idFirst = quaTempFirst != null ? quaTempFirst.id : string.Empty;
+    List<NTSPRODUCT.Models.News> lstTempFirst = lstQua.Where(u => u.groupId.Equals(idFirst)).ToList();
+
+}
+<style>
+    .slogan_main {
+        margin: 20px 0 15px 0;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    #owl-faedback-home .item .img_danhgia {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    #owl-faedback-home .item {
+        width: 100%;
+        float: left;
+        padding: 0 40px;
+        margin-bottom: 30px;
+    }
+
+        #owl-faedback-home .item .img_danhgia span {
+            display: block;
+            width: 80px;
+            height: 80px;
+            border: solid 4px #fff;
+            border-radius: 50%;
+        }
+
+            #owl-faedback-home .item .img_danhgia span img {
+                border-radius: 50%;
+            }
+
+    .titel-home h2 {
+        position: relative;
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+        color: #EA6F68;
+    }
+
+    #owl-faedback-home .item .content_danhgia span {
+        font-weight: 400;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    #owl-faedback-home .item .content_danhgia {
+        width: 100%;
+        float: left;
+        position: relative;
+        padding: 30px 40px;
+        background: #0072bc;
+        border-radius: 20px;
+        box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+        -webkit-box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+        -moz-box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+    }
+
+        #owl-faedback-home .item .content_danhgia p {
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+    .slogan_main_inner {
+        width: 100%;
+        float: left;
+    }
+
+    .title_slogan_inner, .info_slogan_inner {
+        border: 1px solid #d0d0d0;
+    }
+
+        .title_slogan_inner h2 {
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 0;
+            white-space: pre;
+            text-transform: uppercase;
+            background: #f2f2f2;
+            margin: 0;
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+            .title_slogan_inner h2 img {
+                margin: 0 7px;
+                width: 27px;
+                height: 27px;
+                object-fit: scale-down;
+            }
+
+    .info_slogan_inner {
+        height: 100px;
+        overflow: hidden;
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+</style>
+<section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;visibility:hidden;">
+    <!-- Loading Screen -->
+    <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+        <img alt="" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/Content/CssSite/images/spin.svg" />
+    </div>
+    <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;">
+        @foreach (var item in slide)
+        {
+            <div>
+                <img alt="@item.name" data-u="image" src="@item.images" />
+            </div>
+        }
+    </div>
+    <!-- Arrow Navigator -->
+    <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+        </svg>
+    </div>
+    <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+        </svg>
+    </div>
+</section>
+
+
+<section class="product-home-background bg-gray pd-tb-50">
+    <div class="container">
+        <div class="row">
+            <div class="section-abouts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="title-text bg-grey text-left">
+                                <h2>@conf.shopName</h2>
+                            </div>
+                            <div class="content">
+                                @Html.Raw(conf.IntroHomeDes)
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-center">
+                            <a href="/intro" title="@conf.shopName">
+                                <img class="img-responsive" src="@conf.IntroHomeImg" alt="@conf.shopName">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-home aws-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="title-text title-text-link bg-grey text-left">
+                    <h2 class="text-uppercase"><a href="/hoi-truong" title="Cho thuê hội trường">Cho thuê hội trường</a></h2>
+                    <div class="text-phone-right">
+                        <span>
+                            @*<img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">*@
+                            Gọi ngay: <a href="tel:0947203581" class="color-orange"><b>@conf.hotLine</b></a> để nhận ưu đãi giảm giá
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="row">
+                    @foreach (var item in hoitruong)
+                    {
+                        <div class="col-md-4 col-xs-12 col-lg-4">
+                            <div class="col-item col-item-grid">
+                                <div class="item-inner">
+                                    <div class="product-wrapper ">
+                                        <div class="thumb-wrapper">
+                                            <a href="/hoi-truong/@item.keySeo" title="@item.cateName">
+                                                <img class="img-responsive" src="@item.cateImage" alt="@item.cateName">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="view-detail">
+                                    <div class="info text-center">
+                                        <h3 class="title"><a href="/hoi-truong/@item.keySeo" title="@item.cateName" class="color-white">@item.cateName</a></h3>
+                                        <a class="view-more" href="/hoi-truong/@item.keySeo" title="@item.cateName">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-home-background bg-gray pd-tb-50 section-video-feeback aws-section-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="title-text bg-grey text-left">
+                    <h2 class="text-uppercase">Cam kết của chúng tôi</h2>
+                </div>
+                <div class="cam-ket">
+                    @foreach (var item in sologanHoiTruong)
+                    {
+                        <div class="content">
+                            <h3 class="color-orange">
+                                @Html.Raw(item.image) @item.title
+                            </h3>
+                            <p>
+                                @item.contents
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="title-text bg-grey text-left">
+                    <h2>CẢM NHẬN KHÁCH HÀNG</h2>
+                </div>
+                <div class="owl-carousel owl-theme feedback-ctht" id="feedback">
+                    @foreach (var item in SayWeHoiTruong)
+                    {
+                        <div class="item">
+                            <div class="feedback-item">
+                                <div class="feed-avatar">
+                                    <img src="@item.avata" alt="@item.fullName">
+                                </div>
+                                <div class="feed-desc">
+                                    @item.contents
+                                </div>
+                                <div class="line"></div>
+                                <div class="feed-name">@item.fullName</div>
+                                <div class="feed-pos">@item.job</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-home aws-section-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="title-text title-text-link bg-grey text-left">
+                    <h2 class="text-uppercase"><a href="/su-kien">Tổ chức sự kiện</a></h2>
+                    <div class="text-phone-right">
+                        <span>
+                            @*<img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">*@
+                            Gọi ngay: <a href="tel:@conf.hotLine" class="color-orange"><b>@conf.hotLine</b></a> để nhận ưu đãi giảm giá
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 col-xs-12 col-lg-4">
+                            <div class="col-item col-item-grid">
+
+                                <div class="list-room">
+                                    <div class="box-image">
+                                        <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                            <img src="@item.proAvata" alt="@item.pro_name">
+                                        </a>
+                                    </div>
+                                    <div class="box-info bg-gray">
+                                        <h2 class="product-name">
+                                            <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                                @item.pro_name
+                                            </a>
+                                        </h2>
+                                        <div class="despro">
+                                            @item.desPro
+                                        </div>
+                                        <div class="tag_mix_room">
+                                            <ul>
+                                                <li>
+                                                    <span><i class="fa fa-user"></i></span><span> @item.unit</span>
+                                                </li>
+                                                <li>
+                                                    <span><i class="fa fa-map-marker"></i></span><span> @item.place</span>
+                                                </li>
+                                                <li><span><i class="fa fa-building"></i></span><span> @item.type</span></li>
+                                                <li><span><i class="fa fa-globe"></i></span><span> @item.acreage</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap_price_item">
+                                            <a href="/su-kien/@item.pro_key" title="@item.pro_name" class="views_details">
+                                                Xem chi tiết<i class="fa fa-angle-double-right"
+                                                               aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-home-background bg-gray pd-tb-50 section-video-feeback aws-section-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="title-text bg-grey text-left">
+                    <h2 class="text-uppercase">Cam kết của chúng tôi</h2>
+                </div>
+                <div class="cam-ket">
+                    @foreach (var item in sologanSukien)
+                    {
+                        <div class="content">
+                            <h3 class="color-orange">
+                                @Html.Raw(item.image) @item.title
+                            </h3>
+                            <p>
+                                @item.contents
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="title-text bg-grey text-left">
+                    <h2>CẢM NHẬN KHÁCH HÀNG</h2>
+                </div>
+                <div class="owl-carousel owl-theme feedback-tcsk" id="feedback">
+
+                    @foreach (var item in SayWeSukien)
+                    {
+                        <div class="item">
+                            <div class="feedback-item">
+                                <div class="feed-avatar">
+                                    <img src="@item.avata" alt="@item.fullName">
+                                </div>
+                                <div class="feed-desc">
+                                    @item.contents
+                                </div>
+                                <div class="line"></div>
+                                <div class="feed-name">@item.fullName</div>
+                                <div class="feed-pos">@item.job</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="product-home aws-section-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <div class="title-text title-text-link bg-grey text-left">
+                    <h2 class="text-uppercase"><a href="#" onclick="return false">Quà Tặng Doanh Nghiệp</a></h2>
+                </div>
+                <div class="gift-table">
+                    <table class="table-responsive">
+                        <tbody>
+                            <tr>
+                                <td rowspan="@(countQua>1?countQua:1)">
+                                    @Html.Raw(conf.thongDiepQuaTang)
+                                </td>
+                                <td rowspan="@(lstTempFirst.Count>0?lstTempFirst.Count:1)">
+                                    <i class="fa fa-bullseye icon-gift"></i>
+                                    <b>@(quaTempFirst!=null? quaTempFirst.cateName:"") </b>
+                                </td>
+                                <td> @(lstTempFirst.Count>0?lstTempFirst[0].title:"") </td>
+
+                                <td rowspan="@(countQua>1?countQua:1)">
+                                    @Html.Raw(conf.chinhSachQuaTang)
+                                </td>
+                            </tr>
+                            @if (lstTempFirst.Count > 1)
+                            {
+                                <tr>
+                                    <td>@(lstTempFirst.Count>1?lstTempFirst[1].title:"")</td>
+                                </tr>
+                            }
+
+                            @for (int i = 1; i < quaTang.Count; i++)
+                            {
+                                lstTemp = lstQua.Where(u => u.groupId.Equals(quaTang[i].id)).ToList();
+                                countTemp = lstTemp.Count;
+
+                                <tr>
+                                    <td rowspan="@(countTemp!=0?countTemp:1)"><i class="fa fa-connectdevelop icon-gift"></i><b>@quaTang[i].cateName</b></td>
+                                    <td>@(countTemp!=0? lstTemp[0].title:"")</td>
+                                </tr>
+
+                                if (countTemp > 1)
+                                {
+                                    <tr>
+                                        <td>@lstTemp[1].title</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="awe-section-3">
+    <div class="container space-40">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="title-text space-20">
+                    <h2><a href="tin-tuc" title="Tin tức">@ClassExten.GetLangKey("news")</a></h2>
+                    <a class="read-more" href="/tin-tuc" title="@ClassExten.GetLangKey("key_xemthem")">@ClassExten.GetLangKey("key_xemthem")<i class="fa fa-angle-double-right"></i></a>
+                </div>
+                <div class="home-blog">
+                    @foreach (var item in newNew)
+                    {
+                        <div class="item">
+                            <a class="thumb img-shine" href="/tin/@item.new_key" title="@item.title">
+                                <img src="@item.newImage" alt="@item.title">
+                            </a>
+                            <div class="text">
+                                <h3><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                                <div class="date">@item.createDate.Value.ToString("dd") <span>T @item.createDate.Value.ToString("MM")</span></div>
+                                <p>@item.descript</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            @if (!isMobile)
+            {
+                <div class="col-md-6">
+                    <div class="title-text space-20">
+                        <h2>Tin ảnh</h2>
+                    </div>
+                    <div class="home-box-lightbox">
+                        @foreach (var item in newHot)
+                        {
+                            <a href="/tin/@item.new_key" title="@item.title">
+                                <img class="img-responsive basic" src="@item.newImage" alt="@item.title">
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="awe-section-7 bg-gray pd-tb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="title-text text-left">
+                    <h2 class="text-uppercase">Đăng ký tư vấn</h2>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <form class="form-tuvan">
+                    <div class="form-group input-field field-1">
+                        <label for="">Họ Và Tên</label>
+                        <input type="text" class="form-control" id="ctName" placeholder="Nhập họ và tên của bạn">
+                    </div>
+
+                    <div class="form-group input-field field-2">
+                        <label for="">Số Điện Thoại</label>
+                        <input type="text" class="form-control" id="ctPhone" placeholder="Nhập số điện thoại của bạn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Nội Dung</label>
+                        <textarea id="ctNote" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                  placeholder="Nhập nội dung cần tư vấn"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" class="btn" onclick="SendContact()">
+                            <i class="fa fa-paper-plane"
+                               aria-hidden="true"></i>Gửi ngay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="awe-section-7">
+    <div class="section_index_brand">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-head text-center">
+                        <h2>Đối tác</h2>
+                    </div>
+                </div>
+                <div id="owl-partner-home" class="owl-carousel owl-theme">
+                    @foreach (var item in doiTac)
+                    {
+                        <div class="item">
+                            <div class="col-inner">
+                                <div class="box has-hover gallery-box box-none">
+                                    <div class="box-image">
+                                        <img src="@item.pImage" data-lazyload="@item.pImage" alt="Ant Consult" class="img-responsive center-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,57 @@
+/* Color */
+.color-white {
+  color: #ffffff;
+}
+
+.color-orange {
+  color: #ff5b02;
+}
+
+.color-black {
+  color: rgb(54, 54, 54);
+}
+
+/* Flex */
+.flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+.bg-gray {
+  background: #f5f5f5;
+}
+
+.pd-tb-50 {
+  padding: 50px 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.mg-0 {
+  margin: 0;
+}
+
+button:focus, .btn:focus {
+  outline: none;
+  border: none
+}
