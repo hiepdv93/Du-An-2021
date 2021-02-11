@@ -17,7 +17,7 @@ namespace NTSPRODUCT.Controllers
             {
                 ViewBag.proCount = db.Products.Where(u => u.pLang.Equals(lang) ).Select(u => u.id).Count();
                 ViewBag.newsCount = db.News.Where(u => u.newLang.Equals(lang)).Select(u => u.id).Count();
-                ViewBag.teacherCount = db.Categorys.Where(u => u.cateLang.Equals(lang) && u.cateType==ClassExten.typeProduct).Select(u => u.id).Count();
+                ViewBag.teacherCount = db.Oders.Select(u => u.id).Count();
                 ViewBag.contactCount = db.Contacts.Select(u => u.id).Count();
 
             }

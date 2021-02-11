@@ -27,7 +27,7 @@ public class ClassExten
     public const int typeProduct = 1;//ndanh mục
     public const int typeNew = 2;//tin tức
     public const string cateParent = "-1";
-    public const int timeCacheChild = 1;
+    public const int timeCacheChild = 3600000;
     #endregion
     #region[tao ngon ngu trong admin]
     public static string GetLang()

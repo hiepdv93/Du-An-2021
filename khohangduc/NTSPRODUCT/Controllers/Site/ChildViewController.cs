@@ -8,12 +8,17 @@ namespace NTSPRODUCT.Controllers.Site
 {
     public class ChildViewController : Controller
     {
+
         NTSWEBEntities db = new NTSWEBEntities();
         List<Category> allCate;
+
+
         // GET: ChildView
-        //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang", VaryByCustom = "browser")]
+
+        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHeader(string lang)
         {
+
             int countSp = 0;
             var cartGet = ClassExten.GetCokiesCart();
             if (cartGet != null)
@@ -33,7 +38,8 @@ namespace NTSPRODUCT.Controllers.Site
             ViewBag.conf = conf;
             return PartialView(menu);
         }
-        // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang", VaryByCustom = "browser")]
+
+        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHome(string lang)
         {
             //danh mục hiển thị trang chủ là nhóm cấp 1 dc check  hiển thị trang chủ
@@ -97,6 +103,7 @@ namespace NTSPRODUCT.Controllers.Site
             ViewBag.proSale = proSale;
             return PartialView(listPro);
         }
+
         public List<string> GetListId(string idp, int cap, string lang)
         {
             List<string> list = new List<string>();
@@ -120,7 +127,8 @@ namespace NTSPRODUCT.Controllers.Site
             list.Add(idp);
             return list;
         }
-        //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang", VaryByCustom = "browser")]
+
+        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildFooter(string lang)
         {
             Config conf;
@@ -135,7 +143,7 @@ namespace NTSPRODUCT.Controllers.Site
         }
 
         #region[view con bên trang tin]
-        //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang", VaryByCustom = "browser")]
+        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult PageNewLeft(string lang)
         {
             var cateNew = db.Categorys.Where(u => u.cateLang.Equals(lang) && u.cateActive == true && u.cateType == ClassExten.typeNew && u.catepar_id.Equals("-1")).ToList();
@@ -146,7 +154,7 @@ namespace NTSPRODUCT.Controllers.Site
         #endregion
 
         #region[bên trái trang sản phẩm]
-        //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang;type", VaryByCustom = "browser")]
+        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult PageProLeft(string lang, string typePage)
         {
             ViewBag.typePage = typePage;
