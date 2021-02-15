@@ -160,7 +160,7 @@ public class ClassExten
         }
         else
         {
-            return path;
+            return url;
         }
 
     }
