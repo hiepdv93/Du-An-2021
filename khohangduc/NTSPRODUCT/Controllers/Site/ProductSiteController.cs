@@ -137,9 +137,9 @@ namespace NTSPRODUCT.Controllers.Site
             if (proData != null)
             {
                 var protag = (from a in db.ProTags.AsNoTracking()
-                            join b in db.Tagproes.AsNoTracking() on a.tagId equals b.tagId
-                            where a.proId.Equals(proData.id)
-                            select b).OrderBy(u => u.tagOrder).ToList();
+                              join b in db.Tagproes.AsNoTracking() on a.tagId equals b.tagId
+                              where a.proId.Equals(proData.id)
+                              select b).OrderBy(u => u.tagOrder).ToList();
 
                 var cateP = db.Categorys.FirstOrDefault(u => u.id.Equals(proData.cateId));
                 var catePSub = db.Categorys.FirstOrDefault(u => u.id.Equals(cateP.catepar_id));
@@ -227,8 +227,7 @@ namespace NTSPRODUCT.Controllers.Site
             #endregion
             List<string> cateid = new List<string>();
             var all = (from a in db.Products.AsNoTracking()
-                       where a.pLang.Equals(lang)
-                       && a.active == true
+                       where a.active == true
                        orderby a.proOrder
                        select a).AsQueryable();
             if (!string.IsNullOrEmpty(id))
@@ -242,7 +241,7 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.cateP = cateP;
 
 
-                all = all.Where(u => u.brandId.Equals(id));
+                all = all.Where(u => u.brandId.Equals(cateP.id));
 
                 #endregion
                 #region[load seo]
@@ -293,7 +292,7 @@ namespace NTSPRODUCT.Controllers.Site
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
             #endregion
-            var tag = db.Tagproes.FirstOrDefault(u => u.tagKey.Equals(id) );
+            var tag = db.Tagproes.FirstOrDefault(u => u.tagKey.Equals(id));
             if (tag != null)
             {
                 var all = (from a in db.Products.AsNoTracking()
