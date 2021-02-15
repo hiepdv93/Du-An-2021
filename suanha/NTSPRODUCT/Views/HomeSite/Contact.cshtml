@@ -2,22 +2,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@if (!string.IsNullOrEmpty(Model.bgProduct))
-{
-    <style>
-        .breadcrumb_background {
-            background-image: url(@Model.bgProduct);
-        }
-    </style>
-}
-<div class="breadcrumb_background">
-    <span class="overlay"></span>
-    <div class="title_full">
-        <div class="container a-center">
-            <h1 class="title_page">@ClassExten.GetLangKey("key_lienhe")</h1>
-        </div>
-    </div>
-</div>
+
 <section class="bread-crumb">
     <span class="crumb-border"></span>
     <div class="container">

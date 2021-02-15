@@ -21,7 +21,7 @@ namespace NTSPRODUCT.Controllers.Site
             {
                 ConfigModel.listConfig = db.Configs.ToList();
             }
-            conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+            conf = ConfigModel.listConfig.FirstOrDefault();
             #region[load seo]
             ViewBag.title = conf.titleSeo;
             ViewBag.description = conf.desSeo;
@@ -65,7 +65,7 @@ namespace NTSPRODUCT.Controllers.Site
             {
                 ConfigModel.listConfig = db.Configs.ToList();
             }
-            conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+            conf = ConfigModel.listConfig.FirstOrDefault();
             #region[load seo]
             ViewBag.title = conf.titleSeo;
             ViewBag.description = conf.desSeo;

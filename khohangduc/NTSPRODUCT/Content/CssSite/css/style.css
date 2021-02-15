@@ -2100,8 +2100,7 @@ article.blog-item {
     box-shadow: none;
     cursor: pointer;
     color: #fff;
-    background: #2ad38b;
-    background: linear-gradient(to right, #0072bc, #3093d4);
+    background: #ff5b02;
     border-radius: 45px;
     display: inline-block;
     padding: 10px 16px;

@@ -1,8 +1,8 @@
 
 a#toggle {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 25px;
+    left: 2px;
     width: 40px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.4);
@@ -82,11 +82,14 @@ main#content {
 }
 
 #navBar {
-    padding-top: 10px;
+  /*  padding-top: 10px;*/
+    background: #0d678c;
 }
 #menu>ul{
-margin-left: 237px;
+/*margin-left: 237px;*/
 }
+#menu>ul>li>a:hover .ul-sub{display:block !important;position:absolute}
+
 #menu ul {
     border: 0;
     list-style: none;
@@ -111,7 +114,7 @@ margin-left: 237px;
     padding: 0 17px;
     font-size: 14px;
     letter-spacing: 1px;
-    color: #000;
+    color: white;
     font-weight: 600;
     line-height: 43px;
     font-family: inherit;
@@ -124,11 +127,11 @@ margin-left: 237px;
     width: 255px;
     text-align: left;
     z-index: 2;
-    background: #0072bc;
+    background: #0d678c;
 }
 
 #menu ul li:hover>a {
-    background: #00709e;
+    background: #0d678c;
     color: #fff;
 }
 

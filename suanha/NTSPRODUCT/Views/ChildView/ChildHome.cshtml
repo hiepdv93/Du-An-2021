@@ -5,7 +5,7 @@
     var newNew = (List<NTSPRODUCT.Models.News>)ViewBag.newNew;
     var newHot = (List<NTSPRODUCT.Models.News>)ViewBag.newHot;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
-
+    bool isMobile = Request.Browser.IsMobileDevice;
 }
 
 <section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;visibility:hidden;">
@@ -87,19 +87,23 @@
                     }
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="title-text space-20">
-                    <h2>DỊCH VỤ HOT</h2>
+            @if (!isMobile)
+            {
+                <div class="col-md-6">
+                    <div class="title-text space-20">
+                        <h2>DỊCH VỤ HOT</h2>
+                    </div>
+                    <div class="home-box-lightbox">
+                        @foreach (var item in newHot)
+                        {
+                            <a href="/dich-vu/@item.new_key" title="@item.title">
+                                <img class="img-responsive basic" src="@item.newImage" alt="@item.title">
+                            </a>
+                        }
+                    </div>
                 </div>
-                <div class="home-box-lightbox">
-                    @foreach (var item in newHot)
-                    {
-                        <a href="/dich-vu/@item.new_key" title="@item.title">
-                            <img class="img-responsive basic" src="@item.newImage" alt="@item.title">
-                        </a>
-                    }
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>

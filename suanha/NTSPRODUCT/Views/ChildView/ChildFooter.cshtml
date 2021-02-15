@@ -1,17 +1,24 @@
 ﻿@model IList<NTSPRODUCT.Models.Menu>
 @{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
-@if (!string.IsNullOrEmpty(conf.bgNews))
-{
-    <style>
-        .footer {
-    background: url(@conf.bgNews) center 70% no-repeat; }
-    </style>
-}
+
+
 <footer class="footer">
     <div class="site-footer">
         <div class="container">
             <div class="footer-inner">
                 <div class="row">
+                    <div class="block block-cs col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="footer-widget">
+                            <h4>
+                                <span>
+                                    VỀ CHÚNG TÔI
+                                </span>
+                            </h4>
+                            <div class="desc" style="text-align: justify;">
+                                @Html.Raw(conf.footer)
+                            </div>
+                        </div>
+                    </div>
                     <div class="block block-cs col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="footer-widget">
                             <h4>
@@ -23,21 +30,12 @@
                         </div>
                     </div>
 
-                    <div class="block block-cs col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                    <div class="block block-cs col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="footer-widget">
                             <h4>
                                 <span>BẢN ĐỒ</span>
                             </h4>
                             @Html.Raw(conf.mapHCM)
-                        </div>
-                    </div>
-                    <div class="block block-cs col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                        <div class="footer-widget">
-                            <h4>
-                                <span>Facebook</span>
-                            </h4>
-                            @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
-                            @Html.Raw(fb)
                             <ul class="list-menu has-toggle social-media-footer" style="display: block;">
                                 @if (!string.IsNullOrEmpty(conf.twiter))
                                 {
@@ -58,6 +56,18 @@
                             </ul>
                         </div>
                     </div>
+
+                    @*<div class="block block-cs col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                            <div class="footer-widget">
+                                <h4>
+                                    <span>Facebook</span>
+                                </h4>
+                                @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                                @Html.Raw(fb)
+
+                            </div>
+                        </div>*@
+
                 </div>
             </div>
         </div>
@@ -68,7 +78,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="text-center copy-right-text">
-                            <span class="cungcap"><a href="#" title="@conf.shopName">@conf.fax</a></span>
+                            <span class="cungcap"><a style="color:white" href="#" title="@conf.shopName">@conf.fax</a></span>
                         </div>
                     </div>
                 </div>
@@ -76,6 +86,7 @@
         </div>
     </div>
 </footer>
+
 <section id="hotline-zalo-fb">
     @if (!string.IsNullOrEmpty(conf.hotLine))
     {
@@ -91,36 +102,27 @@
             <span>Zalo</span>
         </a>
     }
-    @if (!string.IsNullOrEmpty(conf.fbChat))
+    @if (!string.IsNullOrEmpty(conf.faceBook))
     {
-        <a href="@conf.fbChat" target="_blank" class="mes">
+        <a href="@conf.faceBook" target="_blank" class="mes">
             <img src="~/Content/CssSite/images/fb.png" />
             <span>Facebook</span>
         </a>
     }
-</section>
-<style>
-    .footer {
-        background-color: #00709E;
+    @if (!string.IsNullOrEmpty(conf.youTube))
+    {
+        <a href="@conf.youTube" target="_blank" class="mes">
+            <img src="~/Content/CssSite/images/youTube.png" />
+            <span>YouTube</span>
+        </a>
     }
 
-        .footer .site-footer h4 span {
-            color: white;
-        }
-</style>
+</section>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
 </button>
 <style>
-    .footer {
-        background-color: #00709E;
-    }
-
-        .footer .site-footer h4 span {
-            color: white;
-        }
-
     #myBtn {
         display: none;
         position: fixed;
@@ -144,6 +146,47 @@
     .level0 .level1 a span:hover {
         color: #e33725 !important
     }
+
+    section#hotline-zalo-fb {
+        position: fixed;
+        top: 25%;
+        right: 10px;
+        z-index: 9999;
+    }
+
+    #hotline-zalo-fb a {
+        display: block;
+    }
+
+    .call-icon img {
+        border-radius: 50%;
+        background: #64bc46;
+        padding: 6px;
+    }
+
+    #hotline-zalo-fb a img {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    #hotline-zalo-fb a.call-icon {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    #hotline-zalo-fb a span {
+        display: none;
+    }
+
+    .smalltext {
+        padding-top: 1px;
+        font-size: 14px;
+        color: #000;
+    }
 </style>
 <script>
     //Get the button
@@ -166,7 +209,6 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
-<!--End footer-->
 <!--End footer-->
 @Html.Raw(conf.liveChat)
 @Html.Raw(conf.googleAnalytics)

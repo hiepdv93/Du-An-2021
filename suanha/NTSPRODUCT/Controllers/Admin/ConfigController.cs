@@ -48,7 +48,7 @@ namespace NTSPRODUCT.Controllers
                 data.linkLogo = f["link"];
                 data.addresss = f["addres"];
               //  data.map = f["map"];
-              //  data.footer = f["footer"];
+                data.footer = f["footer"];
                 data.liveChat = f["liveChat"];
                 data.conTact = f["conTact"];
                 data.infoPage = f["infoPage"];

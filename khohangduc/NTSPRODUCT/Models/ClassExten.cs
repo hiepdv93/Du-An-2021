@@ -27,7 +27,8 @@ public class ClassExten
     public const int typeProduct = 1;//ndanh mục
     public const int typeNew = 2;//tin tức
     public const string cateParent = "-1";
-    public const int timeCacheChild = 3600000;
+    // public const int timeCacheChild = 3600000;
+    public const int timeCacheChild = 30;
     #endregion
     #region[tao ngon ngu trong admin]
     public static string GetLang()
@@ -153,7 +154,15 @@ public class ClassExten
     {
         string url = HttpContext.Current.Request.Url.AbsoluteUri;
         string path = HttpContext.Current.Request.Url.AbsolutePath;
-        return url.Replace(path, "");
+        if (!path.Equals("/"))
+        {
+            return url.Replace(path, "");
+        }
+        else
+        {
+            return path;
+        }
+
     }
     public static string GetChildLevel2(string idcha, string idUpdate, List<Category> list)
     {
@@ -563,7 +572,7 @@ public class ClassExten
         cookie.Expires = DateTime.Now.AddHours(1);
         HttpContext.Current.Response.Cookies.Add(cookie);
     }
-  
+
 
 
 }
