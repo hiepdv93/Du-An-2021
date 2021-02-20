@@ -1,0 +1,72 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{ int index = ViewBag.Index;}
+<div class="col-sm-12 " style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1300px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">STT</th>
+                <th width="90px" class="text-center">Chức năng</th>
+                <th width="80px" class="text-center">Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th width="300px">Danh mục</th>
+                <th width="100px" class="text-center">SP KM</th>
+                <th width="100px" class="text-center">Hiển thị</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                index++;
+            <tr>
+                <td class="text-center">@index</td>
+                <td class="text-center">
+                    <a href="/Prodcuts/Update/@item.id" title="Sửa"><span class="fa fa-edit font18"></span> </a>
+                    <a href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                </td>
+                <td class="text-center"><img class="avata-admin" src="@item.proAvata" /></td>
+                <td>@item.pro_name</td>
+                <td>@ClassExten.GetCateCha(item.cateId)</td>
+
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeProductSale('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeStatus('@item.id')" @(item.active == Constants.Checked ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+<div class="col-sm-5">
+    <div class="form-group">
+        <div class="controls">
+            <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+            <span>bản ghi/Trang</span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-7">
+    @Html.Raw(ViewBag.pages)
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>
