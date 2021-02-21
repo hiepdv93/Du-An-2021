@@ -3,7 +3,11 @@
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
 }
-
+<style>
+    .logo-wrapper img {
+        max-height: 65px
+    }
+</style>
 <div class="itemproduct_sale item_product_main" style="display:none">
     <div class="thumb_settime">
         <div class="product-info">
