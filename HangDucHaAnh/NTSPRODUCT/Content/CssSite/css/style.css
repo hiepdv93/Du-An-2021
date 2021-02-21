@@ -8,7 +8,7 @@
     margin: 0px 0px 10px 10px;
 }
 .box-title {
-    color: #ff5b02;
+    color: #1da64c;
     font-size: 20px;
     text-transform: uppercase;
 }
@@ -97,7 +97,7 @@ ul.tabs-maps li {
     cursor: pointer;
 }
 .wrapper .tabs-maps li.current span {
-    background: linear-gradient(169deg, transparent 29%, #ff5b02 30%);
+    background: linear-gradient(169deg, transparent 29%, #1da64c 30%);
     color: #ffffff;
 }
 .wrapper .tabs-maps li.current span:before {
@@ -190,7 +190,7 @@ img {
 }
 .top-header .logo-wrapper{float:left}
 .top-header {
-    /* border-top: 11px solid #ff5b02;
+    /* border-top: 11px solid #1da64c;
     background: url(../images/slogan_bg.png) center bottom no-repeat;*/
     width: 100%;
     min-height: 90px;
@@ -215,7 +215,7 @@ img {
 }
     .top-header .hotline .evo-hotline {
         transform: skew(-27deg);
-        background: #ff5b02;
+        background: #1da64c;
         border-radius: 4px;
         font-size: 14px;
         padding: 5px 10px;
@@ -690,7 +690,7 @@ img {
     margin: 0;
     border-bottom-left-radius: 14px;
     border-bottom-right-radius: 14px;
-    background: #ff5b02;
+    background: #1da64c;
     font-size: 15px;
     padding: 10px 15px;
     color: #fff;
@@ -848,7 +848,7 @@ img {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    color: #ff5b02;
+    color: #1da64c;
     background: #fff;
     margin-bottom: 0px;
     border-radius: 5px;
@@ -881,7 +881,7 @@ img {
     border-radius: 5px;
 }
 .item_product_main .product-thumbnail .product-action .xem_nhanh .fa {
-    color: #ff5b02;
+    color: #1da64c;
 }
 .section_topsale_month .wrap_item_large .product-info {
     display: block;
@@ -922,7 +922,7 @@ img {
     margin-bottom: 15px;
 }
 .section_topsale_month .wrap_item_large .product-info .price-box .product-price {
-    color: #ff5b02;
+    color: #1da64c;
     font-weight: 700;
     margin: 0;
     font-size: 1.6rem;
@@ -1308,7 +1308,7 @@ ul.tabs li {
     cursor: pointer;
 }
 .wrapper .tabs li.current span {
-    background: linear-gradient(169deg, transparent 29%, #ff5b02 30%);
+    background: linear-gradient(169deg, transparent 29%, #1da64c 30%);
     color: #ffffff;
 }
 .wrapper .tabs li.current span:before {
@@ -1338,7 +1338,7 @@ ul.tabs li {
 .tab-content {
     width: 100%;
     float: left;
-    border: 10px solid #ff5b02;
+    border: 10px solid #1da64c;
 }
 .section_index_brand {
     background: #f7faff;
@@ -1346,14 +1346,14 @@ ul.tabs li {
 }
     .section_index_brand .section-head h2 {
         position: relative;
-        color: #ff5b02;
+        color: #1da64c;
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 8px;
         margin-top: 0;
     }
 .title-head a {
-    color: #ff5b02;
+    color: #1da64c;
 }
 .section_index_brand .section-head p {
     position: relative;
@@ -1464,7 +1464,7 @@ section.product-home, .awe-section-2, .awe-section-3, .awe-section-4, .awe-secti
     display: block;
 }
 .view-detail a {
-    background: #ff5b02;
+    background: #1da64c;
     position: absolute;
     top: 41%;
     left: 34%;
@@ -1544,7 +1544,7 @@ button.btn.btn-default {
     right: 0;
 }
 #btnHomeSearch1 {
-    background: #ff5b02;
+    background: #1da64c;
 }
 input.search-auto.form-control {
     border-radius: 20px;
@@ -1648,7 +1648,7 @@ footer .list-menu.social-media-footer a {
     line-height: 36px;
 }
 .footer {
-    background: #ff5b02;
+    background: #1da64c;
 }
 .breadcrumb_background {
     background-image: url(../images/image_49309.jpg);
@@ -1761,7 +1761,7 @@ footer .list-menu.social-media-footer a {
     height: 0;
     border-style: solid;
     border-width: 0 8px 12px 0;
-    border-color: transparent #ff5b02 transparent transparent;
+    border-color: transparent #1da64c transparent transparent;
 }
 .title_module h2 {
     font-family: 'Arial', sans-serif;
@@ -1770,7 +1770,7 @@ footer .list-menu.social-media-footer a {
     font-size: 16px;
     font-weight: bold;
     padding: 5px 20px;
-    background-color: #ff5b02;
+    background-color: #1da64c;
 }
 .title_module h2 a, .title_module h2 span, .title_module h2 .fa {
     color: #fff;
@@ -1785,7 +1785,7 @@ footer .list-menu.social-media-footer a {
     height: 0;
     border-style: solid;
     border-width: 20px 0 20px 20px;
-    border-color: transparent transparent transparent #ff5b02;
+    border-color: transparent transparent transparent #1da64c;
 }
 .aside_support .support_content .list_support ul li a .ico .fa.fa-skype {
     color: #42afed;
@@ -1901,7 +1901,7 @@ footer .list-menu.social-media-footer a {
     display: block;
 }
 .categories-box> ul> li.nav-item:hover> a, .categories-box> ul> li.nav-item.active> a {
-    background: #ff5b02;
+    background: #1da64c;
     color: #fff;
 }
 ul.pagination {
@@ -1926,7 +1926,7 @@ section.page-detail {
     color: #000000;
 }
 .details-product .form-product .form-group button {
-    background: #ff5722;
+    background: #1da64c;
     font-size: 16px;
     outline: none;
     box-shadow: none;
@@ -1937,7 +1937,7 @@ section.page-detail {
     width: 100%;
     border-radius: 2px;
     height: 50px;
-    border: 2px solid #ff5722;
+    border: 2px solid #1da64c;
     margin: 20px 0 0 0;
 }
 .details-product .form-product .form-group button span.txt-main {
@@ -1963,7 +1963,7 @@ section.page-detail {
     padding: 10px;
 }
 .details-product span.price.product-price {
-    color: #ff5722;
+    color: #1da64c;
     font-size: 21px;
 }
 .down-document {
@@ -1983,7 +1983,7 @@ ul.tabs-product {
     list-style: none;
 }
 ul.tabs-product li.current {
-    background: #ff5b02;
+    background: #1da64c;
     color: #fff;
 }
 
@@ -2070,7 +2070,7 @@ article.blog-item {
 }
 .titel-detail h1 {
     font-size: 21px;
-    color: #ff5b02;
+    color: #1da64c;
     font-weight: 600;
     line-height: 30px;
 }
@@ -2100,7 +2100,8 @@ article.blog-item {
     box-shadow: none;
     cursor: pointer;
     color: #fff;
-    background: #ff5b02;
+    background: #1da64c;
+   
     border-radius: 45px;
     display: inline-block;
     padding: 10px 16px;
@@ -2154,7 +2155,7 @@ article.blog-item {
     flex-wrap: wrap;
 }
 .mega-content ul li h2 a {
-    color: #ff5b02 !important;
+    color: #1da64c !important;
     font-size: 15px;
     font-weight: bold;
 }

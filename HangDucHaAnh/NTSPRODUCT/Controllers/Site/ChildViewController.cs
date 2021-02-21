@@ -53,8 +53,7 @@ namespace NTSPRODUCT.Controllers.Site
             allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             var allPro = db.Products.Where(u => u.active == true).ToList();
 
-            //var advs = db.Advs.Where(u => u.advActive == true && u.advType == 1).OrderBy(u => u.advOrder).Take(4).ToList();//quảng cáo dưới slide
-            var anhCty = db.Advs.Where(u => u.advActive == true && u.advType == 2).OrderBy(u => u.advOrder).Take(4).ToList();
+            var advs = db.Advs.Where(u => u.advActive == true && u.advType == 1).OrderBy(u => u.advOrder).Take(4).ToList();//quảng cáo dưới slide
             var slide = db.Slides.Where(u => u.active == true).OrderBy(u => u.numberOder).ToList();
             int numNew = conf.viewNewPageHome != null ? conf.viewNewPageHome.Value : 5;
             int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 9;
@@ -64,7 +63,7 @@ namespace NTSPRODUCT.Controllers.Site
             List<ProductModel> listPro = new List<ProductModel>();
             ProductModel itemPro;
             List<string> cateid;
-            var cateHome = allCate.Where(u => u.cateActiveHome == true).ToList();
+            var cateHome = allCate.Where(u => u.cateActiveHome == true && !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
             foreach (var item in cateHome)
             {
                 cateid = new List<string>();
@@ -82,20 +81,19 @@ namespace NTSPRODUCT.Controllers.Site
                 listPro.Add(itemPro);
             }
 
-            //var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
+            var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
             var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
             var doiTac = db.Partners.OrderBy(u => u.numberOder).Take(8).ToList();
 
             ViewBag.doiTac = doiTac;
             ViewBag.SayWe = SayWe;
-            //ViewBag.advs = advs;
-            //ViewBag.sologan = sologan;
+            ViewBag.advs = advs;
+            ViewBag.sologan = sologan;
 
             ViewBag.catepro = catepro;
             ViewBag.newNew = newNew;
             ViewBag.newHot = newHot;
             ViewBag.slide = slide;
-            ViewBag.anhCty = anhCty;
             ViewBag.lang = lang;
             ViewBag.conf = conf;
 

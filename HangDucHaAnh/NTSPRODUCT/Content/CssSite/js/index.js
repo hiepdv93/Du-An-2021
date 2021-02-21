@@ -165,6 +165,25 @@ $('#owl-partner-home').owlCarousel({
         }
     }
 });
+
+$('#owl-faedback-home').owlCarousel({
+    loop: true,
+    margin: 10,
+    navText: false,
+    nav: true,
+    autoplay: 1000,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 1
+        }
+    }
+});
 //js tab-home
 $(document).ready(function () {
 

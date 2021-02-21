@@ -10,7 +10,7 @@
     var newHot = (List<NTSPRODUCT.Models.News>)ViewBag.newHot;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
     var advs = (List<NTSPRODUCT.Models.Adv>)ViewBag.advs;
-    var anhCty = (List<NTSPRODUCT.Models.Adv>)ViewBag.anhCty;
+  //  var anhCty = (List<NTSPRODUCT.Models.Adv>)ViewBag.anhCty;
     var doiTac = (List<NTSPRODUCT.Models.Partner>)ViewBag.doiTac;
     var isMobile = Request.Browser.IsMobileDevice;
 }
@@ -408,31 +408,43 @@
     </div>
 </section>
 
-<div id="home-desktop-banner-bottom">
-    <div class="store-section">
-        <div class="container">
-            <div class="text-center text-uppercase section-title mb-3"><h4 class="col-12 text-center">Hình ảnh cửa hàng</h4></div><div class="text-center section-description">
-                @conf.addresss
-            </div>
-        </div><div class="section-detail">
-            <div class="col-12">
-                <div class="justify-content-between row">
-                    @foreach (var item in anhCty)
+
+<section id="faedback-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                <div class="titel-home">
+                    <h2 class="uppercase text-center">Ý kiến khách hàng</h2>
+                </div>
+                <div id="owl-faedback-home" class="owl-carousel owl-theme">
+                    @foreach (var item in SayWe)
                     {
-                        <div class="col-md-12 col-xs-12 col-lg-3">
-                            <div class="col-item col-item-grid">
-                                <a href="javascript:void(0);" target="_self">
-                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="@item.advImage" alt="@item.advName" sizes="370px">
-                                </a>
+                        <div class="item">
+                            <div class="content_danhgia">
+                                <p>@item.contents.</p>
+                                <span><span>@item.fullName</span> - @item.job</span>
+                            </div>
+                            <div class="img_danhgia">
+                                <span>
+                                    <img src="@item.avata" alt="@item.fullName">
+                                </span>
                             </div>
                         </div>
                     }
 
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <div class="titel-home">
+                    <h2 class="uppercase text-center">Video thực tế</h2>
+                </div>
+                <div class="video-home">
+                    @Html.Raw(conf.homeVideo)
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <section class="awe-section-7">
     <div class="section_index_brand">

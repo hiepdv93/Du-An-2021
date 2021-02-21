@@ -118,9 +118,163 @@
     }
 </section>
 
+
+<div class="phone-gif">
+    <div class="fancybox" onclick="window.location='tel: @conf.hotLine'">
+        <div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" id="coccoc-alo-phoneIcon" style="right: 5%; top: 10%;">
+            <div class="coccoc-alo-ph-circle">&nbsp;</div>
+            <!--<div class="coccoc-alo-ph-circle-fill">&nbsp;</div>-->
+            <div class="coccoc-alo-ph-img-circle">
+                <img src="https://hangduchaanh.com/Content/CssSite/images/hotline.png" />
+            </div>
+        </div>
+    </div>
+    <div class="clicktocall"><a class="call" href="tel:@conf.hotLine">Gọi ngay<br><b>@conf.hotLine</b></a></div>
+</div>
+
+
 <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
 </button>
+
+<style>
+    .coccoc-alo-phone {
+        visibility: hidden;
+        background-color: transparent;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        z-index: 200000 !important;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+        -webkit-transition: visibility .5s;
+        -moz-transition: visibility .5s;
+        -o-transition: visibility .5s;
+        transition: visibility .5s;
+        right: 150px;
+        top: 30px;
+    }
+
+    .phone-gif {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        background: #d91e1e;
+        border: 3px solid #fff;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        border-radius: 30px;
+        box-shadow: 0 0 8px #d91e1e;
+        z-index: 5000;
+        cursor: pointer;
+    }
+
+    .clicktocall, .fancybox {
+        display: inline-block;
+        margin: 0 5px 0 0px;
+        padding: 0;
+    }
+
+    .coccoc-alo-phone.coccoc-alo-show {
+        visibility: visible;
+    }
+
+    .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle {
+        border-color: white;
+        opacity: .7;
+    }
+
+    .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle-fill {
+        background-color: #fde6e8;
+        background-color: #a6e3fa 9;
+        opacity: .75 !important;
+    }
+
+    .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
+        background-color: #56ff00;
+    }
+
+    element.style {
+    }
+
+    .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
+        background-color: #56ff00;
+    }
+
+    .coccoc-alo-show {
+    }
+
+    .coccoc-alo-ph-img-circle img {
+        -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+        -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+        -ms-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+        -o-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+        animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+        -webkit-transform-origin: 50% 50% !important;
+        -moz-transform-origin: 50% 50% !important;
+        -ms-transform-origin: 50% 50% !important;
+        -o-transform-origin: 50% 50% !important;
+        transform-origin: 50% 50% !important;
+        animation-timing-function: ease-in-out;
+    }
+
+    .evo-hotline .fa-phone {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-direction: alternate;
+    }
+
+    .coccoc-alo-ph-img-circle {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-direction: alternate;
+        width: 30px;
+        height: 30px;
+        top: 15px;
+        left: 15px;
+        position: absolute;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        border: 2px solid transparent;
+        opacity: 1;
+    }
+
+    .clicktocall, .fancybox {
+        display: inline-block;
+        margin: 0 5px 0 0px;
+        padding: 0;
+    }
+
+        .clicktocall a {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+</style>
+<style>
+    .footer {
+        background-color: #00709E;
+    }
+
+        .footer .site-footer h4 span {
+            color: white;
+        }
+</style>
+
 <style>
     #myBtn {
         display: none;

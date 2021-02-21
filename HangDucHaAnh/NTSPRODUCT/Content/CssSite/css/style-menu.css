@@ -83,7 +83,7 @@ main#content {
 
 #navBar {
   /*  padding-top: 10px;*/
-    background: #ff5b02;
+    background: #1da64c;
 }
 #menu>ul{
 /*margin-left: 237px;*/
@@ -127,11 +127,11 @@ main#content {
     width: 255px;
     text-align: left;
     z-index: 2;
-    background: #ff5b02;
+    background: #1da64c;
 }
 
 #menu ul li:hover>a {
-    background: #ff5b02;
+    background: #1da64c;
     color: #fff;
 }
 
