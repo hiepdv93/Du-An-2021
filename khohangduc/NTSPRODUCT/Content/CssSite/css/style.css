@@ -2032,6 +2032,8 @@ p.blog-item-summary.margin-bottom-5 {
     border: 1px solid #ddd;
     border-top: none;
     text-align: left;
+	height:120px;
+	overflow-y: hidden;
 }
 .blog-item .date {
     top: 0px;
