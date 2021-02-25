@@ -1,0 +1,128 @@
+﻿@model NTSPRODUCT.Models.Solution
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var sl = (List<NTSPRODUCT.Models.Solution>)ViewBag.sl;
+}
+@if (Model == null)
+{
+    <section class="bread-crumb">
+        <span class="crumb-border"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="breadcrumb-container">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </li>
+                            <li><strong><span itemprop="title">@ClassExten.GetLangKey("key_giaiphap")</span></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="awe-section-3">
+        <section id="dich-vu" class="section section_service">
+            <div class="container">
+                <div class="service-title text-center">
+                    <h2>@conf.lableSolutionName</h2>
+                    <div class="service-subtitle">
+                        @conf.lableSolutionDes
+                    </div>
+                </div>
+            </div>
+            <div class="service-pc">
+                @for (int i = 0; i < sl.Count; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        <div class="content-service">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12 col-service">
+                                        <h3 class="title-service">
+                                            <a href="/giai-phap/@sl[i].name_url" title="@sl[i].name">@sl[i].name</a>
+                                        </h3>
+                                        <div class="service-sumary">@Html.Raw(sl[i].solutionDescription)</div>
+                                    </div>
+                                    <div class="col-lg-6 col-12 col-service-img">
+                                        <div class="service-image">
+                                            <img class="banner" src="@sl[i].solutionImage" alt="@sl[i].name">
+                                            <div class="service-icon">
+                                                <img class="img-1" src="@sl[i].solutionIcon" alt="@sl[i].name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="content-service content-service-2">
+                            <div class="container">
+                                <div class="row ">
+                                    <div class="col-lg-6 col-12 col-service-img-2">
+                                        <div class="service-image">
+                                            <img class="banner" src="@sl[i].solutionImage" alt="@sl[i].name">
+                                            <div class="service-icon">
+                                                <img class="img-2" src="@sl[i].solutionIcon" alt="@sl[i].name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12 col-service-2">
+                                        <h3 class="title-service">
+                                            <a href="/giai-phap/@sl[i].name_url" title="@sl[i].name">@sl[i].name</a>
+                                        </h3>
+                                        <div class="service-sumary">@Html.Raw(sl[i].solutionDescription)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </section>
+    </section>
+}
+else
+{
+    <section class="bread-crumb">
+        <span class="crumb-border"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="breadcrumb-container">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                <a itemprop="url" href="/giai-phap" title="@ClassExten.GetLangKey("key_giaiphap")"><span itemprop="title">@ClassExten.GetLangKey("key_giaiphap")</span></a>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </li>
+                            <li><strong><span itemprop="title">@Model.name</span></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="page-detail">
+        <div class="container">
+            <div class="row flex-wrap">
+                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+                <section class="main_container collection col-lg-9 col-md-9 col-md-push-3 col-lg-push-3">
+                    <div class="titel-detail">
+                        <h1>@Model.name</h1>
+                    </div>
+                    <div class="page-detail-text">@Html.Raw(Model.solutionDetail)</div>
+                </section>
+            </div>
+        </div>
+    </section>
+}

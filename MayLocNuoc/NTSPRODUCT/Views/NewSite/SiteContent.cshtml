@@ -1,0 +1,415 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var menuNoiDung = (NTSPRODUCT.Models.Menu)ViewBag.menuNoiDung;
+    var slide = (NTSPRODUCT.Models.Slide)ViewBag.slide;
+    var pro = (List<NTSPRODUCT.Models.Product>)ViewBag.pro;
+    var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
+    var news = (List<NTSPRODUCT.Models.News>)ViewBag.news;
+    var sologan = (List<NTSPRODUCT.Models.Sologan>)ViewBag.sologan;
+    var cateParent = menu.Where(u => u.mPosition == 1 && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+    var menuBottom = menu.FirstOrDefault(u => u.mPosition != 1 && u.par_id.Equals(ClassExten.cateParent));
+    var menuSub = new List<NTSPRODUCT.Models.Menu>();
+    if (menuBottom != null)
+    {
+        menuSub = menu.Where(u => u.mPosition != 1 && u.active == true && u.par_id.Equals(menuBottom.id)).ToList();
+    }
+}
+<div class="run_h" style="position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:999;">
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="logo">
+                        <a href="/" title="@conf.shopName">
+                            <img src="@conf.logoTop" title="@conf.shopName"
+                                 alt="@conf.shopName" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="hotline_t">
+                        <p>Hotline</p>
+                        <P><span>@conf.hotLine</span></P>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+
+                    <a class="but_mn"><i class="fa fa-bars" aria-hidden="true"></i>MENU</a>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.danhmuc_left li').hover(function () { $(this).css('cursor', 'pointer') });
+                            $('.but_mn').click(function () {
+                                var obj = $(this);
+                                if (obj.hasClass('expand')) {
+                                    obj.removeClass('expand');
+                                    obj.addClass('colpand');
+                                    $('.wap_mn').css('display', 'block');
+                                    $('.sf-menu').show(400);
+                                    $('.Close').show(400);
+                                }
+                                else if (obj.hasClass('colpand')) {
+                                    obj.removeClass('colpand');
+                                    obj.addClass('expand');
+                                    $('.wap_mn').css('display', 'none');
+                                    $('.Close').hide(400);
+
+                                }
+                            });
+                        });</script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.Close').click(function () {
+                                $('.wap_mn').hide(400);
+                            });
+                        });</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wap_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box_menu_s">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                                <div class="wap_mn">
+                                    <div class="menu" style="position:relative">
+                                        <ul class="sf-menu" id="sf-menu">
+                                            @foreach (var item in cateParent)
+                                            {
+                                                if (item.link.ToLower().Equals("/danh-muc"))
+                                                {
+                                                    <li>
+                                                        <a href="@item.link" title="@item.name">@item.name</a>
+                                                        <ul>
+                                                            @foreach (var itemSub in pro)
+                                                            {
+                                                                <li>
+                                                                    <a href="/san-pham/@itemSub.pro_key"
+                                                                       title="@itemSub.pro_name">@itemSub.pro_name</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li><a href="@item.link" title="@item.name">@item.name</a></li>
+                                                    @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, menu.Where(u => !u.par_id.Equals(ClassExten.cateParent) && u.mPosition == 1).ToList()))
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+                                <div class="search_top">
+                                    <input type="text" name="txts" id="txt_timKiem" value="" placeholder="Tìm kiếm..." />
+                                    <input type="button" value="" onclick="timkiemtin()" />
+                                    <script>
+                                        function timkiemtin() {
+                                            var txt_timKiem = $('#txt_timKiem').val();
+                                            window.location.href = '/tim-kiem/' + txt_timKiem;
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(window).scroll(function () {
+        var h = $(document).height();
+        scrollTop = $(window).scrollTop();
+        if (scrollTop > 170) {
+            $('.run_h').addClass('fixed');
+        }
+        else {
+            $('.run_h').removeClass('fixed');
+        }
+    });</script>
+
+@if (slide != null)
+{
+    <div class="wap_slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <a href="@slide.sLink" title="@slide.name">
+                        <img src="@slide.images" alt="@slide.name" border="0" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+
+
+
+<!-- jQuery -->
+<link rel="stylesheet" href="~/Content/CssSite/css/flexslider.css" type="text/css" media="screen" />
+<!-- <script src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<!-- <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.html">\x3C/script>')</script> -->
+<!-- FlexSlider -->
+<script defer src="~/Content/CssSite/js/jquery.flexslider.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        // SyntaxHighlighter.all();
+    });
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            prevText: "",           //String: Set the text for the "previous" directionNav item
+            nextText: "",
+            animation: "slide",
+            start: function (slider) {
+                $('body').removeClass('loading');
+            }
+        });
+    });</script>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var item in sologan)
+        {
+            <div class="col-lg-3 col-xs-6">
+                <div class="item_lh">
+                    <a href="@item.link" title="@item.name">
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-12">
+                                <img src="@item.avata" alt="@item.name">
+                            </div>
+                            <div class="col-lg-9 col-xs-12">
+                                @item.name
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container" style="padding-top:20px;">
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-xs-12 col-sm-12">
+            <ol class="breadcrumb">
+
+                <li>
+                    <i class="glyphicon glyphicon-link"></i>&nbsp;&nbsp;<a href="#
+                                                                           /" title="Trang chủ">Trang chủ</a>
+                </li>
+                <li class="active">
+                    <a title="@menuNoiDung.name" href="#">
+                        Tin tức
+                    </a>
+                </li>
+            </ol>
+            <div id="ct_n_id" style="overflow:hidden">
+                <!--Noi-dung-bai-viet-->
+
+                <div id="news_title">
+                    <h1><a href="#" title="@menuNoiDung.name">@menuNoiDung.name</a></h1>
+                </div>
+                <div class="list_info_new">
+                    <i class="glyphicon glyphicon-calendar"></i>@menuNoiDung.createDate.Value.ToString("HH:mm dd/MM/yyyy")<i class="glyphicon glyphicon-user"></i><span>Admin</span> <i class="glyphicon glyphicon-eye-open"></i>
+                </div>
+
+                <div id="news_detail">
+                    @Html.Raw(menuNoiDung.note)
+                </div>
+               
+                <br />
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+            <div class="title_box">
+                <div class="boxl"></div>
+                Facebook Fanpage
+            </div>
+            <div class="ct_tnb" style="padding:10px;">
+                <div id="fb-root"></div>
+                <div class="fb-page">
+                    @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                    @Html.Raw(fb)
+                </div>
+            </div>
+
+            <div class="title_box">
+                <div class="boxl"></div>
+                Tin xem nhiều
+            </div>
+            <div class="ct_tnb">
+                <ul class="list_tnb">
+                    @foreach (var item in news)
+                    {
+                        <li>
+                            <a href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" title="@item.title" alt="@item.title" /></a>
+                            <a href="/tin/@item.new_key" title="@item.title"></a>
+                            <br clear="all" />
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".owl-carousel").owlCarousel({
+            autoplay: true,
+            autoplaySpeed: 1000,
+            pagination: true,
+            items: 4,
+        });
+        jQuery(".owl-carousel1").owlCarousel({
+            autoplay: true,
+            autoplaySpeed: 1000,
+            pagination: true,
+            items: 1,
+        });
+    });</script>
+<!-- Basic stylesheet -->
+<link rel="stylesheet" href="~/Content/CssSite/css/owl.carousel.css">
+
+<!-- Default Theme -->
+<link rel="stylesheet" href="~/Content/CssSite/css/owl.theme.css">
+
+<!-- Include js plugin -->
+<script src="~/Content/CssSite/js/owl.carousel.js"></script>
+
+
+<!--hang-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>
+            </h1>
+        </div>
+    </div>
+</div>
+<!--hang-->
+<div class="wap_r1_f">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="img_tt">
+                    <img src="@conf.logoBottom" alt="@conf.shopName" />
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-43 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            <p>Giới thiệu</p><span></span>
+                        </div>
+                        <div class="info_f">@conf.shopName</div>
+                        <div class="info_f">
+                            @Html.Raw(conf.infoPage)
+                            <div>
+                                <span style="font-size: 14px;">&nbsp;</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            @if (menuBottom != null)
+                            {
+                                <a href="@menuBottom.link" title="@menuBottom.name">
+                                    @menuBottom.name
+                                </a><span></span>
+                            }
+                        </div>
+                        <ul class="list_c2f">
+                            @foreach (var item in menuSub)
+                            {
+                                <li>
+                                    <a href="@item.link" title="@item.name">@item.name</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            <p>Kết nối với chúng tôi</p><span></span>
+                        </div>
+                        <div class="mxh">
+                            <a href="@conf.faceBook" title="Facebook" target="_blank">
+                                <img src="~/Content/CssSite/images/facebook.png" border="0" alt="Facebook" title="Facebook" />
+                            </a>
+                            <a href="@conf.youTube" title="youtube" target="_blank">
+                                <img src="~/Content/CssSite/images/youtube.png" border="0"
+                                     alt="youtube" title="youtube" />
+                            </a>
+                            <a href="@conf.google" title="google" target="_blank">
+                                <img src="~/Content/CssSite/images/google.png" border="0"
+                                     alt="google" title="google" />
+                            </a>
+                            <a href="@conf.tiki" title="instagram" target="_blank">
+                                <img src="~/Content/CssSite/images/int.png" border="0"
+                                     alt="instagram" title="instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--doi-tac-->
+<div class="end_f">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="copy_r">
+                    © Copyrights 2020 https://locnuocionkiem.net| Thiết kế bởi:  thietkewebsitedomain.com
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="but_f">
+    <a href="#" title="Top" class="backtop"><i class="fa fa-chevron-up"></i></a>
+    <script>
+        $('.backtop').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });</script>
+</div>
+<div class="hotline_t hotline_r" style="position:fixed;margin:0px;left:10px;bottom:10px;">
+    <a href="tel:@conf.hotLine" title="Call">
+        <P>@conf.hotLine</P>
+    </a>
+</div>
+
+
+

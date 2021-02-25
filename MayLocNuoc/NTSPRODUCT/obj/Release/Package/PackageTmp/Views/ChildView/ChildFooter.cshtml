@@ -1,0 +1,80 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+<!-- Footer -->
+<footer class="footer_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="titel-footer">
+                    Về chúng tôi
+                </div>
+                <div class="info-cont">
+                    @Html.Raw(conf.footer)
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="titel-footer">
+                    Bản đồ
+                </div>
+                <div class="maps">
+                    @Html.Raw(conf.mapSmall)
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="titel-footer">
+                    Fanpage
+                </div>
+                <div class="social_facebook">
+                    @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                    @Html.Raw(fb)
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="copy-right">
+                    Copyright 2020 © <strong><a href="https://thietkewebsitedomain.com/" title="https://thietkewebsitedomain.com/"> @conf.copyright</a></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="hotline-zalo-fb" style="display:none">
+    @if (!string.IsNullOrEmpty(conf.hotLine))
+    {
+        <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+            <img src="~/Content/CssSite/images/hotline.png" />
+            <span>Hotline</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.zalo))
+    {
+        <a href="@("http://zalo.me/"+conf.zalo)" class="zalo">
+            <img src="~/Content/CssSite/images/zalo.png" />
+            <span>Zalo</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.faceBook))
+    {
+        <a target="_blank" href="@conf.faceBook" class="mes">
+            <img src="~/Content/CssSite/images/fb.png" />
+            <span>Facebook</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.youTube))
+    {
+        <a target="_blank" href="@conf.youTube" class="mes">
+            <img src="~/Content/CssSite/images/youTube.png" />
+            <span>YouTube</span>
+        </a>
+    }
+</section>
+
+@*@Html.Raw(conf.liveChat);
+@Html.Raw(conf.googleAnalytics)*@
+<div id="fb-root"></div>

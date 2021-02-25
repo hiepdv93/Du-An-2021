@@ -1,0 +1,166 @@
+﻿@model IList<NTSPRODUCT.Models.LocationModel>
+@{
+    ViewBag.Title = "Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb">
+                        <li class="home">
+                            <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </li>
+                        <li><strong><span itemprop="title">@ClassExten.GetLangKey("key_ttdt")</span></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="page-detail">
+    <div class="container">
+        <div class="row">
+            <section class="col-xs-12 col-md-12 col-lg-12">
+                <div class="titel-detail contact">
+                    <h1>@ClassExten.GetLangKey("key_ttdt")</h1>
+                </div>
+                <div class="page-detail-text">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-lg-12">
+                            @foreach (var item in Model)
+                            {
+                                if (item.List.Count > 0)
+                                {
+
+                                    <div class="panel panel-default clearfix">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a>@item.Location.name</a>
+                                            </h4>
+                                        </div>
+                                        <div id="address-822" class="panel-collapse">
+                                            <div class="panel-body">
+                                                <div class="c-address-list">
+                                                    <ul class="clearfix">
+                                                        @foreach (var itemSub in item.List)
+                                                        {
+                                                            <li>
+                                                                <h3>@itemSub.name</h3>
+                                                                <p>@itemSub.address</p>
+                                                                <p>@ClassExten.GetLangKey("key_sdt"): @itemSub.phone</p>
+                                                                <p>Email: <a href="mailto:@itemSub.email">@itemSub.email</a></p>
+                                                                <p class="text-right"><a href="#" onclick="GetMap('@itemSub.id')" data-toggle="modal" data-target="#map_27183" title="@ClassExten.GetLangKey("key_xembd")"><i class="fa fa-map-marker" aria-hidden="true"></i>@ClassExten.GetLangKey("key_xembd")</a></p>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="map_27183" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 col-xs-12 col-lg-12" id="div-map">
+                   
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@ClassExten.GetLangKey("key_huy")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function GetMap(id) {
+     $.ajax({
+        url: "/HomeSite/GetMap?id=" + id,
+        type: "POST",
+         success: function (data) {
+             $('#exampleModalLabel').html(data.data.address);
+             $('#div-map').html(data.data.map);
+            $('#map_27183').modal({
+                show: 'true'
+            });
+        },
+        error: function (response) {
+            toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+        },
+    });
+    }
+</script>
+<style>
+    .panel-collapse {
+        width: calc(100% - 200px);
+        float: right;
+    }
+
+    .panel-heading {
+        float: left;
+        width: 200px;
+    }
+
+    .c-address-list li {
+        width: 50%;
+        float: left;
+        padding: 0 10px;
+        min-height: 155px;
+        margin: 0 0 20px 0;
+    }
+
+    h4.panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: inherit;
+    }
+
+    .panel-title a {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px 30px;
+        pointer-events: none;
+        background: #72C6B3;
+        color: #fff;
+    }
+
+    .panel-body {
+        padding: 0 15px;
+    }
+
+    .c-address-list p {
+        margin: 0 0 10px;
+        font-size: 14px;
+    }
+
+    .c-address-list .text-right a {
+        color: #0072bc;
+        font-weight: 800;
+    }
+
+    .c-address-list h3 {
+        font-weight: 600;
+        font-size: 22px;
+    }
+</style>

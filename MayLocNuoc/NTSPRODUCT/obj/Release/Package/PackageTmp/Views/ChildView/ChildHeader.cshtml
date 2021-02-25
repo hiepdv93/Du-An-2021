@@ -1,0 +1,222 @@
+﻿@{
+    bool isHome = ViewBag.isHome;
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var qcTop = (NTSPRODUCT.Models.Adv)ViewBag.qcTop;
+}
+<!-- Header -->
+<header class="header_main">
+    @if (qcTop != null)
+    {
+        <div class="header_top_banner">
+            <a href="@qcTop.advLink" title="@qcTop.advLink"><img src="@qcTop.advImage" alt="@qcTop.advLink"></a>
+        </div>
+    }
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="header_top_text_left">
+                        <div class="text_left_inner">
+                            <p><img src="~/Content/CssSite/images/icon_phone_top.jpg" alt="#"> Hotline: <span class="text_style">0947 203 587 -  0987 283 121</span></p>
+                        </div>
+                        <div class="text_left_inner">
+                            <p><img src="~/Content/CssSite/images/icon_email_top.jpg" alt="#"> Email: <a href="">nguyenvuhai1987@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="header_top_text_right">
+                        <div class="text_right_inner">
+                            <ul>
+                                <li>
+                                    @*<a href="#register-box" class="signup-window no_border"><img src="images/icon_register_top.jpg" alt="#">Đăng ký</a>*@
+                                    <div id="register-box" class="signup">
+                                        <a href="#" class="close">Đóng lại <img src="images/close_login.png" class="img-close" title="Đóng lại" alt="Close" /></a>
+                                        <div class="sigup-box-inner">
+                                            <form method="post" class="signup-content" action="#">
+                                                <h2 class="signup_title"> Đăng ký tài khoản</h2>
+                                                <div class="signup_social">
+                                                    <span class="no_account">
+                                                        Bạn đã có tài khoản hợp
+                                                        Nhất. <a href="">Đăng nhập</a>
+                                                    </span>
+                                                    Bạn cũng có thể đăng nhập với : <a href="" title="Facebook"><i class="fa fa-facebook fa-facebook-style"></i></a> <a href="" title="Google +"><i class="fa fa-google-plus fa-google-style"></i></a>
+                                                </div>
+
+                                                <div class="form-input">
+                                                    <input id="signup_text_email" name="email" value="" type="email" placeholder="Email *" class="text_register">
+                                                    <input id="password" name="password" value="" type="password" placeholder="Mật khẩu *" class="signup_text_register">
+                                                    <input id="password" name="password" value="" type="password" placeholder="Nhập lại mật khẩu *" class="signup_text_register">
+                                                    <input id="signup_text_name" name="password" value="" type="text" placeholder="Họ và tên *" class="signup_text_register">
+                                                    <input id="signup_text_code" name="mã bảo mật" value="" type="text" placeholder="Nhập mã bảo mật *" class="signup_text_register"><img src="images/code_resgister.png" class="img-code" alt="">
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value="">Đăng ký nhận bản tin Hợp Nhất</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value="">Tôi đồng ý với điều khoản sử dụng</label>
+                                                </div>
+                                                (<span class="caption">*</span>) Thông tin bắt buộc nhập
+                                                <button class="button submit-button" type="submit">Đăng ký Ngay</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    @*<a href="#signup-box" class="signup-window"><img src="images/icon_signin_top.jpg" alt="#">Đăng nhập</a>*@
+                                    <div id="signup-box" class="signup">
+                                        <a href="#" class="close">Đóng lại <img src="images/close_login.png" class="img-close" title="Đóng lại" alt="Close" /></a>
+                                        <div class="sigup-box-inner">
+                                            <form method="post" class="signup-content" action="#">
+                                                <h2 class="signup_title"> Đăng nhập tài khoản</h2>
+                                                <div class="signup_social"> Đăng nhập bằng : <a href="" title="Facebook"><i class="fa fa-facebook fa-facebook-style"></i></a> <a href="" title="Google +"><i class="fa fa-google-plus fa-google-style"></i></a></div>
+                                                <div class="form-input">
+                                                    <h2 class="signup_email">Hoặc đăng nhập bằng mail:</h2>
+                                                    <input id="email" name="email" value="" type="email" placeholder="Email *">
+                                                    <label>
+                                                        <input id="password" name="password" value="" type="password" placeholder="Mật khẩu *">
+                                                    </label>
+                                                </div>
+                                                <button class="button submit-button" type="submit">Đăng nhập ngay</button>
+                                                <p class="forgot_password"><a href="">Quên mật khẩu ?</a></p>
+                                                <p class="no_account">Bạn chưa có tài khoản? <a href="">Đăng ký ngay</a></p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class="logo">
+                        <a href="/" title="Trang chủ"><img src="@conf.logoTop" style="width: 250px;margin: 13px 0 0 0;"></a>
+                    </div>
+                </div>
+                <!-- End Logo -->
+                <!-- Search -->
+                <div class="col-md-7 col-sm-6 col-xs-12">
+                    <div class="search_main">
+                            <input type="search" name="" id="homeSearch1" class="input_text" placeholder="Nhập từ khóa tìm kiếm theo sản phẩm ..." >
+                            <input type="button" name="" id="btnHomeSearch1" class="search_btn" value="">
+                    </div>
+                </div>
+                <!-- End Search -->
+                <!-- Cart -->
+                <div class="col-md-2 col-sm-6 col-xs-12">
+                    <div class="cart_main">
+                        <div class="cart_icon">
+                            <a href="/gio-hang"><img src="~/Content/CssSite/images/icon_cart.png" alt="#"></a>
+                        </div>
+                        <span class="icon_badge">@ViewBag.countSp</span>
+                    </div>
+                </div>
+                <!-- End Cart -->
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <nav class="navbar navbar-default hidden-menu-mobile" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <div class="menu_mobile hidden-desktop">
+                        <ul class="list-menu-mobile">
+                            <li class="level0">
+                                <a href="#register-box-mobile" class="signup-window"><i class="fa fa-user-plus"></i> Đăng ký</a>
+                                <div id="register-box-mobile" class="signup">
+                                    <a href="#" class="close">Đóng lại <img src="images/close_login.png" class="img-close" title="Đóng lại" alt="Close" /></a>
+                                    <div class="sigup-box-inner">
+                                        <form method="post" class="signup-content" action="#">
+                                            <h2 class="signup_title"> Đăng ký tài khoản</h2>
+                                            <div class="signup_social">
+                                                <span class="no_account">
+                                                    Bạn đã có tài khoản hợp
+                                                    Nhất. <a href="">Đăng nhập</a>
+                                                </span>
+                                                Bạn cũng có thể đăng nhập với : <a href="" title="Facebook"><i class="fa fa-facebook fa-facebook-style"></i></a> <a href="" title="Google +"><i class="fa fa-google-plus fa-google-style"></i></a>
+                                            </div>
+
+                                            <div class="form-input">
+                                                <input id="signup_text_email" name="email" value="" type="email" placeholder="Email *" class="text_register">
+                                                <input id="password" name="password" value="" type="password" placeholder="Mật khẩu *" class="signup_text_register">
+                                                <input id="password" name="password" value="" type="password" placeholder="Nhập lại mật khẩu *" class="signup_text_register">
+                                                <input id="signup_text_name" name="password" value="" type="text" placeholder="Họ và tên *" class="signup_text_register">
+                                                <input id="signup_text_code" name="mã bảo mật" value="" type="text" placeholder="Nhập mã bảo mật *" class="signup_text_register"><img src="images/code_resgister.png" class="img-code" alt="">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="">Đăng ký nhận bản tin Hợp Nhất</label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="">Tôi đồng ý với điều khoản sử dụng</label>
+                                            </div>
+                                            (<span class="caption">*</span>) Thông tin bắt buộc nhập
+                                            <button class="button submit-button" type="submit">Đăng ký Ngay</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="level0">
+                                <a href="#signup-box-mobile" class="signup-window"><i class="fa fa-user"></i> Đăng nhập</a>
+
+                                <div id="signup-box-mobile" class="signup">
+                                    <a href="#" class="close">Đóng lại <img src="images/close_login.png" class="img-close" title="Đóng lại" alt="Close" /></a>
+                                    <div class="sigup-box-inner">
+                                        <form method="post" class="signup-content" action="#">
+                                            <h2 class="signup_title"> Đăng nhập tài khoản</h2>
+                                            <div class="signup_social"> Đăng nhập bằng : <a href="" title="Facebook"><i class="fa fa-facebook fa-facebook-style"></i></a> <a href="" title="Google +"><i class="fa fa-google-plus fa-google-style"></i></a></div>
+                                            <div class="form-input">
+                                                <h2 class="signup_email">Hoặc đăng nhập bằng mail:</h2>
+                                                <input id="email" name="email" value="" type="email" placeholder="Email *">
+                                                <label>
+                                                    <input id="password" name="password" value="" type="password" placeholder="Mật khẩu *">
+                                                </label>
+                                            </div>
+                                            <button class="button submit-button" type="submit">Đăng nhập ngay</button>
+                                            <p class="forgot_password"><a href="">Quên mật khẩu ?</a></p>
+                                            <p class="no_account">Bạn chưa có tài khoản? <a href="">Đăng ký ngay</a></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="level0">
+                                <a href="">Hướng dẫn</a>
+                            </li>
+                            <li class="level0">
+                                <a href="">Kiểm tra đơn hàng</a>
+                            </li>
+                            <li class="level0">
+                                <div class="search_main">
+                                    <form action="" method="GET">
+
+                                        <input type="search" name="" class="input_text" placeholder="Nhập từ khóa tìm kiếm theo sản phẩm ..." required>
+                                        <input type="submit" name="" class="search_btn" value="">
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Menu Mobile -->
+    </div>
+</header>
+<!-- End Header -->

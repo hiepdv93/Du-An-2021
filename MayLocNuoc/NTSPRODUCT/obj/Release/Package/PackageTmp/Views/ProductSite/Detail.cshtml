@@ -1,0 +1,478 @@
+﻿
+@model IList<NTSPRODUCT.Models.Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var pro = (NTSPRODUCT.Models.Product)ViewBag.pro;
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var slide = (NTSPRODUCT.Models.Slide)ViewBag.slide;
+
+    var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
+    var news = (List<NTSPRODUCT.Models.News>)ViewBag.news;
+    var sologan = (List<NTSPRODUCT.Models.Sologan>)ViewBag.sologan;
+    var cateParent = menu.Where(u => u.mPosition == 1 && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+    var menuBottom = menu.FirstOrDefault(u => u.mPosition != 1 && u.par_id.Equals(ClassExten.cateParent));
+    var menuSub = new List<NTSPRODUCT.Models.Menu>();
+    if (menuBottom != null)
+    {
+        menuSub = menu.Where(u => u.mPosition != 1 && u.active == true && u.par_id.Equals(menuBottom.id)).ToList();
+    }
+}
+<div class="run_h" style="position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:999;">
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="logo">
+                        <a href="/" title="@conf.shopName">
+                            <img src="@conf.logoTop" title="@conf.shopName"
+                                 alt="@conf.shopName" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="hotline_t">
+                        <p>Hotline</p>
+                        <P><span>@conf.hotLine</span></P>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+
+                    <a class="but_mn"><i class="fa fa-bars" aria-hidden="true"></i>MENU</a>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.danhmuc_left li').hover(function () { $(this).css('cursor', 'pointer') });
+                            $('.but_mn').click(function () {
+                                var obj = $(this);
+                                if (obj.hasClass('expand')) {
+                                    obj.removeClass('expand');
+                                    obj.addClass('colpand');
+                                    $('.wap_mn').css('display', 'block');
+                                    $('.sf-menu').show(400);
+                                    $('.Close').show(400);
+                                }
+                                else if (obj.hasClass('colpand')) {
+                                    obj.removeClass('colpand');
+                                    obj.addClass('expand');
+                                    $('.wap_mn').css('display', 'none');
+                                    $('.Close').hide(400);
+
+                                }
+                            });
+                        });</script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.Close').click(function () {
+                                $('.wap_mn').hide(400);
+                            });
+                        });</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wap_header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box_menu_s">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                                <div class="wap_mn">
+                                    <div class="menu" style="position:relative">
+                                        <ul class="sf-menu" id="sf-menu">
+                                            @foreach (var item in cateParent)
+                                            {
+                                                if (item.link.ToLower().Equals("/danh-muc"))
+                                                {
+                                                    <li>
+                                                        <a href="@item.link" title="@item.name">@item.name</a>
+                                                        <ul>
+                                                            @foreach (var itemSub in Model)
+                                                            {
+                                                                <li>
+                                                                    <a href="/san-pham/@itemSub.pro_key"
+                                                                       title="@itemSub.pro_name">@itemSub.pro_name</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li><a href="@item.link" title="@item.name">@item.name</a></li>
+                                                    @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, menu.Where(u => !u.par_id.Equals(ClassExten.cateParent) && u.mPosition == 1).ToList()))
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+                                <div class="search_top">
+                                    <form method="post" action="/tim-kiem/">
+                                        <input type="text" name="txts" value="" placeholder="Tìm kiếm..." />
+                                        <input type="submit" value="" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(window).scroll(function () {
+        var h = $(document).height();
+        scrollTop = $(window).scrollTop();
+        if (scrollTop > 170) {
+            $('.run_h').addClass('fixed');
+        }
+        else {
+            $('.run_h').removeClass('fixed');
+        }
+    });</script>
+
+@if (slide != null)
+{
+    <div class="wap_slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <a href="@slide.sLink" title="@slide.name">
+                        <img src="@slide.images" alt="@slide.name" border="0" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+
+<!-- jQuery -->
+<link rel="stylesheet" href="~/Content/CssSite/css/flexslider.css" type="text/css" media="screen" />
+<!-- FlexSlider -->
+<script defer src="~/Content/CssSite/js/jquery.flexslider.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        // SyntaxHighlighter.all();
+    });
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            prevText: "",           //String: Set the text for the "previous" directionNav item
+            nextText: "",
+            animation: "slide",
+            start: function (slider) {
+                $('body').removeClass('loading');
+            }
+        });
+    });</script>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var item in sologan)
+        {
+            <div class="col-lg-3 col-xs-6">
+                <div class="item_lh">
+                    <a href="@item.link" title="@item.name">
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-12">
+                                <img src="@item.avata" alt="@item.name">
+                            </div>
+                            <div class="col-lg-9 col-xs-12">
+                                @item.name
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+
+                <li>
+                    <i class="glyphicon glyphicon-link"></i>&nbsp;&nbsp;<a href="/" title="Trang chủ">Trang chủ</a>
+                </li>
+                <li class="active">
+                    <a title="@pro.pro_name" href="/san-pham/@pro.pro_name">
+                        @pro.pro_name
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="ct_pro">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12  col-md-5 product-images">
+                <div id="item_img" style="overflow: hidden;">
+                    <img id="zoom_03" class="img_des" src="@pro.proAvata" alt="@pro.pro_name"
+                         data-zoom-image="@pro.proAvata" />
+                    <div id="gallery_01">
+                        <ul style="overflow: hidden;" id="first-carousel"
+                            class="first-and-second-carousel jcarousel-skin-tango">
+                            <li>
+                                <a style="cursor:pointer" class="elevatezoom-gallery"
+                                   data-image="@pro.proImages1"
+                                   data-zoom-image="@pro.proImages1">
+                                    <img src="@pro.proImages1"
+                                         alt="@pro.pro_name" />
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                <h1 class="name_pro_de">@pro.pro_name</h1>
+
+                <div class="info-prod info-spec prod-brand">
+                    <span class="title">Mã sản phẩm:</span>
+                    <span class="info"> @pro.proCode</span>
+                </div>
+                <div class="info-prod info-spec prod-brand">
+                    <span class="title">Lượt xem:</span>
+                    <span class="info"> @pro.pro_view</span>
+                </div>
+                <table class="ct_mh">
+                    <tr>
+                        <td colspan="2"><span class="info gia" style="color:red;font-size:20px;">Liên hệ</span></td>
+                        <td colspan="2">
+                            <span style="color:#ccc;text-decoration:line-through;font-size:15px">
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <div style="clear:both"></div>
+                <div class="mt_sp">
+                    @Html.Raw(pro.prodescription)
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="title_bcts">
+        <ul class="tab_ts tab_ctsp tab_ts4">
+            <li><a href="#chitiet4" title="Chi tiết" class="ts_ac">Chi tiết</a></li>
+            <li><a href="#thongso4" title="Chi tiết">Thông số kỹ thuật</a></li>
+            <li><a href="#congnghe4" title="Chi tiết">Công nghệ</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".tab_ts4 a").click(function () {
+                $('.tab_ts4 a').removeClass('ts_ac');
+                $(this).addClass('ts_ac');
+                var id = $(this).attr('href');
+                $('.ct_tabts4').hide();
+                $(id).show();
+                return false;
+            });
+        });
+    </script>
+    <div class="ct_at ct_ctsp">
+        <div class="ct_tabts ct_tabts4" id="chitiet4" style="display:block;">
+            @Html.Raw(pro.proContentTab1)
+        </div>
+        <div class="ct_tabts ct_tabts4" id="thongso4">
+            @Html.Raw(pro.proContentTab2)
+        </div>
+        <div class="ct_tabts ct_tabts4" id="congnghe4">
+            @Html.Raw(pro.proContentTab3)
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title_bcts"><span>Sản phẩm cùng loại</span></div>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-xs-6 ">
+                            <div class="item_pro_h">
+                                <div class="img_pro_b">
+                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                        <img src="@item.proAvata" alt="@item.pro_name"
+                                             title="@item.pro_name" />
+                                    </a>
+                                </div>
+                                <a href="/san-pham/@item.pro_key" class="name_p" title="@item.pro_name">
+                                    @item.pro_name
+                                </a>
+                                <p class="gia">Liên hệ</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <hr />
+
+                <div class="tag">
+                    <b>Bình luận:</b>
+                    <div>
+                        <div id="fb-root"></div>
+                        <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "../connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-comments" data-href="https://locnuoctaokiem.vn/may-loc-nuoc-it-737.html"
+                             data-numposts="5" data-width="100%"></div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<!--hang-->
+<div class="wap_r1_f">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="img_tt">
+                    <img src="@conf.logoBottom" alt="@conf.shopName" />
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-43 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            <p>Giới thiệu</p><span></span>
+                        </div>
+                        <div class="info_f">@conf.shopName</div>
+                        <div class="info_f">
+                            @Html.Raw(conf.infoPage)
+                            <div>
+                                <span style="font-size: 14px;">&nbsp;</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            @if (menuBottom != null)
+                            {
+                                <a href="@menuBottom.link" title="@menuBottom.name">
+                                    @menuBottom.name
+                                </a><span></span>
+                            }
+                        </div>
+                        <ul class="list_c2f">
+                            @foreach (var item in menuSub)
+                            {
+                                <li>
+                                    <a href="@item.link" title="@item.name">@item.name</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                        <div class="title_f">
+                            <p>Kết nối với chúng tôi</p><span></span>
+                        </div>
+                        <div class="mxh">
+                            <a href="@conf.faceBook" title="Facebook" target="_blank">
+                                <img src="~/Content/CssSite/images/facebook.png" border="0" alt="Facebook" title="Facebook" />
+                            </a>
+                            <a href="@conf.youTube" title="youtube" target="_blank">
+                                <img src="~/Content/CssSite/images/youtube.png" border="0"
+                                     alt="youtube" title="youtube" />
+                            </a>
+                            <a href="@conf.google" title="google" target="_blank">
+                                <img src="~/Content/CssSite/images/google.png" border="0"
+                                     alt="google" title="google" />
+                            </a>
+                            <a href="@conf.tiki" title="instagram" target="_blank">
+                                <img src="~/Content/CssSite/images/int.png" border="0"
+                                     alt="instagram" title="instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--doi-tac-->
+<div class="end_f">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="copy_r">
+                    © Copyrights 2020 thietkewebsitedomain.com| Thiết kế bởi: NTS
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="but_f">
+    <a href="#" title="Top" class="backtop"><i class="fa fa-chevron-up"></i></a>
+    <script>
+        $('.backtop').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });</script>
+</div>
+<div class="hotline_t hotline_r" style="position:fixed;margin:0px;left:10px;bottom:10px;">
+    <a href="tel:@conf.hotLine" title="Call">
+        <P>@conf.hotLine</P>
+    </a>
+</div>
+
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "../connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".chat_fb").click(function () {
+            jQuery('.fchat').toggle('slow');
+        });
+    });</script>
+<div id="cfacebook">
+    <a href="javascript:;" class="chat_fb" onclick="return:false;">
+        <i class="fa fa-facebook-square"></i> Hỗ trợ trực
+        tuyến 24/7
+    </a>
+    <div class="fchat">
+        <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/LocnuocTramHan/"
+             data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true"
+             data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+    </div>
+</div>
+
+

@@ -1,0 +1,51 @@
+﻿@model IList<NTSPRODUCT.Models.FieldActivity>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb">
+                        <li class="home">
+                            <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </li>
+                        <li><strong><span itemprop="title">@ClassExten.GetLangKey("key_ungdung")</span></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="page-detail">
+    <div class="container">
+        <div class="row flex-wrap">
+            @Html.Action("PageProLeft", "ChildView", new { lang = ViewBag.lang, type = 1 })
+            <section class="main_container collection col-lg-9 col-md-9 col-md-push-3 col-lg-push-3">
+                <div class="category-products products">
+                    <div class="titel-home">
+                        <h2 class="uppercase text-center">@ClassExten.GetLangKey("key_ungdung")</h2>
+                    </div>
+                    <section class="products-view products-view-grid">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-3 col-lg-3 col-xs-12">
+                                    <div class="items-product">
+                                        <a title="@item.name">
+                                            <img src="@(item.image!=null? item.image.Replace("/uploads","/uploads/_thumbs"):"")" alt="@item.name" />
+                                        </a>
+                                        <p><a title="@item.name">@item.name</a></p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

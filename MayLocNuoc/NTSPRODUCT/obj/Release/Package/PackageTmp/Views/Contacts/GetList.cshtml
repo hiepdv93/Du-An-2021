@@ -1,0 +1,62 @@
+﻿@model IList<NTSPRODUCT.Models.Contact>
+@{ int index = ViewBag.Index;}
+<div class="col-sm-12">
+    <table class="table table-bordered table-hover" style="min-width:1000px">
+        <thead>
+            <tr>
+                <th width="40px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th width="180px" class="text-center">Họ tên</th>
+                <th width="150px">Email</th>
+                <th width="150px">Điện thoại</th>
+                <th width="180px">Địa chỉ</th>
+                <th>Nội dung</th>
+                <th width="100px">Ngày gửi</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                index++;
+            <tr>
+                <td class="text-center">@index</td>
+                <td class="text-center">
+                    <a href="javascript:void(0)" onclick="ShowDetail('@item.id')" title="Xem nội dung"><i class="fa fa-eye font18" aria-hidden="true"></i></a>
+                    <a  href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                </td>
+                <td>@item.fullName</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@NTSPRODUCT.Models.StringClass.FormatContentNews(item.contents, 100)</td>
+                <td>@item.createDate.Value.ToString("dd/MM/yyyy")</td>
+            </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+<div class="col-sm-5">
+    <div class="form-group">
+        <div class="controls">
+            <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+            <span>bản ghi/Trang</span>
+        </div>
+    </div>
+</div>
+<div class="col-sm-7">
+    @Html.Raw(ViewBag.pages)
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

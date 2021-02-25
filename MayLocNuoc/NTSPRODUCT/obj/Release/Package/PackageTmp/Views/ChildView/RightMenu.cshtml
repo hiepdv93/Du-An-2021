@@ -1,0 +1,21 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+}
+
+<div class="list_categories_menu_right" id="menu">
+    <ul>
+        @foreach (var item in cateParent)
+        {
+            <li>
+                @Html.Raw(item.icon)  <a href="@item.link" title="@item.name">@item.name</a>
+                @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()))
+            </li>
+        }
+    </ul>
+</div>
+<style>
+    #menu .submenu {
+        display: none
+    }
+</style>

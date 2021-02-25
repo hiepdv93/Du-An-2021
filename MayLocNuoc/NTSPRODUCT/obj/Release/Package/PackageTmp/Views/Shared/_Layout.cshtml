@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="~/Content/CssSite/images/logo_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/superfish.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/superfish_s.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/font-awesome.css" />
+    <script type="text/javascript" src="~/Content/CssSite/js/jquery-1.7.1.min.js"></script>
+    <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=vietnamese" rel="stylesheet">
+    <!-- End Shema.org -->
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/animate.css" />
+    <script type="text/javascript" src="~/Content/CssSite/js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <style>
+        #cfacebook {
+            position: fixed;
+            bottom: 0px;
+            right: 10px;
+            z-index: 999999999999999;
+            width: 250px;
+            height: auto;
+            box-shadow: 6px 6px 6px 10px rgba(0, 0, 0, 0.2);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow: hidden;
+        }
+
+            #cfacebook .fchat {
+                float: left;
+                width: 100%;
+                height: 270px;
+                overflow: hidden;
+                display: none;
+                background-color: #fff;
+            }
+
+                #cfacebook .fchat .fb-page {
+                    margin-top: -130px;
+                    float: left;
+                }
+
+            #cfacebook a.chat_fb {
+                float: left;
+                padding: 0 18px;
+                width: 270px;
+                color: #fff;
+                text-decoration: none;
+                height: 40px;
+                line-height: 40px;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                background-repeat: repeat-x;
+                background-size: auto;
+                background-position: 0 0;
+                background-color: #3a5795;
+                border: 0;
+                border-bottom: 1px solid #133783;
+                z-index: 9999999;
+                margin-right: 12px;
+                font-size: 18px;
+            }
+
+                #cfacebook a.chat_fb:hover {
+                    color: yellow;
+                    text-decoration: none;
+                }
+    </style>
+    <style>
+        .but_f {
+            position: fixed;
+            bottom: 50px;
+            right: 10px;
+        }
+
+            .but_f a i {
+                display: block;
+                font-size: 15px;
+                line-height: 30px;
+                color: #ffffff;
+            }
+
+            .but_f a:hover i {
+                display: block;
+                font-size: 20px;
+                line-height: 30px;
+                color: #fbdd12;
+            }
+
+            .but_f a {
+                cursor: pointer;
+                display: block;
+                width: 33px;
+                height: 33px;
+                display: block;
+                text-align: center;
+                bottom: 55px;
+                z-index: 999;
+                border-radius: 2px;
+                margin-bottom: 10px;
+                background: #ebae30;
+                border-radius: 500px;
+            }
+    </style>
+    <style>
+        .title_bcts .ts_ac {
+            background: #0591dc !important;
+        }
+
+        .box_menu_s {
+            background: #0591dc;
+        }
+
+        .title_bcts span {
+            color: #0591dc
+        }
+
+        .title_bcts a {
+            color: #0591dc
+        }
+
+        .sf-menu > li:hover > a {
+            color: #0591dc !important;
+        }
+
+        a {
+            color: #0591dc;
+        }
+
+        .title_box {
+            color: #0591dc;
+        }
+
+            .title_box .boxl {
+                background: #0591dc;
+            }
+    </style>
+    <style>
+        .pagination span {
+            background-color: #0072bc !important;
+            color: #fff !important;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+
+    @RenderBody()
+
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Content/AdminJSController/script_validate.js"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js"></script>
+
+
+
+</body>
+</html>

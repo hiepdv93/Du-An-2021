@@ -1,0 +1,44 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.cateNew;
+    var cateParent = catepro.Where(u => u.catepar_id.Equals("-1")).OrderBy(u => u.cateOrder).ToList();
+}
+<aside class="dqdt-sidebar sidebar left left-content col-lg-3 col-md-3 col-lg-pull-9 col-md-pull-9 space-30">
+    <aside class="aside-item collection-category">
+        <div class="aside-title">
+            <h2 class="title-head margin-top-0"><span>@ClassExten.GetLangKey("key_Danhmuctin")</span></h2>
+        </div>
+        <div class="categories-box">
+            <ul class="nav navbar-pills">
+                @foreach (var item in cateParent)
+                {
+                    <li class="nav-item ">
+                        <a href="/tin-tuc/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
+                        @Html.Raw(ClassExten.GetCateNewSiteLevel2(item.id, catepro.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
+                    </li>
+                }
+            </ul>
+        </div>
+    </aside>
+    <aside class="aside-item wrap-product-hot style-scroll">
+        <div class="aside-title">
+            <h2 class="title-head margin-top-0"><a href="#" title="">@ClassExten.GetLangKey("key_tinnb")</a></h2>
+        </div>
+        <div class="list-product-slidebar">
+            @foreach (var item in Model)
+            {
+                <div class="list-item">
+                    <div class="thumb-imagtes">
+                        <a href="/tin/@item.new_key" title="@item.title">
+                            <img src="@item.newImage" alt="@item.title">
+                        </a>
+                    </div>
+                    <div class="product-info-text">
+                        <h3 class="product-name text2line"><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </aside>
+</aside>
+
