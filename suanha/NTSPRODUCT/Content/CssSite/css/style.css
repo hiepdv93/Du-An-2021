@@ -645,7 +645,7 @@ img {
 }
     .section_dich_vu .evo-box-dich-vu .evo-box-dich-vu-group .evo-box-dich-vu-image {
         position: relative;
-        height: 300px;
+        height: 250px;
         overflow: hidden;
     }
 .section_dich_vu .evo-box-dich-vu .evo-box-dich-vu-group .evo-box-dich-vu-image img {
@@ -657,8 +657,9 @@ img {
     left: 0;
     right: 0;
     margin: auto;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
+	    border-radius: 5px;
 }
 .section_dich_vu .evo-box-dich-vu .evo-box-dich-vu-group .content-box-dich-vu {
     position: absolute;
@@ -1244,16 +1245,33 @@ img {
     clip-path: polygon(100% 0, 0 100%, 100% 100%) !important;
 }
 .home-box-lightbox a:after, .home-box-lightbox a:before {
-    content: "";
-    display: inline-block;
-    background: #efefef;
-    width: 40px;
-    height: 40px;
-    clip-path: polygon(100% 0, 0 0, 0 100%);
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    z-index: 9;
+
+}
+.home-box-lightbox .content-box-dich-vu{
+	     position: absolute;
+    bottom: 55px;
+    background: rgba(4, 4, 4, 0.7);
+    width: 100%;
+    left: 0;
+    color: #fff;
+    opacity: 0.6;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    padding: 10px;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+	height:55px
 }
 .home-box-lightbox a img, .home-blog a img {
     transition: all 0.3s ease 0s;

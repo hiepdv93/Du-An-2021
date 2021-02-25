@@ -109,7 +109,7 @@ namespace NTSPRODUCT.Controllers.Site
                 #endregion
                 ViewBag.newData = newData;
                 #region[lay cac bai lien quan]
-                newOther = db.News.Where(u => !u.id.Equals(newData.id) && u.status == Constants.Active).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
+                newOther = db.News.Where(u => !u.id.Equals(newData.id) && u.groupId.Equals(newData.groupId) && u.status == Constants.Active).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
                 #endregion
             }
             return View(newOther);

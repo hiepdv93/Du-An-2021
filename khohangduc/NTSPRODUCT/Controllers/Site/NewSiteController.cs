@@ -89,6 +89,7 @@ namespace NTSPRODUCT.Controllers.Site
 
         public ActionResult Detail(string id)
         {
+            List<News> newOther = new List<News>();
             ViewBag.lang = lang;
             Config conf;
             if (ConfigModel.listConfig == null)
@@ -111,10 +112,10 @@ namespace NTSPRODUCT.Controllers.Site
                 #endregion
                 ViewBag.newData = newData;
                 #region[lay cac bai lien quan]
-                // newOther = db.News.Where(u => u.newLang.Equals(lang) && u.status == Constants.Active && u.newHot == false).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
+                newOther = db.News.Where(u => u.status == Constants.Active && u.groupId.Equals(newData.groupId) && !u.id.Equals(newData.id)).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
                 #endregion
             }
-            return View();
+            return View(newOther);
         }
 
         public List<string> GetListId(string idp, int cap)

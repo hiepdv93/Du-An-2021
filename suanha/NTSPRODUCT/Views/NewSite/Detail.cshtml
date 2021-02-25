@@ -47,11 +47,11 @@
                 <div class="page-detail-text">
                     @Html.Raw(newData.contents)
                     <hr />
-                    <h2>Các bài tin cùng chuyên mục</h2>
+                    <h2>Tin cùng chuyên mục</h2>
                     <ul>
                         @foreach (var item in Model)
                         {
-                            <li><a href="/dich-vu/@item.new_key" title="@item.title"><i class="fa fa-caret-right" aria-hidden="true"></i> @item.title (@item.updateDate.Value.ToString("dd/MM/yyyy")</a></li>
+                            <li><a href="/dich-vu/@item.new_key" title="@item.title"><i class="fa fa-caret-right" aria-hidden="true"></i> @item.title (@item.updateDate.Value.ToString("dd/MM/yyyy"))</a></li>
                         }
                     </ul>
                 </div>

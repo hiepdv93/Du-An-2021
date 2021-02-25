@@ -1137,3 +1137,4 @@ E:\Project Old\DuAnWeb\HangDucHaAnh\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreC
 E:\Project Old\DuAnWeb\HangDucHaAnh\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
 E:\Project Old\DuAnWeb\HangDucHaAnh\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
 E:\Project Old\DuAnWeb\HangDucHaAnh\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\Project Old\DuAnWeb\HangDucHaAnh\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
