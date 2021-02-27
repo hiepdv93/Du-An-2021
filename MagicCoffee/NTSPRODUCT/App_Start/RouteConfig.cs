@@ -50,11 +50,7 @@ namespace NTSPRODUCT
             url: "tin/{id}",
             defaults: new { controller = "NewSite", action = "Detail", id = UrlParameter.Optional }
          );
-            routes.MapRoute(
-            name: "giai-phap",
-            url: "giai-phap/{id}",
-            defaults: new { controller = "HomeSite", action = "Solution", id = UrlParameter.Optional }
-        );
+          
             routes.MapRoute(
              name: "Lien he",
              url: "lien-he",

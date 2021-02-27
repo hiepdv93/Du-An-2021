@@ -23,7 +23,7 @@ namespace NTSPRODUCT.Controllers.Site
             var product = db.Products.Where(u => u.active == true).ToList();
             ViewBag.pro = product;
 
-            var cate = db.Categorys.Where(u => u.cateActive == true && u.cateType==ClassExten.typePro ).ToList();
+            var cate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typePro).ToList();
             ViewBag.cate = cate;
 
             var menu = db.Menus.Where(u => u.mPosition == 1 && u.active == true).ToList();
@@ -124,6 +124,23 @@ namespace NTSPRODUCT.Controllers.Site
         // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildFooter(string path)
         {
+            string groupNewID = ClassExten.cateParent;
+
+            string url = HttpContext.Request.Url.AbsoluteUri;
+            string pathq = HttpContext.Request.Url.AbsolutePath;
+            if (pathq.Contains("/tin-tuc/") || pathq.Contains("/nhom-thuc-don/"))
+            {
+                var arr = pathq.Split('/').ToArray();
+                string key = arr[1];
+                if (!string.IsNullOrEmpty(key))
+                {
+                    var cate = db.Categorys.FirstOrDefault(u => u.cateKey.Equals(key));
+                    if (cate != null)
+                    {
+                        groupNewID = cate.id;
+                    }
+                }
+            }
             Config conf;
             if (ConfigModel.listConfig == null)
             {
@@ -131,7 +148,17 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
-            var news = db.News.Where(u => u.status == Constants.Active).OrderByDescending(u => u.createDate).Take(3).ToList();
+            var news = db.News.Where(u => u.status == Constants.Active && (groupNewID == ClassExten.cateParent || u.groupId.Equals(groupNewID))).OrderByDescending(u => u.createDate).Take(3).ToList();
+            int tinThieu = 3 - news.Count();
+            if (tinThieu > 0)
+            {
+                var lstId = news.Select(u => u.id).ToList();
+                var lstThieu = db.News.Where(u => u.status == Constants.Active && !lstId.Contains(u.id)).OrderByDescending(u => u.createDate).Take(tinThieu).ToList();
+                if (lstThieu.Count > 0)
+                {
+                    news.AddRange(lstThieu);
+                }
+            }
             return PartialView(news);
         }
 
