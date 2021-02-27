@@ -42,7 +42,7 @@
                             }
                             else
                             {
-                                <li><a href="@("http://zalo.me/0981481368:"+item.nick)" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName</span></a></li>
+                                <li><a href="@("http://zalo.me/"+item.nick)" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName</span></a></li>
                             }
                         }
                     </ul>
@@ -65,9 +65,13 @@
                             {
                                 <li><a href="skype:@item.nick?chat" title="@item.fullName"><span class="ico"><i class="fa  fa-skype"></i></span><span class="title_">@item.fullName</span></a></li>
                             }
-                            else
+                             else if (item.sType == 2)
                             {
                                 <li><a href="tel:@item.phone" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName: @item.phone</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@("http://zalo.me/"+item.nick)" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName</span></a></li>
                             }
                         }
                     </ul>
