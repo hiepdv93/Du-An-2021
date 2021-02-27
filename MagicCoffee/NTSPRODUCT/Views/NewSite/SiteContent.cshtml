@@ -3,20 +3,25 @@
     var menu = (NTSPRODUCT.Models.Menu)ViewBag.menu;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="content-page">
-    <div class="product pt-4">
-        <div class="container">
-            <div class="row">
-                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
-                <div class="col-lg-9 col-md-9 col-xs-12">
-                    <div class="page-detail">
-                        <h1 class="font-taviraj">@menu.name</h1>
-                        <div class="page-text">
-                            @Html.Raw(menu.note)</div>
+
+<div id="vnt-news">
+    <div class="wrapper">
+        <div class="mod-content row">
+            <div id="vnt-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="newsTitle">
+                    <h1>@menu.name</h1>
+                </div>
+                <div class="newsDate"><span>@menu.updateDate.Value.ToString("dd/MM/yyyy HH:mm")</span></div>
+                <div class="the-content desc">
+                    <div align="justify">
+                        @Html.Raw(menu.note)
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
+
 
