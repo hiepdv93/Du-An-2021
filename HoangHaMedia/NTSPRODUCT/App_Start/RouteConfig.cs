@@ -52,7 +52,7 @@ namespace NTSPRODUCT
             routes.MapRoute(
             name: "su-kien",
             url: "su-kien/{id}",
-            defaults: new { controller = "ProductSite", action = "Detail", id = UrlParameter.Optional }
+            defaults: new { controller = "ProductSite", action = "Sukien", id = UrlParameter.Optional }
         );
             routes.MapRoute(
             name: "hoi truong",

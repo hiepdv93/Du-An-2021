@@ -82,8 +82,7 @@ main#content {
 }
 
 #navBar {
-  /*  padding-top: 10px;*/
-    background: #ff5b02;
+    background: #00759a;
 }
 #menu>ul{
 /*margin-left: 237px;*/
@@ -226,7 +225,7 @@ main#content {
         transform: translateX(250px);
     }
     html.open-menu nav#menu {
-        z-index: 3;
+        z-index: 30;
         transform: translateX(0);
     }
 }

@@ -11,6 +11,10 @@
   color: rgb(54, 54, 54);
 }
 
+.color-blue{
+  color: #15759a;
+}
+
 /* Flex */
 .flex {
   display: flex;
@@ -27,7 +31,7 @@
 }
 
 a {
-  color: #000000;
+  color: #333333;
   text-decoration: none;
 }
 
@@ -49,6 +53,10 @@ a:focus {
 
 .mg-0 {
   margin: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 
 button:focus, .btn:focus {

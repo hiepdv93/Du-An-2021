@@ -295,10 +295,16 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pro_code" Type="nvarchar" MaxLength="200" />
     <Property Name="pro_name" Type="nvarchar" MaxLength="800" />
     <Property Name="pro_key" Type="nvarchar" MaxLength="800" />
     <Property Name="pro_view" Type="int" />
     <Property Name="proOrder" Type="int" />
+    <Property Name="proAvata5" Type="nvarchar" MaxLength="450" />
+    <Property Name="proAvata4" Type="nvarchar" MaxLength="450" />
+    <Property Name="proAvata3" Type="nvarchar" MaxLength="450" />
+    <Property Name="proAvata2" Type="nvarchar" MaxLength="450" />
+    <Property Name="proAvata1" Type="nvarchar" MaxLength="450" />
     <Property Name="proAvata" Type="nvarchar" MaxLength="450" />
     <Property Name="acreage" Type="nvarchar" MaxLength="450" />
     <Property Name="type" Type="nvarchar" MaxLength="450" />

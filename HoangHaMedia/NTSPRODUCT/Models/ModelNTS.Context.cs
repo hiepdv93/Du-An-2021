@@ -45,8 +45,8 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<Support> Supports { get; set; }
         public virtual DbSet<Tagpro> Tagproes { get; set; }
         public virtual DbSet<Config> Configs { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<SayWe> SayWes { get; set; }
         public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

@@ -1,96 +1,126 @@
 ﻿@model IList<NTSPRODUCT.Models.Support>
 @{
-    var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.catepro;
-    var cateParent = catepro.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
+    var sologan = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologan;
+    var pro = (List<NTSPRODUCT.Models.Product>)ViewBag.pro;
     string typePage = ViewBag.typePage;
 }
-<div class="col-md-3 col-xs-12 col-lg-3">
-    @if (typePage.Equals("list"))
-    {
-        <div class="aside_catalog">
-            <div class="title_module">
-                <h2><span>@ClassExten.GetLangKey("key_danhmuc")</span></h2>
-            </div>
-            <div class="categories-box">
-                <ul class="nav navbar-pills">
-                    @foreach (var item in cateParent)
+
+<div class="col-md-3 col-xs-12 col-lg-3" id="left-panel">
+    <div class="aside_camket hidden-xs">
+        <div class="title_module">
+            <h2><span>Cam kết khách hàng</span></h2>
+        </div>
+        <div class="categories-box">
+            <ul class="list-cam-ket">
+                @foreach (var item in sologan)
+                {
+                    <li><i class="fa fa-hand-o-right">&nbsp;</i>@item.title</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="aside_catalog">
+        <div class="title_module">
+            <h2><span>Dịch vụ</span></h2>
+        </div>
+        <div class="categories-box">
+            <ul class="nav navbar-pills">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/hoi-truong">Hội trường</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/su-kien">Sự kiện</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="aside_content_news">
+        <div class="title_module">
+            <h2><span>Sự kiện nổi bật</span></h2>
+        </div>
+        <div class="categories-box">
+            <div class="list-blogs">
+                @if (typePage.Equals(ClassExten.SuKien))
+                {
+                    foreach (var item in pro)
                     {
-                        <li class="nav-item ">
-                            <a href="/danh-muc/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
-                            @Html.Raw(ClassExten.GetCateSiteLevel2(item.id, catepro.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
-                        </li>
+                        <article class="blog-item blog-item-list clearfix">
+                            <a href="/su-kien/@item.pro_key" title="@item.pro_name" class="panel-box-media">
+                                <img src="@item.proAvata" width="70" alt="@item.pro_name">
+                            </a>
+                            <div class="blogs-rights">
+                                <h3 class="blog-item-name">
+                                    <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                        @item.pro_name
+                                    </a>
+                                </h3>
+                                <div class="wrap_price_item">
+                                    <a href="/su-kien/@item.pro_key" title="@item.pro_name" class="views_details">
+                                        Xem chi tiết  <i class="fa fa-angle-double-right"
+                                                         aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    }
+                }
+                else
+                {
+                    foreach (var item in pro)
+                    {
+                        <article class="blog-item blog-item-list clearfix">
+                            <a href="/hoi-truong/@item.pro_key" title="@item.pro_name" class="panel-box-media">
+                                <img src="@item.proAvata" width="70" alt="@item.pro_name">
+                            </a>
+                            <div class="blogs-rights">
+                                <h3 class="blog-item-name">
+                                    <a href="/hoi-truong/@item.pro_key" title="@item.pro_name">
+                                        @item.pro_name
+                                    </a>
+                                </h3>
+                                <div class="wrap_price_item">
+                                    <a href="/hoi-truong/@item.pro_key" title="@item.pro_name" class="views_details">
+                                        Xem chi tiết<i class="fa fa-angle-double-right"
+                                                       aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    }
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="aside_support support_online">
+        <div class="title_module">
+            <h2><span>@ClassExten.GetLangKey("key_httt")</span></h2>
+        </div>
+        <div class="support_content">
+            <div class="list_support">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        if (item.sType == 1)
+                        {
+                            <li><a href="skype:@item.nick?chat" title="@item.fullName"><span class="ico"><i class="fa  fa-skype"></i></span><span class="title_">@item.fullName</span></a></li>
+                        }
+                        else if (item.sType == 2)
+                        {
+                            <li><a href="tel:@item.phone" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName: @item.phone</span></a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@("http://zalo.me/"+item.nick)" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName</span></a></li>
+                        }
                     }
                 </ul>
             </div>
         </div>
-        <div class="aside_support support_online">
-            <div class="title_module">
-                <h2><span>@ClassExten.GetLangKey("key_httt")</span></h2>
-            </div>
-            <div class="support_content">
-                <div class="list_support">
-                    <ul>
-                        @foreach (var item in Model)
-                        {
-                            if (item.sType == 1)
-                            {
-                                <li><a href="skype:@item.nick?chat" title="@item.fullName"><span class="ico"><i class="fa  fa-skype"></i></span><span class="title_">@item.fullName</span></a></li>
-                            }
-                            else if (item.sType == 2)
-                            {
-                                <li><a href="tel:@item.phone" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName: @item.phone</span></a></li>
-                            }
-                            else
-                            {
-                                <li><a href="@("http://zalo.me/0981481368:"+item.nick)" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName</span></a></li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="aside_support support_online">
-            <div class="title_module">
-                <h2><span>@ClassExten.GetLangKey("key_httt")</span></h2>
-            </div>
-            <div class="support_content">
-                <div class="list_support">
-                    <ul>
-                        @foreach (var item in Model)
-                        {
-                            if (item.sType == 1)
-                            {
-                                <li><a href="skype:@item.nick?chat" title="@item.fullName"><span class="ico"><i class="fa  fa-skype"></i></span><span class="title_">@item.fullName</span></a></li>
-                            }
-                            else
-                            {
-                                <li><a href="tel:@item.phone" title="@item.fullName"><span class="ico"><i class="fa  fa-phone"></i></span><span class="title_">@item.fullName: @item.phone</span></a></li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="aside_catalog">
-            <div class="title_module">
-                <h2><span>@ClassExten.GetLangKey("key_danhmuc")</span></h2>
-            </div>
-            <div class="categories-box">
-                <ul class="nav navbar-pills">
-                    @foreach (var item in cateParent)
-                    {
-                        <li class="nav-item ">
-                            <a href="/danh-muc/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
-                            @Html.Raw(ClassExten.GetCateSiteLevel2(item.id, catepro.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList()))
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-
-    }
-
+    </div>
 </div>
+
+

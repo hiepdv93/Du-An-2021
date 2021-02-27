@@ -300,10 +300,16 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pro_code" Type="nvarchar" MaxLength="200" />
           <Property Name="pro_name" Type="nvarchar" MaxLength="800" />
           <Property Name="pro_key" Type="nvarchar" MaxLength="800" />
           <Property Name="pro_view" Type="int" />
           <Property Name="proOrder" Type="int" />
+          <Property Name="proAvata5" Type="nvarchar" MaxLength="450" />
+          <Property Name="proAvata4" Type="nvarchar" MaxLength="450" />
+          <Property Name="proAvata3" Type="nvarchar" MaxLength="450" />
+          <Property Name="proAvata2" Type="nvarchar" MaxLength="450" />
+          <Property Name="proAvata1" Type="nvarchar" MaxLength="450" />
           <Property Name="proAvata" Type="nvarchar" MaxLength="450" />
           <Property Name="acreage" Type="nvarchar" MaxLength="450" />
           <Property Name="type" Type="nvarchar" MaxLength="450" />
@@ -495,9 +501,9 @@
           </AssociationSet>
           <EntitySet Name="Tagproes" EntityType="NTSWEBModel.Tagpro" />
           <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
-          <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
           <EntitySet Name="SayWes" EntityType="NTSWEBModel.SayWe" />
           <EntitySet Name="WhyChooseUsses" EntityType="NTSWEBModel.WhyChooseUss" />
+          <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -866,35 +872,6 @@
           <Property Name="thongDiepQuaTang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="chinhSachQuaTang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="pro_view" Type="Int32" />
-          <Property Name="proOrder" Type="Int32" />
-          <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="acreage" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="type" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="place" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="unit" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
-          <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="pro_home" Type="Boolean" />
-          <Property Name="pro_hot" Type="Boolean" />
-          <Property Name="active" Type="Boolean" />
-          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="createDate" Type="DateTime" Precision="3" />
-          <Property Name="updateDate" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="SayWe">
           <Key>
             <PropertyRef Name="id" />
@@ -926,6 +903,41 @@
           <Property Name="createDate" Type="DateTime" Precision="3" />
           <Property Name="numberOder" Type="Int32" />
           <Property Name="type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pro_code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pro_view" Type="Int32" />
+          <Property Name="proOrder" Type="Int32" />
+          <Property Name="proAvata5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proAvata4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proAvata3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proAvata2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proAvata1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="acreage" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="place" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="unit" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
+          <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pro_home" Type="Boolean" />
+          <Property Name="pro_hot" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1288,36 +1300,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="NTSWEBModel.Product">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="pLang" ColumnName="pLang" />
-                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
-                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
-                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
-                <ScalarProperty Name="pro_home" ColumnName="pro_home" />
-                <ScalarProperty Name="introContent" ColumnName="introContent" />
-                <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
-                <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
-                <ScalarProperty Name="desPro" ColumnName="desPro" />
-                <ScalarProperty Name="proFile" ColumnName="proFile" />
-                <ScalarProperty Name="unit" ColumnName="unit" />
-                <ScalarProperty Name="place" ColumnName="place" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="acreage" ColumnName="acreage" />
-                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
-                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
-                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
-                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
-                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SayWes">
             <EntityTypeMapping TypeName="NTSWEBModel.SayWe">
               <MappingFragment StoreEntitySet="SayWe">
@@ -1348,6 +1330,42 @@
                 <ScalarProperty Name="contents" ColumnName="contents" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="NTSWEBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="pLang" ColumnName="pLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+                <ScalarProperty Name="pro_home" ColumnName="pro_home" />
+                <ScalarProperty Name="introContent" ColumnName="introContent" />
+                <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
+                <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
+                <ScalarProperty Name="desPro" ColumnName="desPro" />
+                <ScalarProperty Name="proFile" ColumnName="proFile" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="acreage" ColumnName="acreage" />
+                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+                <ScalarProperty Name="proAvata1" ColumnName="proAvata1" />
+                <ScalarProperty Name="proAvata2" ColumnName="proAvata2" />
+                <ScalarProperty Name="proAvata3" ColumnName="proAvata3" />
+                <ScalarProperty Name="proAvata4" ColumnName="proAvata4" />
+                <ScalarProperty Name="proAvata5" ColumnName="proAvata5" />
+                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="pro_code" ColumnName="pro_code" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

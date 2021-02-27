@@ -64,9 +64,9 @@ namespace NTSPRODUCT.Controllers.Site
             ViewBag.sologanHoiTruong = sologan.Where(u => u.type.Equals(ClassExten.HoiTruong)).Take(5).ToList();
 
             //hoi truog
-            var hoitruong = db.Categorys.Where(u => u.cateActive == true && u.cateActiveHome == true && u.cateType == ClassExten.typeProduct).OrderBy(u => u.cateOrder).Take(numHoiTruong).ToList();
+            var hoitruong = db.Products.Where(u => u.active == true && u.pro_home == true && u.pLang.Equals(ClassExten.HoiTruong)).OrderBy(u => u.proOrder).Take(numHoiTruong).ToList();
             //su kien
-            var sukien = db.Products.Where(u => u.active == true && u.pro_home == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            var sukien = db.Products.Where(u => u.active == true && u.pro_home == true && u.pLang.Equals(ClassExten.SuKien)).OrderBy(u => u.proOrder).Take(numPro).ToList();
 
             //qua tang
             var quaTang = db.Categorys.Where(u => u.cateActive == true && u.cateActiveHome == true && u.cateType == ClassExten.typeNew).OrderBy(u => u.cateOrder).Take(4).ToList();
@@ -140,12 +140,15 @@ namespace NTSPRODUCT.Controllers.Site
 
         #region[bên trái trang sản phẩm]
         //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang;type", VaryByCustom = "browser")]
-        public ActionResult PageProLeft(string lang, string typePage)
+        public ActionResult PageProLeft(string typePage)
         {
             ViewBag.typePage = typePage;
+
+            var sologan = db.WhyChooseUsses.Where(u => u.active == true && u.type.Equals(typePage)).OrderBy(u => u.numberOder).ToList();//slogan cam kết
             var supports = db.Supports.OrderBy(u => u.phone).OrderBy(u => u.numberOder).ToList();
-            var catepro = db.Categorys.Where(u => u.cateType == ClassExten.typeProduct && u.cateActive == true && u.catepar_id.Equals(ClassExten.cateParent)).ToList();
-            ViewBag.catepro = catepro;
+            var pro = db.Products.Where(u => u.pLang.Equals(typePage) && u.active == true).OrderByDescending(u => u.createDate).Take(5).ToList();
+            ViewBag.pro = pro;
+            ViewBag.sologan = sologan;
 
             return PartialView(supports);
         }

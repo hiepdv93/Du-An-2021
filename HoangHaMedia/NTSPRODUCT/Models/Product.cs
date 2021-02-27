@@ -15,10 +15,16 @@ namespace NTSPRODUCT.Models
     public partial class Product
     {
         public string id { get; set; }
+        public string pro_code { get; set; }
         public string pro_name { get; set; }
         public string pro_key { get; set; }
         public Nullable<int> pro_view { get; set; }
         public Nullable<int> proOrder { get; set; }
+        public string proAvata5 { get; set; }
+        public string proAvata4 { get; set; }
+        public string proAvata3 { get; set; }
+        public string proAvata2 { get; set; }
+        public string proAvata1 { get; set; }
         public string proAvata { get; set; }
         public string acreage { get; set; }
         public string type { get; set; }

@@ -174,30 +174,15 @@ namespace NTSPRODUCT.Controllers
                 {
                     var cateidCV = cateid;
                     data.mtypeOf = typecate;
-                    if (typecate == "1" && cateid == "0")
-                    {
-                        data.link = "/danh-muc";
-                    }
-                    else if (typecate == "2" && cateid == "0")
+                    if (typecate == "2" && cateid == "0")
                     {
                         data.link = "/tin-tuc";
-                    }
-                    else if (typecate == "3")
-                    {
-                        var sp = db.Brands.FirstOrDefault(u => u.id == cateidCV).bkKey;
-                        data.link = "/thuong-hieu/" + sp;
-                    }
-                    else if (typecate == "1" && cateid != "0")
-                    {
-                        var sp = db.Categorys.FirstOrDefault(u => u.id == cateidCV).cateKey;
-                        data.link = "/danh-muc/" + sp;
                     }
                     else if (typecate == "2" && cateid != "0")
                     {
                         var sp = db.Categorys.FirstOrDefault(u => u.id == cateidCV).cateKey;
                         data.link = "/tin-tuc/" + sp;
                     }
-
 
                     else if (typecate == "0")
                     {
@@ -207,7 +192,14 @@ namespace NTSPRODUCT.Controllers
                     {
                         data.link = "/lien-he";
                     }
-
+                    else if (typecate == "8")
+                    {
+                        data.link = "/hoi-truong";
+                    }
+                    else if (typecate == "9")
+                    {
+                        data.link = "/su-kien";
+                    }
                     data.titleSeo = "";
                     data.desSeo = "";
                     data.keySeo = "";
@@ -288,23 +280,9 @@ namespace NTSPRODUCT.Controllers
                 {
                     var cateidCV = cateid;
                     data.mtypeOf = typecate;
-                    if (typecate == "1" && cateid == "0")
-                    {
-                        data.link = "/danh-muc";//moduler
-                    }
-                    else if (typecate == "2" && cateid == "0")
+                    if (typecate == "2" && cateid == "0")
                     {
                         data.link = "/tin-tuc";
-                    }
-                    else if (typecate == "3")
-                    {
-                        var sp = db.Brands.FirstOrDefault(u => u.id == cateidCV).bkKey;
-                        data.link = "/thuong-hieu/" + sp;
-                    }
-                    else if (typecate == "1" && cateid != "0")
-                    {
-                        var sp = db.Categorys.FirstOrDefault(u => u.id == cateidCV).cateKey;
-                        data.link = "/danh-muc/" + sp;
                     }
                     else if (typecate == "2" && cateid != "0")
                     {
@@ -319,6 +297,14 @@ namespace NTSPRODUCT.Controllers
                     else if (typecate == "7")
                     {
                         data.link = "/lien-he";
+                    }
+                    else if (typecate == "8")
+                    {
+                        data.link = "/hoi-truong";
+                    }
+                    else if (typecate == "9")
+                    {
+                        data.link = "/su-kien";
                     }
 
                     data.titleSeo = "";

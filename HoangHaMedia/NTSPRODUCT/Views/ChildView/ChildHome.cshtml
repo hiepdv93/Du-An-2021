@@ -12,7 +12,7 @@
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
 
     var doiTac = (List<NTSPRODUCT.Models.Partner>)ViewBag.doiTac;
-    var hoitruong = (List<NTSPRODUCT.Models.Category>)ViewBag.hoitruong;
+    var hoitruong = (List<NTSPRODUCT.Models.Product>)ViewBag.hoitruong;
 
     var quaTang = (List<NTSPRODUCT.Models.Category>)ViewBag.quaTang;
     var lstQua = (List<NTSPRODUCT.Models.News>)ViewBag.lstQua;
@@ -212,16 +212,16 @@
                                 <div class="item-inner">
                                     <div class="product-wrapper ">
                                         <div class="thumb-wrapper">
-                                            <a href="/hoi-truong/@item.keySeo" title="@item.cateName">
-                                                <img class="img-responsive" src="@item.cateImage" alt="@item.cateName">
+                                            <a href="/hoi-truong/@item.pro_key" title="@item.pro_name">
+                                                <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="view-detail">
                                     <div class="info text-center">
-                                        <h3 class="title"><a href="/hoi-truong/@item.keySeo" title="@item.cateName" class="color-white">@item.cateName</a></h3>
-                                        <a class="view-more" href="/hoi-truong/@item.keySeo" title="@item.cateName">Xem chi tiết</a>
+                                        <h3 class="title"><a href="/hoi-truong/@item.pro_key" title="@item.pro_name" class="color-white">@item.pro_name</a></h3>
+                                        <a class="view-more" href="/hoi-truong/@item.pro_key" title="@item.pro_name">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>

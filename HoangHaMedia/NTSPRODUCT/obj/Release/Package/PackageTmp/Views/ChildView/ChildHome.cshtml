@@ -12,7 +12,7 @@
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
 
     var doiTac = (List<NTSPRODUCT.Models.Partner>)ViewBag.doiTac;
-    var hoitruong = (List<NTSPRODUCT.Models.Category>)ViewBag.hoitruong;
+    var hoitruong = (List<NTSPRODUCT.Models.Product>)ViewBag.hoitruong;
 
     var quaTang = (List<NTSPRODUCT.Models.Category>)ViewBag.quaTang;
     var lstQua = (List<NTSPRODUCT.Models.News>)ViewBag.lstQua;
@@ -197,7 +197,7 @@
                     <h2 class="text-uppercase"><a href="/hoi-truong" title="Cho thuê hội trường">Cho thuê hội trường</a></h2>
                     <div class="text-phone-right">
                         <span>
-                            <img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">
+                            @*<img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">*@
                             Gọi ngay: <a href="tel:0947203581" class="color-orange"><b>@conf.hotLine</b></a> để nhận ưu đãi giảm giá
                         </span>
                     </div>
@@ -212,16 +212,16 @@
                                 <div class="item-inner">
                                     <div class="product-wrapper ">
                                         <div class="thumb-wrapper">
-                                            <a href="/hoi-truong/@item.keySeo" title="@item.cateName">
-                                                <img class="img-responsive" src="@item.cateImage" alt="@item.cateName">
+                                            <a href="/hoi-truong/@item.pro_key" title="@item.pro_name">
+                                                <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="view-detail">
                                     <div class="info text-center">
-                                        <h3 class="title"><a href="/hoi-truong/@item.keySeo" title="@item.cateName" class="color-white">@item.cateName</a></h3>
-                                        <a class="view-more" href="/hoi-truong/@item.keySeo" title="@item.cateName">Xem chi tiết</a>
+                                        <h3 class="title"><a href="/hoi-truong/@item.pro_key" title="@item.pro_name" class="color-white">@item.pro_name</a></h3>
+                                        <a class="view-more" href="/hoi-truong/@item.pro_key" title="@item.pro_name">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>
@@ -289,7 +289,7 @@
                     <h2 class="text-uppercase"><a href="/su-kien">Tổ chức sự kiện</a></h2>
                     <div class="text-phone-right">
                         <span>
-                            <img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">
+                            @*<img src="/images/icon-hot.gif" alt="@conf.shopName" class="icon-hot">*@
                             Gọi ngay: <a href="tel:@conf.hotLine" class="color-orange"><b>@conf.hotLine</b></a> để nhận ưu đãi giảm giá
                         </span>
                     </div>
@@ -408,7 +408,7 @@
                     <table class="table-responsive">
                         <tbody>
                             <tr>
-                                <td rowspan="@(countQua>2?countQua:1)">
+                                <td rowspan="@(countQua>1?countQua:1)">
                                     @Html.Raw(conf.thongDiepQuaTang)
                                 </td>
                                 <td rowspan="@(lstTempFirst.Count>0?lstTempFirst.Count:1)">
@@ -417,7 +417,7 @@
                                 </td>
                                 <td> @(lstTempFirst.Count>0?lstTempFirst[0].title:"") </td>
 
-                                <td rowspan="@(countQua>2?countQua:1)">
+                                <td rowspan="@(countQua>1?countQua:1)">
                                     @Html.Raw(conf.chinhSachQuaTang)
                                 </td>
                             </tr>

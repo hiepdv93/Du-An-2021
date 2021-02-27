@@ -220,6 +220,7 @@
     <Compile Include="Controllers\Admin\OdersController.cs" />
     <Compile Include="Controllers\Admin\PartnerCustomerController.cs" />
     <Compile Include="Controllers\Admin\FAQController.cs" />
+    <Compile Include="Controllers\Admin\ProductExtenController.cs" />
     <Compile Include="Controllers\Admin\TagproController.cs" />
     <Compile Include="Controllers\Admin\WhyChooseUssController.cs" />
     <Compile Include="Controllers\Admin\SayweController.cs" />
@@ -364,6 +365,7 @@
     <Content Include="Content\AdminJSController\GroupPartner\GroupPartnerListController.js" />
     <Content Include="Content\AdminJSController\Order\OrderListController.js" />
     <Content Include="Content\AdminJSController\PartnerCustomer\PartnerCustomerListController.js" />
+    <Content Include="Content\AdminJSController\ProductExtenListControllers.js" />
     <Content Include="Content\AdminJSController\ProductManufacListControllers.js" />
     <Content Include="Content\AdminJSController\ProductListControllers.js" />
     <Content Include="Content\AdminJSController\ChooseUs\ChooseUsListControllers.js" />
@@ -1898,6 +1900,7 @@
     <Content Include="Content\CssSite\css\owl.carousel.min.css" />
     <Content Include="Content\CssSite\css\owl.theme.default.css" />
     <Content Include="Content\CssSite\css\owl.theme.default.min.css" />
+    <Content Include="Content\CssSite\css\ringtone.css" />
     <Content Include="Content\CssSite\css\style-menu.css" />
     <Content Include="Content\CssSite\css\style.css" />
     <Content Include="Content\CssSite\fonts\fontawesome-webfont.svg" />
@@ -2261,6 +2264,12 @@
     <Content Include="Views\Prodcuts\AutoPro.cshtml" />
     <Content Include="Views\ProductSite\Tags.cshtml" />
     <Content Include="Views\NewSite\Intro.cshtml" />
+    <Content Include="Views\ProductExten\Index.cshtml" />
+    <Content Include="Views\ProductExten\Update.cshtml" />
+    <Content Include="Views\ProductExten\GetList.cshtml" />
+    <Content Include="Views\ProductExten\AutoPro.cshtml" />
+    <Content Include="Views\ProductExten\Add.cshtml" />
+    <Content Include="Views\ProductSite\Sukien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,263 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var hoitruong = (NTSPRODUCT.Models.Product)ViewBag.hoitruong;
+    var proOther = (List<NTSPRODUCT.Models.Product>)ViewBag.proOther;
+    string key = ViewBag.key;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(key))
+{
+    <section class="bread-crumb">
+        <span class="crumb-border"></span>
+        <div class="container">
+            <div class="rows">
+                <div class="col-xs-12 a-left">
+                    <ul class="breadcrumb" itemscope="">
+                        <li class="home">
+                            <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li class="home">
+                            <a itemprop="url" href="/su-kien" title="Sự kiện"><span itemprop="title">Sự kiện</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li><strong><span itemprop="title">@hoitruong.pro_name</span></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-detail" id="es_product_detail">
+        <div class="container">
+            <div class="row">
+                @Html.Action("PageProLeft", "ChildView", new { typePage = ClassExten.SuKien })
+
+                <div class="col-md-9 col-xs-12 col-lg-9 details-product" id="right-panel">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12 col-lg-6">
+                            <div class="img-product">
+                                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                    <li data-thumb="@hoitruong.proAvata">
+                                        <img src="@hoitruong.proAvata" />
+                                    </li>
+                                    @if (!string.IsNullOrEmpty(hoitruong.proAvata1))
+                                    {
+                                        <li data-thumb="@hoitruong.proAvata1">
+                                            <img src="@hoitruong.proAvata1" />
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(hoitruong.proAvata2))
+                                    {
+                                        <li data-thumb="@hoitruong.proAvata2">
+                                            <img src="@hoitruong.proAvata2" />
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(hoitruong.proAvata3))
+                                    {
+                                        <li data-thumb="@hoitruong.proAvata3">
+                                            <img src="@hoitruong.proAvata3" />
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(hoitruong.proAvata4))
+                                    {
+                                        <li data-thumb="@hoitruong.proAvata4">
+                                            <img src="@hoitruong.proAvata4" />
+                                        </li>
+                                    }
+                                    @if (!string.IsNullOrEmpty(hoitruong.proAvata5))
+                                    {
+                                        <li data-thumb="@hoitruong.proAvata5">
+                                            <img src="@hoitruong.proAvata5" />
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-lg-6 details-pro">
+                            <div class="product-top clearfix">
+                                <h1 class="title-head">@hoitruong.pro_name</h1>
+                            </div>
+                            <div class="info-code">
+                                <label>Mã: @hoitruong.pro_code</label>
+                            </div>
+                            <div class="tag_mix_room">
+                                <ul>
+                                    <li><span><i class="fa fa-map-marker"></i></span><span>@hoitruong.place</span></li>
+                                    <li><span><i class="fa fa-building"></i></span><span>@hoitruong.type</span></li>
+                                    <li><span><i class="fa fa-globe"></i></span><span>@hoitruong.acreage</span></li>
+                                    <li><span><i class="fa fa-users"></i></span><span>@hoitruong.unit</span></li>
+                                </ul>
+                            </div>
+                            <div class="info-detail">
+                                @Html.Raw(hoitruong.desPro)
+                                
+                            </div>
+                            <button class="contact-button">
+                                <span>Liên hệ ngay</span>
+                                <span><b>@conf.hotLine</b></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                            <div class="info-product">
+                                <ul class="tabs-product">
+                                    <li class="tab-link current" data-tab="tab-1">Thông tin chi tiết</li>
+                                </ul>
+                                <div id="tab-1" class="info-product-tab-content current">
+                                    @Html.Raw(hoitruong.proContentTab1)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-lg-12">
+                            <div class="title-text text-left">
+                                <h2 class="text-uppercase">Sự kiện liên quan</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-lg-12">
+                            <div id="owl-pro-detail" class="owl-carousel owl-theme owl-pro-home">
+                                @foreach (var item in proOther)
+                                {
+                                    <div class="item">
+                                        <div class="col-item col-item-grid">
+                                            <div class="list-room bg-gray">
+                                                <div class="box-image">
+                                                    <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                                        <img src="@item.proAvata" alt="@item.pro_name">
+                                                    </a>
+                                                </div>
+                                                <div class="box-info bg-gray">
+                                                    <h2 class="product-name">
+                                                        <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                                            @item.pro_name
+                                                        </a>
+                                                    </h2>
+                                                    <div class="despro">
+                                                        @item.desPro
+                                                    </div>
+                                                    <div class="tag_mix_room">
+                                                        <ul>
+                                                            <li>
+                                                                <span><i class="fa fa-user"></i></span><span> @item.unit</span>
+                                                            </li>
+                                                            <li>
+                                                                <span><i class="fa fa-map-marker"></i></span><span>  @item.place </span>
+                                                            </li>
+                                                            <li><span><i class="fa fa-building"></i></span><span>@item.type</span></li>
+                                                            <li><span><i class="fa fa-globe"></i></span><span>@item.acreage</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="wrap_price_item">
+                                                        <a href="/su-kien/@item.pro_key" title="@item.pro_name" class="views_details">
+                                                            Xem chi tiết<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section class="bread-crumb">
+        <span class="crumb-border"></span>
+        <div class="container">
+            <div class="rows">
+                <div class="col-xs-12 a-left">
+                    <ul class="breadcrumb" itemscope="">
+                        <li class="home">
+                            <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li><strong><span itemprop="title"> Sự kiện</span></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-detail" id="es_product_list">
+        <div class="container">
+            <div class="row">
+
+
+                @Html.Action("PageProLeft", "ChildView", new { typePage = ClassExten.SuKien })
+
+                <div class="col-md-9 col-xs-12 col-lg-9" id="right-panel">
+                    <div class="box-title">
+                        <h3 class="text-upppercase">Sự kiện</h3>
+                    </div>
+                    <div class="row">
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6 mb-20">
+                                    <div class="col-item col-item-grid">
+                                        <div class="list-room">
+                                            <div class="box-image">
+                                                <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                                    <img src="@item.proAvata" alt="@item.pro_name">
+                                                </a>
+                                            </div>
+                                            <div class="box-info bg-gray">
+                                                <h2 class="product-name">
+                                                    <a href="/su-kien/@item.pro_key" title="@item.pro_name">
+                                                        @item.pro_name
+                                                    </a>
+                                                </h2>
+                                                <div class="despro">
+                                                    @item.desPro
+                                                </div>
+                                                <div class="tag_mix_room">
+                                                    <ul>
+                                                        <li>
+                                                            <span><i class="fa fa-user"></i></span><span>@item.unit</span>
+                                                        </li>
+                                                        <li>
+                                                            <span><i class="fa fa-map-marker"></i></span><span>@item.place</span>
+                                                        </li>
+                                                        <li><span><i class="fa fa-building"></i></span><span>@item.type</span></li>
+                                                        <li><span><i class="fa fa-globe"></i></span><span>@item.acreage</span></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="wrap_price_item">
+                                                    <a href="/su-kien/@item.pro_key" title="@item.pro_name" class="views_details">
+                                                        Xem chi tiết<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <h2>@ClassExten.GetLangKey("key_khongtinthaynoidung")</h2>
+                        }
+
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        @Html.Raw(ViewBag.pages)
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}

@@ -97,10 +97,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:40</publishTime>
     </File>
     <File Include="bin/NTSPRODUCT.dll">
-      <publishTime>02/07/2021 22:06:58</publishTime>
+      <publishTime>02/27/2021 17:57:16</publishTime>
     </File>
     <File Include="bin/NTSPRODUCT.pdb">
-      <publishTime>02/07/2021 22:06:58</publishTime>
+      <publishTime>02/27/2021 17:57:16</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>02/05/2021 08:54:40</publishTime>
@@ -254,6 +254,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/AdminJSController/PartnerCustomer/PartnerCustomerListController.js">
       <publishTime>02/05/2021 08:54:38</publishTime>
+    </File>
+    <File Include="Content/AdminJSController/ProductExtenListControllers.js">
+      <publishTime>02/27/2021 17:03:06</publishTime>
     </File>
     <File Include="Content/AdminJSController/ProductListControllers.js">
       <publishTime>02/07/2021 21:59:48</publishTime>
@@ -4951,58 +4954,61 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Content/CssSite/css/animate.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/animate.min.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/bootstrap-theme.min.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/bootstrap.min.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/bootstrap2.min.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/common.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/css-slider-json.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/edit.css">
       <publishTime>08/04/2019 13:11:27</publishTime>
     </File>
     <File Include="Content/CssSite/css/font-awesome.min.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/lightslider.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/mobile.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/owl.carousel.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/owl.carousel.min.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/owl.theme.css">
       <publishTime>06/18/2016 15:11:14</publishTime>
     </File>
     <File Include="Content/CssSite/css/owl.theme.default.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/owl.theme.default.min.css">
-      <publishTime>02/05/2021 08:54:38</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
+    </File>
+    <File Include="Content/CssSite/css/ringtone.css">
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/style-menu.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/style.css">
-      <publishTime>02/07/2021 22:10:37</publishTime>
+      <publishTime>02/27/2021 17:30:50</publishTime>
     </File>
     <File Include="Content/CssSite/css/tabs.css">
       <publishTime>07/25/2019 22:29:27</publishTime>
@@ -5509,7 +5515,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Content/CssSite/js/index.js">
-      <publishTime>02/07/2021 22:11:23</publishTime>
+      <publishTime>02/27/2021 17:31:14</publishTime>
     </File>
     <File Include="Content/CssSite/js/jquery-2.1.4.min.js">
       <publishTime>06/18/2016 15:11:14</publishTime>
@@ -5524,10 +5530,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Content/CssSite/js/maina.js">
-      <publishTime>02/07/2021 22:11:23</publishTime>
+      <publishTime>02/27/2021 17:31:14</publishTime>
     </File>
     <File Include="Content/CssSite/js/menu.js">
-      <publishTime>02/07/2021 22:11:23</publishTime>
+      <publishTime>02/27/2021 17:31:14</publishTime>
     </File>
     <File Include="Content/CssSite/js/owl.carousel.js">
       <publishTime>02/05/2021 08:54:38</publishTime>
@@ -5578,7 +5584,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Models/ModelNTS.edmx.diagram">
-      <publishTime>02/07/2021 17:21:00</publishTime>
+      <publishTime>02/27/2021 16:18:40</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>02/05/2021 08:54:40</publishTime>
@@ -5749,7 +5755,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/07/2021 19:37:34</publishTime>
     </File>
     <File Include="Views/ChildView/ChildHome.cshtml">
-      <publishTime>02/07/2021 22:21:00</publishTime>
+      <publishTime>02/27/2021 15:56:06</publishTime>
     </File>
     <File Include="Views/ChildView/ChildPartner.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5767,7 +5773,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/ChildView/PageProLeft.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>02/27/2021 17:57:06</publishTime>
     </File>
     <File Include="Views/ChildView/SBULeft.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5785,7 +5791,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Config/Index.cshtml">
-      <publishTime>02/07/2021 17:52:12</publishTime>
+      <publishTime>02/07/2021 22:28:35</publishTime>
     </File>
     <File Include="Views/Config/Sendmail.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5920,7 +5926,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Menus/Add.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>02/27/2021 17:27:22</publishTime>
     </File>
     <File Include="Views/Menus/GetList.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5941,7 +5947,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Menus/Update.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>02/27/2021 17:27:38</publishTime>
     </File>
     <File Include="Views/News/Add.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6001,7 +6007,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Prodcuts/Add.cshtml">
-      <publishTime>02/07/2021 22:00:49</publishTime>
+      <publishTime>02/27/2021 16:43:09</publishTime>
     </File>
     <File Include="Views/Prodcuts/AutoPro.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6013,7 +6019,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/07/2021 22:00:49</publishTime>
     </File>
     <File Include="Views/Prodcuts/Update.cshtml">
-      <publishTime>02/07/2021 22:00:49</publishTime>
+      <publishTime>02/27/2021 17:50:12</publishTime>
+    </File>
+    <File Include="Views/ProductExten/Add.cshtml">
+      <publishTime>02/27/2021 17:01:16</publishTime>
+    </File>
+    <File Include="Views/ProductExten/AutoPro.cshtml">
+      <publishTime>02/27/2021 16:54:00</publishTime>
+    </File>
+    <File Include="Views/ProductExten/GetList.cshtml">
+      <publishTime>02/27/2021 17:03:53</publishTime>
+    </File>
+    <File Include="Views/ProductExten/Index.cshtml">
+      <publishTime>02/27/2021 17:03:45</publishTime>
+    </File>
+    <File Include="Views/ProductExten/Update.cshtml">
+      <publishTime>02/27/2021 17:49:29</publishTime>
     </File>
     <File Include="Views/ProductManufac/Add.cshtml">
       <publishTime>08/09/2019 23:50:57</publishTime>
@@ -6031,16 +6052,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2019 16:37:43</publishTime>
     </File>
     <File Include="Views/ProductSite/Detail.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>02/27/2021 16:31:56</publishTime>
     </File>
     <File Include="Views/ProductSite/Devices.cshtml">
       <publishTime>08/04/2019 16:37:10</publishTime>
     </File>
     <File Include="Views/ProductSite/Index.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>02/27/2021 17:24:02</publishTime>
     </File>
     <File Include="Views/ProductSite/Search.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
+    </File>
+    <File Include="Views/ProductSite/Sukien.cshtml">
+      <publishTime>02/27/2021 18:03:23</publishTime>
     </File>
     <File Include="Views/ProductSite/Tags.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6064,7 +6088,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/07/2021 19:32:42</publishTime>
+      <publishTime>02/27/2021 17:32:16</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6073,7 +6097,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Shared/_PartialMenuleftAdmin.cshtml">
-      <publishTime>02/07/2021 22:16:26</publishTime>
+      <publishTime>02/27/2021 17:03:31</publishTime>
     </File>
     <File Include="Views/Slide/GetList.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>

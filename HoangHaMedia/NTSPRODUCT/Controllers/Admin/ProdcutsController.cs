@@ -24,8 +24,7 @@ namespace NTSPRODUCT.Controllers
         public ActionResult GetList(SearchModel model)
         {
             var all = (from a in db.Products.AsNoTracking()
-                       where a.pLang.Equals(lang)
-                      //  && (string.IsNullOrEmpty(model.CateId) || a.cateId.Equals(model.CateId))
+                       where a.pLang.Equals(ClassExten.SuKien)
                       && (string.IsNullOrEmpty(model.Name) || a.pro_name.ToLower().Contains(model.Name.ToLower()))
                        orderby a.createDate descending
                        select a).AsQueryable();
@@ -54,22 +53,18 @@ namespace NTSPRODUCT.Controllers
             try
             {
                 var data = db.Products.First(u => u.id.Equals(id));
-                //  data.cateId = f["cateId"];
-                // data.brandId = f["brandId"];
+                data.pLang = ClassExten.SuKien;
                 data.pro_view = 1;
-                // data.proPrice = int.Parse(f["price"]);
-                //data.proPrice_sale = int.Parse(f["priceSale"]);
                 data.pro_name = f["proName"];
+                data.pro_code = f["pro_code"];
                 string keyTag = StringClass.NameToTag(data.pro_name.ToLower()).Replace(" ", "");
                 var key = checkTrungUpdate(keyTag, data.id);
                 data.pro_key = key;
                 data.proFile = f["filePro"];
-                //  data.brank = f["brank"];
                 data.desPro = f["desPro"];
 
                 data.proContentTab1 = f["proContentTab1"];
                 data.proContentTab2 = f["proContentTab2"];
-                // data.proContentTab3 = f["proContentTab3"];
                 data.introContent = f["introContent"];
                 data.proOrder = int.Parse(f["proOrder"]);
                 //check
@@ -98,6 +93,11 @@ namespace NTSPRODUCT.Controllers
                 }
                 //ảnh
                 data.proAvata = f["proAvata"];
+                data.proAvata1 = f["proAvata1"];
+                data.proAvata2 = f["proAvata2"];
+                data.proAvata3 = f["proAvata3"];
+                data.proAvata4 = f["proAvata4"];
+                data.proAvata5 = f["proAvata5"];
                 data.unit = f["unit"];
                 data.place = f["place"];
                 data.type = f["type"];
@@ -174,23 +174,19 @@ namespace NTSPRODUCT.Controllers
             {
                 var addType = f["addType"];
                 Product data = new Product();
+                data.pLang = ClassExten.SuKien;
                 data.id = Guid.NewGuid().ToString();
-                data.pLang = lang;
+               // data.pLang = lang;
                 data.pro_view = 1;
-                // data.proPrice = int.Parse(f["price"]);
-                //  data.proPrice_sale = int.Parse(f["priceSale"]);
-                // data.cateId = f["cateId"];
-                // data.brandId = f["brandId"];
                 data.pro_name = f["proName"];
+                data.pro_code = f["pro_code"];
                 string keyTag = StringClass.NameToTag(data.pro_name.ToLower()).Replace(" ", "");
                 var key = checkTrung(keyTag);
                 data.pro_key = key;
                 data.proFile = f["filePro"];
-                // data.brank = f["brank"];
                 data.desPro = f["desPro"];
                 data.proContentTab1 = f["proContentTab1"];
                 data.proContentTab2 = f["proContentTab2"];
-                // data.proContentTab3 = f["proContentTab3"];
                 data.introContent = f["introContent"];
                 data.proOrder = int.Parse(f["proOrder"]);
                 //check
@@ -219,6 +215,11 @@ namespace NTSPRODUCT.Controllers
                 }
                 //ảnh
                 data.proAvata = f["proAvata"];
+                data.proAvata1 = f["proAvata1"];
+                data.proAvata2 = f["proAvata2"];
+                data.proAvata3 = f["proAvata3"];
+                data.proAvata4 = f["proAvata4"];
+                data.proAvata5 = f["proAvata5"];
                 data.unit = f["unit"];
                 data.place = f["place"];
                 data.type = f["type"];
@@ -252,7 +253,7 @@ namespace NTSPRODUCT.Controllers
 
 
                 db.SaveChanges();
-                Session["ok"] = "Thêm mới sản phẩm thành công!";
+                Session["ok"] = "Thêm mới  thành công!";
                 if (addType.Equals("0"))
                 {
                     return Redirect("/Prodcuts/Index");
@@ -372,7 +373,7 @@ namespace NTSPRODUCT.Controllers
         {
             try
             {
-                var newCheck = db.Products.FirstOrDefault(u => u.pro_key.ToLower().Equals(model.pro_key) && u.pLang.Equals(lang));
+                var newCheck = db.Products.FirstOrDefault(u => u.pro_key.ToLower().Equals(model.pro_key) && u.pLang.Equals(ClassExten.SuKien));
                 if (newCheck == null)
                 {
                     return Json(new { ok = 1, mess = "" }, JsonRequestBehavior.AllowGet);
@@ -392,7 +393,7 @@ namespace NTSPRODUCT.Controllers
         {
             try
             {
-                var newCheck = db.Products.FirstOrDefault(u => !u.id.Equals(model.id) && u.pro_key.ToLower().Equals(model.pro_key) && u.pLang.Equals(lang));
+                var newCheck = db.Products.FirstOrDefault(u => !u.id.Equals(model.id) && u.pro_key.ToLower().Equals(model.pro_key) && u.pLang.Equals(ClassExten.SuKien));
                 if (newCheck == null)
                 {
                     return Json(new { ok = 1, mess = "" }, JsonRequestBehavior.AllowGet);

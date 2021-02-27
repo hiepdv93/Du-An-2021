@@ -52,36 +52,7 @@
                                 <li data-thumb="@pro.proAvata">
                                     <img src="@pro.proAvata" />
                                 </li>
-                                @if (!string.IsNullOrEmpty(pro.proImages1))
-                                {
-                                    <li data-thumb="@pro.proImages1">
-                                        <img src="@pro.proImages1" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages2))
-                                {
-                                    <li data-thumb="@pro.proImages2">
-                                        <img src="@pro.proImages2" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages3))
-                                {
-                                    <li data-thumb="@pro.proImages3">
-                                        <img src="@pro.proImages3" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages4))
-                                {
-                                    <li data-thumb="@pro.proImages4">
-                                        <img src="@pro.proImages4" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages5))
-                                {
-                                    <li data-thumb="@pro.proImages5">
-                                        <img src="@pro.proImages5" />
-                                    </li>
-                                }
+                              
                             </ul>
                         </div>
                     </div>
@@ -93,7 +64,6 @@
                         <div class="price-box clearfix" itemscope="">
                             <span class="special-price">
                                 @ClassExten.GetLangKey("key_gia"):
-                                <span class="price product-price" itemprop="price">@(pro.proPrice_sale != 0 ? pro.proPrice_sale.Value.ToString("N0") : @ClassExten.GetLangKey("contact"))</span>
                             </span>
                         </div>
                         <div class="product-summary product_description margin-bottom-15 margin-top-15">
@@ -101,14 +71,7 @@
                                 @Html.Raw(pro.introContent)
                             </div>
                         </div>
-                        @*@if (!string.IsNullOrEmpty(pro.proFile))
-                        {
-                            <div class="down-document">
-                                <a href="@pro.proFile" title="@ClassExten.GetLangKey("key_downLib")">
-                                    <i class="fa fa-download"></i> @ClassExten.GetLangKey("key_downLib")
-                                </a>
-                            </div>
-                        }*@
+                       
                         <div class="form-product">
                             <div class="form-group">
                                 <div class="clearfix">
@@ -192,17 +155,7 @@
                                             </div>
                                             <div class="item-content">
                                                 <div class="price-box price-loop-style">
-                                                    <span class="special-price">
-                                                        <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
-                                                    </span>
-                                                    @if (item.proPrice != 0)
-                                                    {
-                                                        <span class="old-price">
-                                                            <span class="price">
-                                                                @item.proPrice.Value.ToString("N0")
-                                                            </span>
-                                                        </span>
-                                                    }
+                                                
                                                 </div>
                                             </div>
                                         </div>

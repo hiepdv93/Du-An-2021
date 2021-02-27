@@ -15,7 +15,10 @@ namespace NTSPRODUCT.Controllers.Site
         //sản phẩm(trai la giai phap, ben phai la san pham)
         public ActionResult Index(string id)
         {
+            //kịch bản: nếu có id là trang chi tiết, ko có là trang list
+
             ViewBag.key = id;
+
             #region[con fig]
             ViewBag.lang = lang;
             Config conf;
@@ -26,42 +29,60 @@ namespace NTSPRODUCT.Controllers.Site
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
             #endregion
-            List<string> cateid = new List<string>();
-            var all = (from a in db.Products.AsNoTracking()
-                       where a.pLang.Equals(lang)
-                       && a.active == true
-                       orderby a.proOrder
-                       select a).AsQueryable();
+
             if (!string.IsNullOrEmpty(id))
             {
-                #region[xu ly lay sp]
-                var cateP = db.Categorys.FirstOrDefault(u => u.cateKey.Equals(id));
-                ViewBag.cateP = cateP;
+                int numberPro = 6;
+                if (conf.viewProPageDetail != null)
+                {
+                    numberPro = conf.viewProPageDetail.Value;
+                }
 
-                if (cateP.cate_cap != 3)
-                {
-                    cateid = GetListId(cateP.id, cateP.cate_cap.Value);
-                }
-                else
-                {
-                    cateid.Add(cateP.id);
-                }
-               // all = all.Where(u => cateid.Contains(u.cateId));
+                //trang danh chi tiết
+                #region[xu ly lay sp]
+                var hoitruong = db.Products.FirstOrDefault(u => u.pro_key.Equals(id) && u.pLang.Equals(ClassExten.HoiTruong));
+                ViewBag.hoitruong = hoitruong;
+
+                #region[lay cac bai lien quan]
+                var proOther = db.Products.Where(u => u.active == true && u.pLang.Equals(ClassExten.HoiTruong) && !u.id.Equals(hoitruong.id)).OrderBy(u => u.proOrder).Take(numberPro).ToList();
+                ViewBag.proOther = proOther;
+
+                #endregion
 
                 #region[load seo]
-                ViewBag.title = cateP.titleSeo;
-                ViewBag.description = cateP.desSeo;
-                ViewBag.keywords = cateP.keySeo;
+                ViewBag.title = hoitruong.titleSeo;
+                ViewBag.description = hoitruong.desSeo;
+                ViewBag.keywords = hoitruong.keySeo;
                 ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
-                ViewBag.img = ClassExten.GetUrlHost() + cateP.cateImage;
+                ViewBag.img = ClassExten.GetUrlHost() + hoitruong.proAvata;
                 ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                 #endregion
 
                 #endregion
-
+                return View(new List<Product>());
             }
             else
             {
+                var all = db.Products.Where(u => u.active == true && u.pLang.Equals(ClassExten.HoiTruong)).OrderBy(u => u.proOrder).AsQueryable();
+                string page = "1";//so phan trang hien tai
+                var pagesize = 6;//so ban ghi tren 1 trang
+                var numOfNews = 0;//tong so ban ghi co duoc truoc khi phan trang
+                int curpage = 0; // trang hien tai dung cho phan trang
+                if (Request["page"] != null)
+                {
+                    page = Request["page"];
+                    curpage = Convert.ToInt32(page) - 1;
+                }
+                pagesize = conf.viewProPageList.Value;
+
+                numOfNews = all.Select(u => u.id).Count();
+                var data = all.Skip(curpage * pagesize).Take(pagesize).ToList();
+                var url = Request.Path;
+                if (numOfNews > pagesize)
+                {
+                    ViewBag.pages = NTSPRODUCT.Models.Phantrang.PhanTrangSite(pagesize, curpage, numOfNews, url);
+                }
+
                 #region[load seo]
                 ViewBag.title = conf.titleSeo;
                 ViewBag.description = conf.desSeo;
@@ -70,28 +91,92 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.img = ClassExten.GetUrlHost() + conf.logoTop;
                 ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                 #endregion
-            }
 
-            string page = "1";//so phan trang hien tai
-            var pagesize = 6;//so ban ghi tren 1 trang
-            var numOfNews = 0;//tong so ban ghi co duoc truoc khi phan trang
-            int curpage = 0; // trang hien tai dung cho phan trang
-            if (Request["page"] != null)
+                return View(data);
+            }
+        }
+
+        public ActionResult Sukien(string id)
+        {
+            //kịch bản: nếu có id là trang chi tiết, ko có là trang list
+
+            ViewBag.key = id;
+
+            #region[con fig]
+            ViewBag.lang = lang;
+            Config conf;
+            if (ConfigModel.listConfig == null)
             {
-                page = Request["page"];
-                curpage = Convert.ToInt32(page) - 1;
+                ConfigModel.listConfig = db.Configs.ToList();
             }
-            pagesize = conf.viewProPageList.Value;
+            conf = ConfigModel.listConfig.FirstOrDefault();
+            ViewBag.conf = conf;
+            #endregion
 
-            numOfNews = all.Select(u => u.id).Count();
-            var data = all.Skip(curpage * pagesize).Take(pagesize).ToList();
-            var url = Request.Path;
-            if (numOfNews > pagesize)
+            if (!string.IsNullOrEmpty(id))
             {
-                ViewBag.pages = NTSPRODUCT.Models.Phantrang.PhanTrangSite(pagesize, curpage, numOfNews, url);
-            }
-            return View(data);
+                int numberPro = 6;
+                if (conf.viewProPageDetail != null)
+                {
+                    numberPro = conf.viewProPageDetail.Value;
+                }
 
+                //trang danh chi tiết
+                #region[xu ly lay sp]
+                var hoitruong = db.Products.FirstOrDefault(u => u.pro_key.Equals(id) && u.pLang.Equals(ClassExten.SuKien));
+                ViewBag.hoitruong = hoitruong;
+
+                #region[lay cac bai lien quan]
+                var proOther = db.Products.Where(u => u.active == true && u.pLang.Equals(ClassExten.SuKien) && !u.id.Equals(hoitruong.id)).OrderBy(u => u.proOrder).Take(numberPro).ToList();
+                ViewBag.proOther = proOther;
+
+                #endregion
+
+                #region[load seo]
+                ViewBag.title = hoitruong.titleSeo;
+                ViewBag.description = hoitruong.desSeo;
+                ViewBag.keywords = hoitruong.keySeo;
+                ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+                ViewBag.img = ClassExten.GetUrlHost() + hoitruong.proAvata;
+                ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
+                #endregion
+
+                #endregion
+                return View(new List<Product>());
+            }
+            else
+            {
+                var all = db.Products.Where(u => u.active == true && u.pLang.Equals(ClassExten.SuKien)).OrderBy(u => u.proOrder).AsQueryable();
+                string page = "1";//so phan trang hien tai
+                var pagesize = 6;//so ban ghi tren 1 trang
+                var numOfNews = 0;//tong so ban ghi co duoc truoc khi phan trang
+                int curpage = 0; // trang hien tai dung cho phan trang
+                if (Request["page"] != null)
+                {
+                    page = Request["page"];
+                    curpage = Convert.ToInt32(page) - 1;
+                }
+                pagesize = conf.viewProPageList.Value;
+
+                numOfNews = all.Select(u => u.id).Count();
+                var data = all.Skip(curpage * pagesize).Take(pagesize).ToList();
+                var url = Request.Path;
+                if (numOfNews > pagesize)
+                {
+                    ViewBag.pages = NTSPRODUCT.Models.Phantrang.PhanTrangSite(pagesize, curpage, numOfNews, url);
+                }
+
+                #region[load seo]
+                ViewBag.title = conf.titleSeo;
+                ViewBag.description = conf.desSeo;
+                ViewBag.keywords = conf.keySeo;
+                ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+                ViewBag.img = ClassExten.GetUrlHost() + conf.logoTop;
+                ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
+                #endregion
+
+                return View(data);
+            }
         }
 
         public List<string> GetListId(string idp, int cap)
@@ -137,11 +222,11 @@ namespace NTSPRODUCT.Controllers.Site
             if (proData != null)
             {
                 var protag = (from a in db.ProTags.AsNoTracking()
-                            join b in db.Tagproes.AsNoTracking() on a.tagId equals b.tagId
-                            where a.proId.Equals(proData.id)
-                            select b).OrderBy(u => u.tagOrder).ToList();
+                              join b in db.Tagproes.AsNoTracking() on a.tagId equals b.tagId
+                              where a.proId.Equals(proData.id)
+                              select b).OrderBy(u => u.tagOrder).ToList();
 
-              //  var cateP = db.Categorys.FirstOrDefault(u => u.id.Equals(proData.cateId));
+                //  var cateP = db.Categorys.FirstOrDefault(u => u.id.Equals(proData.cateId));
                 //var catePSub = db.Categorys.FirstOrDefault(u => u.id.Equals(cateP.catepar_id));
                 #region[load seo]
                 ViewBag.title = proData.titleSeo;
@@ -152,8 +237,8 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                 #endregion
                 ViewBag.pro = proData;
-              //  ViewBag.cateP = cateP;
-              //  ViewBag.catePSub = catePSub;
+                //  ViewBag.cateP = cateP;
+                //  ViewBag.catePSub = catePSub;
                 ViewBag.protag = protag;
                 #region[lay cac bai lien quan]
                 proOther = db.Products.Where(u => u.active == true && !u.id.Equals(proData.id)).OrderBy(u => u.proOrder).Take(numberPro).ToList();
@@ -242,7 +327,7 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.cateP = cateP;
 
 
-               // all = all.Where(u => u.brandId.Equals(id));
+                // all = all.Where(u => u.brandId.Equals(id));
 
                 #endregion
                 #region[load seo]
@@ -293,7 +378,7 @@ namespace NTSPRODUCT.Controllers.Site
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
             #endregion
-            var tag = db.Tagproes.FirstOrDefault(u => u.tagKey.Equals(id) );
+            var tag = db.Tagproes.FirstOrDefault(u => u.tagKey.Equals(id));
             if (tag != null)
             {
                 var all = (from a in db.Products.AsNoTracking()
