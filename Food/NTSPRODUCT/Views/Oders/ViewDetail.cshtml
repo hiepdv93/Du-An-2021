@@ -1,0 +1,176 @@
+﻿@model IList<NTSPRODUCT.Models.Oderdt>
+@{
+    ViewBag.Title = "Administrator - Chi tiết đơn hàng";
+    ViewBag.controller = "Chi tiết đơn hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var cus = (NTSPRODUCT.Models.Customer)ViewBag.cus;
+    var oderModel = (NTSPRODUCT.Models.Oder)ViewBag.Oders;
+    int tongTien = 0;
+}
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Thông tin khách hàng :</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body detail_donhang">
+        <div class="row ">
+            <div class="col-md-1">
+                <span>Họ tên: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control">@cus.fullName</span>
+            </div>
+            <div class="col-md-1">
+                <span>Email: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control">@cus.email</span>
+            </div>
+            <div class="col-md-1">
+                <span>Điện thoại: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control"> @cus.phone</span>
+            </div>
+            <div class="col-md-1">
+                <span>Địa chỉ: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control">@cus.addresss</span>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.box-body -->
+</div>
+<style>
+    .detail_donhang span, .detail_donhang select {
+        margin-bottom: 5px
+    }
+</style>
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Thông tin đơn hàng :</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body detail_donhang">
+        <div class="row ">
+            <div class="col-md-1">
+                <span>Thời gian: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control">@oderModel.createDate.Value.ToString("HH:mm dd/MM/yyyy")</span>
+            </div>
+            <div class="col-md-1">
+                <span>Trạng thái:</span>
+            </div>
+            <div class="col-md-5">
+                <select id="status_detailDH" class="form-control" onchange="AutoUpdate('@oderModel.id')">
+                    <option value="1" @(oderModel.status == 1 ? "selected" : "")>Chưa xử lý</option>
+                    <option value="2" @(oderModel.status == 2 ? "selected" : "")>Đang xử lý</option>
+                    <option value="3" @(oderModel.status == 3 ? "selected" : "")>Đã giao hàng</option>
+                    <option value="4" @(oderModel.status == 4 ? "selected" : "")>Đã hủy</option>
+                </select>
+
+            </div>
+            <div class="col-md-1">
+                <span>Tổng tiền: </span>
+            </div>
+            <div class="col-md-5">
+                <span class="form-control"> @oderModel.total.Value.ToString("N0")</span>
+            </div>
+
+            <div class="col-md-1">
+            </div>
+            @*<div class="col-md-5">
+                    @if (oderModel.status < ClassExten.Bill_Status.DaMuaHang)
+                    {
+                        <button type="button" onclick="xacNhanDonHang('@oderModel.id')" class="btn btn-primary">
+                            Xác nhận thanh toán và kích hoạt tài khoản
+                        </button>
+                    }
+
+                </div>*@
+            <div class="clearfix"></div>
+            <div class="col-md-1">
+                <span>Ghi chú KH: </span>
+            </div>
+            <div class="col-md-11">
+                <span class="form-control"> @oderModel.noteSite </span>
+            </div>
+            <div class="col-md-1">
+                <span>Ghi chú NBH: </span>
+            </div>
+            <div class="col-md-11">
+                <textarea class="form-control" rows="3" id="noteSiteAdmin_detailDH" placeholder="Ghi chú"> @oderModel.noteSiteAdmin</textarea>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.box-body -->
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">Chi tiết đơn hàng</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>
+                                Tổng số <b class="badge badge-primary" id="count_data">@Model.Count</b> sản phẩm
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row" id="row_data">
+                        <div class="col-sm-12 " style="overflow-x:auto">
+                            <table class="table table-bordered table-hover" style="min-width:1080px">
+                                <thead>
+                                    <tr>
+                                        <th width="50px" class="text-center">STT</th>
+                                        <th>Sản phẩm</th>
+                                        <th width="140px">Giá bán</th>
+                                        <th width="100px">Số lượng</th>
+                                        <th width="100px">Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        tongTien = Model[i].quantity.Value * Model[i].priceNow.Value;
+                                        <tr>
+                                            <td class="text-center">@(i+1)</td>
+                                            <td>@Html.Raw(ClassExten.GetProduct(Model[i].proId))</td>
+                                            <td>@Model[i].priceNow.Value.ToString("N0")</td>
+                                            <td>@Model[i].quantity</td>
+                                            <td>@tongTien.ToString("N0")</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/AdminJSController/Order/OrderListController.js"></script>

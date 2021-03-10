@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="@ViewBag.favicon" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/bootstrap2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/style.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/style-menu.css?v=3.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/css-slider-json.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/animate.css">
+    <link href="~/Content/CssSite/css/lightslider.css" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/mobile.css?v=3.0" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/custom.css?v=3.0" rel="stylesheet" />
+    <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+
+
+    <style>
+
+        .pagination span {
+            background-color: #0072bc !important;
+            color: #fff !important;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <style>
+        .store-section .section-description {
+            margin-bottom: 40px;
+        }
+
+        element.style {
+        }
+
+        .section-title h4 {
+            margin-bottom: 0;
+        }
+
+        .section-title, .section-title h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .div_banner_fixed {
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+        }
+
+        .box-image img {
+            display: block;
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            border: 1px solid #e4e4e4;
+            background: #fff;
+        }
+    </style>
+    <style>
+        .store-section .section-description {
+            margin-bottom: 40px;
+        }
+
+        element.style {
+        }
+
+        .section-title h4 {
+            margin-bottom: 0;
+        }
+
+        .section-title, .section-title h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .div_banner_fixed {
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+        }
+
+        .box-image img {
+            display: block;
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            border: 1px solid #e4e4e4;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+    @{string langSite = ClassExten.GetLangSite();
+        string path = HttpContext.Current.Request.Url.AbsolutePath;}
+
+    @Html.Action("ChildHeader", "ChildView", new { lang = langSite })
+    @RenderBody()
+    @Html.Action("ChildFooter", "ChildView", new { lang = langSite })
+
+    <script src="~/Content/CssSite/js/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/bootstrap.min.js"></script>
+    <script src="~/Content/CssSite/js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/owl.carousel.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/json-slider.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/index.js?v=3.0" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/lightslider.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/wow.min.js" type="text/javascript"></script>
+    <script src="~/Content/CssSite/js/maina.js"></script>
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Content/AdminJSController/script_validate.js"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js?v=3.0"></script>
+    <script>
+        new WOW().init();
+    </script>
+    @if (path.Equals("/") || path.Equals(""))
+    {
+        <script type="text/javascript">
+            jssor_1_slider_init();
+        </script>
+    }
+    <script>
+        $('.product-thumbnail-cate img').click(function () {
+            var img = $(this).attr('src');
+            $('.section-category-img .center-block').attr('src', img);
+        })
+        $('#owl-partner-home img').each(function (i, v) {
+            if (i == 0) {
+                var imgs = $(this).attr('src');
+                $('.section-category-img .center-block').attr('src', imgs);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery("document").ready(function ($) {
+            var nav = $('#navBar');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    nav.addClass("div_banner_fixed");
+                } else {
+                    nav.removeClass("div_banner_fixed");
+                }
+            });
+        });
+
+        $('#owl-partner-home img').each(function (i, v) {
+            if (i == 0) {
+                $('.section-category-img .center-block').attr('src', $(this).attr('src'));
+                $('.section-category-img .center-block').attr('alt', $(this).attr('alt'));
+            }
+        });
+
+    </script>
+
+</body>
+</html>

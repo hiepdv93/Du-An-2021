@@ -1,0 +1,465 @@
+﻿@model IList<NTSPRODUCT.Models.ProductModel>
+@{
+    var sologan = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologan;
+    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+
+    var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
+    var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.catepro;
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var newNew = (List<NTSPRODUCT.Models.News>)ViewBag.newNew;
+    var newHot = (List<NTSPRODUCT.Models.News>)ViewBag.newHot;
+    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
+    var advs = (List<NTSPRODUCT.Models.Adv>)ViewBag.advs;
+    var anhCty = (List<NTSPRODUCT.Models.Adv>)ViewBag.anhCty;
+    var doiTac = (List<NTSPRODUCT.Models.Partner>)ViewBag.doiTac;
+    var isMobile = Request.Browser.IsMobileDevice;
+}
+<style>
+    .slogan_main {
+        margin: 20px 0 15px 0;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    #owl-faedback-home .item .img_danhgia {
+        display: block;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    #owl-faedback-home .item {
+        width: 100%;
+        float: left;
+        padding: 0 40px;
+        margin-bottom: 30px;
+    }
+
+        #owl-faedback-home .item .img_danhgia span {
+            display: block;
+            width: 80px;
+            height: 80px;
+            border: solid 4px #fff;
+            border-radius: 50%;
+        }
+
+            #owl-faedback-home .item .img_danhgia span img {
+                border-radius: 50%;
+            }
+
+    .titel-home h2 {
+        position: relative;
+        font-size: 28px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+        color: #EA6F68;
+    }
+
+    #owl-faedback-home .item .content_danhgia span {
+        font-weight: 400;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    #owl-faedback-home .item .content_danhgia {
+        width: 100%;
+        float: left;
+        position: relative;
+        padding: 30px 40px;
+        background: #0072bc;
+        border-radius: 20px;
+        box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+        -webkit-box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+        -moz-box-shadow: 0px 5px 25px 0px rgba(52,63,91,0.25);
+    }
+
+        #owl-faedback-home .item .content_danhgia p {
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+    .slogan_main_inner {
+        width: 100%;
+        float: left;
+    }
+
+    .title_slogan_inner, .info_slogan_inner {
+        border: 1px solid #d0d0d0;
+    }
+
+        .title_slogan_inner h2 {
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 0;
+            white-space: pre;
+            text-transform: uppercase;
+            background: #f2f2f2;
+            margin: 0;
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+            .title_slogan_inner h2 img {
+                margin: 0 7px;
+                width: 27px;
+                height: 27px;
+                object-fit: scale-down;
+            }
+
+    .info_slogan_inner {
+        height: 100px;
+        overflow: hidden;
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+</style>
+<section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;visibility:hidden;">
+    <!-- Loading Screen -->
+    <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+        <img alt="" style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="~/Content/CssSite/images/spin.svg" />
+    </div>
+    <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;">
+        @foreach (var item in slide)
+        {
+            <div>
+                <img alt="@item.name" data-u="image" src="@item.images" />
+            </div>
+        }
+    </div>
+    <!-- Arrow Navigator -->
+    <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+        </svg>
+    </div>
+    <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+        <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+        </svg>
+    </div>
+</section>
+
+@if (sologan != null)
+{
+    <section class="slogan_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="slogan_main_inner">
+                        <div class="row">
+                            @foreach (var item in sologan)
+                            {
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="title_slogan_inner">
+                                        <h2><img src="@item.image" alt="@item.title">@item.title</h2>
+                                    </div>
+                                    <div class="info_slogan_inner">
+                                        <p>@item.contents</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@if (advs != null)
+{
+    <section class="event_adv_main">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in advs)
+                {
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <figure class="event_adv_inner">
+                            <a href="@item.advLink"><img src="@item.advImage" alt="@item.advName"></a>
+                        </figure>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+}
+
+
+@if (proSale.Count > 0)
+{
+
+    <section class="product-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-lg-12">
+                    <div class="heading_spbc">
+                        <h2 class="title-head">
+                            <a href="#">SẢN PHẨM KHUYẾN MẠI</a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 col-lg-12">
+                    <div class="row">
+                        @foreach (var item in proSale)
+                        {
+                            <div class="col-md-12 col-xs-12 col-lg-3">
+                                <div class="col-item col-item-grid">
+                                    @*<div class="sale-label sale-top-right">
+                                            <span>New</span>
+                                        </div>*@
+                                    <div class="item-inner">
+                                        <div class="product-wrapper ">
+                                            <div class="thumb-wrapper">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                    <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="info-inner">
+                                                <div class="item-title">
+                                                    <h3 class="text2line">
+                                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="item-content">
+                                                    <div class="price-box price-loop-style">
+                                                        <span class="special-price">
+                                                            <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
+                                                        </span>
+                                                        @if (item.proPrice != 0)
+                                                        {
+                                                            <span class="old-price">
+                                                                <span class="price">
+                                                                    @item.proPrice.Value.ToString("N0")
+                                                                </span>
+                                                            </span>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="view-detail">
+                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+<section class="awe-section-3">
+    <div class="section_dich_vu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 evo_dich_vu_title text-center">
+                    <h4 class="section_dich_vu_title">DANH MỤC SẢN PHẨM</h4>
+                </div>
+            </div>
+            <div class="row row-dich-vu">
+                @foreach (var item in catepro)
+                {
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="evo-box-dich-vu">
+                            <div class="evo-box-dich-vu-group">
+                                <div class="evo-box-dich-vu-image">
+                                    <img src="@item.cateImage" alt="@item.cateName" class="img-responsive center-block">
+                                </div>
+                                <div class="content-box-dich-vu hidden-sm hidden-xs">@Html.Raw(item.cateDescription)</div>
+                            </div>
+                            <h3><a href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a></h3>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.Count > 0)
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <section class="product-home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 col-lg-12">
+                        <div class="heading_spbc">
+                            <h2 class="title-head">
+                                <a href="/danh-muc/@Model[i].cate.cateKey" title="@Model[i].cate.cateName">@Model[i].cate.cateName</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-lg-12">
+                        <div class="row">
+                            @foreach (var item in Model[i].pro)
+                            {
+                                <div class="col-md-12 col-xs-12 col-lg-3">
+                                    <div class="col-item col-item-grid">
+                                        <div class="item-inner">
+                                            <div class="product-wrapper ">
+                                                <div class="thumb-wrapper">
+                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                        <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="info-inner">
+                                                    <div class="item-title">
+                                                        <h3 class="text2line">
+                                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="price-box price-loop-style">
+                                                            <span class="special-price">
+                                                                <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
+                                                            </span>
+                                                            @if (item.proPrice != 0)
+                                                            {
+                                                                <span class="old-price">
+                                                                    <span class="price">
+                                                                        @item.proPrice.Value.ToString("N0")
+                                                                    </span>
+                                                                </span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="view-detail">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">Chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
+
+<section class="awe-section-3">
+    <div class="container space-40">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="title-text space-20">
+                    <h2><a href="tin-tuc" title="Tin tức">@ClassExten.GetLangKey("news")</a></h2>
+                    <a class="read-more" href="/tin-tuc" title="@ClassExten.GetLangKey("key_xemthem")">@ClassExten.GetLangKey("key_xemthem")<i class="fa fa-angle-double-right"></i></a>
+                </div>
+                <div class="home-blog">
+                    @foreach (var item in newNew)
+                    {
+                        <div class="item">
+                            <a class="thumb img-shine" href="/tin/@item.new_key" title="@item.title">
+                                <img src="@item.newImage" alt="@item.title">
+                            </a>
+                            <div class="text">
+                                <h3><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                                <div class="date">@item.createDate.Value.ToString("dd") <span>T @item.createDate.Value.ToString("MM")</span></div>
+                                <p>@item.descript</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            @if (!isMobile)
+            {
+                <div class="col-md-6">
+                    <div class="title-text space-20">
+                        <h2>Tin ảnh</h2>
+                    </div>
+                    <div class="home-box-lightbox">
+                        @foreach (var item in newHot)
+                        {
+                            <a href="/tin/@item.new_key" title="@item.title">
+                                <img class="img-responsive basic" src="@item.newImage" alt="@item.title">
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<div id="home-desktop-banner-bottom">
+    <div class="store-section">
+        <div class="container">
+            <div class="text-center text-uppercase section-title mb-3"><h4 class="col-12 text-center">Hình ảnh cửa hàng</h4></div><div class="text-center section-description">
+                @conf.addresss
+            </div>
+        </div><div class="section-detail">
+            <div class="col-12">
+                <div class="justify-content-between row">
+                    @foreach (var item in anhCty)
+                    {
+                        <div class="col-md-12 col-xs-12 col-lg-3">
+                            <div class="col-item col-item-grid">
+                                <a href="javascript:void(0);" target="_self">
+                                    <img class="lazyautosizes lazyloaded" data-sizes="auto" src="@item.advImage" alt="@item.advName" sizes="370px">
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="awe-section-7">
+    <div class="section_index_brand">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-head text-center">
+                        <h2>Đối tác</h2>
+                    </div>
+                </div>
+                <div id="owl-partner-home" class="owl-carousel owl-theme">
+                    @foreach (var item in doiTac)
+                    {
+                        <div class="item">
+                            <div class="col-inner">
+                                <div class="box has-hover gallery-box box-none">
+                                    <div class="box-image">
+                                        <img src="@item.pImage" data-lazyload="@item.pImage" alt="Ant Consult" class="img-responsive center-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

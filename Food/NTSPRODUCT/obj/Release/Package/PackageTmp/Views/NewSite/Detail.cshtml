@@ -1,0 +1,54 @@
+﻿@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var newData = (NTSPRODUCT.Models.News)ViewBag.newData;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+}
+
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="rows">
+            <div class="col-xs-12 a-left">
+                <ul class="breadcrumb" itemscope="">
+                    <li class="home">
+                        <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                    <li class="home">
+                        <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                    @if (cateP != null)
+                    {
+                        <li class="home">
+                            <a itemprop="url" href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                    }
+                    @if (newData != null)
+                    {
+                        <li><strong><span itemprop="title">@(NTSPRODUCT.Models.StringClass.FormatContentNews(newData.title, 80))</span></strong></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="page-detail">
+    <div class="container">
+        <div class="row">
+            @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+            <div class="col-md-9 col-xs-12 col-lg-9">
+                <div class="titel-detail">
+                    <h1>@newData.title</h1>
+                </div>
+                <div class="page-detail-text">
+                    @Html.Raw(newData.contents)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

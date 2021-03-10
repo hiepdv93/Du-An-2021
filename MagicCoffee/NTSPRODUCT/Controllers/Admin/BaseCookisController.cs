@@ -40,5 +40,6 @@ namespace NTSPRODUCT.Controllers
             Response.Cookies.Add(cook);
         }
 
+       
     }
 }

@@ -1,0 +1,112 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+}
+<style>
+    .logo-wrapper img {
+        max-height: 65px
+    }
+</style>
+<div class="itemproduct_sale item_product_main" style="display:none">
+    <div class="thumb_settime">
+        <div class="product-info">
+            <div class="wrap_time deal deal-block section" style="display:none">
+                <div class="time-x">
+                    <div id="clockdiv">
+                        <div>
+                            <span class="days"></span>
+                            <div class="smalltext">Ngày</div>
+                        </div>
+                        <div>
+                            <span class="hours"></span>
+                            <div class="smalltext">Giờ</div>
+                        </div>
+                        <div>
+                            <span class="minutes"></span>
+                            <div class="smalltext">Phút</div>
+                        </div>
+                        <div>
+                            <span class="seconds"></span>
+                            <div class="smalltext">Giây</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="header_top_text_left">
+                    <div class="text_left_inner">
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> Hotline: <span class="text_style">@conf.hotLine</span></p>
+                    </div>
+                    <div class="text_left_inner">
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i> Email: <a href="">@conf.email_Inbox</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<section class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <a href="#" class="logo-wrapper" title="">
+                    <img src="@conf.logoTop" alt="@conf.shopName" class="img-responsive center-block">
+                </a>
+
+            </div>
+            <div class="col-md-6  col-sm-9 col-xs-9">
+                <div class="search-header desktop">
+                    <input type="text" class="form-control" id="homeSearch1" placeholder="Tìm kiếm..">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" id="btnHomeSearch1" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="cart_main">
+                    <div class="cart_icon">
+                        <a href="/gio-hang"><img src="~/Content/CssSite/images/icon_cart.png" alt="Giỏ hàng"></a>
+                    </div>
+                    <span class="icon_badge">@ViewBag.countSp</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="clearfix"></div>
+<section id="navBar" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
+            <div id="overlay"></div>
+            <nav id="menu">
+
+                <ul>
+                    @foreach (var item in cateParent)
+                    {
+
+                        <li>
+                            <a href='@item.link' title="@item.name">@item.name</a>
+                            @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()))
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

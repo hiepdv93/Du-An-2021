@@ -1,0 +1,1372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NTSWEBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="100" />
+          <Property Name="active" Type="bit" />
+          <Property Name="subAdmin" Type="bit" />
+          <Property Name="dateStart" Type="datetime" />
+          <Property Name="dateEnd" Type="datetime" />
+          <Property Name="keyFogot" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Adv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="advName" Type="nvarchar" MaxLength="250" />
+          <Property Name="advImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="advLink" Type="nvarchar" MaxLength="256" />
+          <Property Name="advType" Type="int" />
+          <Property Name="advOrder" Type="int" />
+          <Property Name="advNote" Type="ntext" />
+          <Property Name="advLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="advActive" Type="bit" />
+          <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bkName" Type="nvarchar" MaxLength="450" />
+          <Property Name="bkImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="bkKey" Type="nvarchar" MaxLength="450" />
+          <Property Name="numberOder" Type="int" />
+          <Property Name="note" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cateName" Type="nvarchar" MaxLength="600" />
+          <Property Name="cateKey" Type="nvarchar" MaxLength="600" />
+          <Property Name="cateLang" Type="nvarchar" MaxLength="10" />
+          <Property Name="cateLevel" Type="nvarchar" MaxLength="250" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="cateDescription" Type="ntext" />
+          <Property Name="cateImage" Type="nvarchar" MaxLength="450" />
+          <Property Name="cateicon" Type="nvarchar" MaxLength="250" />
+          <Property Name="catepar_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="cateOrder" Type="int" />
+          <Property Name="cate_cap" Type="int" />
+          <Property Name="cateType" Type="int" />
+          <Property Name="cateActiveHome" Type="bit" />
+          <Property Name="cateActive" Type="bit" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="proId" Type="nvarchar" MaxLength="50" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="address" Type="nvarchar" MaxLength="450" />
+          <Property Name="title" Type="nvarchar" MaxLength="450" />
+          <Property Name="contents" Type="nvarchar" MaxLength="800" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="cType" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="hotLine" Type="nvarchar" MaxLength="250" />
+          <Property Name="phone" Type="nvarchar" MaxLength="250" />
+          <Property Name="email_Inbox" Type="nvarchar" MaxLength="50" />
+          <Property Name="email_Send" Type="nvarchar" MaxLength="50" />
+          <Property Name="emailPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="mail_Port" Type="int" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="350" />
+          <Property Name="shopName" Type="nvarchar" MaxLength="350" />
+          <Property Name="logoTop" Type="nvarchar" MaxLength="350" />
+          <Property Name="logoBottom" Type="nvarchar" MaxLength="350" />
+          <Property Name="linkLogo" Type="nvarchar" MaxLength="350" />
+          <Property Name="copyRight" Type="nvarchar" MaxLength="250" />
+          <Property Name="google" Type="nvarchar" MaxLength="550" />
+          <Property Name="twiter" Type="nvarchar" MaxLength="550" />
+          <Property Name="youTube" Type="nvarchar" MaxLength="550" />
+          <Property Name="faceBook" Type="nvarchar" MaxLength="550" />
+          <Property Name="tiki" Type="nvarchar" MaxLength="750" />
+          <Property Name="shoppe" Type="nvarchar" MaxLength="750" />
+          <Property Name="zaloChat" Type="nvarchar" MaxLength="750" />
+          <Property Name="homeVideo" Type="ntext" />
+          <Property Name="footerExten" Type="ntext" />
+          <Property Name="footer" Type="ntext" />
+          <Property Name="conTact" Type="ntext" />
+          <Property Name="liveChat" Type="ntext" />
+          <Property Name="googleAdsense" Type="ntext" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="viewNewPageList" Type="int" />
+          <Property Name="viewNewPageDetail" Type="int" />
+          <Property Name="viewNewPageHome" Type="int" />
+          <Property Name="viewProPageHome" Type="int" />
+          <Property Name="viewProPageDetail" Type="int" />
+          <Property Name="viewProPageList" Type="int" />
+          <Property Name="priceShip" Type="int" />
+          <Property Name="conLang" Type="nvarchar" MaxLength="10" />
+          <Property Name="mapSmall" Type="ntext" />
+          <Property Name="mapBig" Type="ntext" />
+          <Property Name="infoPage" Type="ntext" />
+          <Property Name="favicon" Type="nvarchar" MaxLength="350" />
+          <Property Name="langDefault" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="address" Type="nvarchar" MaxLength="450" />
+          <Property Name="title" Type="nvarchar" MaxLength="450" />
+          <Property Name="contents" Type="nvarchar" MaxLength="800" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="referencesId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="120" />
+          <Property Name="phone" Type="varchar" MaxLength="120" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="pass" Type="nvarchar" MaxLength="150" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="250" />
+          <Property Name="active" Type="bit" />
+          <Property Name="type" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="wardId" Type="varchar" MaxLength="50" />
+          <Property Name="districtId" Type="varchar" MaxLength="50" />
+          <Property Name="provinceId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="avata" Type="nvarchar" MaxLength="450" />
+          <Property Name="name" Type="nvarchar" MaxLength="450" />
+          <Property Name="descript" Type="nvarchar" MaxLength="800" />
+          <Property Name="dkey" Type="nvarchar" MaxLength="450" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="lang" Type="nvarchar" MaxLength="50" />
+          <Property Name="dOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="550" />
+          <Property Name="number" Type="int" />
+          <Property Name="contents" Type="nvarchar(max)" />
+          <Property Name="lang" Type="nvarchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="nvarchar" MaxLength="450" />
+          <Property Name="mtypeOf" Type="nvarchar" MaxLength="50" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="icon" Type="nvarchar" MaxLength="250" />
+          <Property Name="note" Type="ntext" />
+          <Property Name="mLang" Type="nvarchar" MaxLength="10" />
+          <Property Name="mOrder" Type="int" />
+          <Property Name="par_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mtype" Type="int" />
+          <Property Name="mcap" Type="int" />
+          <Property Name="mPosition" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="groupId" Type="nvarchar" MaxLength="50" />
+          <Property Name="newImage" Type="nvarchar" MaxLength="256" />
+          <Property Name="title" Type="nvarchar" MaxLength="800" />
+          <Property Name="descript" Type="nvarchar" MaxLength="800" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="new_key" Type="nvarchar" MaxLength="800" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="newLang" Type="nvarchar" MaxLength="10" />
+          <Property Name="newOrder" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="viewCount" Type="int" />
+          <Property Name="newHot" Type="bit" />
+          <Property Name="newNew" Type="bit" />
+          <Property Name="newFile" Type="nvarchar" MaxLength="256" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Oderdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="oderId" Type="varchar" MaxLength="50" />
+          <Property Name="proId" Type="varchar" MaxLength="50" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="priceNow" Type="int" />
+          <Property Name="priceCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Oders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cusId" Type="nvarchar" MaxLength="50" />
+          <Property Name="total" Type="int" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="priceShip" Type="int" />
+          <Property Name="noteSiteAdmin" Type="nvarchar" MaxLength="500" />
+          <Property Name="noteSite" Type="nvarchar" MaxLength="500" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="updateBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pName" Type="nvarchar" MaxLength="250" />
+          <Property Name="pImage" Type="nvarchar" MaxLength="350" />
+          <Property Name="pNote" Type="ntext" />
+          <Property Name="numberOder" Type="int" />
+          <Property Name="pLink" Type="nvarchar" MaxLength="450" />
+          <Property Name="groupId" Type="nvarchar" MaxLength="50" />
+          <Property Name="lang" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pro_name" Type="nvarchar" MaxLength="800" />
+          <Property Name="pro_key" Type="nvarchar" MaxLength="800" />
+          <Property Name="proPrice" Type="int" />
+          <Property Name="proPrice_sale" Type="int" />
+          <Property Name="pro_view" Type="int" />
+          <Property Name="proOrder" Type="int" />
+          <Property Name="proAvata" Type="nvarchar" MaxLength="450" />
+          <Property Name="proImages5" Type="nvarchar" MaxLength="450" />
+          <Property Name="proImages4" Type="nvarchar" MaxLength="450" />
+          <Property Name="proImages3" Type="nvarchar" MaxLength="450" />
+          <Property Name="proImages2" Type="nvarchar" MaxLength="450" />
+          <Property Name="proImages1" Type="nvarchar" MaxLength="450" />
+          <Property Name="proFile" Type="nvarchar" MaxLength="456" />
+          <Property Name="brank" Type="nvarchar" MaxLength="250" />
+          <Property Name="desPro" Type="nvarchar" MaxLength="800" />
+          <Property Name="proContentTab1" Type="ntext" />
+          <Property Name="proContentTab2" Type="ntext" />
+          <Property Name="introContent" Type="ntext" />
+          <Property Name="pro_home" Type="bit" />
+          <Property Name="pro_hot" Type="bit" />
+          <Property Name="active" Type="bit" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+          <Property Name="pLang" Type="nvarchar" MaxLength="10" />
+          <Property Name="cateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="brandId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProTag">
+          <Key>
+            <PropertyRef Name="idPT" />
+          </Key>
+          <Property Name="idPT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="proId" Type="varchar" MaxLength="50" />
+          <Property Name="tagId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SayWe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="150" />
+          <Property Name="job" Type="nvarchar" MaxLength="150" />
+          <Property Name="avata" Type="nvarchar" MaxLength="250" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="active" Type="bit" />
+          <Property Name="slang" Type="nvarchar" MaxLength="10" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="numberOder" Type="int" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="images" Type="nvarchar" MaxLength="250" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="active" Type="bit" />
+          <Property Name="slang" Type="nvarchar" MaxLength="50" />
+          <Property Name="sLink" Type="nvarchar" MaxLength="250" />
+          <Property Name="numberOder" Type="int" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sType" Type="int" />
+          <Property Name="nick" Type="nvarchar" MaxLength="200" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="numberOder" Type="int" />
+        </EntityType>
+        <EntityType Name="Tagpro">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tagName" Type="nvarchar" MaxLength="250" />
+          <Property Name="tagKey" Type="nvarchar" MaxLength="250" />
+          <Property Name="typeTag" Type="int" />
+          <Property Name="tagOrder" Type="int" />
+          <Property Name="lang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WhyChooseUss">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" />
+          <Property Name="image" Type="nvarchar" MaxLength="350" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="active" Type="bit" />
+          <Property Name="slang" Type="nvarchar" MaxLength="10" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="numberOder" Type="int" />
+        </EntityType>
+        <Association Name="FK__News__groupid__1BFD2C07">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__oderid__34C8D9D1">
+          <End Role="Oders" Type="Self.Oders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="oderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NTSWEBModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adv" EntityType="Self.Adv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oders" EntityType="Self.Oders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProTag" EntityType="Self.ProTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SayWe" EntityType="Self.SayWe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slide" EntityType="Self.Slide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tagpro" EntityType="Self.Tagpro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WhyChooseUss" EntityType="Self.WhyChooseUss" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="Self.FK__Oderdt__oderid__34C8D9D1">
+            <End Role="Oders" EntitySet="Oders" />
+            <End Role="Oderdt" EntitySet="Oderdt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NTSWEBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NTSWEBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="NTSWEBModel.Admin" />
+          <EntitySet Name="Advs" EntityType="NTSWEBModel.Adv" />
+          <EntitySet Name="Brands" EntityType="NTSWEBModel.Brand" />
+          <EntitySet Name="Categorys" EntityType="NTSWEBModel.Category" />
+          <EntitySet Name="Comments" EntityType="NTSWEBModel.Comment" />
+          <EntitySet Name="Contacts" EntityType="NTSWEBModel.Contact" />
+          <EntitySet Name="Customers" EntityType="NTSWEBModel.Customer" />
+          <EntitySet Name="Departments" EntityType="NTSWEBModel.Department" />
+          <EntitySet Name="emails" EntityType="NTSWEBModel.email" />
+          <EntitySet Name="Faqs" EntityType="NTSWEBModel.Faq" />
+          <EntitySet Name="Menus" EntityType="NTSWEBModel.Menu" />
+          <EntitySet Name="News" EntityType="NTSWEBModel.News" />
+          <EntitySet Name="Oderdts" EntityType="NTSWEBModel.Oderdt" />
+          <EntitySet Name="Oders" EntityType="NTSWEBModel.Oder" />
+          <EntitySet Name="Partners" EntityType="NTSWEBModel.Partner" />
+          <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
+          <EntitySet Name="ProTags" EntityType="NTSWEBModel.ProTag" />
+          <EntitySet Name="SayWes" EntityType="NTSWEBModel.SayWe" />
+          <EntitySet Name="Slides" EntityType="NTSWEBModel.Slide" />
+          <EntitySet Name="Supports" EntityType="NTSWEBModel.Support" />
+          <EntitySet Name="WhyChooseUsses" EntityType="NTSWEBModel.WhyChooseUss" />
+          <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="NTSWEBModel.FK__News__groupid__1BFD2C07">
+            <End Role="Category" EntitySet="Categorys" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1">
+            <End Role="Oder" EntitySet="Oders" />
+            <End Role="Oderdt" EntitySet="Oderdts" />
+          </AssociationSet>
+          <EntitySet Name="Tagproes" EntityType="NTSWEBModel.Tagpro" />
+          <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="subAdmin" Type="Boolean" />
+          <Property Name="dateStart" Type="DateTime" Precision="3" />
+          <Property Name="dateEnd" Type="DateTime" Precision="3" />
+          <Property Name="keyFogot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Adv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="advName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="advImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="advLink" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="advType" Type="Int32" />
+          <Property Name="advOrder" Type="Int32" />
+          <Property Name="advNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="advLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="advActive" Type="Boolean" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bkName" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="bkImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="bkKey" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="numberOder" Type="Int32" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cateName" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="cateKey" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="cateLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cateLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="cateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cateImage" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="cateicon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="catepar_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cateOrder" Type="Int32" />
+          <Property Name="cate_cap" Type="Int32" />
+          <Property Name="cateType" Type="Int32" />
+          <Property Name="cateActiveHome" Type="Boolean" />
+          <Property Name="cateActive" Type="Boolean" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="News" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="Category" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="proId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="cType" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="referencesId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fullName" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="addresss" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="wardId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="districtId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provinceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="avata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="descript" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="dkey" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="mtypeOf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="mOrder" Type="Int32" />
+          <Property Name="par_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mtype" Type="Int32" />
+          <Property Name="mcap" Type="Int32" />
+          <Property Name="mPosition" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="groupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="newImage" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="descript" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="new_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="newLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="newOrder" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="viewCount" Type="Int32" />
+          <Property Name="newHot" Type="Boolean" />
+          <Property Name="newNew" Type="Boolean" />
+          <Property Name="newFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="News" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Oderdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="oderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="proId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="priceNow" Type="Int32" />
+          <Property Name="priceCount" Type="Int32" />
+          <NavigationProperty Name="Oder" Relationship="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1" FromRole="Oderdt" ToRole="Oder" />
+        </EntityType>
+        <EntityType Name="Oder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="priceShip" Type="Int32" />
+          <Property Name="noteSiteAdmin" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="noteSite" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="updateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Oderdts" Relationship="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1" FromRole="Oder" ToRole="Oderdt" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pImage" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="pNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="numberOder" Type="Int32" />
+          <Property Name="pLink" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="groupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lang" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="proPrice" Type="Int32" />
+          <Property Name="proPrice_sale" Type="Int32" />
+          <Property Name="pro_view" Type="Int32" />
+          <Property Name="proOrder" Type="Int32" />
+          <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
+          <Property Name="brank" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pro_home" Type="Boolean" />
+          <Property Name="pro_hot" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProTag">
+          <Key>
+            <PropertyRef Name="idPT" />
+          </Key>
+          <Property Name="idPT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="proId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tagId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SayWe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="addresss" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="job" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="avata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="slang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="numberOder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Slide">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="slang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="numberOder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sType" Type="Int32" />
+          <Property Name="nick" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="numberOder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="WhyChooseUss">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="slang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="numberOder" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__News__groupid__1BFD2C07">
+          <End Type="NTSWEBModel.Category" Role="Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NTSWEBModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="groupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__oderid__34C8D9D1">
+          <End Type="NTSWEBModel.Oder" Role="Oder" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="NTSWEBModel.Oderdt" Role="Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oder">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="oderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tagpro">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tagName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tagKey" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="typeTag" Type="Int32" />
+          <Property Name="tagOrder" Type="Int32" />
+          <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hotLine" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email_Inbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email_Send" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emailPass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mail_Port" Type="Int32" />
+          <Property Name="addresss" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="shopName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="logoTop" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="logoBottom" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="linkLogo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="copyRight" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="google" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="twiter" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="youTube" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="faceBook" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="tiki" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="shoppe" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="zaloChat" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="homeVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="footerExten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="footer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="conTact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="liveChat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="googleAdsense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="viewNewPageList" Type="Int32" />
+          <Property Name="viewNewPageDetail" Type="Int32" />
+          <Property Name="viewNewPageHome" Type="Int32" />
+          <Property Name="viewProPageHome" Type="Int32" />
+          <Property Name="viewProPageDetail" Type="Int32" />
+          <Property Name="viewProPageList" Type="Int32" />
+          <Property Name="priceShip" Type="Int32" />
+          <Property Name="conLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="mapSmall" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mapBig" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="infoPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="favicon" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="langDefault" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NTSWEBModelStoreContainer" CdmEntityContainer="NTSWEBEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="NTSWEBModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="keyFogot" ColumnName="keyFogot" />
+                <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="subAdmin" ColumnName="subAdmin" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advs">
+            <EntityTypeMapping TypeName="NTSWEBModel.Adv">
+              <MappingFragment StoreEntitySet="Adv">
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="advActive" ColumnName="advActive" />
+                <ScalarProperty Name="advLang" ColumnName="advLang" />
+                <ScalarProperty Name="advNote" ColumnName="advNote" />
+                <ScalarProperty Name="advOrder" ColumnName="advOrder" />
+                <ScalarProperty Name="advType" ColumnName="advType" />
+                <ScalarProperty Name="advLink" ColumnName="advLink" />
+                <ScalarProperty Name="advImage" ColumnName="advImage" />
+                <ScalarProperty Name="advName" ColumnName="advName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="NTSWEBModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="bkKey" ColumnName="bkKey" />
+                <ScalarProperty Name="bkImage" ColumnName="bkImage" />
+                <ScalarProperty Name="bkName" ColumnName="bkName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="NTSWEBModel.Category">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="cateActive" ColumnName="cateActive" />
+                <ScalarProperty Name="cateActiveHome" ColumnName="cateActiveHome" />
+                <ScalarProperty Name="cateType" ColumnName="cateType" />
+                <ScalarProperty Name="cate_cap" ColumnName="cate_cap" />
+                <ScalarProperty Name="cateOrder" ColumnName="cateOrder" />
+                <ScalarProperty Name="catepar_id" ColumnName="catepar_id" />
+                <ScalarProperty Name="cateicon" ColumnName="cateicon" />
+                <ScalarProperty Name="cateImage" ColumnName="cateImage" />
+                <ScalarProperty Name="cateDescription" ColumnName="cateDescription" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="cateLevel" ColumnName="cateLevel" />
+                <ScalarProperty Name="cateLang" ColumnName="cateLang" />
+                <ScalarProperty Name="cateKey" ColumnName="cateKey" />
+                <ScalarProperty Name="cateName" ColumnName="cateName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="NTSWEBModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="cType" ColumnName="cType" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="proId" ColumnName="proId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="NTSWEBModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="referencesId" ColumnName="referencesId" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="NTSWEBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="districtId" ColumnName="districtId" />
+                <ScalarProperty Name="wardId" ColumnName="wardId" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="NTSWEBModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="dOrder" ColumnName="dOrder" />
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="dkey" ColumnName="dkey" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="avata" ColumnName="avata" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="NTSWEBModel.email">
+              <MappingFragment StoreEntitySet="emails">
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="email1" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faqs">
+            <EntityTypeMapping TypeName="NTSWEBModel.Faq">
+              <MappingFragment StoreEntitySet="Faq">
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="NTSWEBModel.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="mPosition" ColumnName="mPosition" />
+                <ScalarProperty Name="mcap" ColumnName="mcap" />
+                <ScalarProperty Name="mtype" ColumnName="mtype" />
+                <ScalarProperty Name="par_id" ColumnName="par_id" />
+                <ScalarProperty Name="mOrder" ColumnName="mOrder" />
+                <ScalarProperty Name="mLang" ColumnName="mLang" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="mtypeOf" ColumnName="mtypeOf" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="NTSWEBModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="newFile" ColumnName="newFile" />
+                <ScalarProperty Name="newNew" ColumnName="newNew" />
+                <ScalarProperty Name="newHot" ColumnName="newHot" />
+                <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="newOrder" ColumnName="newOrder" />
+                <ScalarProperty Name="newLang" ColumnName="newLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="new_key" ColumnName="new_key" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="newImage" ColumnName="newImage" />
+                <ScalarProperty Name="groupId" ColumnName="groupId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oderdts">
+            <EntityTypeMapping TypeName="NTSWEBModel.Oderdt">
+              <MappingFragment StoreEntitySet="Oderdt">
+                <ScalarProperty Name="priceCount" ColumnName="priceCount" />
+                <ScalarProperty Name="priceNow" ColumnName="priceNow" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="proId" ColumnName="proId" />
+                <ScalarProperty Name="oderId" ColumnName="oderId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oders">
+            <EntityTypeMapping TypeName="NTSWEBModel.Oder">
+              <MappingFragment StoreEntitySet="Oders">
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="noteSite" ColumnName="noteSite" />
+                <ScalarProperty Name="noteSiteAdmin" ColumnName="noteSiteAdmin" />
+                <ScalarProperty Name="priceShip" ColumnName="priceShip" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="cusId" ColumnName="cusId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="NTSWEBModel.Partner">
+              <MappingFragment StoreEntitySet="Partner">
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="groupId" ColumnName="groupId" />
+                <ScalarProperty Name="pLink" ColumnName="pLink" />
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="pNote" ColumnName="pNote" />
+                <ScalarProperty Name="pImage" ColumnName="pImage" />
+                <ScalarProperty Name="pName" ColumnName="pName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="NTSWEBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="cateId" ColumnName="cateId" />
+                <ScalarProperty Name="pLang" ColumnName="pLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+                <ScalarProperty Name="pro_home" ColumnName="pro_home" />
+                <ScalarProperty Name="introContent" ColumnName="introContent" />
+                <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
+                <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
+                <ScalarProperty Name="desPro" ColumnName="desPro" />
+                <ScalarProperty Name="brank" ColumnName="brank" />
+                <ScalarProperty Name="proFile" ColumnName="proFile" />
+                <ScalarProperty Name="proImages1" ColumnName="proImages1" />
+                <ScalarProperty Name="proImages2" ColumnName="proImages2" />
+                <ScalarProperty Name="proImages3" ColumnName="proImages3" />
+                <ScalarProperty Name="proImages4" ColumnName="proImages4" />
+                <ScalarProperty Name="proImages5" ColumnName="proImages5" />
+                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+                <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+                <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProTags">
+            <EntityTypeMapping TypeName="NTSWEBModel.ProTag">
+              <MappingFragment StoreEntitySet="ProTag">
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+                <ScalarProperty Name="proId" ColumnName="proId" />
+                <ScalarProperty Name="idPT" ColumnName="idPT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SayWes">
+            <EntityTypeMapping TypeName="NTSWEBModel.SayWe">
+              <MappingFragment StoreEntitySet="SayWe">
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="slang" ColumnName="slang" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="avata" ColumnName="avata" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slides">
+            <EntityTypeMapping TypeName="NTSWEBModel.Slide">
+              <MappingFragment StoreEntitySet="Slide">
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="sLink" ColumnName="sLink" />
+                <ScalarProperty Name="slang" ColumnName="slang" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supports">
+            <EntityTypeMapping TypeName="NTSWEBModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="sType" ColumnName="sType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WhyChooseUsses">
+            <EntityTypeMapping TypeName="NTSWEBModel.WhyChooseUss">
+              <MappingFragment StoreEntitySet="WhyChooseUss">
+                <ScalarProperty Name="numberOder" ColumnName="numberOder" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="slang" ColumnName="slang" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tagproes">
+            <EntityTypeMapping TypeName="NTSWEBModel.Tagpro">
+              <MappingFragment StoreEntitySet="Tagpro">
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="tagOrder" ColumnName="tagOrder" />
+                <ScalarProperty Name="typeTag" ColumnName="typeTag" />
+                <ScalarProperty Name="tagKey" ColumnName="tagKey" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configs">
+            <EntityTypeMapping TypeName="NTSWEBModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="langDefault" ColumnName="langDefault" />
+                <ScalarProperty Name="favicon" ColumnName="favicon" />
+                <ScalarProperty Name="infoPage" ColumnName="infoPage" />
+                <ScalarProperty Name="mapBig" ColumnName="mapBig" />
+                <ScalarProperty Name="mapSmall" ColumnName="mapSmall" />
+                <ScalarProperty Name="conLang" ColumnName="conLang" />
+                <ScalarProperty Name="priceShip" ColumnName="priceShip" />
+                <ScalarProperty Name="viewProPageList" ColumnName="viewProPageList" />
+                <ScalarProperty Name="viewProPageDetail" ColumnName="viewProPageDetail" />
+                <ScalarProperty Name="viewProPageHome" ColumnName="viewProPageHome" />
+                <ScalarProperty Name="viewNewPageHome" ColumnName="viewNewPageHome" />
+                <ScalarProperty Name="viewNewPageDetail" ColumnName="viewNewPageDetail" />
+                <ScalarProperty Name="viewNewPageList" ColumnName="viewNewPageList" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="googleAdsense" ColumnName="googleAdsense" />
+                <ScalarProperty Name="liveChat" ColumnName="liveChat" />
+                <ScalarProperty Name="conTact" ColumnName="conTact" />
+                <ScalarProperty Name="footer" ColumnName="footer" />
+                <ScalarProperty Name="footerExten" ColumnName="footerExten" />
+                <ScalarProperty Name="homeVideo" ColumnName="homeVideo" />
+                <ScalarProperty Name="zaloChat" ColumnName="zaloChat" />
+                <ScalarProperty Name="shoppe" ColumnName="shoppe" />
+                <ScalarProperty Name="tiki" ColumnName="tiki" />
+                <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+                <ScalarProperty Name="youTube" ColumnName="youTube" />
+                <ScalarProperty Name="twiter" ColumnName="twiter" />
+                <ScalarProperty Name="google" ColumnName="google" />
+                <ScalarProperty Name="copyRight" ColumnName="copyRight" />
+                <ScalarProperty Name="linkLogo" ColumnName="linkLogo" />
+                <ScalarProperty Name="logoBottom" ColumnName="logoBottom" />
+                <ScalarProperty Name="logoTop" ColumnName="logoTop" />
+                <ScalarProperty Name="shopName" ColumnName="shopName" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="mail_Port" ColumnName="mail_Port" />
+                <ScalarProperty Name="emailPass" ColumnName="emailPass" />
+                <ScalarProperty Name="email_Send" ColumnName="email_Send" />
+                <ScalarProperty Name="email_Inbox" ColumnName="email_Inbox" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="hotLine" ColumnName="hotLine" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
