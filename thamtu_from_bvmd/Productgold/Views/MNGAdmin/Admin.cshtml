@@ -1,0 +1,166 @@
+﻿@model Productgold.Models.Admin
+@{
+    ViewBag.Title = "Administrator - Đổi thông tin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.controller = "Đổi thông tin admin";
+}
+    <button class="btn btn-primary" id="addproductbsutton" data-toggle="modal" data-target="#clickpassmodam"><i class="fa fa-edit"></i>Đổi password</button>
+    <button class="btn btn-primary" id="addproducxxtbutton" data-toggle="modal" data-target="#clickprofilemodam"><i class="fa fa-edit"></i>Đổi thông tin</button>
+<input type="hidden" id="modam" value="@Request["modam"]"/>
+
+@using (Html.BeginForm("ChagePass", "MNGAdmin"))
+{
+    <div id="clickpassmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog" style="width:430px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_product" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Đổi mật khẩu cho admin</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nhập pass cũ:</label>
+                                    <input type="password" class="form-control" name="p0" placeholder="Nhập pass cũ" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nhập pass mới:</label>
+                                    <input type="password" class="form-control" name="p1" id="p1" placeholder="Nhập pass mới" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nhập lại pass:</label>
+                                    <input type="password" class="form-control" name="p2" id="p2" placeholder="Nhập lại pass" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" id="saveproduct"  class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprddddoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("Profile", "MNGAdmin"))
+{
+    <div id="clickprofilemodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Đổi thông tin cơ bản</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên:</label>
+                                    <input type="text" class="form-control" name="fullname" id="fullname" value="@Model.fullname" required="required">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Email:</label>
+                                    <input type="email" class="form-control" placeholder="email" disabled="disabled" value="@Model.email">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                             <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Địa chỉ:</label>
+                                    <input type="text" class="form-control" name="address"  placeholder="Địa chỉ" value="@Model.addresss"  >
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="modal-footer" style="margin-top: -20px;">
+                          
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+    var password1 = document.getElementById('p1');
+    var password2 = document.getElementById('p2');
+
+    var checkPasswordValidity = function () {
+        if (password1.value == password2.value) {
+            password2.setCustomValidity('');
+        }
+        else { password2.setCustomValidity('Mật khẩu mới phải giống nhau.'); }
+    };
+
+    password1.addEventListener('change', checkPasswordValidity, false);
+    password2.addEventListener('change', checkPasswordValidity, false);
+
+</script>
+
+<script>
+    window.onload = loaddata();
+    function loaddata()
+    {
+        var modam = $('#modam').val();
+        if (modam == 'pass') {
+            $('#clickpassmodam').modal({
+                show: 'true'
+
+            });
+        } else {
+            $('#clickprofilemodam').modal({
+                show: 'true'
+
+            });
+        }
+      
+    }
+</script>
+
+   <script type="text/javascript">
+       $('#birth').datetimepicker({
+           onGenerate: function (ct) {
+               $(this).find('.xdsoft_date')
+                   .toggleClass('xdsoft_disabled');
+           },
+           minDate: '01/2/1940',
+           maxDate: '01/2/2040',
+           timepicker: false
+       });
+</script>

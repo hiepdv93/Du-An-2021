@@ -1,0 +1,40 @@
+﻿@model IList<Productgold.Models.Adv>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+<div class="blog-section">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="#" title="@ViewBag.NavLinhvuc">@ViewBag.NavLinhvuc</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="service-tap">
+            <div class="container">
+                <div class="box-service-tap">
+                    <h1>@ViewBag.Sanphamtanphat</h1>
+
+                    <div class="box-col-service">
+                        @foreach (var item in Model)
+            {
+                            <div class="items-col-service">
+                                <a href="@item.link" title="@item.advName"><img src="@item.images" class="img-fluid" alt="@item.advName"></a>
+                                <div class="name-items-service">
+                                    <a href="@item.link" title="@item.advName">
+                                        @item.advName
+                                    </a>
+                                </div><!--end name-items-service-->
+                            </div><!--end items-col-service-->
+                        }
+                    </div><!--end box-col-service-->
+                </div><!--end box service-tap-->
+            </div><!--end container-->
+        </div><!--end service-tap-->
+    <div class="clear-fix"></div>
+    </div><!--end container-->
+</div><!--end blog-page-->

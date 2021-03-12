@@ -1,0 +1,50 @@
+﻿@model IList<Productgold.Models.News>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    string mota = "";
+}
+
+<div class="blog-section">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="/Tin-tuc" title="@ViewBag.NavTintuc">@ViewBag.NavTintuc</a></li>
+                        <li><a href="#" title="@ViewBag.key_timkiem">@ViewBag.key_timkiem</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-blog-section">
+            <div class="right-section">
+                <div class="blog-post-area">
+                    <h2 class="title text-center">@ViewBag.key_ketquatimkiem : @ViewBag.keytimkiem</h2>
+                    @foreach (var item in Model)
+                    {
+                        mota = Productgold.Models.StringClass.FormatContentNews(item.descript, 435);
+                        <div class="single-blog-post">
+                            <h3><a href="/Tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                            <div class="post-meta">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>@item.createdate.Value.ToString("HH:mm")</li>
+                                    <li><i class="fa fa-calendar"></i>@item.createdate.Value.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </div>
+                            <a href="/Tin/@item.new_key" title="@item.title">
+                                <img alt="@item.title" src="@item.images">
+                            </a>
+                            <p> @mota </p>
+                            <a href="/Tin/@item.new_key" title="@item.title" class="btn btn-primary">@ViewBag.XemThem</a>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+                    @Html.Raw(ViewBag.pages)
+                </div><!--end blog-post-area-->
+            </div><!--end right-section-->
+        </div><!--end box-blog-section-->
+    </div><!--end container-->
+</div><!--end blog-page-->

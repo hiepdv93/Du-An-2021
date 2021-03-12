@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chào mừng bạn đến với trang quản trị website @Request.Url.Host</h2>
+    <script type="text/javascript">
+        var editor;
+        function createEditor(languageCode, id) {
+            var editor = CKEDITOR.replace(id, {
+                language: languageCode
+            });
+        }
+
+        $(function () {
+
+            createEditor('vi', 'idadmin');
+        });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#email").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#email").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    </script>
+    <script type="text/javascript">
+    $('#usernameview').datetimepicker({
+        onGenerate: function (ct) {
+            $(this).find('.xdsoft_date')
+                .toggleClass('xdsoft_disabled');
+        },
+        minDate: '01/2/1940',
+        maxDate: '01/2/2040',
+        timepicker: false
+    });
+</script>

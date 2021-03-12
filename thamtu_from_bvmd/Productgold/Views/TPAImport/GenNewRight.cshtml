@@ -1,0 +1,66 @@
+﻿@model IList<Productgold.Models.News> 
+@{
+    var list_New = (List<Productgold.Models.News>)ViewBag.List_New;
+    string note = "";
+}
+<div class="kid-left-tab">
+    <div class="tab-dc">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">@ViewBag.key_tinmoi</a></li>
+            <li><a data-toggle="tab" href="#menu1">@ViewBag.key_tinnoibat</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="list-news">
+                @foreach (var item in list_New)
+                {
+                    note = Productgold.Models.StringClass.FormatContentNews(item.descript, 100);
+                    <div class="box-list-news">
+                        <a href="/Tin/@item.new_key" title="@item.title"><img src="@item.images.Replace("uploads", "uploads/_thumbs")" class="img-responsive" alt="@item.title"></a>
+                        <div class="text-right">
+                            <a href="/Tin/@item.new_key" title="@item.title">@item.title</a>
+                            <p>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                @item.createdate.Value.ToString("HH:mm") / @item.createdate.Value.ToString("dd/MM/yyyy")
+                            </p>
+                            <div class="more">
+                                <p>@note</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                </div><!--end list-news-->
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <div class="list-news">
+                    @foreach (var item in Model)
+                    {
+                        note = Productgold.Models.StringClass.FormatContentNews(item.descript, 100);
+                        <div class="box-list-news">
+                            <a href="/Tin/@item.new_key" title="@item.title"><img src="@item.images.Replace("uploads", "uploads/_thumbs")" class="img-responsive" alt="@item.title"></a>
+                            <div class="text-right">
+                                <a href="/Tin/@item.new_key" title="@item.title">@item.title</a>
+                                <p>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    @item.createdate.Value.ToString("HH:mm") / @item.createdate.Value.ToString("dd/MM/yyyy")
+                                </p>
+                                <div class="more">
+                                    <p>@note</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div><!--end list-news-->
+            </div>
+        </div>
+    </div><!--end tab-dc-->
+
+    <div class="video">
+        <h4>VIDEO</h4>
+        @Html.Raw(ViewBag.videoRight)
+    </div><!--end video-->
+    <!--end list-news-->
+</div><!--end kid-left-->

@@ -1,0 +1,40 @@
+﻿@model IList<Productgold.Models.Oderdt>
+@{
+    ViewBag.Title = "Administrator - Chi tiết hóa đơn";
+    ViewBag.controller = "Chi tiết hóa đơn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <a class="fa fa-mail-reply-all" href="javascript:void(0);" onclick="window.history.go(-1);">Trở lại</a>
+    <div class="box">
+        <div class="box-body table-responsive">
+
+
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@ViewBag.cus</td>
+                            <td>@{var s = Productgold.Models.StringClass.Getpro(Model[i].proid.ToString());}@s</td>
+                            <td>@Model[i].quantity</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>

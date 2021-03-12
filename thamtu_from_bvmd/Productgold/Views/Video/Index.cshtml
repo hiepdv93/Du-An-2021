@@ -1,0 +1,281 @@
+﻿@model IList<Productgold.Models.Video>
+@{
+    ViewBag.Title = "Administrator - Danh sách thư viện";
+    ViewBag.controller = "Danh sách thư viện";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string search = "";
+    string group = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["groupSearch"] != null)
+    {
+        group = Request["groupSearch"];
+    }
+}
+
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/News/IndexSearch">
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.DropDownList("groupSearch", (SelectList)ViewBag.nhomtin, "Tất cả", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" value="@search" name="titleSearch" class="form-control" placeholder="Tên thư viện.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info" type="button" onclick="AddNew();"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th width="130px">Ảnh</th>
+                        <th>Tên thư viện</th>
+                        <th width="230px">Nhóm sản phẩm</th>
+                        <th width="200px">Thứ tự</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td><img class="imgadmin" src="@Model[i].vimg" /></td>
+                            <td>@Model[i].vName</td>
+                            <td>@{var n = Productgold.Models.StringClass.Getcate(Model[i].cateId.ToString());} @n</td>
+                            <td>@Model[i].vOrder</td>
+                            <td>
+                                <a class="fa fa-edit" href="#" onclick="Edit(@Model[i].vId)">Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].vId)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+@using (Html.BeginForm("Add", "Video"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog divw700">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa thư viện</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <input hidden id="url" value="@Request.Url" name="url" />
+                                    <input hidden id="idEdit" value="-1" name="idEdit" />
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nhóm sản phẩm(*)</label>
+                                                <select required class="form-control csinput" id="cate" name="cate"></select>
+                                            </div>
+                                        </div>
+                                   
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Tên thư viện(*)</label>
+                                                <input type="text" class="form-control csinput" id="name" name="name" placeholder="Tên" required="required" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Key</label>
+                                        <input type="text" class="form-control csinput" name="key" id="key" placeholder="key" />
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Key Seo</label>
+                                        <input type="text" class="form-control csinput" name="kseo" id="kseo" placeholder="keyseo" />
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Des Seo</label>
+                                        <input type="text" class="form-control csinput" name="dseo" id="dseo" placeholder="desseo" />
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Title Seo</label>
+                                        <input type="text" class="form-control csinput" id="tseo" name="tseo" placeholder="Title Seo" />
+                                    </div>
+                                    <div class="form-group" style="display:none">
+                                        <label>Link</label>
+                                        <input type="text" class="form-control csinput" id="link" name="link" placeholder="link" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Ảnh(width: 167px - height: 100px)</label>
+                                                <input type="text" class="form-control csinput" id="img" name="img" placeholder="Ảnh" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Thứ tự(*)</label>
+                                                <input type="number" value="1" class="form-control csinput" id="order" name="order" required placeholder="thứ tự" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>File</label>
+                                                <input type="text" class="form-control csinput" id="fileimg" name="fileimg" placeholder="File" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Mô tả</label>
+                                        <textarea class="form-control" type="text" placeholder="Note" name="note" id="note"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer" style="margin-top: -20px;">
+                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                                    <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!--/.col (left) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $('#groupSearch').val('@group');
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa thư viện!');
+        $('#linkDel1').attr('href', '/Video/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+
+</script>
+<script>
+    function Lammoi() {
+        window.location.href = '/Video/';
+    }
+    function Themmoi() {
+        window.location.href = '/Video/Add/';
+    }
+</script>
+
+
+<script type="text/javascript">
+    function AddNew() {
+        $("#idEdit").val("-1");
+        $("#editmodam").modal({
+            show: true
+        });
+    }
+    function Edit(id) {
+        $("#idEdit").val(id);
+        $.ajax({
+            url: "/Video/GetVideoById",
+            data: { id},
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#cate").val(data.cateId);
+                $("#name").val(data.vName);
+                $("#key").val(data.vKey);
+                $("#kseo").val(data.keySeo);
+                $("#dseo").val(data.desSeo);
+                $("#tseo").val(data.titleSeo);
+                $("#img").val(data.vimg);
+                $("#link").val(data.vLink);
+                $("#order").val(data.vOrder);
+                CKEDITOR.instances["note"].setData(data.vnote)
+                $("#editmodam").modal({
+                    show: true
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+
+    function LoadCategory() {
+        $.ajax({
+            url: "/Video/GetCategory",
+            data: {},
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                var str = "";
+                for (var i = 0 ; i < data.length ; i++)
+                    str += "<option value =" + data[i].id + ">" + data[i].name + "</option>";
+                $("#cate").html(str).show();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+
+    LoadCategory();
+
+    //editor
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+        createEditor('vi', 'note');
+    });
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+    $(function () {
+        $("#fileimg").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#fileimg").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>

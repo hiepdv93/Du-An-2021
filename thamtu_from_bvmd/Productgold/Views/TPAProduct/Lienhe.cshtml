@@ -1,0 +1,65 @@
+﻿@model Productgold.Models.Config
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    var bgLienHe = (Productgold.Models.Adv)ViewBag.bglienhe;
+}
+@if (bgLienHe != null)
+{
+    <style>
+    .contact .form-contact {
+    background: url(@bgLienHe.images) no-repeat bottom right;
+}
+    </style>
+}
+<div class="products">
+    <div class="container no-padding">
+        <div class="contact">
+            <div class="bre-cum">
+                <ul>
+                    <li><a href="/" title="@ViewBag.home">@ViewBag.home</a></li>
+                    <li>>></li>
+                    <li><a href="#" title="@ViewBag.key_lienhe"> @ViewBag.key_lienhe </a></li>
+                </ul>
+            </div><!--end bre-cum-->
+            <h4>@ViewBag.lienhevoichungtoi</h4>
+            <form method="post">
+                <div class="form-contact">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <input type="text" name="hotenlh" required placeholder="@ViewBag.key_hoten (*)">
+                        </div><!--end col-sm-6-->
+                        <div class="col-xs-12 col-sm-6">
+                            <input type="text" name="phone" required placeholder="@ViewBag.key_sdt (*)">
+                        </div><!--end col-sm-6-->
+                        <div class="col-xs-12">
+                            <input type="text" name="emaillh" placeholder="Email">
+                        </div><!--end col-xs-12-->
+                        <div class="col-xs-12">
+                            <input type="text" name="addr" placeholder="@ViewBag.key_diachilh">
+                        </div><!--end col-xs-12-->
+                        <div class="col-xs-12">
+                            <textarea name="messagelh" rows="6" required placeholder="@ViewBag.key_ndlienhe (*)"></textarea>
+                        </div><!--end col-xs-12-->
+                    </div><!--end row-->
+                    <input type="submit" value="@ViewBag.key_guitinnhan">
+                </div><!--end form-contact-->
+            </form>
+            <div class="google-map">
+                @Html.Raw(Model.ex2)
+                <div class="map-contact">
+                    @Html.Raw(Model.map)
+                </div><!--end map-contact-->
+            </div><!--end google=map-->
+        </div><!--end contact-->
+    </div><!--end container-->
+</div><!--end products-->
+
+@if (Session["guilienhe"] != null)
+{
+    <script>
+        // toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+        toastr.success("Bạn gửi liên hệ thành công, xin cảm ơn!", { timeOut: 5000 });
+    </script>
+}
+@{ if (Session["guilienhe"] != null) { Session["guilienhe"] = null; }
+}

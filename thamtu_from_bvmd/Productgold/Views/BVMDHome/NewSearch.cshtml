@@ -1,0 +1,53 @@
+﻿@model IList<Productgold.Models.News>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    string note = "";
+}
+
+<div class="products">
+    <div class="container no-padding">
+        <div class="col-xs-12 col-5 col-sm-7 no-padding">
+            <div class="blog-type">
+                <div class="bre-cum">
+                    <ul>
+                        <li><a href="/" title="@ViewBag.home">@ViewBag.home</a></li>
+                        <li>>></li>
+                        <li><a href="/Tin-tuc" title="@ViewBag.news">@ViewBag.news</a></li>
+                        <li>>></li>
+                        <li><a href="#" title="@ViewBag.key_timkiem">@ViewBag.key_timkiem: '@ViewBag.keytimkiem'</a></li>
+                    </ul>
+                </div><!--end bre-cum-->
+
+                <div class="box-list-blog">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        note = Productgold.Models.StringClass.FormatContentNews(Model[i].descript, 90);
+                        <div class="list-blog">
+                            <a href="/Tin/@Model[i].new_key" title="@Model[i].title"><img src="@Model[i].images.Replace("uploads", "uploads/_thumbs")" class="img-responsive" alt="@Model[i].title"></a>
+                            <div class="text-list-blog">
+                                <a href="/Tin/@Model[i].new_key" title="@Model[i].title">
+                                    <h4>@Model[i].title</h4>
+                                </a>
+                                <div class="date">
+                                    <p>
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i> @Model[i].createdate.Value.ToString("HH:mm") / @Model[i].createdate.Value.ToString("dd/MM/yyyy")
+                                    </p>
+                                </div><!--end date-->
+                                <p>@note</p>
+                            </div><!--end text-list-blog-->
+                        </div><!--end list-blog-->
+                    }
+
+                </div><!--end box-list-blog-->
+            </div><!--ed blog-type-->
+            <div class="pana">
+                @Html.Raw(ViewBag.pages)
+            </div><!--end pana-->
+        </div><!--end col-sm-7-->
+
+
+        <div class="col-xs-12 col-5 col-sm-5 col-5xs no-padding">
+            @Html.Action("GenNewRight", "TPAImport")
+        </div><!--end col-sm-5-->
+    </div><!--end container-->
+</div><!--end products-->

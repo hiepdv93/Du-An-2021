@@ -1,0 +1,275 @@
+﻿@model IList<Productgold.Models.Adv>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.controller = "Danh sách hình ảnh giữa trang";
+    ViewBag.Title = "Administrator - Danh sách hình ảnh giữa trang";
+    string search = "";
+    string sltype = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["sltype"] != null)
+    {
+        sltype = Request["sltype"];
+    }
+
+}
+
+
+<div class="row">
+    @*<button class="btn btn-info classbtAdd" ><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Adv/IndexSearch2">
+                <div class="row">
+
+                    <div class="col-md-3" >
+                        <select name="sltype"  id="sltype" class="form-control">
+                            <option value="-1">Tất cả </option>
+                            <option value="5">Ảnh slide chạy</option>
+                            <option value="6">Bốn ảnh tĩnh</option>
+                            <option value="7">Ảnh giữa trang</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Tên ảnh.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="window.location='/adv/index2'"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info" type="button"  id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th width="100px">Ảnh</th>
+                        <th>Tiêu đề</th>
+                        <th width="200px">Link</th>
+                        <th width="150px">Loại</th>
+                        <th width="130px">Trạng thái</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td><img  src="@Model[i].images" alt="nmobd df f" width="90" height="47"/></td>
+                            <td>@Model[i].advName</td>
+                            <td>@Model[i].link</td>
+                            <td>@{var q = Productgold.Models.StringClass.Loaiqc(Model[i].atype.ToString());}@q</td>
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            <td>
+                                <a href="#" onclick="hamsua(@Model[i].id)" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+@using (Html.BeginForm("Update", "Adv"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog divw700">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa hình ảnh giữa trang</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tiêu đề(*)</label>
+                                    <input type="text" class="form-control" name="advName" id="advName" placeholder="Tên ảnh.." required="required">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Loại ảnh:</label>
+                                    <select class="form-control" id="atype" name="atype">
+                                        <option value="5">Ảnh slide chạy</option>
+                                        <option value="6">Bốn ảnh tĩnh</option>
+                                        <option value="7">Ảnh giữa trang</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Chọn ảnh:</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" value="-1" />
+                                    <input type="text" class="form-control" name="img" id="img" placeholder="Chọn ảnh">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Link:</label>
+                                    <input type="text" class="form-control" placeholder="link" id="link" name="link">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display:none">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Độ rộng(px)(*)</label>
+                                    <input type="number" value="100" class="form-control" placeholder="Độ rộng" id="advW" name="advW" required="required">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Độ cao(px)(*)</label>
+                                    <input type="number" value="100" class="form-control" placeholder="Độ cao" id="advH" name="advH" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Thứ tự(*)</label>
+                                    <input type="number" value="1" class="form-control" placeholder="Thứ tự" id="advThutu" name="advThutu" required="required">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Kích hoạt:</label>
+                                    <select class="form-control" id="active" name="active">
+                                        <option value="1">Kích hoạt</option>
+                                        <option value="0">Ko kích hoạt</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display:none">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Mô tả:</label>
+                                    <textarea name="advNote1" id="advNote1"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $('#sltype').val('@sltype');
+    function Lammoi() {
+        window.location.href = '/Adv/';
+    }
+
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa vì sao chọn chúng tôi!');
+        $('#linkDel1').attr('href', '/Adv/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id) {
+        var url = "/Adv/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.id);
+                $("#advName").val(data.advName);
+                $("#atype").val(data.atype);
+                $("#img").val(data.images);
+                $("#link").val(data.link);
+                $("#advW").val(data.width);
+                $("#advH").val(data.height);
+                $("#advH").val(data.height);
+                $("#advThutu").val(data.advOrder);
+                CKEDITOR.instances["advNote1"].setData(data.note)
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'advNote1');
+
+    });
+</script>

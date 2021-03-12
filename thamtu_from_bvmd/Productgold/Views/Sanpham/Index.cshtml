@@ -1,0 +1,284 @@
+﻿@model IList<Productgold.Models.Product>
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+<input type="hidden" value="@Request["view"]" id="sview" />
+<input type="hidden" value="@Request["order"]" id="comorder" />
+<div class="row">
+    <div class="col-md-3">
+        @{Html.RenderAction("Gencate", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        @{Html.RenderAction("GenNhomBrand", "ImportView");}
+        <div class="clearfix">
+        </div>
+        <div class="price-filter leftbar">
+            <h3 class="title">Price
+            </h3>
+            <form class="pricing" action="/Sanpham/Timgia" method="post">
+                <label>
+                    $ 
+                    <input type="number" min="0" required="required" name="nho">
+                </label>
+                <span class="separate">- 
+                </span>
+                <label>
+                    $ 
+                    <input type="number" min="0" required="required" name="to">
+                </label>
+                <input type="submit" value="Tìm">
+            </form>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="others leftbar">
+            <h3 class="title">Others
+            </h3>
+        </div>
+        <div class="clearfix">
+
+        @{Html.RenderAction("GenTopNew", "ImportView");}
+        </div>
+        <div class="fbl-box leftbar">
+            <h3 class="title">Facebook
+            </h3>
+            <span class="likebutton">
+                <a href="#">
+                    <img src="~/Content/images/fblike.png" alt="">
+                </a>
+            </span>
+            <p>
+                12k people like Flat Shop.
+            </p>
+            <ul>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+            <div class="fbplug">
+                <a href="#">
+                    <span>
+                        <img src="~/Content/images/fbicon.png" alt="">
+                    </span>
+                    Facebook social plugin
+                </a>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        @{Html.RenderAction("Genadvother", "ImportView");}
+    </div>
+    <div class="col-md-9">
+
+        @{Html.RenderAction("GenAdvSlide", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        <div class="products-grid">
+            <div class="toolbar">
+                <div class="sorter">
+                    <div class="view-mode">
+                        <a href="#" onclick="chuyenlist()" class="list">List
+                        </a>
+                        <a href="#" onclick="chuyengrid()" class="grid active">Grid
+                        </a>
+                    </div>
+                    <div class="sort-by">
+                        Sort by : 
+                      <select name="sorder" id="sorder" >
+                          <option value="Default" selected>Default
+                          </option>
+                          <option value="name">Name
+                          </option>
+                          <option value="price">Price
+                          </option>
+                      </select>
+                    </div>
+                   
+                </div>
+                <div class="pager">
+                
+                    @Html.Raw(ViewBag.pages)
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            @if (Request["view"] != null && Request["view"] == "list")
+            {
+                <ul class="products-listItem">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                    <li class="products">
+                       
+                        <div class="thumbnail">
+                           <a href="/Sanpham/Chitiet/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <img src="@Model[i].images" alt="@Model[i].pro_name">
+                                    </a>
+                        </div>
+                        <div class="product-list-description">
+                            <div class="productname">
+                                @Model[i].pro_name
+                            </div>
+                            <p>
+                                <img src="~/Content/images/star.png" alt="">
+                                <a href="#" class="review_num">@Model[i].pro_count người đã mua
+                                </a>
+                            </p>
+                            <p>@Model[i].ex1
+                            </p>
+                            <div class="list_bottom">
+                                <div class="price">
+                                    <span class="new_price">@Model[i].price_sale
+                            <sup>$
+                            </sup>
+                                    </span>
+                                    <span class="old_price">@Model[i].price
+                            <sup>$
+                            </sup>
+                                    </span>
+                                </div>
+                                <div class="button_group">
+                               <a href="/Carts/Addcarts/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <button class="button add-cart" type="button">Mua ngay</button></a>
+                                    <a href="/Sanpham/Chitiet/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <button class="button add-cart" type="button">chi tiết</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    }
+                </ul>
+            }
+            else
+            { 
+                  
+                <div class="row">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        
+                        <div class="col-md-4 col-sm-6">
+                            <div class="products">
+                                <div class="thumbnail">
+                                    <a href="/Sanpham/Chitiet/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <img src="@Model[i].images" alt="@Model[i].pro_name">
+                                    </a>
+                                </div>
+                                <div class="productname">
+                                    @Model[i].pro_name
+                                </div>
+                                <h4 class="price">
+                                    @Model[i].price_sale
+                                </h4>
+                                <div class="button_group">
+                                    <a href="/Carts/Addcarts/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <button class="button add-cart" type="button">Mua ngay</button></a>
+                                    <a href="/Sanpham/Chitiet/@Model[i].pro_key" title="@Model[i].pro_name">
+                                        <button class="button add-cart" type="button">chi tiết</button></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            }
+
+            <div class="clearfix">
+            </div>
+            <div class="toolbar">
+                <div class="sorter bottom">
+                    <div class="view-mode">
+                        <a href="/sanpham?view=list" class="list">List
+                        </a>
+                        <a href="/sanpham?view=grid" class="grid active">Grid
+                        </a>
+                    </div>
+                    <div class="sort-by">
+                        Sort by : 
+                      <select name="">
+                          <option value="Default" selected>Default
+                          </option>
+                          <option value="name">Name
+                          </option>
+                          <option value="price">Price
+                          </option>
+                      </select>
+                    </div>
+                  
+                </div>
+                <div class="pager">
+               
+                    @Html.Raw(ViewBag.pages)
+                </div>
+
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+@{Html.RenderAction("GenBrand", "ImportView");}
+<script>
+    var comorder = $('#comorder').val() + "";
+    if (comorder != "") {
+        document.getElementById("sorder").value = comorder;
+        document.getElementById("sorder2").value = comorder;
+    }
+    $('#sorder').change(function () {
+        xulipost();
+    });
+    $('#sorder2').change(function () {
+        xulipost();
+    });
+    function xulipost()
+    {
+        var sorder = $('#sorder').val();
+        var sview = $('#sview').val() + "";
+        var url = "";
+        var c = window.location.pathname;
+        if (sview == "list") {
+            url = c+"?view=list&order=" + sorder;
+        } else {
+            url = c+"?view=grid&order=" + sorder;
+        }
+        window.location = url;
+    }
+    function chuyenlist()
+    {
+        var c = window.location.pathname;
+        url = c + "?view=list";
+        window.location = url;
+    }
+    function chuyengrid() {
+        var c = window.location.pathname;
+        url = c + "?view=grid";
+        window.location = url;
+    }
+</script>

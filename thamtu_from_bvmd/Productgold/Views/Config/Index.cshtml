@@ -1,0 +1,270 @@
+﻿@model Productgold.Models.Config
+@{
+    ViewBag.Title = "Administrator - Cấu hình website";
+    ViewBag.controller = "Cấu hình website";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Cấu hình chung</a></li>
+                    <li><a href="#tab_2" data-toggle="tab"> Cấu hình tin tức</a></li>
+                    <li><a href="#tab_3" data-toggle="tab" style="display:none">Cấu hình video, ý kiến</a></li>
+                    <li><a href="#tab_4" data-toggle="tab" style="display:none">Cấu hình thống kê</a></li>
+                    <li><a href="#tab_6" data-toggle="tab">Cấu hình mạng xã hội</a></li>
+                    <li><a href="#tab_5" data-toggle="tab">Cấu hình seo</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label>Tên công ty, tổ chức</label>
+                                <input type="text" class="form-control csinput" name="shopname" placeholder="Tên công ty, tổ chức" value="@Model.shopname" />
+                            </div>
+                            <div class="form-group">
+                                <label>Số phone</label>
+                                <input type="text" class="form-control csinput" name="phone" placeholder="Số phone" value="@Model.phone" />
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label>Điện thoại hỗ trợ 24/7</label>
+                                <input type="text" class="form-control csinput" name="fax" placeholder="Số fax" value="@Model.fax" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email nhận tin</label>
+                                <input type="email" class="form-control csinput" name="emailn" placeholder="Email nhận" value="@Model.Email_Inbox" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email gửi tin </label>
+                                <input type="hidden" value="@Model.id" name="idupdate" />
+                                <input type="email" class="form-control csinput" name="emailg" placeholder="Email gửi tin" value="@Model.shopemail" />
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu email</label>
+                                <input type="password" class="form-control csinput" name="pass" placeholder="Mật khẩu email" value="@Model.emailpass" />
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label>Cổng gửi mail</label>
+                                <input type="number" class="form-control csinput" name="cong" placeholder="Cổng gửi mail" value="@Model.conMail_Port" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Logo</label>
+                                <input type="text" class="form-control csinput" name="logo" id="logo" placeholder="Chọn ảnh logo" value="@Model.logotop" />
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label>Link logo</label>
+                                <input type="text" class="form-control csinput" name="link" placeholder="Link logo" value="@Model.link" />
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label for="exampleInputPassword1">Địa chỉ công ty</label>
+                                <input type="text" class="form-control csinput" name="addres" placeholder="Địa chỉ công ty" value="@Model.addres" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Bản đồ trang liên hệ</label>
+                                @Html.TextAreaFor(u => u.map)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Bản đồ trang chủ</label>
+                                @Html.TextAreaFor(u => u.yeuCauBaoGia)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Địa chỉ trang liên hệ</label>
+                                @Html.TextAreaFor(u => u.ex2)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Live chat</label>
+                                @Html.TextAreaFor(u => u.liveChat)
+                            </div>
+                            <div class="form-group" >
+                                <label for="exampleInputPassword1">Video</label>
+                                @Html.TextAreaFor(u => u.googleAnalytics)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Địa chỉ chân trang</label>
+                                @Html.TextAreaFor(u => u.conTact)
+                            </div>
+                          
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="tab_2">
+                        @{
+                            string viewpro = Model.viewPro;
+                            var mangpro = viewpro.Split(';').ToArray();
+
+                            string viewnew = Model.viewNews;
+                            var mangnew = viewnew.Split(';').ToArray();
+
+                            string viewvideo = Model.viewVideo;
+                            var mangvideo = viewvideo.Split(';').ToArray();
+
+                            string viewbl = Model.viewYkien;
+                            var mangbl = viewbl.Split(';').ToArray();
+                        }
+                        <div class="box-body">
+
+                            <div class="form-group" >
+                                <label>Số tin mới - nổi bật hiển thị</label>
+                                <input type="number" class="form-control csinput" name="idsanpham0" placeholder="Số sản phẩm trang chủ" required="required" value="@mangpro[0]" />
+                            </div>
+                            <div class="form-group"  >
+                                <label>Số tin xem nhiều hiển thị</label>
+                                <input type="number" class="form-control csinput" name="idsanpham1" placeholder="Số sản phẩm trang danh sách" required="required" value="@mangpro[1]" />
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label>Số sản phẩm cùng giá trang chi tiết</label>
+                                <input type="number" class="form-control csinput" name="idsanpham2" placeholder="Số sản phẩm trang chi tiết" required="required" value="@mangpro[2]" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Số tin slide hiện trang chủ</label>
+                                <input type="number" class="form-control csinput" name="idtintuc0" placeholder="Số tin tức hiện trang chủ" required="required" value="@mangnew[0]" />
+                            </div>
+                            <div class="form-group">
+                                <label>Số tin trên 1 trang (trang danh sách)</label>
+                                <input type="number" class="form-control csinput" name="idtintuc1" placeholder="Số tin tức trang danh sách" required="required" value="@mangnew[1]" />
+                            </div>
+                            <div class="form-group">
+                                <label>Số tin liên quan(trang chi tiết)</label>
+                                <input type="number" class="form-control csinput" name="idtintuc2" placeholder="Số tin tức trang chi tiết" required="required" value="@mangnew[2]" />
+                            </div>
+                            <div class="form-group" >
+                                <label>Số hỏi đáp hiển thị trên 1 trang</label>
+                                <input type="number" class="form-control csinput" name="idvideo1" placeholder="Số video trang danh sách" required="required" value="@mangvideo[1]" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3"  >
+                        <div class="form-group" style="display:none">
+                            <label>Số video  trang chủ</label>
+                            <input type="number" class="form-control csinput" name="idvideo0" placeholder="Số video  trang chủ" required="required" value="@mangvideo[0]" />
+                        </div>
+                   
+                        <div class="form-group" style="display:none">
+                            <label>Số video trang chi tiết</label>
+                            <input type="number" class="form-control csinput" name="idvideo2" placeholder="Số video trang chi tiết" required="required" value="@mangvideo[2]" />
+                        </div>
+
+
+                        <div class="form-group" style="display:none">
+                            <label>Số ý kiến trang danh sách</label>
+                            <input type="number" class="form-control csinput" name="idbinhluan0" placeholder="Số ý kiến trang danh sách" required="required" value="@mangbl[0]" />
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label>Số bình luận trang chi tiết sản phẩm</label>
+                            <input type="number" class="form-control csinput" name="idbinhluan1" placeholder="Số bình luận trang chi tiết sản phẩm" required="required" value="@mangbl[1]" />
+                        </div>
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_4"  style="display:none">
+                        <div class="form-group">
+                            <label>Số lượt view từ</label>
+                            <input type="number" class="form-control csinput" name="idview0" placeholder="Số lượt view từ" required="required" value="@Model.viewCountFrom" />
+                        </div>
+                        <div class="form-group">
+                            <label>Số lượt view đến</label>
+                            <input type="number" class="form-control csinput" name="idview1" placeholder="Số lượt view đến" required="required" value="@Model.viewCountTo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Số người đang truy cập từ</label>
+                            <input type="number" class="form-control csinput" name="idaccess0" placeholder="Số người đang truy cập từ" required="required" value="@Model.viewNowFrom" />
+                        </div>
+                        <div class="form-group">
+                            <label>Số người đang truy cập đến</label>
+                            <input type="number" class="form-control csinput" name="idaccess1" placeholder="Số người đang truy cập đến" required="required" value="@Model.viewNowTo" />
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_6">
+                        <div class="form-group">
+                            <label>Kênh facebook</label>
+                            <input type="text" class="form-control csinput" name="facebook" placeholder="Kênh facebook" value="@Model.faceBook" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh youtube</label>
+                            <input type="text" class="form-control csinput" name="youtube" placeholder="Kênh youtube" value="@Model.youTube" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh google</label>
+                            <input type="text" class="form-control csinput" name="google" placeholder="Kênh google" value="@Model.google" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh twiter</label>
+                            <input type="text" class="form-control csinput" name="twiter" placeholder="Kênh twiter" value="@Model.twiter" />
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab_5">
+                        <div class="form-group">
+                            <label>Title seo</label>
+                            <input type="text" class="form-control" name="titleseo" placeholder="Title seo" value="@Model.titleSeo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo</label>
+                            <input type="text" class="form-control" name="keyseo" placeholder="Keyword seo" value="@Model.keySeo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo</label>
+                            <input type="text" class="form-control" name="desseo" placeholder="Description seo" value="@Model.desSeo" />
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+    </div>
+                            }
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'map');
+        createEditor('vi', 'liveChat');
+        createEditor('vi', 'conTact');
+        createEditor('vi', 'ex2');
+        createEditor('vi', 'googleAnalytics');
+        createEditor('vi', 'yeuCauBaoGia');
+        
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#logo").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#logo").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
+<style>
+    .csinput {
+        width: 60%;
+    }
+</style>

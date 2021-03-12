@@ -1,0 +1,123 @@
+﻿@model IList<Productgold.Models.Ykien>
+@{
+
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+<div class="products">
+    <div class="container no-padding">
+        <div class="col-xs-12 col-5 col-sm-7 no-padding">
+            <div class="blog-type">
+                <div class="bre-cum">
+                    <ul>
+                        <li><a href="/" title="@ViewBag.home">@ViewBag.home</a></li>
+                        <li>>></li>
+                        <li><a href="#" title="@ViewBag.key_hoidap">@ViewBag.key_hoidap </a></li>
+
+                    </ul>
+                </div><!--end bre-cum-->
+                <div class="box-list-blog">
+                    <button type="button" class="btn btn-warning btn_form_make_a_question margintop5" id="myBtn" style="width:50%">@ViewBag.key_datcauhoi</button>
+                    @foreach (var item in Model)
+                    {
+                        <div class="feedback_of_customer">
+                            <div class="feedback_of_customer_top">
+                                <figure class="avatar_feedback_of_customer">
+                                    <a href=""><img src="/images/imgnew/binhluanimg.png" alt=""></a>
+                                </figure>
+                                <figcaption class="info_feedback_of_customer">
+                                    <h2 class="title_feedback_of_customer">@item.yName</h2>
+                                    <p class="address_feedback_of_customer">@item.yEmailAdd</p>
+                                </figcaption>
+                            </div>
+                            <div class="highlight_feedback_of_customer">
+                                <img src="/images/icon_y_kien_khach_hang.png" alt="" class="icon_hightlight_left">
+                                <p>@item.ynote</p>
+                                <p class="text-right">
+                                    <a href="/Tra-loi/hoi-dap-@item.yId" style="text-decoration:underline !important">@ViewBag.key_traloihoidap</a>
+                                </p>
+                            </div>
+                        </div>
+                    }
+
+                </div><!--end box-list-blog-->
+            </div><!--ed blog-type-->
+            <div class="pana">
+                @Html.Raw(ViewBag.pages)
+            </div><!--end pana-->
+        </div><!--end col-sm-7-->
+
+
+        <div class="col-xs-12 col-5 col-sm-5 col-5xs no-padding">
+            @Html.Action("GenNewRight", "TPAImport")
+        </div><!--end col-sm-5-->
+    </div><!--end container-->
+</div><!--end products-->
+
+<div class="modal fade" id="myModal" role="dialog">
+    <form method="post" name="form_ch" action="/BVMDHome/ListQuestion">
+        <div class="modal-dialog w900" style="width:900px">
+            <!-- Modal content-->
+            <div class="modal-content ">
+                <div class="modal-header" style="background-color: #eea236; color: white">
+                    <button type="button" id="close_prodsucest" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">@ViewBag.key_datcauhoi_tvhd</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>@ViewBag.key_hoten (*):</label>
+                                    <input type="text" class="form-control" required placeholder="@ViewBag.key_hoten (*)" name="hoten_ch">
+                                    <span id="iderrotenkenh" class="errocs"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>@ViewBag.key_email_diachi (*):</label>
+                                    <input type="text" class="form-control" required placeholder="@ViewBag.key_email_diachi (*)" name="email_diachi_ch">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>@ViewBag.key_email_ndch (*):</label>
+                                    <textarea class="form-control margintop5" rows="7" required placeholder="@ViewBag.key_email_ndch ...(*)" name="noidung_ch"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-floppy-save"></i> @ViewBag.key_gui_cauhoi</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> @ViewBag.key_thoat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#myBtn").click(function () {
+            $("#myModal").modal();
+        });
+    });
+</script>
+@if (Session["hoidap"] != null)
+{
+    <script>
+// toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+        toastr.success("Gửi hỏi đáp thành công, xin cảm ơn!", { timeOut: 5000 });
+    </script>
+}
+@{ if (Session["hoidap"] != null) { Session["hoidap"] = null; }
+}

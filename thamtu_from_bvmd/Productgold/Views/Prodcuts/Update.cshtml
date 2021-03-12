@@ -1,0 +1,283 @@
+﻿@model Productgold.Models.Product
+@{
+    ViewBag.Title = "Administrator - Sửa sản phẩm";
+    ViewBag.controller = "Sửa sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var listtag = (List<Productgold.Models.Tagpro>)ViewBag.tagpro;
+    var mangtag = Model.pTag.Split(';').ToArray();
+    string checkstr = "";
+}
+
+
+<a class="fa fa-mail-reply-all" href="javascript:void(0);" onclick="window.history.go(-1);">Trở lại</a>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">Ảnh sản phẩm</a></li>
+                    <li><a href="#tab_3" data-toggle="tab" style="display:none">Tag sản phẩm</a></li>
+                    <li><a href="#tab_4" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>Nhóm sản phẩm</label>
+                                    @Html.Action("GetCha", "Prodcuts", new { type = 1 })
+                                    <input type="hidden" id="idcha_hid" value="@Model.cateid" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Thương hiệu</label>
+                                    @Html.DropDownList("nhomth", null, new { @class = "form-control csinput" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Model sản phẩm</label>
+                                    <input type="text" class="form-control csinput" name="model" id="model" value="@Model.proCode" placeholder="model sản phẩm" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên sản phẩm(*)</label>
+                                    <input type="text" class="form-control csinput" value="@Model.pro_name" name="name" id="name" placeholder="Tên sản phẩm" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Giá gốc(*)</label>
+                                    <input type="number" class="form-control csinput" value="@Model.proPrice" name="price" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá KM(*)</label>
+                                    <input type="number" class="form-control csinput" name="pricesale" value="@Model.proPrice_sale" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Bảo hành </label>
+                                    <input type="text" class="form-control csinput" value="@Model.proWant" name="baohanh" id="baohanh" placeholder="Bảo hành sản phẩm" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Chất liệu</label>
+                                    <input type="text" class="form-control csinput" value="@Model.ex1" placeholder="Chất liệu" name="chatlieu" id="chatlieu" />
+                                </div>
+                                <div class="form-group" style="display:none">
+                                    <label>Số người mua(*)</label>
+                                    <input type="number" value="@Model.pro_count" class="form-control csinput" name="count" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Thứ tự(*)</label>
+                                    <input type="number" value="@Model.proOrder" class="form-control csinput" name="thutu" required="required" />
+                                </div>
+                          
+                                <div class="form-group">
+                                    <label>Mô tả ngắn</label>
+                                    <input type="text" class="form-control" placeholder="Mô tả ngắn" value="@Model.prodescription" name="mota" id="mota" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    @Html.TextAreaFor(u => u.proContents)
+                                </div>
+                                <div class="form-group">
+                                    <label>Thông số kỹ thuật</label>
+                                    @Html.TextAreaFor(u => u.proContents2)
+                                </div>
+                                <div class="form-group">
+                                    <label>Video</label>
+                                    @Html.TextAreaFor(u => u.proContents3)
+                                </div>
+                                <div class="form-group">
+                                    <label>Kích hoạt</label>
+                                    @Html.CheckBox("spactive", (Model.active == true) ? true : false)
+                                </div>
+                                <div style="display:none">
+                                    <div class="form-group">
+                                        <label>Còn hàng</label>
+                                        @Html.CheckBox("spconhang", (Model.statust == true) ? true : false)
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sản phẩm hot</label>
+                                        @Html.CheckBox("sphot", (Model.pro_hot == true) ? true : false)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sản phẩm mới</label>
+                                        @Html.CheckBox("spmoi", (Model.pro_new == true) ? true : false)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sản phẩm giảm giá</label>
+                                        @Html.CheckBox("spgiamgia", (Model.pro_sale == true) ? true : false)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        @{ string[] mang = Model.proImages.Split(';');}
+                        <div class="form-group">
+                            <label>Ảnh đại diện chính(width: 175px - height: 185px)</label>
+                            <input type="text" class="form-control csinput" value="@Model.proAvata" name="proAvata" id="proAvata" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 1(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[0]" name="proAvata1" id="proAvata1" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 2(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[1]" name="proAvata2" id="proAvata2" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 3(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[2]" name="proAvata3" id="proAvata3" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 4(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[3]" name="proAvata4" id="proAvata4" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 5(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[4]" name="proAvata5" id="proAvata5" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh phụ 6(width: 365px - height: 224px)</label>
+                            <input type="text" class="form-control csinput" value="@mang[5]" name="proAvata6" id="proAvata6" placeholder="Chọn ảnh" />
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3" style="display:none">
+                        <div class="form-group">
+                            <label>Tag sản phẩm </label>
+                            <br />
+                            <input type="hidden" name="tagnumber" value="@listtag.Count" />
+                            @for (int i = 0; i < listtag.Count; i++)
+                            {
+                                if (mangtag.Contains(listtag[i].tagKey))
+                                {
+                                    checkstr = "checked='checked'";
+                                }
+                                else { checkstr = ""; }
+                                <span class="col-md-3">
+                                    <input type="hidden" id="valuetag_@i" name="valuetag_@i" value="@listtag[i].tagKey" />
+                                    <input type="checkbox" @checkstr id="cktag_@i" name="cktag_@i" />@listtag[i].tagName
+                                </span>
+
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_4">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <input type="text" class="form-control" value="@Model.titleSeo" name="titleseo" placeholder="Tile seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <input type="text" class="form-control" name="keyseo" value="@Model.keySeo" placeholder="Keyword seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <input type="text" class="form-control" name="desseo" value="@Model.desSeo" placeholder="Description seo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+            <!-- /.box -->
+        </div>
+    </div>
+                            }
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'proContents');
+        createEditor('vi', 'proContents2');
+        createEditor('vi', 'proContents3');
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#proAvata").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata1").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata1").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata2").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata2").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata3").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata3").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata4").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata4").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata5").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata5").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata6").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata6").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
+<script>
+    var cate = $('#idcha_hid').val();
+    $('#catep').val(cate);
+</script>
+<style>
+    .csinput {
+        width: 60%;
+    }
+</style>

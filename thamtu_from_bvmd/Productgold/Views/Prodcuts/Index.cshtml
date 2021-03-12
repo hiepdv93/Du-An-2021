@@ -1,0 +1,169 @@
+﻿@model IList<Productgold.Models.Product>
+@{
+    ViewBag.Title = "Administrator - Danh sách sản phẩm";
+    ViewBag.controller = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string group = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["groupSearch"] != null)
+    {
+        group = Request["groupSearch"];
+    }
+}
+
+
+<div class="row">
+    @*<button class="btn btn-info classbtAdd" id="addproductbutton"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Prodcuts/IndexSearch">
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.DropDownList("groupSearch", (SelectList)ViewBag.nhomsp, "Tất cả", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch"  value="@search" class="form-control" placeholder="Tên sản phẩm.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default"  type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-warning classbtAdd" type="button" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Nhập từ excel</button>
+                        <button class="btn btn-info" type="button" onclick="Themmoi()"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;width:1450px;min-width:100%">
+                <thead>
+                    <tr>
+                        <th width="100px">Ảnh</th>
+                        <th>Tiêu sản phẩm</th>
+                        <th width="150px">Giá gốc</th>
+                        <th width="150px">Giá KM</th>
+                        <th width="200px">Nhóm sản phẩm</th>
+                        <th width="180px">Thương hiệu</th>
+                        @*<th width="150px">Trạng thái</th>*@
+                        <th width="150px">Kích hoạt</th>
+                        <th width="130px">Chức năng</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td><img class="imgadmin" src="@Model[i].proAvata" /></td>
+                            <td>@Model[i].pro_name</td>
+                            <td>@Model[i].proPrice</td>
+                            <td>@Model[i].proPrice_sale</td>
+                            <td>@{var n = Productgold.Models.StringClass.Getcate(Model[i].cateid.ToString());} @n</td>
+                            <td>@{var t = Productgold.Models.StringClass.Getbrand(Model[i].brandid.ToString());} @t</td>
+                          
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+
+
+                            <td>
+                                @Html.ActionLink("Sửa", "Update", new { id = Model[i].id }, new { @class = "fa fa-edit", @title = "Sửa" })
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+@using (Html.BeginForm("ImportExcel", "Prodcuts"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Nhập sản phẩm từ excel</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Chọn file excel:</label>
+                                    <input type="text" class="form-control" name="file_excel" id="file_excel" placeholder="Chọn file excel">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+        $("#file_excel").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#file_excel").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+</script>
+<script>
+    $('#groupSearch').val('@group');
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa sản phẩm!');
+        $('#linkDel1').attr('href', '/Prodcuts/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    $('#addproductbutton').click(function () {
+        window.location = "/Prodcuts/Add";
+    });
+</script>
+<script>
+    function Lammoi()
+    {
+        window.location.href = '/Prodcuts/';
+    }
+    function Themmoi() {
+        window.location.href = '/Prodcuts/Add/';
+    }
+</script>

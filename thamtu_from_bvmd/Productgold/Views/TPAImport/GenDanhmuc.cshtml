@@ -1,0 +1,21 @@
+﻿@model IList<Productgold.Models.Category>
+<div class="left-section">
+    <div class="menu1">
+        <ul>
+            <li>
+                <h4>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    @ViewBag.key_danhmucsp
+                </h4>
+            </li>
+            @foreach (var item in Model)
+            {
+                <li><a href="/San-pham/@item.keys" title="@item.name"><span>@item.name</span></a></li>
+            }
+          
+        </ul>
+    </div><!--end menu1-->
+    @Html.Raw(ViewBag.chuoiqLeft)
+    
+</div><!--end left-section-->
+

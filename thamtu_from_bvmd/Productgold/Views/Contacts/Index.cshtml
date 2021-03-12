@@ -1,0 +1,213 @@
+﻿@model IList<Productgold.Models.Contact>
+@{
+    ViewBag.Title = "Administrator - Danh sách liên hệ";
+    ViewBag.controller = "Danh sách liên hệ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string phone_email = "";
+    string sltype = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["phone_email"] != null)
+    {
+        phone_email = Request["phone_email"];
+    }
+    if (Request["sltype"] != null)
+    {
+        sltype = Request["sltype"];
+    }
+}
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Contacts/IndexSearch">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <select name="sltype" class="form-control">
+                            <option value="-1">Tất cả liên hệ</option>
+                            <option value="0">Liên hệ</option>
+                            <option value="1">Yêu cầu báo giá</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Tên khách hàng.." />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" name="phone_email" value="@phone_email" class="form-control" placeholder="SĐT/ email.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="window.location='/Contacts/'"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        @*<button class="btn btn-info" type="button" onclick="Themmoi()"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>*@
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th width="150px">Email</th>
+                        <th width="150px">Phone</th>
+                        <th width="150px">Công ty</th>
+                        <th width="130px">Ngày tạo</th>
+                        <th width="130px">Trạng thái</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].fullname</td>
+                            <td>@Model[i].email</td>
+                            <td>@Model[i].phone</td>
+                            <td>@Model[i].address</td>
+                            <td>@{var e = Productgold.Models.StringClass.Fmdate(@Model[i].createdate.ToString());}@e</td>
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active" id="active_@Model[i].id">Đã xem</td>
+                            }
+                            else
+                            {
+                                <td class="active" id="active_@Model[i].id">Chưa xem </td>
+                            }
+                           <td><a href="#"  onclick="hamsua(@Model[i].id)" title="Xem chi tiết"><span class="fa fa-edit"></span>Xem</a> |
+                               <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                          
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+
+@using (Html.BeginForm("Update", "Contacts"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thông tin liên hệ</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Khách hàng:</label>
+                                    <input type="hidden" id="idupdate" name="idupdate"  />
+                                    <span class="form-control" name="name" id="name"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Phone:</label>
+                                    <span class="form-control" name="phone" id="phone"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Email:</label>
+                                    <span class="form-control" name="email" id="email"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Công ty:</label>
+                                    <span class="form-control" name="cty" id="cty"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nội dung tin nhắn:</label>
+                                    <span class="form-control" style="height:auto" id="note" name="note"></span>
+                                   @*<textarea id="note" name="note" class="form-control" disabled="disabled"></textarea>*@
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $('#sltype').val('@sltype');
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa liên hệ!');
+        $('#linkDel1').attr('href', '/Contacts/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id)
+    {
+        var url = "/Contacts/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+
+                $("#idupdate").val(data.id);
+                $("#active_" + data.id).html("Đã xem");
+                $("#name").html(data.fullname);
+                $("#note").html(data.contents);
+
+                $("#phone").html(data.phone);
+                $("#email").html(data.email);
+                $("#cty").html(data.address);
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,67 @@
+﻿@model IList<Productgold.Models.Video>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    string bg = "";
+    string nhomDM = "";
+}
+<div class="about-page">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="/Thu-vien" title="@ViewBag.Navthuvien">@ViewBag.Navthuvien</a></li>
+                        @Html.Raw(ViewBag.TieudeDanhmuc)
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="box-blog-section">
+            <div class="right-section">
+                <div class="right last">
+                    <div class="title-top"> <span>@ViewBag.Downloadtailieu</span> </div>
+                    <div class="product-tai-lieu">
+                        <div class="table1">
+                            <table width="100%" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr class="title-bg">
+                                        <td width="16%">@ViewBag.Anhsp</td>
+                                        <td width="24%">@ViewBag.Tensp</td>
+                                        <td width="23%">@ViewBag.key_mota</td>
+                                        <td width="18%">@ViewBag.key_nhomsp</td>
+                                        <td width="19%">@ViewBag.Download</td>
+                                    </tr>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        bg="";
+                                        if (i%2!=0)
+                                        {
+                                            bg = "bg";
+                                        }
+                                        <tr class="@bg">
+                                            <td><img width="97" alt="@Model[i].vName" src="@Model[i].vimg" class="sanpham"></td>
+                                            <td class="text-left">@Model[i].vName</td>
+                                            <td class="text-left">
+                                                <p>@Html.Raw(Model[i].vnote)</p>
+                                            </td>
+                                            <td class="text-left">
+                                                @{ nhomDM = ClassExten.GetDanhmucThuvien(Model[i].cateId.Value);}
+                                            @Html.Raw(nhomDM)
+                                            </td>
+                                            <td><a href="@Model[i].vLink" target="_blank" class="button"><span>@ViewBag.Download </span></a></td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                        @Html.Raw(ViewBag.pages)
+                    </div>
+                </div>
+            </div><!--end right-section-->
+        </div><!--end box-blog-section-->
+    </div>
+</div><!--end about-page-->

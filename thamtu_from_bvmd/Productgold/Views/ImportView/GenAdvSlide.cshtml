@@ -1,0 +1,15 @@
+﻿@model IList<Productgold.Models.Adv>         
+<div class="banner">
+    <div class="bannerslide" id="bannerslide">
+        <ul class="slides">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <li>
+                    <a href="@Model[i].link">
+                        <img src="@Model[i].images" alt="Ảnh quảng cáo" />
+                    </a>
+                </li> 
+            }
+        </ul>
+    </div>
+</div>

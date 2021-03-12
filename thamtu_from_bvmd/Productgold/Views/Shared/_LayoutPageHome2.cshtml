@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="~/images/logo_rFA_icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+    <link href="~/Content/BVMD/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/BVMD/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/BVMD/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/BVMD/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/BVMD/css/style.css" rel="stylesheet" />
+    <link href="~/Content/BVMD/css/mobile.css" rel="stylesheet" />
+    <script src="~/Content/BVMD/js/jquery-2.2.3.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <script src="~/Scripts/script_validate.js"></script>
+    <script src="~/Content/Site/toastr/toastr.js"></script>
+    <link href="~/Content/Site/toastr/toastr.min.css" rel="stylesheet" />
+    <style>
+        .margintop5 {
+            margin-top: 5px;
+        }
+
+        .feedback_of_customer {
+            width: 100%;
+            float: left;
+            background: #f6f6f6;
+            padding: 15px 15px 0;
+            margin: 0 0 10px 0;
+        }
+
+        .title_feedback_of_customer {
+            color: #e60f1e;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: arial;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .avatar_feedback_of_customer img {
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+   
+    <h1 style="display:none">@ViewBag.title</h1>
+
+    @Html.Action("GenHeader", "TPAImport")
+    @RenderBody()
+    @Html.Action("GenFooter", "TPAImport")
+
+    <script src="~/Content/BVMD/js/bootstrap.min.js"></script>
+    <script src="~/Content/BVMD/js/owl.carousel.min.js"></script>
+    <script src="~/Content/BVMD/js/main.js"></script>
+ 
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1788419554727950";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

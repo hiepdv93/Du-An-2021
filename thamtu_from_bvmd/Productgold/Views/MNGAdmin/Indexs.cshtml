@@ -1,0 +1,370 @@
+﻿@model IList<Productgold.Models.Admin>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Administrator - Danh sách admin";
+    ViewBag.controller = "Danh sách admin";
+}
+
+<div class="row">
+    <button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm admin</button>
+    <div class="box">
+        <div class="box-body table-responsive">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Trạng thái</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].fullname</td>
+                            <td>@Model[i].email</td>
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            <td><a href="#" onclick="hamsua(@Model[i].id)"><span class="fa fa-edit"></span> Sửa</a></td>
+                            @*<td ><a href="#" class = "fa fa-edit" onclick="modamsua(@Model[i].id)" >Sửa</a></td>*@
+                            <td>
+                                @if (Model[i].email != "admin@gmail.com")
+                                {
+                                    @Html.ActionLink("Xóa", "Delete", new { id = Model[i].id }, new { @onclick = "return DeleteConfirm()", @class = "fa fa-trash-o" })
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("Add", "MNGAdmin"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm admin</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <span class="dnname">Administrator manager control form</span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên:</label>
+                                    <input type="text" class="form-control" name="fullname" placeholder="Họ tên" required="required">
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Email:</label>
+                                    <input type="email" class="form-control" placeholder="email" name="email" id="emailCreate" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Địa chỉ:</label>
+                                    <input type="text" class="form-control" placeholder="Địa chỉ" name="address">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Mật khẩu:</label>
+                                    <input type="password" class="form-control" placeholder="password"  required="required" name="password">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>SubAdmin:</label>
+                                    <select name="subadmin" id="subadmin" class="form-control">
+                                        <option value="0">Admin</option>
+                                        <option value="1">SubAdmin</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Kích hoạt:</label>
+                                    <select name="nameactive" id="nameactive" class="form-control">
+                                        <option value="1">Kích hoạt</option>
+                                        <option value="0">Ko kích hoạt</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="display:none">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Trang quản trị:</label>
+                                </span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen0" id="quyen0ad" /><label>Trang tổng TPA</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen1" id="quyen1ad" /><label>Thiết bị đào tạo</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen2" id="quyen2ad" /><label>Tự động hóa trong nhà máy</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen3" id="quyen3ad" /><label>Thiết bị tự động hóa và phụ trợ</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" onclick="return CheckUser()" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i>Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("Update", "MNGAdmin"))
+{
+    <div id="editmodam2" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet2" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm admin</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                        <span class="dnname">Administrator manager control form</span>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên:</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" />
+                                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Họ tên" required="required">
+                                </span>
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Email:</label>
+                                    <input type="email" class="form-control" placeholder="email" name="email" id="emailUpdate" disabled="disabled" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>SubAdmin:</label>
+                                    <select name="admin" id="admin" class="form-control">
+                                        <option value="0">Admin</option>
+                                        <option value="1">SubAdmin</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Kích hoạt:</label>
+                                    <select name="active" id="active" class="form-control">
+                                        <option value="1">Kích hoạt</option>
+                                        <option value="0">Ko kích hoạt</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row" style="display:none">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Trang quản trị:</label>
+                                </span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen0" id="quyen0" /><label>Trang tổng TPA</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen1" id="quyen1" /><label>Thiết bị đào tạo</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen2" id="quyen2" /><label>Tự động hóa trong nhà máy</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" name="quyen3" id="quyen3" /><label>Thiết bị tự động hóa và phụ trợ</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="modal-footer" style="margin-top: -20px;">
+
+                        <button type="submit" id="saveproduct2" onclick="return CheckUserUpdate()" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                        <button type="button" id="closeprffffoduct2" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    function CheckUser() {
+        var url = "/MNGAdmin/CheckUser";
+        $.ajax({
+            url: url,
+            data: { email: $('#emailCreate').val() },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                if (data == "0") {
+                    return true;
+                } else {
+                    var password0 = document.getElementById('emailCreate');
+                    password0.setCustomValidity('Tài khoản email này đã tồn tại.');
+                    return false;
+                }
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+    function CheckUserUpdate() {
+        var url = "/MNGAdmin/CheckUserUpdate";
+        $.ajax({
+            url: url,
+            data: { email: $('#emailUpdate').val(), id: $('#idupdate').val() },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                if (data == "0") {
+                    return true;
+                } else {
+                    var password0 = document.getElementById('emailUpdate');
+                    password0.setCustomValidity('Tài khoản email này đã tồn tại.');
+                    return false;
+                }
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+    function hamsua(id) {
+        var url = "/MNGAdmin/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                //check lai các quyen
+                var quyen = data.siteModul;
+                if (quyen.length > 0) {
+                    var q0 = quyen.includes("0");
+                    var q1 = quyen.includes("1");
+                    var q2 = quyen.includes("2");
+                    var q3 = quyen.includes("3");
+                    if (q0) {
+                        document.getElementById("quyen0").checked = true;
+                    }
+                    if (q1) {
+                        document.getElementById("quyen1").checked = true;
+                    }
+                    if (q2) {
+                        document.getElementById("quyen2").checked = true;
+                    }
+                    if (q3) {
+                        document.getElementById("quyen3").checked = true;
+                    }
+                }
+                //het
+                $('#fullname').val(data.fullname);
+                $('#idupdate').val(data.id);
+                $('#emailUpdate').val(data.email);
+                var combac = document.getElementById('active');
+                var combsub = document.getElementById('admin');
+                if (data.active) {
+                    combac.value = "1";
+                } else {
+                    combac.value = "0";
+                }
+                if (data.depart == "1") {
+                    combsub.value = "1";
+                } else {
+                    combsub.value = "0";
+                }
+
+                $('#editmodam2').modal({
+                    show: 'true'
+                })
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>

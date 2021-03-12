@@ -1,0 +1,228 @@
+﻿@model Productgold.Models.Product
+@{
+    List<Productgold.Models.Product> listProduct = (List<Productgold.Models.Product>)ViewBag.listProduct;
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    string[] mangImg = Model.proImages.Split(';');
+    string localSite = "";
+    localSite = ClassExten.GetLocalSite(Model.siteTPA);
+}
+
+<div class="single-page">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="/San-pham" title="@ViewBag.key_sanpham">@ViewBag.key_sanpham</a></li>
+                        @Html.Raw(ViewBag.TieudeDanhmuc)
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="box-blog-section">
+            @Html.Action("GenDanhmuc", "TPAImport")
+            <div class="right-section">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <div class="img-san-pham">
+                            <ul id="etalage">
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img class="etalage_thumb_image img-responsive" src="@localSite@Model.proAvata" />
+                                        <img class="etalage_source_image img-responsive" src="@localSite@Model.proAvata" />
+                                    </a>
+                                </li>
+                                @*<li>
+                                    <img class="etalage_thumb_image img-responsive" src="@Model.proAvata" />
+                                    <img class="etalage_source_image img-responsive" src="@Model.proAvata" />
+                                </li>*@
+                                @foreach (var item in mangImg)
+                                {
+                                    if (!string.IsNullOrEmpty(item))
+                                    {
+                                        <li>
+                                            <img class="etalage_thumb_image img-responsive" src="@localSite@item" />
+                                            <img class="etalage_source_image img-responsive" src="@localSite@item" />
+                                        </li>
+                                    }
+
+                                }
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div><!--end img-san-pham-->
+                        <div class="clearfix"></div>
+
+                    </div><!--end col-md-4-->
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="infomation-san-pham">
+                            <div class="cont1">
+                                <h1>@Model.pro_name</h1>
+                                <hr>
+                                <p>@ViewBag.key_thuonghieu: <strong>@Model.Brand.name</strong></p>
+                                <p>@ViewBag.key_modelsp: <strong>@Model.proCode</strong></p>
+                                <!--<p class="quick_desc">robot đẹp, giá rẻ</p>-->
+                                <div class="price_single"><span class="actual">@ViewBag.key_gia: @ViewBag.key_lienhe </span></div>
+                                <!--<h2 class="quick">Tổng quan nhanh:</h2>-->
+                            </div>
+                        </div><!--end iinfomation-san-pham-->
+                        <div class="thuoc-tinh">
+                            <div class="thuoc-tinh1">
+                                <p class="huong-dan">@ViewBag.key_motathem</p>
+                                <div class="text-hương-dan">
+                                    <p>@Model.prodescription</p>
+                                </div><!--end text-huong-dan-->
+                            </div><!--end thuoc-tinh1-->
+                            <div class="clearfix"></div>
+                            <button class="btn btn-primary" type="button" id="addproductbutton" data-toggle="modal" data-target="#editmodam">@ViewBag.contact</button>
+
+                           @* <a target="_self" class="btn btn-primary btn-normal btn-inline " title="Online Reservation" href="/Carts/Addcart/@Model.pro_key">@ViewBag.key_muangay</a>*@
+                        </div><!--end thuoc-tinh-->
+                    </div><!--end col-md-8-->
+
+                    <div class="sap-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item tabcustom">
+                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">@ViewBag.key_mota</a>
+                            </li>
+                            <li class="nav-item tabcustom">
+                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">@ViewBag.key_thongsokt</a>
+                            </li>
+                            <li class="nav-item tabcustom">
+                                <a class="nav-link" data-toggle="tab" href="#profilevideo" role="tab">@ViewBag.key_video</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel">@Html.Raw(Model.proContents)</div>
+                            <div class="tab-pane" id="profile" role="tabpanel">@Html.Raw(Model.proContents2)</div>
+                            <div class="tab-pane" id="profilevideo" role="tabpanel">@Html.Raw(Model.proContents3)</div>
+                        </div>
+                    </div><!--end sap-tabs-->
+                </div><!--ed row-->
+                <p class="box_news_right_list_news_title2">@ViewBag.key_spcungchuyenmuc</p>
+                <div class="sp-new">
+                    @if (listProduct != null && listProduct.Count > 0)
+                    {
+                        foreach (var item in listProduct)
+                        {
+                            <div class="items-pro-products-pages">
+                                <div class="pro">
+                                    <div class="ov-img">
+                                        <a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">
+                                            <img alt="@item.pro_name" class="img-responsive" src="@localSite@item.proAvata">
+                                        </a>
+                                        <div class="bgr-hover">
+                                            <p>
+                                                <a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">
+                                                    <b>@item.pro_name</b>:<br>
+                                                    - @ViewBag.key_thuonghieu: @item.Brand.name <br>
+                                                    - @ViewBag.key_modelsp:  @item.proCode  <br>
+                                                
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div><!--end ov-img-->
+                                    <div class="profile">
+                                        <p><a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">@item.pro_name</a></p>
+                                    </div><!--end profile-->
+                                </div><!--end pro-->
+                            </div>
+                        }
+                    }
+                </div><!--end sp-new-->
+            </div><!--end right-section--->
+        </div><!--end box-blog-section-->
+
+    </div><!--end container-->
+</div><!--end products-->
+<div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog divw700">
+        <!-- Modal content-->
+        <form method="post">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <h4 class="dntitle">@ViewBag.key_lienhevoichungtoi</h4>
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well well-sm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">@ViewBag.key_hoten (*)</label>
+                                            <input type="text" class="form-control" name="hotenlh" placeholder="Họ tên .." required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">@ViewBag.key_diachiemail (*)</label>
+
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-envelope"></span>
+                                                </span>
+                                                <input type="email" class="form-control" placeholder="Email.." required="required" name="emaillh">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subject">@ViewBag.key_sdt</label>
+                                            <input type="text" class="form-control" name="phone" placeholder="Điện thoại ..">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">@ViewBag.key_tinnhan (*)</label>
+                                            <textarea name="messagelh" class="form-control" rows="9" cols="25" required="required" maxlength="800" placeholder="@ViewBag.key_tinnhan .."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            @ViewBag.key_guitinnhan
+                        </button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> @ViewBag.key_thoat</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .divw700 {
+        width: 800px;
+        max-width: 900px !important;
+    }
+</style>
+<script src="~/Content/HomeTPA/Js/jquery.etalage.min.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+
+        $('#etalage').etalage({
+            thumb_image_width: 330,
+            thumb_image_height: 300,
+
+            show_hint: true,
+            click_callback: function (image_anchor, instance_id) {
+                alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
+            }
+        });
+        // This is for the dropdown list example:
+        $('.dropdownlist').change(function () {
+            etalage_show($(this).find('option:selected').attr('class'));
+        });
+
+    });
+</script>
+@if (Session["guilienhe"] != null)
+{
+    <script>
+   // toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+    toastr.success("Bạn gửi liên hệ thành công, xin cảm ơn!", { timeOut: 5000 });
+    </script>
+}
+@{ if (Session["guilienhe"] != null) { Session["guilienhe"] = null; }
+}

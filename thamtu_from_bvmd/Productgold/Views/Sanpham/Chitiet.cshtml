@@ -1,0 +1,259 @@
+﻿@model Productgold.Models.Product
+@{
+    ViewBag.Title = Model.pro_name;
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="products-details">
+            <div class="preview_image">
+                <div class="preview-small">
+                    <img id="zoom_03" src="@Model.images" data-zoom-image="@Model.images" alt="">
+                </div>
+                <div class="thum-image">
+                    <ul id="gallery_01" class="prev-thum">
+                        @Html.Raw(ViewBag.anh)
+                      
+                    </ul>
+                    <a class="control-left" id="thum-prev" href="javascript:void(0);">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                    <a class="control-right" id="thum-next" href="javascript:void(0);">
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="products-description">
+                <h5 class="name">
+                    @Model.pro_name
+                </h5>
+                <p>
+                    <img alt="" src="~/Content/images/star.png">
+                    <a class="review_num" href="#">@Model.pro_count người đã mua
+                    </a>
+                </p>
+                @* <p>
+                    Availability: 
+                    <span class=" light-red">
+                      In Stock
+                    </span>
+                  </p>*@
+                @Html.Raw(ViewBag.tinhnang)
+                <p>@Model.ex1
+                </p>
+                <hr class="border">
+                <div class="price">
+                    Price : 
+                    <span class="new_price">
+                        @Model.price_sale
+                        <sup>$
+                        </sup>
+                    </span>
+                    <span class="old_price">
+                        @Model.price
+                        <sup>$
+                        </sup>
+                    </span>
+                </div>
+                <hr class="border">
+                <div class="wided">
+                    @using (Html.BeginForm("Addcart", "Carts"))
+                    {
+                        <div class="qty">
+                            Qty &nbsp;&nbsp;: 
+                      @*<select>
+                        <option>
+                          1
+                        </option>
+                      </select>*@
+                            <input type="hidden" value="@Model.pro_key" name="prokey" />
+                            <input type="number" value="1" min="1" max="100" style="width: 80px; margin-left: 30px; margin-top: 3px" id="soluong" name="soluong" />
+                        </div>
+                        <div class="button_group">
+                            <button class="button" type="submit">
+                                Mua ngay
+                            </button>
+                            <button class="button compare">
+                                <i class="fa fa-exchange"></i>
+                            </button>
+                            <button class="button favorite">
+                                <i class="fa fa-heart-o"></i>
+                            </button>
+                            <button class="button favorite">
+                                <i class="fa fa-envelope-o"></i>
+                            </button>
+                        </div>
+                    }
+                </div>
+                <div class="clearfix">
+                </div>
+                <hr class="border">
+                <div class="InGui">
+                    <a style="padding-left:1px" href="https://api.addthis.com/oexchange/0.8/forward/email/offer?url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/email.png" border="0" alt="Email" /></a>
+                    <a style="padding-left:1px" href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/facebook.png" border="0" alt="Facebook" /></a>
+                    <a style="padding-left:1px" href="https://api.addthis.com/oexchange/0.8/forward/google_plusone_share/offer?url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/google_plusone_share.png" border="0" alt="Google+" /></a>
+                    <a style="padding-left:1px" href="https://api.addthis.com/oexchange/0.8/forward/zingme/offer?url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/zingme.png" border="0" alt="ZingMe" /></a>
+                    <a style="padding-left:1px" href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/twitter.png" border="0" alt="Twitter" /></a>
+                    <a style="padding-left:1px" href="https://www.addthis.com/bookmark.php?source=tbx32nj-1.0&v=300&url=@HttpContext.Current.Request.Url.AbsoluteUri" target="_blank">
+                        <img src="https://cache.addthiscdn.com/icons/v2/thumbs/16x16/addthis.png" border="0" alt="Addthis" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="tab-box">
+            <div id="tabnav">
+                <ul>
+                    <li>
+                        <a href="#Descraption">Mô tả chi tiết
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Reviews">Bình luận
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tags">Khác
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content-wrap">
+                <div class="tab-content" id="Descraption">
+                    @Html.Raw(Model.contents)
+                </div>
+                <div class="tab-content" id="Reviews">
+                    <div class="fb-comments" data-href="@HttpContext.Current.Request.Url.AbsoluteUri" data-width="800" data-numposts="5"></div>
+                </div>
+                <div class="tab-content" id="tags">
+                    <div class="tag">
+                       Dang cap nhat
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <div id="productsDetails" class="hot-products">
+            <h3 class="title">
+                <strong>Hot
+                </strong>
+                Products
+            </h3>
+            <div class="control">
+                <a id="prev_hot" class="prev" href="#">&lt;
+                </a>
+                <a id="next_hot" class="next" href="#">&gt;
+                </a>
+            </div>
+            <ul id="hot">
+                @Html.Raw(ViewBag.prolq)
+             
+            </ul>
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="col-md-3">
+
+        <div class="special-deal leftbar">
+           <a href="/Sanpham/Index/hot"><h4 class="title">Sản phẩm 
+                  <strong>hot
+                  </strong>
+            </h4></a> 
+            @Html.Raw(ViewBag.phot)
+           
+        </div>
+       
+         <div class="special-deal leftbar">
+           <a href="/Sanpham/Index/new"> <h4 class="title">Sản phẩm 
+                  <strong>mới
+                  </strong>
+            </h4></a> 
+            @Html.Raw(ViewBag.pnew)
+           
+        </div>
+         <div class="special-deal leftbar">
+            <a href="/Sanpham/Index/sale"><h4 class="title">Sản phẩm
+                  <strong>giảm giá 
+                  </strong>
+            </h4></a> 
+            @Html.Raw(ViewBag.psale)
+           
+        </div>
+        <div class="clearfix">
+        </div>
+      
+        <div class="fbl-box leftbar">
+            <h3 class="title">Facebook
+            </h3>
+            <span class="likebutton">
+                <a href="#">
+                    <img src="images/fblike.png" alt="">
+                </a>
+            </span>
+            <p>
+                12k people like Flat Shop.
+            </p>
+            <ul>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+            <div class="fbplug">
+                <a href="#">
+                    <span>
+                        <img src="images/fbicon.png" alt="">
+                    </span>
+                    Facebook social plugin
+                </a>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#soluong').keyup(function () {
+        if ($('#soluong').val() > 100) {
+            $('#soluong').val('100');
+        }
+        if ($('#soluong').val() < 1) {
+            $('#soluong').val('1');
+        }
+    });
+    function doianh(src)
+    {
+        document.getElementById('zoom_03').setAttribute('src', src);
+        document.getElementById('zoom_03').setAttribute('data-zoom-image', src);
+    }
+</script>
+

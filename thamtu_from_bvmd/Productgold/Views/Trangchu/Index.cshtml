@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Shop quần áo";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="hot-products">
+    <a href="/Sanpham/Index/hot"><h3 class="title"> Sản phẩm <strong>hot</strong></h3></a> 
+    <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
+    <ul id="hot">
+        @Html.Raw(ViewBag.prohot)
+    </ul>
+</div>
+<div class="clearfix"></div>
+<div class="featured-products">
+   <a href="/Sanpham/Index/new"> <h3 class="title">Sản phẩm <strong>mới </strong></h3></a> 
+    <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+    <ul id="featured">
+        @Html.Raw(ViewBag.pronew)
+    </ul>
+</div>
+<div class="clearfix"></div>
+<div class="featured-products">
+   <a href="/Sanpham/Index/sale"> <h3 class="title">Sản phẩm <strong>giảm giá </strong></h3></a> 
+    <div class="control"><a id="prev_sale" class="prev" href="#">&lt;</a><a id="next_sale" class="next" href="#">&gt;</a></div>
+    <ul id="sale">
+        @Html.Raw(ViewBag.prosale)
+    </ul>
+</div>
+<div class="clearfix"></div>
+

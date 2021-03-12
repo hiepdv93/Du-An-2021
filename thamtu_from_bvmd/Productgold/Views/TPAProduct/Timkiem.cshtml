@@ -1,0 +1,58 @@
+﻿@model IList<Productgold.Models.Product>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+    string localSite = "";
+}
+
+<div class="products-pages">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="/San-pham" title="@ViewBag.key_sanpham">@ViewBag.key_sanpham</a></li>
+                        <li><a href="#" title="@ViewBag.key_timkiem">@ViewBag.key_timkiem : @ViewBag.keytimkiem</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-blog-section danh-sach-san-pham">
+            @Html.Action("GenDanhmuc", "TPAImport")
+            <div class="right-section">
+                <div class="sp-new">
+                    @foreach (var item in Model)
+                    {
+                        localSite = ClassExten.GetLocalSite(item.siteTPA);
+                        <div class="items-pro-products-pages">
+                            <div class="pro">
+                                <div class="ov-img">
+                                    <a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">
+                                        <img alt="@item.pro_name" class="img-responsive" src="@localSite@item.proAvata">
+                                    </a>
+                                    <div class="bgr-hover">
+                                        <p>
+                                            <a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">
+                                                <b>@item.pro_name</b>:<br>
+                                                - @ViewBag.key_thuonghieu: @item.Brand.name <br>
+                                                - @ViewBag.key_modelsp:  @item.proCode  <br>
+                                             
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div><!--end ov-img-->
+                                <div class="profile">
+                                    <p><a href="/Chi-tiet/@item.pro_key" title="@item.pro_name">@item.pro_name</a></p>
+                                </div><!--end profile-->
+                            </div><!--end pro-->
+                        </div>
+                    }
+
+                </div><!--end sp-new-->
+                @Html.Raw(ViewBag.pages)
+                <div class="cleafix"></div>
+            </div><!--end right-section--->
+        </div><!--end box-blog-section-->
+    </div><!--end container-->
+</div><!--end products-pages-->

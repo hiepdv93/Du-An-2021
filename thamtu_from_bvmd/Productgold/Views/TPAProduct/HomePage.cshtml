@@ -1,0 +1,170 @@
+﻿@model IList<Productgold.Models.Category>
+@{
+    var listSlide = (List<Productgold.Models.Adv>)ViewBag.listSlide;
+    var listKhachhang = (List<Productgold.Models.Adv>)ViewBag.listKhachhang;
+    var listVisao = (List<Productgold.Models.Adv>)ViewBag.listVisao;
+    var cateHome2 = (List<Productgold.Models.Category>)ViewBag.cateHome2;
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+
+<div class="slide-desktop soc-trai">
+    <div class="postion-request">
+        <div class="box-postion-request">
+            <div class="content-request">
+                <h1>@ViewBag.key_yeucaubaogia</h1>
+                <!--<span>Hãy liên hệ với chúng tôi nếu bạn có bất cứ
+                thắc mắc và chúng tôi sẽ lấy lại cho bạn
+                càng sớm càng tốt</span>-->
+                <div class="box-select">
+                    <input type="text" class="inputselect" id="yeucau_hoten" placeholder="@ViewBag.key_hoten (*)" />
+                </div>
+                <div class="box-select">
+                    <input type="text" class="inputselect" id="yeucau_email" placeholder="@ViewBag.key_emailsdt (*)" />
+                </div>
+                <div class="box-select">
+                    <input type="text" class="inputselect" id="yeucau_congty" placeholder="@ViewBag.key_tencongty (*)" />
+                </div>
+                <div class="box-select">
+                    <textarea placeholder="@ViewBag.key_ndyeucau (*)" rows="3" id="yeucau_nd" class="form-control textareaselect"></textarea>
+                </div>
+                <a href="javascript:void(0)" onclick="guiyeucau()" class="start">@ViewBag.key_guiyeucau</a>
+            </div><!--end content-requesst-->
+        </div><!--end box-postion-request-->
+    </div><!--end postion-request-->
+    <div id="owl22" class="owl-carousel owl-theme slide-custom">
+        @foreach (var item in listSlide)
+        {
+            <div class="item">
+                <img src="@item.images" alt="@item.advName" class="img-fluid">
+                <div class="position-slide">
+                    <div class="container">
+                        <div class="box-container-slide">
+                            <div class="box-content-item">
+                                <h4>@item.advName</h4>
+                                @Html.Raw(item.note)
+                                <a href="@item.link" title="@item.advName" class="hvr-bounce-to-top">@ViewBag.key_xemchitiet</a>
+                            </div><!--end box-content-item-->
+                        </div><!--end box-container-slide-->
+                    </div><!--end container-->
+                </div><!--end position-slide-->
+            </div>
+        }
+    </div><!--end owl-carousel-->
+</div><!--end slide-desktop-->
+
+<div class="service-tap soc-phai">
+    <div class="container">
+        <div class="box-service-tap">
+            <h1>@ViewBag.Sanphamtanphat</h1>
+
+            <div class="box-col-service">
+                @foreach (var item in Model)
+            {
+                    <div class="items-col-service">
+                        <a href="/San-pham/@item.keys" title="@item.name"><img src="@item.cateAvata" class="img-fluid" alt="@item.name"></a>
+                        <div class="name-items-service">
+                            <a href="/San-pham/@item.keys" title="@item.name">@item.name</a>
+                        </div>
+                    </div>
+                }
+            </div><!--end box-col-service-->
+        </div><!--end box service-tap-->
+    </div><!--end container-->
+</div><!--end service-tap-->
+
+<div class="why-choose-us soc-trai">
+    <div class="container">
+        <h1>@ViewBag.key_linhvuchd</h1>
+        <div class="box-linh-vuc-hoat-dong">
+            @foreach (var item in cateHome2)
+            {
+                <div class="items-linh-vuc">
+                    <a href="/San-pham/@item.keys" title="@item.name"><img src="@item.cateAvata" class="img-fluid" alt="@item.name"></a>
+                    <h4><a href="/San-pham/@item.keys" title="@item.name">@item.name</a></h4>
+                </div><!--end items-linh-vuc-->
+            }
+
+        </div><!--end box-linh-vuc-hoat-dong-->
+    </div><!--end container-->
+
+</div><!--end why-choose-us-->
+
+<div class="linh-vuc-hoat-dong">
+    <div class="container">
+        <div class="box-why-choose-us">
+            <h1><b>@ViewBag.key_chonchungtoi</b></h1>
+            <div class="col-why-choose-us">
+                @foreach (var item in listVisao)
+            {
+            <div class="items-why-choose-us">
+                @Html.Raw(item.images)
+                <h1>@item.advName</h1>
+                <h6>@Html.Raw(item.note)</h6>
+            </div>
+            }
+            </div><!--end col-why-choose-us-->
+        </div><!--end box-why-choose-us-->
+    </div><!--end container-->
+</div><!--end why-choose-us-->
+
+<div class="customer-tap">
+    <div class="container">
+        <div class="box-customer-tap">
+            <div class="box-slide-customer">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach (var item in listKhachhang)
+                        {
+                            <div class="swiper-slide">
+                                <div class="box-item-img-customer">
+                                    <img src="@item.images" class="img-fluid" alt="@item.advName">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div><!--end box-slide-customer-->
+
+        </div><!--end box-customer-tap-->
+    </div><!--end container-->
+</div><!--end customer-tap-->
+
+<script>
+    function guiyeucau() {
+        var yeucau_hoten = $('#yeucau_hoten').val();
+        var yeucau_email = $('#yeucau_email').val();
+        var yeucau_congty = $('#yeucau_congty').val();
+        var yeucau_nd = $('#yeucau_nd').val();
+        if (yeucau_hoten == '') {
+            toastr.error("Nhập họ tên của bạn!", { timeOut: 5000 });
+        } else if (yeucau_email == '') {
+            toastr.error("Nhập email hoặc số điện thoại!", { timeOut: 5000 });
+        } else if (yeucau_congty == '') {
+            toastr.error("Nhập tên công ty!", { timeOut: 5000 });
+        }
+        else if (yeucau_nd == '') {
+            toastr.error("Nhập nội dung yêu cầu!", { timeOut: 5000 });
+        } else {
+            var url = "/TPAProduct/Guiyeucau";
+            $.ajax({
+                url: url,
+                data: { hoten: yeucau_hoten, email: yeucau_email, congty: yeucau_congty, noidung: yeucau_nd },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    toastr.success("Gửi yêu cầu thành công, xin cám ơn!", { timeOut: 5000 });
+                    $('#yeucau_hoten').val('');
+                    $('#yeucau_email').val('');
+                    $('#yeucau_congty').val('');
+                    $('#yeucau_nd').val('');
+                },
+                error: function (reponse) {
+                    toastr.error("Có lỗi xảy ra vui lòng thử lại!", { timeOut: 5000 });
+                }
+            });
+        }
+    }
+</script>

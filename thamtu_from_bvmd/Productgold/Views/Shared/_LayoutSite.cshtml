@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+    <link href="~/Content/Site/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/font-awesome.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Site/css/style.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/mobile.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/owl.theme.css" rel="stylesheet" />
+    <link href="~/Content/Site/toastr/toastr.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site/css/price-range.css" rel="stylesheet" />
+    <link href="~/Content/Site/css/smoothproducts.css" rel="stylesheet" />
+    <script src="~/Content/Site/js/jquery.js"></script>
+    <script src="~/Content/Site/js/bootstrap.min.js"></script>
+    <script src="~/Content/Site/js/jquery-ui.js"></script>
+    <script src="~/Content/Site/toastr/toastr.js"></script>
+    <script src="~/Content/Site/js/dialog.js"></script>
+    <script src="~/Content/Site/js/scroll_top.js"></script>
+
+    <script src="~/Content/Site/js/price-range.js"></script>
+
+    <script src="~/Content/Site/js/owl.carousel.js"></script>
+    <script src="~/Content/Site/js/owl_full.js"></script>
+   
+    <script>
+	 	new WOW().init();
+    </script>
+    <!-- Zoom Products -->
+    <script src="~/Content/Site/js/smoothproducts.min.js"></script>
+    <script type="text/javascript">
+	$(window).load(function() {
+		$('.sp-wrap').smoothproducts();
+	});
+    </script>
+    <!-- End Zoom Products -->
+</head>
+<body>
+    <h1 style="display:none">@ViewBag.title</h1>
+    @{ Html.RenderAction("PVHeader", "SiteHome");}
+    <section class="content_main">
+        @RenderBody()
+        
+        @{ Html.RenderAction("PVMenuBottom", "SiteHome");}
+    </section>
+    @{ Html.RenderAction("PVFooter", "SiteHome");}
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        $(function () {
+            //Scroll addClass to top
+            var header = $(".link_buy_fixed");
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+
+                if (scroll >= 500) {
+                    header.addClass('link_buy_fixed_shirk');
+                }
+                else {
+                    header.removeClass("link_buy_fixed_shirk");
+                }
+            });
+        });
+    </script>
+    <script src="~/Content/Site/js/classie.js"></script>
+    <script src="~/Content/Site/js/cbpAnimatedHeader.js"></script>
+    <script src="~/Content/Site/js/main.js"></script>
+</body>
+</html>

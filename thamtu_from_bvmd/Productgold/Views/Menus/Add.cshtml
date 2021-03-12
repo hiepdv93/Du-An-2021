@@ -1,0 +1,173 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<a class="fa fa-mail-reply-all" href="javascript:void(0);" onclick="window.history.go(-1);">Trở lại</a>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="box-body table-responsive">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Nhóm cha</label>
+                        @Html.Action("GetCha", "Menus", new { id = -1 })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tên menu(*)</label>
+                        <input type="text" class="form-control csinput" name="title" id="title" placeholder="Tên menu" required="required" />
+                    </div>
+                    <div class="form-group" style="display:none">
+                        <label>Icons (click vào <a href="http://fontawesome.io/icons/" target="_blank"> đây </a>để lấy icon)</label>
+                        <input type="text" class="form-control csinput" name="icon" id="icon" placeholder="Chọn icon" />
+                    </div>
+                    <div class="form-group">
+                        <label>Thứ tự(*)</label>
+                        <input type="number" class="form-control csinput" value="1" name="thutu" id="thutu" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label>Vị trí</label>
+                        <select name="vitri" id="vitri" class="form-control csinput">
+                            <option value="1">Menu trên</option>
+                            <option value="2">Menu dưới</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Loại menu</label>
+                        <select name="loaimenu" id="loaimenu" class="form-control csinput">
+                            <option value="1">Menu link</option>
+                            <option value="2">Menu nội dung</option>
+                            <option value="3">Menu liên kết</option>
+                        </select>
+                    </div>
+                    <div id="menu_link">
+                        <div class="form-group">
+                            <label>Link menu</label>
+                            <input type="text" class="form-control csinput" name="linkmenu" id="linkmenu" placeholder="Link menu" />
+                        </div>
+                    </div>
+                    <div id="menu_lienket" style="display:none">
+                        <div class="form-group">
+                            <label>Loại liên kết</label>
+                            <select name="typecate" id="typecate" class="form-control csinput">
+                                <option value="4">Trang chủ</option>
+                                @*<option value="1">Sản phẩm</option>
+                                <option value="8">Lĩnh vực</option>*@
+                                <option value="2">Tin tức</option>
+                                @*<option value="3">Thư viện</option>*@
+                                <option value="5">Hỏi đáp</option>
+                                <option value="7">Liên hệ</option>
+                            </select>
+                            <input type="hidden" value="1" id="typecate_hid" />
+                            <div id="idchon_nhom" style="display:none">
+                                <label>Chọn nhóm </label>
+                                <select name="cateid" id="cateid" class="form-control csinput"></select>
+                            </div>
+                             </div>
+                    </div>
+
+                    <div id="menu_noidung" style="display:none">
+                        <div class="form-group">
+                            <label>Nội dung</label>
+                            @Html.TextArea("contents")
+                        </div>
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <input type="text" class="form-control" name="titleseo" placeholder="Tile seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <input type="text" class="form-control" name="keyseo" placeholder="Keyword seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <input type="text" class="form-control" name="desseo" placeholder="Description seo" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Kích hoạt</label>
+                        @Html.CheckBox("active")
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                    </div>
+                </div>
+
+                <!--/.col (left) -->
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'contents');
+
+    });
+</script>
+<style>
+    .csinput {
+        width: 60%;
+    }
+</style>
+@*<script type="text/javascript">
+    $(function () {
+        $("#icon").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#icon").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>*@
+<script>
+    $('#loaimenu').on('change', function () {
+        var gt = $(this).val();
+        if (gt == "1") {
+            document.getElementById("menu_link").style.display = "block";
+            document.getElementById("menu_lienket").style.display = "none";
+            document.getElementById("menu_noidung").style.display = "none";
+        } else if (gt == "2") {
+            document.getElementById("menu_link").style.display = "none";
+            document.getElementById("menu_lienket").style.display = "none";
+            document.getElementById("menu_noidung").style.display = "block";
+        } else {
+            document.getElementById("menu_link").style.display = "none";
+            document.getElementById("menu_lienket").style.display = "block";
+            document.getElementById("menu_noidung").style.display = "none";
+        }
+    });
+</script>
+<script>
+    $('#typecate').on('change', function () {
+        var gt = $(this).val();
+        if (gt == "1" || gt == "2" || gt == "3" || gt == "8") {
+            $('#cateid').load("/Menus/Nhomdanhmuc/" + gt);
+            document.getElementById("idchon_nhom").style.display = "block";
+
+        } else {
+            document.getElementById("idchon_nhom").style.display = "none";
+        }
+    });
+    window.onload = function () {
+        var gt = $('#typecate_hid').val();
+        if (gt == "1" || gt == "2" || gt == "3" || gt == "8") {
+            $('#cateid').load("/Menus/Nhomdanhmuc/" + gt);
+        }
+    }
+</script>

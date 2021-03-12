@@ -1,0 +1,229 @@
+﻿@model Productgold.Models.Category
+@{
+    ViewBag.Title = "Cập nhật nhóm sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a class="fa fa-mail-reply-all" href="javascript:void(0);" onclick="window.history.go(-1);">Trở lại</a>
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_2" data-toggle="tab"  style="display:none">Ảnh nhóm</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>Tên nhóm(*)</label>
+                                    <input type="hidden" id="catetype" name="catetype" value="1" />
+                                    <input type="hidden" id="catepar" name="catepar" value="@Model.catepar_id" />
+                                    <input type="text" class="form-control csinput" name="catename" placeholder="Tên nhóm"  value="@Model.name" required />
+                                    <input type="hidden" id="idloai_hid" value="@Model.cateLevel" />
+                                  </div>
+                                <div class="form-group">
+                                    <label>Nhóm cha</label>
+                                    @Html.Action("GetCha", "Categorys", new { type = 1,id=Model.id })
+                                </div>
+                                <div class="form-group">
+                                    <label>Ảnh đại diện(width: 360px - height: 215px)</label>
+                                    <input type="text" class="form-control csinput" name="cateAvata" id="cateAvata" value="@Model.cateAvata" placeholder="Ảnh đại diện" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Thứ tự</label>
+                                    <input type="number"  class="form-control csinput" name="order" value="@Model.cateOrder" placeholder="Thứ tự" />
+                                </div>
+                                <div class="form-group" style="display:none">
+                                    <label>Màu khung(cosmetic_main:hồng,clock_main:xám,functional_foods_main:xanh,cloting_fashion_main:đỏ)</label>
+                                    <input type="text" class="form-control" name="catedes"  value="@Model.cateImg_des" placeholder="Mô tả" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả chi tiết</label>
+                                    @Html.TextAreaFor(u=>u.catenote)
+                                </div>
+                                <div class="form-group">
+                                    <label>Loại nhóm</label>
+                                    <select name="loai" id="loai" class="form-control csinput">
+                                        <option value="0">Sản phẩm</option>
+                                        <option value="1">Lĩnh vực</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kích hoạt</label>
+                                    @Html.CheckBox("ckActive", (Model.active == true) ? true : false)
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label>Hiển thị trang chủ</label>
+                                    @Html.CheckBox("ckHome", (Model.activeHome == true) ? true : false)
+                                </div>
+                            </div>
+
+                          
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab_2"  style="display:none">
+                 
+                        <div  id="idlistimg">
+                            @{ string[] mang = Model.cateImg.Split(';');}
+                            <div class="form-group">
+                                <label>Ảnh phụ 1(icon trái)</label>
+                                <input type="text" class="form-control csinput" value="@mang[0]" name="listimg1" id="listimg1" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 2(QC trái)</label>
+                                <input type="text" class="form-control csinput" value="@mang[1]" name="listimg2" id="listimg2" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 3</label>
+                                <input type="text" class="form-control csinput" value="@mang[2]" name="listimg3" id="listimg3" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 4</label>
+                                <input type="text" class="form-control csinput" name="listimg4" value="@mang[3]" id="listimg4" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 5</label>
+                                <input type="text" class="form-control csinput" name="listimg5" value="@mang[4]" id="listimg5" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 6</label>
+                                <input type="text" class="form-control csinput" name="listimg6" value="@mang[5]" id="listimg6" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 7</label>
+                                <input type="text" class="form-control csinput" name="listimg7" value="@mang[6]" id="listimg7" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh phụ 8</label>
+                                <input type="text" class="form-control csinput" name="listimg8" value="@mang[7]" id="listimg8" placeholder="Chọn ảnh" />
+                            </div>
+                            <hr />
+                        </div>
+                    </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_3">
+                            <div class="form-group">
+                                <label>Tile seo </label>
+                                <input type="text" class="form-control" value="@Model.titleSeo" name="titleseo" placeholder="Tile seo" />
+                            </div>
+                            <div class="form-group">
+                                <label>Keyword seo </label>
+                                <input type="text" class="form-control" name="keyseo" value="@Model.keySeo" placeholder="Keyword seo" />
+                            </div>
+                            <div class="form-group">
+                                <label>Description seo </label>
+                                <input type="text" class="form-control" value="@Model.desSeo" name="desseo" placeholder="Description seo" />
+                            </div>
+                        </div>
+                    </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+    </div>
+
+                                        }
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'catenote');
+
+    });
+</script>
+<script type="text/javascript">
+    var loai = $('#idloai_hid').val();
+    $('#loai').val(loai);
+
+    $('#addmore').on('click', function () {
+        $('#idlistimg').toggle();
+    })
+    $(function () {
+        $("#cateAvata").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#cateAvata").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg1").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg1").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg2").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg2").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg3").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg3").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg4").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg4").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg5").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg5").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#listimg6").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#listimg6").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    var catepar = $('#catepar').val();
+    $('#catep').val(catepar);
+</script>
+<style>
+    .csinput {
+        width: 60%;
+    }
+</style>

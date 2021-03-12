@@ -1,0 +1,135 @@
+﻿@model Productgold.Models.News
+@{
+    ViewBag.Title = "Administrator - Sửa tin tức";
+    ViewBag.controller = "Sửa tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<a class="fa fa-mail-reply-all" href="javascript:void(0);" onclick="window.history.go(-1);">Trở lại</a>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Nhóm tin</label>
+                                @Html.Action("GetCha", "Prodcuts", new { type = 2 })
+                                <input type="hidden" id="idcha_hid" value="@Model.groupid" />
+                                <input type="hidden" id="idloai_hid" value="@Model.ntype" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh(width: 360px - height: 280px)</label>
+                                <input type="text" value="@Model.images" class="form-control csinput" name="img" id="img" placeholder="Chọn ảnh" />
+                            </div>
+                            <div class="form-group">
+                                <label>Tiêu đề(*)</label>
+                                <input type="text" value="@Model.title" class="form-control csinput" name="title" id="title" placeholder="Tiêu đề" required="required" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Thứ tự(*)</label>
+                                <input type="number" value="@Model.newOrder" class="form-control csinput"  name="thutu" id="thutu" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label>Loại tin</label>
+                                <select name="loai" id="loai" class="form-control csinput">
+                                    <option value="0">Tin thường</option>
+                                    <option value="1">Tin slide trang chủ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả ngắn</label>
+                                <textarea name="mota" placeholder="Nội dung mô tả..." class="form-control" maxlength="500" rows="2">@Model.descript</textarea>
+                                @*<input class="form-control" value="" type="text" placeholder="Nội dung ..." name="mota" />*@
+                            </div>
+                           
+                            <div class="form-group">
+                                <label>Nội dung</label>
+                                @Html.TextAreaFor(u=>u.contents)
+                            </div>
+                         
+                            <div class="form-group">
+                                <label>Tin nổi bật</label>
+                                @Html.CheckBox("noibat", (Model.ex1 == "1") ? true : false)
+                            </div>
+                            <div class="form-group">
+                                <label>Kích hoạt</label>
+                                @Html.CheckBox("active",(Model.active==true)?true:false)
+                            </div>
+
+                        
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <input type="text" class="form-control" value="@Model.titleSeo" name="titleseo" placeholder="Tile seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <input type="text" class="form-control" value="@Model.keySeo" name="keyseo" placeholder="Keyword seo" />
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <input type="text" class="form-control" value="@Model.desSeo" name="desseo" placeholder="Description seo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.box -->
+            <!--/.col (left) -->
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'contents');
+
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
+<style>
+    .csinput {
+        width: 60%;
+    }
+</style>
+<script>
+    var cate = $('#idcha_hid').val();
+    $('#catep').val(cate);
+    var loai = $('#idloai_hid').val();
+    $('#loai').val(loai);
+</script>

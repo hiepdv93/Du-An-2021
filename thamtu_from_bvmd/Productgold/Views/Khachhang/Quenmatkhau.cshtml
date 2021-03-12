@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Quên mật khẩu";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="ContactForm">
+            <h5> Form quên mật khẩu
+            </h5>
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            Email
+                            <strong class="red">*
+                            </strong>
+                        </label>
+                        <input class="inputfild" type="email" name="email" required="required">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            <strong class="red">@ViewBag.erro
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                
+                 <a href="/Khachhang/Dangnhap" >
+                  Về trang đăng nhập
+                </a>
+                <button class="pull-right" type="submit">
+                    Lấy lại mật khẩu
+                </button> 
+            }
+        </div>
+    </div>
+</div>

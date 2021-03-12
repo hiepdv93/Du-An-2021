@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập tài khoản";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="ContactForm">
+            <h5> Form đăng nhập tài khoản
+            </h5>
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            Email
+                            <strong class="red">*
+                            </strong>
+                        </label>
+                        <input class="inputfild" type="email" name="email" required="required">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            Mật khẩu
+                            <strong class="red">*
+                            </strong>
+                        </label>
+                        <input class="inputfild" type="password" name="pass" required="required">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            <strong class="red">@ViewBag.erro
+                            </strong>
+                        </label>
+                    </div>
+                </div>
+                
+                 <a href="/Khachhang/Quenmatkhau" >
+                   Bạn quên mật khẩu?
+                </a>
+                <button class="pull-right" type="submit">
+                    Đăng nhập
+                </button> 
+            }
+        </div>
+    </div>
+</div>

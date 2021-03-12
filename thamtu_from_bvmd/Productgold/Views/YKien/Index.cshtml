@@ -1,0 +1,111 @@
+﻿@model IList<Productgold.Models.Ykien>
+@{
+    ViewBag.Title = "Danh  sách tư vấn";
+    ViewBag.controller = "Danh  sách tư vấn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string searchemail = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["searchemail"] != null)
+    {
+        searchemail = Request["searchemail"];
+    }
+    string note = "";
+}
+
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Ykien/IndexSearch">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Nhập họ tên.." />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@searchemail" class="form-control" placeholder="Nhập email/phone.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th width="150px">Họ tên</th>
+                        <th width="300px">Email - Địa chỉ</th>
+                        <th >Nội dung</th>
+                        <th width="150px">Ngày gửi</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@data.yName</td>
+                            <td>@data.yEmailAdd</td>
+                            @{ note = Productgold.Models.StringClass.FormatContentNews(data.ynote, 100);}
+                            <td>@note</td>
+                            <td>@data.yCreateDate.Value.ToShortDateString()</td>
+                      
+                            <td>
+                                <a href="/YKien/Chitiet/@data.yId" target="_blank" class="fa fa-edit"  title="Chi tiết">Chi tiết</a>|
+                                <a href="#" onclick="DeleteConfim(@data.yId)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+<script type="text/javascript">
+        function DeleteConfim(id) {
+            $('#lbHeader1').html('Xóa ý kiến!');
+            $('#linkDel1').attr('href', '/YKien/Delete/' + id);
+            $('#myModaldel').modal({
+                show: 'true'
+
+            });
+        }
+</script>
+
+<style>
+    /*.csinput {
+            width: 90%;
+        }*/
+    .csinput {
+        width: 60%;
+    }
+
+    #product #cat {
+        width: 30%;
+    }
+</style>
+@* END *@
+<script>
+    function Lammoi()
+    {
+        window.location.href = '/Ykien/';
+    }
+</script>

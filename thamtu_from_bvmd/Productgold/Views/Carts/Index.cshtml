@@ -1,0 +1,218 @@
+﻿@model Productgold.Models.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Giỏ hàng";
+    ViewBag.cart = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+
+<style>
+    .img-giohang {
+        max-width: 60px;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+    }
+
+    .btdt {
+        background: none;
+        color: white;
+        border: none;
+        font-size: 20px;
+    }
+</style>
+<!-- Content -->
+<div class="products-pages">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="/San-pham" title="@ViewBag.key_giohang">@ViewBag.key_giohang</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-blog-section danh-sach-san-pham">
+            @Html.Action("GenDanhmuc", "TPAImport")
+            <div class="right-section">
+                <div class="sp-new">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="title_cart">
+                            <h4 style="text-transform:uppercase; font-weight:bold">Giỏ hàng của bạn</h4>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form_cart">
+                            <div class="table-responsive table-bordered">
+                                <table class="table" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="40px" class="center-text">STT</th>
+                                            <th width="120px">Ảnh</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th width="100px">Số lượng</th>
+                                            <th width="100px">Đơn giá</th>
+                                            <th width="100px">Thành tiền</th>
+                                            <th width="100px">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{int ix = 1;}
+                                        @foreach (var item in Model.CartItems)
+                                        {
+                                        <tr>
+                                            <td class="center-text">@ix</td>
+                                            <td>
+                                                <a href="/Chi-tiet/@item.key" title="@item.productName"><img src="@item.productImg" class="img-giohang" alt="@item.productName"></a>
+                                            </td>
+                                            <td>
+                                                <a href="/Chi-tiet/@item.key" title="@item.productName" class="name_products_cart">@item.productName</a>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" value="@item.count" min="1" max="100" style="width: 80px; margin-left: 30px; margin-top: 3px" id="soluong_@item.productId" name="soluong" onchange="KeyupSl()" onkeyup="KeyupSl()" />
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                    @item.price.ToString("N0")
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                    @item.total.ToString("N0")
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="RefreshQuantity" data-id="@item.productId">
+                                                    <img src="~/Content/images/lammoicart.png" style="width:15px;height:15px" alt="Cap nhat">
+                                                </a>
+                                                <a href="#" class="RemoveLink" data-id="@item.productId">
+                                                    <img src="~/Content/images/remove.png" alt="Xoa">
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        ix++;
+                                        }
+                                        <tr>
+                                            <td colspan="2" class="text-left"><strong>Tổng chi phí giỏ hàng</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td colspan="2"><span class="price_cart">@Model.CartTotal.ToString("N0") .000đ</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="action_add_cart text-right">
+                                    <button type="button" class="btn btn-success"  name="bttt" onclick="window.location='/San-pham'">Tiếp tục mua hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <form method="post" action="/Carts/Dathang">
+                            <div class="form_info_products">
+                                <h4  style="text-transform:uppercase; font-weight:bold" >Thông tin mua hàng</h4>
+                                <input type="text" required class="form-control" name="name" placeholder="Họ và tên(*)">
+                                <input type="email" required class="form-control" name="email" placeholder="Email(*)">
+                                <input type="number" required class="form-control" name="phone" placeholder="Số điện thoại(*)">
+                                <input type="text" required class="form-control" name="adds" placeholder="Địa chỉ(*)">
+                                <textarea name="note" class="form-control" rows="4" placeholder="Ghi chú"></textarea>
+                            </div>
+                            @if (Model.CartItems.Count() > 0)
+                            {
+                            <div class="order_products text-right">
+                                <button type="submit" class="btn btn-success" name="btdh">Đặt hàng</button>
+                            </div>
+                            }
+                        </form>
+                    </div>
+                </div><!--end sp-new-->
+                <div class="cleafix"></div>
+            </div><!--end right-section--->
+        </div><!--end box-blog-section-->
+    </div><!--end container-->
+</div><!--end products-pages-->
+<!-- End Content -->
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/Carts/RemoveFromCart", { "id": recordToDelete },
+                    function (data) {
+
+                        location.reload();
+                    });
+            }
+        });
+
+        $(".RefreshQuantity").click(function () {
+
+            var recordToUpdate = $(this).attr("data-id");
+            //Set quantity number to 0 if input value is empty
+            var countToUpdate = $('#soluong_' + recordToUpdate).val();
+
+            if (recordToUpdate != '') {
+                // Perform the ajax post
+                $.post("/Carts/UpdateCartCountItem", { "id": recordToUpdate, "cartCount": countToUpdate },
+                function (data) {
+
+                    location.reload();
+                });
+            }
+        });
+    });
+    $(".quantity2").keyup(function () {
+
+        var recordToUpdate = $(this).attr("data-id2");
+        //Set quantity number to 0 if input value is empty
+        var countToUpdate = $(this).val();
+
+        if (recordToUpdate != '') {
+            // Perform the ajax post
+            $.post("/Carts/UpdateCartCountItem", { "id": recordToUpdate, "cartCount": countToUpdate },
+            function (data) {
+
+                location.reload();
+            });
+        }
+    });
+    $(".quantity2").change(function () {
+
+        var recordToUpdate = $(this).attr("data-id2");
+        //Set quantity number to 0 if input value is empty
+        var countToUpdate = $(this).val();
+
+        if (recordToUpdate != '') {
+            // Perform the ajax post
+            $.post("/Carts/UpdateCartCountItem", { "id": recordToUpdate, "cartCount": countToUpdate },
+            function (data) {
+
+                location.reload();
+            });
+        }
+    });
+    function KeyupSl() {
+        $(".RefreshQuantity").click();
+    }
+    function htmlDecode(value) {
+        if (value) {
+            return $('<div />').html(value).text();
+        }
+        else {
+            return '';
+        }
+    }
+    if (typeof String.prototype.trim !== 'function') {
+        String.prototype.trim = function () {
+            return this.replace(/^\s+|\s+$/g, '');
+        }
+    }
+</script>

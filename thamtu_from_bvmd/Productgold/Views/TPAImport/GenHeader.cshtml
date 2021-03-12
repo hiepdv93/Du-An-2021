@@ -1,0 +1,94 @@
+﻿@model Productgold.Models.Config
+@{
+    var banner = (Productgold.Models.Adv)ViewBag.banner;
+}
+@if (banner != null)
+{
+    <style>
+    .logo .container.no-padding {
+    background: url(@banner.images) no-repeat right center;}
+    </style>
+}
+
+<header>
+    <div class="top-header">
+        <div class="container no-padding">
+            <p>@Model.shopname</p>
+            <div class="right-top-header">
+                <div class="search">
+                    <form method="post" action="/BVMDHome/Timkiem">
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <input type="text" name="txtTimkiem" placeholder="@ViewBag.timkiem">
+                    </form>
+                </div><!--end search-->
+                <div class="social">
+                    <a target="_blank" href="@Model.faceBook" title="Kênh facebook">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a target="_blank" href="@Model.google" title="Kênh google">
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                    </a>
+                    <a target="_blank" href="@Model.youTube" title="Kênh youtube">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a target="_blank" href="@Model.twiter" title="Kênh twiter">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div><!--end social-->
+                <div class="eng">
+                    <a href="javascrpit:void(0)" onclick="ChangLangSite('vi')" title="@ViewBag.tiengviet"><img src="images/vn.jpg" class="img-responsive" alt=""></a>
+                    <a href="javascrpit:void(0)" onclick="ChangLangSite('en')" title="@ViewBag.tienganh"><img src="images/eng.jpg" class="img-responsive" alt=""></a>
+                </div><!--end eng-->
+            </div><!--end right-top-header-->
+        </div><!--end container-->
+    </div><!--end right-top-header-->
+    <div class="logo">
+        <div class="container no-padding">
+            @Html.Raw(ViewBag.logotren)
+        </div><!--end container-->
+    </div><!--end logo-->
+
+    <div class="menu">
+        <div class="container no-padding">
+            <ul>
+                @Html.Raw(ViewBag.StrmenuTren)
+
+            </ul>
+        </div><!--end container-->
+    </div><!--end menu-->
+
+    <div class="top-menu-dc">
+        <div class="col-xs-6 no-padding">
+            <div class="logo">
+                @Html.Raw(ViewBag.logotren)
+            </div><!--end logo-->
+        </div><!--end col-xs-6-->
+        <div class="col-xs-6 no-padding">
+            <div class="button1"><i class="fa fa-bars" aria-hidden="true"></i></div>
+        </div><!--end col-xs-6-->
+    </div><!--end top-menu-dc-->
+    <div class="menu-mobile hidden-sm ">
+        <ul>
+            @Html.Raw(ViewBag.StrmenuTrenMB)
+
+        </ul>
+    </div><!--end menu-mobile-->
+</header>
+@Html.Raw(Model.liveChat)
+<script>
+    function ChangLangSite(lang) {
+        var url = "/Config/ChangeLangSite";
+        $.ajax({
+            url: url,
+            data: { lang: lang },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                window.location.reload();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>

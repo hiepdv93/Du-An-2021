@@ -1,0 +1,20 @@
+﻿@model IList<Productgold.Models.Slide>
+               <div id="sequence">
+                  <div class="sequence-prev"><i class="fa fa-angle-left"></i></div>
+                  <div class="sequence-next"><i class="fa fa-angle-right"></i></div>
+                  <ul class="sequence-canvas">
+                     @for (int i = 0; i < Model.Count; i++)
+                     {
+                     <li>
+                        <div class="flat-caption caption2 formLeft delay400 text-center">
+                           <h1>@Model[i].title_big</h1>
+                        </div>
+                        <div class="flat-caption caption3 formLeft delay500 text-center">
+                           <p>@Model[i].content</p>
+                        </div>
+                        <div class="flat-button caption4 formLeft delay600 text-center"><a class="more" href="@Model[i].link" title="@Model[i].title_big">More Details</a></div>
+                        <div class="flat-image formBottom delay200" data-bottom="true"><img src="@Model[i].image_big" alt="@Model[i].title_big"></div>
+                     </li>
+                     }
+                  </ul>
+               </div>

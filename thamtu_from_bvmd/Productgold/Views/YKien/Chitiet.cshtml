@@ -1,0 +1,225 @@
+﻿@model IList<Productgold.Models.Ykien>
+@{
+    ViewBag.Title = "Danh  sách tư vấn hỏi đáp";
+    ViewBag.controller = "Danh  sách tư vấn hỏi đáp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string searchemail = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["searchemail"] != null)
+    {
+        searchemail = Request["searchemail"];
+    }
+    string note = "";
+    var dataObj = (Productgold.Models.Ykien)ViewBag.data;
+    string adminEmail="" ;
+    if (Session["admins"]!=null)
+    {
+        adminEmail = Session["admins"].ToString();
+    }
+}
+
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Ykien/IndexSearch" style="display:none">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Nhập họ tên.." />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@searchemail" class="form-control" placeholder="Nhập email/phone.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <b>Nội dung hỏi đáp:</b>
+            <p>@Html.Raw(dataObj.ynote)</p>
+            <div class="row">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3 text-right">
+                    <button class="btn btn-info classbtAdd" onclick="Themmoi()"><i class="glyphicon glyphicon-plus"></i>Gửi phản hồi</button>
+                </div>
+            </div>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th width="150px">Họ tên</th>
+                        <th width="300px">Email - Địa chỉ</th>
+                        <th>Nội dung</th>
+                        <th width="150px">Ngày gửi</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@data.yName</td>
+                            <td>@data.yEmailAdd</td>
+                            <td>@data.ynote</td>
+                            <td>@data.yCreateDate.Value.ToShortDateString()</td>
+                         
+                            <td>
+                                @if (adminEmail.Equals(data.AdminId))
+                                {
+                                    <a href="#" onclick="Hamsua(@data.yId)" class="fa fa-edit" title="Chi tiết">Sửa </a>
+                                }
+                                <a href="#" onclick="DeleteConfim(@data.yId)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+
+                            </td>
+                        </tr>
+                                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+@using (Html.BeginForm("Traloi", "Ykien"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog" style="width:900px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Trả lời tư vấn hỏi đáp</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="dataObj_Id" value="@dataObj.yId" />
+                    <input type="hidden" name="dataObj_Traloi_Id" id="dataObj_Traloi_Id" value="" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên(*):</label>
+                                    <input type="text" class="form-control" required placeholder="Họ tên(*)" name="hoten_ch" id="hoten_ch">
+                                    <span id="iderrotenkenh" class="errocs"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Email - địa chỉ(*):</label>
+                                    <input type="text" class="form-control" required placeholder="Email - địa chỉ(*)" name="email_diachi_ch" id="email_diachi_ch">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nội dung câu hỏi(*):</label>
+                                    <textarea class="form-control margintop5" rows="7" required placeholder="Nội dung câu hỏi..." name="noidung_ch" id="noidung_ch"></textarea>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Gửi phản hồi</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa ý kiến!');
+        $('#linkDel1').attr('href', '/YKien/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function Hamsua(id) {
+        $("#dataObj_Traloi_Id").val(id);
+        var url = "/Ykien/GetbyId";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#hoten_ch").val(data.yName);
+                $("#email_diachi_ch").val(data.yEmailAdd);
+                $("#noidung_ch").val(data.ynote);
+                $('#editmodam').modal({
+                    show: 'true'
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+    function Themmoi() {
+        var url = "/Ykien/GetAdmin";
+        $.ajax({
+            url: url,
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#dataObj_Traloi_Id").val('');
+                $("#hoten_ch").val(data.fullname);
+                $("#email_diachi_ch").val(data.email);
+                $('#editmodam').modal({
+                    show: 'true'
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+
+
+</script>
+
+<style>
+    /*.csinput {
+            width: 90%;
+        }*/
+    .csinput {
+        width: 60%;
+    }
+
+    #product #cat {
+        width: 30%;
+    }
+</style>
+@* END *@
+<script>
+    function Lammoi() {
+        window.location.href = '/Ykien/';
+    }
+</script>

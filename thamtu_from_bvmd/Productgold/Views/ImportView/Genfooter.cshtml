@@ -1,0 +1,81 @@
+﻿@model Productgold.Models.Config        
+<script src="~/Scripts/script_validate.js"></script>
+ <div class="footer">
+            <div class="footer-info">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="footer-logo">
+                            @{Html.RenderAction("GenLogo", "ImportView");}
+                        </div>
+                     </div>
+                     <div class="col-md-3 col-sm-6">
+                        <h4 class="title">Contact <strong>Info</strong></h4>
+                        <p>@Model.addres</p>
+                        <p>Call : @Model.phone</p>
+                        <p>Email : @Model.Email_Inbox</p>
+                     </div>
+                     <div class="col-md-3 col-sm-6">
+                        <h4 class="title">Customer<strong> Support</strong></h4>
+                        <ul class="support">
+                           <li><a href="#">FAQ</a></li>
+                           <li><a href="#">Payment Option</a></li>
+                           <li><a href="#">Booking Tips</a></li>
+                           <li><a href="#">Infomation</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-md-3">
+                        <h4 class="title">Get Our <strong>Newsletter </strong></h4>
+                        <p>Lorem ipsum dolor ipsum dolor.</p>
+                        <form class="newsletter" action="Trangchu/Addmail" method="post">
+							<input type="email" name="idmailfooter" id="idmailfooter" placeholder="Type your email...." required="required">
+							<input type="button" id="btaddmail" value="Đăng ký" class="button">
+						</form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright-info">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <p>Copyright © 2016. Designed by <a href="#">Hiep.dv93</a>. All rights reseved</p>
+                     </div>
+                     <div class="col-md-6">
+                        <ul class="social-icon">
+                           <li><a href="#" class="linkedin"></a></li>
+                           <li><a href="#" class="google-plus"></a></li>
+                           <li><a href="#" class="twitter"></a></li>
+                           <li><a href="#" class="facebook"></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+<script>
+    $('#btaddmail').click(function () {
+        var idmailfooter = $('#idmailfooter').val();
+        if (is_Email(idmailfooter)) {
+            var url = "/Trangchu/Addmail";
+            $.ajax({
+                url: url,
+                data: { email: idmailfooter },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    if (data) {
+                        alert('Bạn đã đăng kí thành công!');
+                    } else {
+                        alert('Email của bạn đã tồn tại!');
+                    }
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        } else {
+            alert('Email không đúng định dạng');
+        }
+    });
+</script>

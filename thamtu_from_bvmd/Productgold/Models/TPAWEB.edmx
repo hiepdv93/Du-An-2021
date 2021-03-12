@@ -1,0 +1,1627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WEBTPAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+          <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="100" />
+          <Property Name="depart" Type="nvarchar" MaxLength="150" />
+          <Property Name="active" Type="bit" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="150" />
+          <Property Name="siteModul" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Adv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="advName" Type="nvarchar" MaxLength="250" />
+          <Property Name="images" Type="nvarchar" MaxLength="250" />
+          <Property Name="imagesId" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="nvarchar" MaxLength="500" />
+          <Property Name="active" Type="bit" />
+          <Property Name="atype" Type="int" />
+          <Property Name="width" Type="int" />
+          <Property Name="height" Type="int" />
+          <Property Name="advLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="advOrder" Type="int" />
+          <Property Name="note" Type="ntext" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+          <Property Name="advTag" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="images" Type="nvarchar" MaxLength="250" />
+          <Property Name="bkey" Type="nvarchar" MaxLength="250" />
+          <Property Name="blang" Type="nvarchar" MaxLength="50" />
+          <Property Name="btype" Type="int" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="350" />
+          <Property Name="keys" Type="nvarchar" MaxLength="400" />
+          <Property Name="ctype" Type="int" />
+          <Property Name="activeHome" Type="bit" />
+          <Property Name="active" Type="bit" />
+          <Property Name="cateLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="cateLevel" Type="nvarchar" MaxLength="250" />
+          <Property Name="catenote" Type="ntext" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="cateAvata" Type="nvarchar" MaxLength="250" />
+          <Property Name="cateAvataId" Type="nvarchar" MaxLength="250" />
+          <Property Name="cateImg" Type="nvarchar" MaxLength="650" />
+          <Property Name="cateOrder" Type="int" />
+          <Property Name="cateImg_des" Type="nvarchar" MaxLength="400" />
+          <Property Name="catepar_id" Type="int" />
+          <Property Name="cate_cap" Type="int" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hotLine" Type="nvarchar" MaxLength="150" />
+          <Property Name="phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email_Inbox" Type="nvarchar" MaxLength="50" />
+          <Property Name="shopemail" Type="nvarchar" MaxLength="50" />
+          <Property Name="emailpass" Type="nvarchar" MaxLength="50" />
+          <Property Name="addres" Type="nvarchar" MaxLength="100" />
+          <Property Name="shopname" Type="nvarchar" MaxLength="50" />
+          <Property Name="logobottom" Type="nvarchar" MaxLength="256" />
+          <Property Name="logotop" Type="nvarchar" MaxLength="256" />
+          <Property Name="fax" Type="nvarchar" MaxLength="250" />
+          <Property Name="google" Type="nvarchar" MaxLength="250" />
+          <Property Name="twiter" Type="nvarchar" MaxLength="250" />
+          <Property Name="youTube" Type="nvarchar" MaxLength="250" />
+          <Property Name="faceBook" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="varchar" MaxLength="100" />
+          <Property Name="Footer" Type="ntext" />
+          <Property Name="conTact" Type="ntext" />
+          <Property Name="map" Type="ntext" />
+          <Property Name="liveChat" Type="ntext" />
+          <Property Name="active" Type="bit" />
+          <Property Name="ex1" Type="ntext" />
+          <Property Name="ex2" Type="ntext" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="conLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="conMail_Port" Type="nvarchar" MaxLength="50" />
+          <Property Name="viewPro" Type="nvarchar" MaxLength="100" />
+          <Property Name="viewNews" Type="nvarchar" MaxLength="100" />
+          <Property Name="viewVideo" Type="nvarchar" MaxLength="100" />
+          <Property Name="viewYkien" Type="nvarchar" MaxLength="100" />
+          <Property Name="viewCountFrom" Type="int" />
+          <Property Name="viewCountTo" Type="int" />
+          <Property Name="viewNowFrom" Type="int" />
+          <Property Name="viewNowTo" Type="int" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+          <Property Name="googleAnalytics" Type="ntext" />
+          <Property Name="yeuCauBaoGia" Type="ntext" />
+          <Property Name="banCanHoTro" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cusid" Type="int" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="addressIn" Type="nvarchar" MaxLength="450" />
+          <Property Name="address" Type="nvarchar" MaxLength="450" />
+          <Property Name="shiping" Type="nvarchar" MaxLength="450" />
+          <Property Name="title" Type="nvarchar" MaxLength="450" />
+          <Property Name="contents" Type="nvarchar" MaxLength="800" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="active" Type="bit" />
+          <Property Name="conLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="varchar" MaxLength="12" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="addres" Type="nvarchar" MaxLength="100" />
+          <Property Name="active" Type="bit" />
+          <Property Name="type" Type="int" />
+          <Property Name="avata" Type="nvarchar" MaxLength="250" />
+          <Property Name="cusLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="eLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="langId" />
+          </Key>
+          <Property Name="langId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="langCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="langName" Type="nvarchar" MaxLength="50" />
+          <Property Name="langImg" Type="nvarchar" MaxLength="250" />
+          <Property Name="langDefault" Type="bit" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="nvarchar" MaxLength="250" />
+          <Property Name="par_id" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="mtype" Type="int" />
+          <Property Name="mtypeOf" Type="nvarchar" MaxLength="50" />
+          <Property Name="note" Type="ntext" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="mOrder" Type="int" />
+          <Property Name="ex1" Type="nvarchar" MaxLength="250" />
+          <Property Name="mcap" Type="int" />
+          <Property Name="mLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="mPosition" Type="int" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupid" Type="int" />
+          <Property Name="images" Type="nvarchar" MaxLength="250" />
+          <Property Name="imagesId" Type="nvarchar" MaxLength="250" />
+          <Property Name="title" Type="nvarchar" MaxLength="350" />
+          <Property Name="descript" Type="nvarchar" MaxLength="400" />
+          <Property Name="contents" Type="ntext" />
+          <Property Name="ntype" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="new_key" Type="nvarchar" MaxLength="400" />
+          <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+          <Property Name="ex2" Type="nvarchar" MaxLength="400" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="newOrder" Type="int" />
+          <Property Name="viewCount" Type="int" />
+          <Property Name="newLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Oderdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oderid" Type="int" />
+          <Property Name="proid" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="priceNow" Type="float" />
+          <Property Name="priceCount" Type="float" />
+        </EntityType>
+        <EntityType Name="Oders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cusid" Type="int" />
+          <Property Name="total" Type="float" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="statust" Type="int" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="oLang" Type="nvarchar" MaxLength="450" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductExten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cateid" Type="int" />
+          <Property Name="brandid" Type="int" />
+          <Property Name="proCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="pro_name" Type="nvarchar" MaxLength="350" />
+          <Property Name="pro_key" Type="nvarchar" MaxLength="350" />
+          <Property Name="proPrice" Type="float" />
+          <Property Name="proPrice_sale" Type="float" />
+          <Property Name="proAvata" Type="nvarchar" MaxLength="250" />
+          <Property Name="proAvataId" Type="nvarchar" MaxLength="250" />
+          <Property Name="proImages" Type="nvarchar" MaxLength="650" />
+          <Property Name="proImagesId" Type="nvarchar" MaxLength="650" />
+          <Property Name="proWant" Type="nvarchar" MaxLength="250" />
+          <Property Name="proContents4" Type="ntext" />
+          <Property Name="proContents3" Type="ntext" />
+          <Property Name="proContents2" Type="ntext" />
+          <Property Name="proContents" Type="ntext" />
+          <Property Name="proFile" Type="nvarchar" MaxLength="256" />
+          <Property Name="pro_count" Type="int" />
+          <Property Name="pro_view" Type="int" />
+          <Property Name="pro_hot" Type="bit" />
+          <Property Name="pro_new" Type="bit" />
+          <Property Name="pro_sale" Type="bit" />
+          <Property Name="active" Type="bit" />
+          <Property Name="statust" Type="bit" />
+          <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+          <Property Name="prodescription" Type="nvarchar" MaxLength="600" />
+          <Property Name="proOrder" Type="int" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="pLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="pTag" Type="nvarchar" MaxLength="600" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cateid" Type="int" />
+          <Property Name="brandid" Type="int" />
+          <Property Name="proCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="pro_name" Type="nvarchar" MaxLength="350" />
+          <Property Name="pro_key" Type="nvarchar" MaxLength="350" />
+          <Property Name="proPrice" Type="float" />
+          <Property Name="proPrice_sale" Type="float" />
+          <Property Name="proAvata" Type="nvarchar" MaxLength="250" />
+          <Property Name="proAvataId" Type="nvarchar" MaxLength="250" />
+          <Property Name="proImages" Type="nvarchar" MaxLength="650" />
+          <Property Name="proImagesId" Type="nvarchar" MaxLength="650" />
+          <Property Name="proWant" Type="nvarchar" MaxLength="250" />
+          <Property Name="proContents4" Type="ntext" />
+          <Property Name="proContents3" Type="ntext" />
+          <Property Name="proContents2" Type="ntext" />
+          <Property Name="proContents" Type="ntext" />
+          <Property Name="proFile" Type="nvarchar" MaxLength="256" />
+          <Property Name="pro_count" Type="int" />
+          <Property Name="pro_view" Type="int" />
+          <Property Name="pro_hot" Type="bit" />
+          <Property Name="pro_new" Type="bit" />
+          <Property Name="pro_sale" Type="bit" />
+          <Property Name="active" Type="bit" />
+          <Property Name="statust" Type="bit" />
+          <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+          <Property Name="prodescription" Type="nvarchar" MaxLength="600" />
+          <Property Name="proOrder" Type="int" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+          <Property Name="pLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="pTag" Type="nvarchar" MaxLength="600" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SiteChildent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="siteName" Type="nvarchar" MaxLength="350" />
+          <Property Name="siteLang" Type="varchar" MaxLength="50" />
+          <Property Name="siteImg" Type="nvarchar" MaxLength="350" />
+          <Property Name="siteOrder" Type="int" />
+          <Property Name="siteActive" Type="bit" />
+          <Property Name="siteExten" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stype" Type="bit" />
+          <Property Name="nick" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+          <Property Name="sLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tagpro">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tagName" Type="nvarchar" MaxLength="150" />
+          <Property Name="tagKey" Type="nvarchar" MaxLength="150" />
+          <Property Name="tagOrder" Type="int" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+          <Property Name="tagLang" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="vId" />
+          </Key>
+          <Property Name="vId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cateId" Type="int" />
+          <Property Name="vName" Type="nvarchar" MaxLength="350" />
+          <Property Name="vKey" Type="nvarchar" MaxLength="350" />
+          <Property Name="titleSeo" Type="nvarchar" MaxLength="350" />
+          <Property Name="keySeo" Type="nvarchar" MaxLength="350" />
+          <Property Name="desSeo" Type="nvarchar" MaxLength="350" />
+          <Property Name="vLink" Type="nvarchar" MaxLength="350" />
+          <Property Name="vOrder" Type="int" />
+          <Property Name="vnote" Type="ntext" />
+          <Property Name="vimg" Type="nvarchar" MaxLength="250" />
+          <Property Name="cateView" Type="int" />
+          <Property Name="vLang" Type="nvarchar" MaxLength="50" />
+          <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ykien">
+          <Key>
+            <PropertyRef Name="yId" />
+          </Key>
+          <Property Name="yId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="nvarchar" MaxLength="150" />
+          <Property Name="ynote" Type="nvarchar(max)" />
+          <Property Name="yName" Type="nvarchar" MaxLength="250" />
+          <Property Name="yEmailAdd" Type="nvarchar" MaxLength="450" />
+          <Property Name="yPhone" Type="nvarchar" MaxLength="250" />
+          <Property Name="yCreateDate" Type="datetime" />
+          <Property Name="yActive" Type="bit" />
+          <Property Name="pId" Type="int" />
+        </EntityType>
+        <Association Name="FK__News__groupid__1BFD2C07">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="groupid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__oderid__34C8D9D1">
+          <End Role="Oders" Type="Self.Oders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="oderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__proid__45F365D3">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oders__cusid__36B12243">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oders" Type="Self.Oders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oders">
+              <PropertyRef Name="cusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductEx__brand__3D5E1FD2">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+          <End Role="ProductExten" Type="Self.ProductExten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductExten">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductEx__catei__3E52440B">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1" />
+          <End Role="ProductExten" Type="Self.ProductExten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductExten">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__brandi__300424B4">
+          <End Role="Brands" Type="Self.Brands" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brands">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__cateid__2F10007B">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_Config_SelectSeoOk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="conLang" Type="nvarchar" Mode="In" />
+          <Parameter Name="site" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Config_SelectViewNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="conLang" Type="nvarchar" Mode="In" />
+          <Parameter Name="site" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="WEBTPAModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Adv" EntityType="Self.Adv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oders" EntityType="Self.Oders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductExten" EntityType="Self.ProductExten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteChildent" EntityType="Self.SiteChildent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tagpro" EntityType="Self.Tagpro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ykien" EntityType="Self.Ykien" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="Self.FK__Oderdt__oderid__34C8D9D1">
+            <End Role="Oders" EntitySet="Oders" />
+            <End Role="Oderdt" EntitySet="Oderdt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__proid__45F365D3" Association="Self.FK__Oderdt__proid__45F365D3">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Oderdt" EntitySet="Oderdt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oders__cusid__36B12243" Association="Self.FK__Oders__cusid__36B12243">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Oders" EntitySet="Oders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductEx__brand__3D5E1FD2" Association="Self.FK__ProductEx__brand__3D5E1FD2">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="ProductExten" EntitySet="ProductExten" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductEx__catei__3E52440B" Association="Self.FK__ProductEx__catei__3E52440B">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="ProductExten" EntitySet="ProductExten" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__brandi__300424B4" Association="Self.FK__Products__brandi__300424B4">
+            <End Role="Brands" EntitySet="Brands" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__cateid__2F10007B" Association="Self.FK__Products__cateid__2F10007B">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WEBTPAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="depart" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="siteTPA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="siteModul" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Adv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="advName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="atype" Type="Int32" />
+          <Property Name="width" Type="Int32" />
+          <Property Name="height" Type="Int32" />
+          <Property Name="advLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="advOrder" Type="Int32" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="advTag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="imagesId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="bkey" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="blang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="btype" Type="Int32" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="WEBTPAModel.FK__Products__brandi__300424B4" FromRole="Brand" ToRole="Product" />
+          <NavigationProperty Name="ProductExtens" Relationship="WEBTPAModel.FK__ProductEx__brand__76619304" FromRole="Brand" ToRole="ProductExten" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="keys" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ctype" Type="Int32" />
+          <Property Name="activeHome" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="cateLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cateLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="catenote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="cateAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cateImg" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="cateOrder" Type="Int32" />
+          <Property Name="cateImg_des" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="catepar_id" Type="Int32" />
+          <Property Name="cate_cap" Type="Int32" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="News" Relationship="Self.FK__News__groupid__1BFD2C07" FromRole="Categorys" ToRole="News" />
+          <Property Name="cateAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="WEBTPAModel.FK__Products__cateid__2F10007B" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="ProductExtens" Relationship="WEBTPAModel.FK__ProductEx__catei__756D6ECB" FromRole="Category" ToRole="ProductExten" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hotLine" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Inbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shopemail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emailpass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="addres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="shopname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logobottom" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="logotop" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="google" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="twiter" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="youTube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="faceBook" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Footer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="conTact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="map" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="liveChat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="ex1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ex2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="conLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conMail_Port" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="viewPro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viewNews" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viewVideo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viewYkien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viewCountFrom" Type="Int32" />
+          <Property Name="viewCountTo" Type="Int32" />
+          <Property Name="viewNowFrom" Type="Int32" />
+          <Property Name="viewNowTo" Type="Int32" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="googleAnalytics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yeuCauBaoGia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="banCanHoTro" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cusid" Type="Int32" />
+          <Property Name="fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="addressIn" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="shiping" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="conLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="addres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="avata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cusLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Oders" Relationship="Self.FK__Oders__cusid__36B12243" FromRole="Customers" ToRole="Oders" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="langId" />
+          </Key>
+          <Property Name="langId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="langCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="langName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="langImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="langDefault" Type="Boolean" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="par_id" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="mtype" Type="Int32" />
+          <Property Name="mtypeOf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="mOrder" Type="Int32" />
+          <Property Name="ex1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mcap" Type="Int32" />
+          <Property Name="mLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mPosition" Type="Int32" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupid" Type="Int32" />
+          <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="descript" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ntype" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="new_key" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ex2" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="newOrder" Type="Int32" />
+          <Property Name="viewCount" Type="Int32" />
+          <Property Name="newLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__News__groupid__1BFD2C07" FromRole="News" ToRole="Categorys" />
+          <Property Name="imagesId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Oderdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oderid" Type="Int32" />
+          <Property Name="proid" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="priceNow" Type="Double" />
+          <Property Name="priceCount" Type="Double" />
+          <NavigationProperty Name="Oder" Relationship="Self.FK__Oderdt__oderid__34C8D9D1" FromRole="Oderdt" ToRole="Oders" />
+          <NavigationProperty Name="Product" Relationship="WEBTPAModel.FK__Oderdt__proid__45F365D3" FromRole="Oderdt" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Oder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cusid" Type="Int32" />
+          <Property Name="total" Type="Double" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="statust" Type="Int32" />
+          <Property Name="fullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="oLang" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Oders__cusid__36B12243" FromRole="Oders" ToRole="Customers" />
+          <NavigationProperty Name="Oderdts" Relationship="Self.FK__Oderdt__oderid__34C8D9D1" FromRole="Oders" ToRole="Oderdt" />
+        </EntityType>
+        <EntityType Name="SiteChildent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="siteName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="siteLang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="siteImg" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="siteOrder" Type="Int32" />
+          <Property Name="siteActive" Type="Boolean" />
+          <Property Name="siteExten" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stype" Type="Boolean" />
+          <Property Name="nick" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tagpro">
+          <Key>
+            <PropertyRef Name="tagId" />
+          </Key>
+          <Property Name="tagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tagName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="tagKey" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="tagOrder" Type="Int32" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tagLang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="vId" />
+          </Key>
+          <Property Name="vId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cateId" Type="Int32" />
+          <Property Name="vName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="vKey" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="titleSeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="vLink" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="vOrder" Type="Int32" />
+          <Property Name="vnote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cateView" Type="Int32" />
+          <Property Name="vLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__News__groupid__1BFD2C07">
+          <End Role="Categorys" Type="Self.Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="groupid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oders__cusid__36B12243">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oders" Type="Self.Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oders">
+              <PropertyRef Name="cusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__oderid__34C8D9D1">
+          <End Role="Oders" Type="Self.Oder" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="oderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WEBTPAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Advs" EntityType="Self.Adv" />
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Categorys" EntityType="Self.Category" />
+          <EntitySet Name="Configs" EntityType="Self.Config" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="emails" EntityType="Self.email" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Oderdts" EntityType="Self.Oderdt" />
+          <EntitySet Name="Oders" EntityType="Self.Oder" />
+          <EntitySet Name="SiteChildents" EntityType="Self.SiteChildent" />
+          <EntitySet Name="Supports" EntityType="Self.Support" />
+          <EntitySet Name="Tagproes" EntityType="Self.Tagpro" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oders__cusid__36B12243" Association="Self.FK__Oders__cusid__36B12243">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Oders" EntitySet="Oders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="Self.FK__Oderdt__oderid__34C8D9D1">
+            <End Role="Oders" EntitySet="Oders" />
+            <End Role="Oderdt" EntitySet="Oderdts" />
+          </AssociationSet>
+          <FunctionImport Name="sp_Config_SelectSeoOk" ReturnType="Collection(WEBTPAModel.sp_Config_SelectSeoOk_Result)">
+            <Parameter Name="conLang" Mode="In" Type="String" />
+            <Parameter Name="site" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Config_SelectViewNumber" ReturnType="Collection(WEBTPAModel.sp_Config_SelectViewNumber_Result)">
+            <Parameter Name="conLang" Mode="In" Type="String" />
+            <Parameter Name="site" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Products" EntityType="WEBTPAModel.Product" />
+          <AssociationSet Name="FK__Products__brandi__300424B4" Association="WEBTPAModel.FK__Products__brandi__300424B4">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__cateid__2F10007B" Association="WEBTPAModel.FK__Products__cateid__2F10007B">
+            <End Role="Category" EntitySet="Categorys" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oderdt__proid__45F365D3" Association="WEBTPAModel.FK__Oderdt__proid__45F365D3">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Oderdt" EntitySet="Oderdts" />
+          </AssociationSet>
+          <EntitySet Name="ProductExtens" EntityType="WEBTPAModel.ProductExten" />
+          <AssociationSet Name="FK__ProductEx__brand__76619304" Association="WEBTPAModel.FK__ProductEx__brand__76619304">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="ProductExten" EntitySet="ProductExtens" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductEx__catei__756D6ECB" Association="WEBTPAModel.FK__ProductEx__catei__756D6ECB">
+            <End Role="Category" EntitySet="Categorys" />
+            <End Role="ProductExten" EntitySet="ProductExtens" />
+          </AssociationSet>
+          <EntitySet Name="Ykiens" EntityType="WEBTPAModel.Ykien" />
+        </EntityContainer>
+        <ComplexType Name="sp_Config_SelectSeoOk_Result">
+          <Property Type="String" Name="titleSeo" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="keySeo" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="desSeo" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="conLang" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="logoTop" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="sp_Config_SelectViewNumber_Result">
+          <Property Type="String" Name="viewPro" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="viewNews" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="viewVideo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="viewYkien" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cateid" Type="Int32" />
+          <Property Name="brandid" Type="Int32" />
+          <Property Name="proCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="pro_name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="pro_key" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="proPrice" Type="Double" />
+          <Property Name="proPrice_sale" Type="Double" />
+          <Property Name="proAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proImages" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="proImagesId" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="proWant" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proContents4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="pro_count" Type="Int32" />
+          <Property Name="pro_view" Type="Int32" />
+          <Property Name="pro_hot" Type="Boolean" />
+          <Property Name="pro_new" Type="Boolean" />
+          <Property Name="pro_sale" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="statust" Type="Boolean" />
+          <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="prodescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="proOrder" Type="Int32" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="pLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pTag" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Brand" Relationship="WEBTPAModel.FK__Products__brandi__300424B4" FromRole="Product" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="WEBTPAModel.FK__Products__cateid__2F10007B" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Oderdts" Relationship="WEBTPAModel.FK__Oderdt__proid__45F365D3" FromRole="Product" ToRole="Oderdt" />
+        </EntityType>
+        <Association Name="FK__Products__brandi__300424B4">
+          <End Type="WEBTPAModel.Brand" Role="Brand" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__cateid__2F10007B">
+          <End Type="WEBTPAModel.Category" Role="Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oderdt__proid__45F365D3">
+          <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="WEBTPAModel.Oderdt" Role="Oderdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Oderdt">
+              <PropertyRef Name="proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductExten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cateid" Type="Int32" />
+          <Property Name="brandid" Type="Int32" />
+          <Property Name="proCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="pro_name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="pro_key" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="proPrice" Type="Double" />
+          <Property Name="proPrice_sale" Type="Double" />
+          <Property Name="proAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proImages" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="proImagesId" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="proWant" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="proContents4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="pro_count" Type="Int32" />
+          <Property Name="pro_view" Type="Int32" />
+          <Property Name="pro_hot" Type="Boolean" />
+          <Property Name="pro_new" Type="Boolean" />
+          <Property Name="pro_sale" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="statust" Type="Boolean" />
+          <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="prodescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="proOrder" Type="Int32" />
+          <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="pLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pTag" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Brand" Relationship="WEBTPAModel.FK__ProductEx__brand__76619304" FromRole="ProductExten" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="WEBTPAModel.FK__ProductEx__catei__756D6ECB" FromRole="ProductExten" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK__ProductEx__brand__76619304">
+          <End Type="WEBTPAModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="WEBTPAModel.ProductExten" Role="ProductExten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductExten">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductEx__catei__756D6ECB">
+          <End Type="WEBTPAModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="WEBTPAModel.ProductExten" Role="ProductExten" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductExten">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ykien">
+          <Key>
+            <PropertyRef Name="yId" />
+          </Key>
+          <Property Name="yId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ynote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="yEmailAdd" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="yPhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="yCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="yActive" Type="Boolean" />
+          <Property Name="pId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WEBTPAModelStoreContainer" CdmEntityContainer="WEBTPAEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="WEBTPAModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="addresss" ColumnName="addresss" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="depart" ColumnName="depart" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="siteModul" ColumnName="siteModul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advs">
+            <EntityTypeMapping TypeName="WEBTPAModel.Adv">
+              <MappingFragment StoreEntitySet="Adv">
+                <ScalarProperty Name="imagesId" ColumnName="imagesId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="advName" ColumnName="advName" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="atype" ColumnName="atype" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="advLang" ColumnName="advLang" />
+                <ScalarProperty Name="advOrder" ColumnName="advOrder" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="advTag" ColumnName="advTag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="WEBTPAModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="bkey" ColumnName="bkey" />
+                <ScalarProperty Name="blang" ColumnName="blang" />
+                <ScalarProperty Name="btype" ColumnName="btype" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="WEBTPAModel.Category">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="cateAvataId" ColumnName="cateAvataId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="keys" ColumnName="keys" />
+                <ScalarProperty Name="ctype" ColumnName="ctype" />
+                <ScalarProperty Name="activeHome" ColumnName="activeHome" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="cateLang" ColumnName="cateLang" />
+                <ScalarProperty Name="cateLevel" ColumnName="cateLevel" />
+                <ScalarProperty Name="catenote" ColumnName="catenote" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="cateAvata" ColumnName="cateAvata" />
+                <ScalarProperty Name="cateImg" ColumnName="cateImg" />
+                <ScalarProperty Name="cateOrder" ColumnName="cateOrder" />
+                <ScalarProperty Name="cateImg_des" ColumnName="cateImg_des" />
+                <ScalarProperty Name="catepar_id" ColumnName="catepar_id" />
+                <ScalarProperty Name="cate_cap" ColumnName="cate_cap" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configs">
+            <EntityTypeMapping TypeName="WEBTPAModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hotLine" ColumnName="hotLine" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Email_Inbox" ColumnName="Email_Inbox" />
+                <ScalarProperty Name="shopemail" ColumnName="shopemail" />
+                <ScalarProperty Name="emailpass" ColumnName="emailpass" />
+                <ScalarProperty Name="addres" ColumnName="addres" />
+                <ScalarProperty Name="shopname" ColumnName="shopname" />
+                <ScalarProperty Name="logobottom" ColumnName="logobottom" />
+                <ScalarProperty Name="logotop" ColumnName="logotop" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="google" ColumnName="google" />
+                <ScalarProperty Name="twiter" ColumnName="twiter" />
+                <ScalarProperty Name="youTube" ColumnName="youTube" />
+                <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="Footer" ColumnName="Footer" />
+                <ScalarProperty Name="conTact" ColumnName="conTact" />
+                <ScalarProperty Name="map" ColumnName="map" />
+                <ScalarProperty Name="liveChat" ColumnName="liveChat" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="ex1" ColumnName="ex1" />
+                <ScalarProperty Name="ex2" ColumnName="ex2" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="conLang" ColumnName="conLang" />
+                <ScalarProperty Name="conMail_Port" ColumnName="conMail_Port" />
+                <ScalarProperty Name="viewPro" ColumnName="viewPro" />
+                <ScalarProperty Name="viewNews" ColumnName="viewNews" />
+                <ScalarProperty Name="viewVideo" ColumnName="viewVideo" />
+                <ScalarProperty Name="viewYkien" ColumnName="viewYkien" />
+                <ScalarProperty Name="viewCountFrom" ColumnName="viewCountFrom" />
+                <ScalarProperty Name="viewCountTo" ColumnName="viewCountTo" />
+                <ScalarProperty Name="viewNowFrom" ColumnName="viewNowFrom" />
+                <ScalarProperty Name="viewNowTo" ColumnName="viewNowTo" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="googleAnalytics" ColumnName="googleAnalytics" />
+                <ScalarProperty Name="yeuCauBaoGia" ColumnName="yeuCauBaoGia" />
+                <ScalarProperty Name="banCanHoTro" ColumnName="banCanHoTro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="WEBTPAModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cusid" ColumnName="cusid" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="addressIn" ColumnName="addressIn" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="shiping" ColumnName="shiping" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="conLang" ColumnName="conLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="WEBTPAModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="addres" ColumnName="addres" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="avata" ColumnName="avata" />
+                <ScalarProperty Name="cusLang" ColumnName="cusLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="WEBTPAModel.email">
+              <MappingFragment StoreEntitySet="emails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email1" ColumnName="email" />
+                <ScalarProperty Name="eLang" ColumnName="eLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="WEBTPAModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="langId" ColumnName="langId" />
+                <ScalarProperty Name="langCode" ColumnName="langCode" />
+                <ScalarProperty Name="langName" ColumnName="langName" />
+                <ScalarProperty Name="langImg" ColumnName="langImg" />
+                <ScalarProperty Name="langDefault" ColumnName="langDefault" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="WEBTPAModel.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="par_id" ColumnName="par_id" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="mtype" ColumnName="mtype" />
+                <ScalarProperty Name="mtypeOf" ColumnName="mtypeOf" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="mOrder" ColumnName="mOrder" />
+                <ScalarProperty Name="ex1" ColumnName="ex1" />
+                <ScalarProperty Name="mcap" ColumnName="mcap" />
+                <ScalarProperty Name="mLang" ColumnName="mLang" />
+                <ScalarProperty Name="mPosition" ColumnName="mPosition" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="WEBTPAModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="imagesId" ColumnName="imagesId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="images" ColumnName="images" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="descript" ColumnName="descript" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="ntype" ColumnName="ntype" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="new_key" ColumnName="new_key" />
+                <ScalarProperty Name="ex1" ColumnName="ex1" />
+                <ScalarProperty Name="ex2" ColumnName="ex2" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="newOrder" ColumnName="newOrder" />
+                <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+                <ScalarProperty Name="newLang" ColumnName="newLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oderdts">
+            <EntityTypeMapping TypeName="WEBTPAModel.Oderdt">
+              <MappingFragment StoreEntitySet="Oderdt">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="oderid" ColumnName="oderid" />
+                <ScalarProperty Name="proid" ColumnName="proid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="priceNow" ColumnName="priceNow" />
+                <ScalarProperty Name="priceCount" ColumnName="priceCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oders">
+            <EntityTypeMapping TypeName="WEBTPAModel.Oder">
+              <MappingFragment StoreEntitySet="Oders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cusid" ColumnName="cusid" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="statust" ColumnName="statust" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="oLang" ColumnName="oLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteChildents">
+            <EntityTypeMapping TypeName="WEBTPAModel.SiteChildent">
+              <MappingFragment StoreEntitySet="SiteChildent">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="siteName" ColumnName="siteName" />
+                <ScalarProperty Name="siteLang" ColumnName="siteLang" />
+                <ScalarProperty Name="siteImg" ColumnName="siteImg" />
+                <ScalarProperty Name="siteOrder" ColumnName="siteOrder" />
+                <ScalarProperty Name="siteActive" ColumnName="siteActive" />
+                <ScalarProperty Name="siteExten" ColumnName="siteExten" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supports">
+            <EntityTypeMapping TypeName="WEBTPAModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="stype" ColumnName="stype" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="sLang" ColumnName="sLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tagproes">
+            <EntityTypeMapping TypeName="WEBTPAModel.Tagpro">
+              <MappingFragment StoreEntitySet="Tagpro">
+                <ScalarProperty Name="tagId" ColumnName="tagId" />
+                <ScalarProperty Name="tagName" ColumnName="tagName" />
+                <ScalarProperty Name="tagKey" ColumnName="tagKey" />
+                <ScalarProperty Name="tagOrder" ColumnName="tagOrder" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="tagLang" ColumnName="tagLang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="WEBTPAModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="vId" ColumnName="vId" />
+                <ScalarProperty Name="cateId" ColumnName="cateId" />
+                <ScalarProperty Name="vName" ColumnName="vName" />
+                <ScalarProperty Name="vKey" ColumnName="vKey" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="vLink" ColumnName="vLink" />
+                <ScalarProperty Name="vOrder" ColumnName="vOrder" />
+                <ScalarProperty Name="vnote" ColumnName="vnote" />
+                <ScalarProperty Name="vimg" ColumnName="vimg" />
+                <ScalarProperty Name="cateView" ColumnName="cateView" />
+                <ScalarProperty Name="vLang" ColumnName="vLang" />
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Config_SelectSeoOk" FunctionName="WEBTPAModel.Store.sp_Config_SelectSeoOk">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WEBTPAModel.sp_Config_SelectSeoOk_Result">
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="conLang" ColumnName="conLang" />
+                <ScalarProperty Name="logoTop" ColumnName="logoTop" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Config_SelectViewNumber" FunctionName="WEBTPAModel.Store.sp_Config_SelectViewNumber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WEBTPAModel.sp_Config_SelectViewNumber_Result">
+                <ScalarProperty Name="viewPro" ColumnName="viewPro" />
+                <ScalarProperty Name="viewNews" ColumnName="viewNews" />
+                <ScalarProperty Name="viewVideo" ColumnName="viewVideo" />
+                <ScalarProperty Name="viewYkien" ColumnName="viewYkien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="WEBTPAModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="pTag" ColumnName="pTag" />
+                <ScalarProperty Name="pLang" ColumnName="pLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+                <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+                <ScalarProperty Name="ex1" ColumnName="ex1" />
+                <ScalarProperty Name="statust" ColumnName="statust" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+                <ScalarProperty Name="pro_new" ColumnName="pro_new" />
+                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+                <ScalarProperty Name="pro_count" ColumnName="pro_count" />
+                <ScalarProperty Name="proFile" ColumnName="proFile" />
+                <ScalarProperty Name="proContents" ColumnName="proContents" />
+                <ScalarProperty Name="proContents2" ColumnName="proContents2" />
+                <ScalarProperty Name="proContents3" ColumnName="proContents3" />
+                <ScalarProperty Name="proContents4" ColumnName="proContents4" />
+                <ScalarProperty Name="proWant" ColumnName="proWant" />
+                <ScalarProperty Name="proImagesId" ColumnName="proImagesId" />
+                <ScalarProperty Name="proImages" ColumnName="proImages" />
+                <ScalarProperty Name="proAvataId" ColumnName="proAvataId" />
+                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+                <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+                <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="proCode" ColumnName="proCode" />
+                <ScalarProperty Name="brandid" ColumnName="brandid" />
+                <ScalarProperty Name="cateid" ColumnName="cateid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductExtens">
+            <EntityTypeMapping TypeName="WEBTPAModel.ProductExten">
+              <MappingFragment StoreEntitySet="ProductExten">
+                <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+                <ScalarProperty Name="pTag" ColumnName="pTag" />
+                <ScalarProperty Name="pLang" ColumnName="pLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+                <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+                <ScalarProperty Name="ex1" ColumnName="ex1" />
+                <ScalarProperty Name="statust" ColumnName="statust" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+                <ScalarProperty Name="pro_new" ColumnName="pro_new" />
+                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+                <ScalarProperty Name="pro_count" ColumnName="pro_count" />
+                <ScalarProperty Name="proFile" ColumnName="proFile" />
+                <ScalarProperty Name="proContents" ColumnName="proContents" />
+                <ScalarProperty Name="proContents2" ColumnName="proContents2" />
+                <ScalarProperty Name="proContents3" ColumnName="proContents3" />
+                <ScalarProperty Name="proContents4" ColumnName="proContents4" />
+                <ScalarProperty Name="proWant" ColumnName="proWant" />
+                <ScalarProperty Name="proImagesId" ColumnName="proImagesId" />
+                <ScalarProperty Name="proImages" ColumnName="proImages" />
+                <ScalarProperty Name="proAvataId" ColumnName="proAvataId" />
+                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+                <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+                <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="proCode" ColumnName="proCode" />
+                <ScalarProperty Name="brandid" ColumnName="brandid" />
+                <ScalarProperty Name="cateid" ColumnName="cateid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ykiens">
+            <EntityTypeMapping TypeName="WEBTPAModel.Ykien">
+              <MappingFragment StoreEntitySet="Ykien">
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="yActive" ColumnName="yActive" />
+                <ScalarProperty Name="yCreateDate" ColumnName="yCreateDate" />
+                <ScalarProperty Name="yPhone" ColumnName="yPhone" />
+                <ScalarProperty Name="yEmailAdd" ColumnName="yEmailAdd" />
+                <ScalarProperty Name="yName" ColumnName="yName" />
+                <ScalarProperty Name="ynote" ColumnName="ynote" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="yId" ColumnName="yId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

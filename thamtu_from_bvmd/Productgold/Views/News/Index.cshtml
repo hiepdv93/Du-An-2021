@@ -1,0 +1,118 @@
+﻿@model IList<Productgold.Models.News>
+@{
+    ViewBag.Title = "Administrator - Danh sách tin tức";
+    ViewBag.controller = "Danh sách tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string search = "";
+    string group = "";
+    if (Request["titleSearch"]!=null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["groupSearch"] != null)
+    {
+        group = Request["groupSearch"];
+    }
+}
+
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/News/IndexSearch">
+                <div class="row">
+                    <div class="col-md-3">
+                        @Html.DropDownList("groupSearch", (SelectList)ViewBag.nhomtin,"Tất cả", new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" value="@search" name="titleSearch" class="form-control" placeholder="Tiêu đề tin.." />
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                                <button class="btn btn-default"  type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 text-right">
+                            <button class="btn btn-info"  type="button" onclick="Themmoi()"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box-body table-responsive" style="overflow-x:auto">
+                <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                    <thead>
+                        <tr>
+                            <th width="100px">Ảnh</th>
+                            <th>Tiêu đề</th>
+                            <th width="130px">Loại tin</th>
+                            <th width="200px">Nhóm tin</th>
+                            <th width="130px">Ngày tạo</th>
+                            <th width="130px">Trạng thái</th>
+                            <th width="130px">Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td><img class="imgadmin" src="@Model[i].images" /></td>
+                                <td>@Model[i].title</td>
+                                @if (Model[i].ntype == 1)
+                                {
+                                    <td>Tin tức</td>
+                                }
+                                else
+                                {
+                                    <td>Giới thiệu</td>
+                                }
+                                <td>@{var n = Productgold.Models.StringClass.Getcate(Model[i].groupid.ToString());} @n</td>
+                                <td>@{var e = Productgold.Models.StringClass.Fmdate(@Model[i].createdate.ToString());}@e</td>
+                                @if (Model[i].active == true)
+                                {
+                                    <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                                }
+                                else
+                                {
+                                    <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                                }
+                                <td>
+                                    @Html.ActionLink("Sửa", "Update", new { id = Model[i].id }, new { @class = "fa fa-edit", @title = "Sửa" }) |
+                                    <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+
+                                </td>
+                            </tr>
+                                    }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+        @Html.Raw(ViewBag.pages)
+    </div>
+
+    <script>
+        $('#groupSearch').val('@group');
+        function DeleteConfim(id) {
+            $('#lbHeader1').html('Xóa tin tức!');
+            $('#linkDel1').attr('href', '/News/Delete/' + id);
+            $('#myModaldel').modal({
+                show: 'true'
+
+            });
+        }
+
+    </script>
+<script>
+    function Lammoi()
+    {
+        window.location.href = '/News/';
+    }
+    function Themmoi() {
+        window.location.href = '/News/Add/';
+    }
+</script>

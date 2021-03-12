@@ -1,0 +1,150 @@
+﻿@model Productgold.Models.News
+@{
+    ViewBag.Title = Model.title;
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @{Html.RenderAction("Gencate", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        @{Html.RenderAction("GenNhomBrand", "ImportView");}
+        <div class="clearfix">
+        </div>
+        <div class="price-filter leftbar">
+            <h3 class="title">Price
+            </h3>
+            <form class="pricing">
+                <label>
+                    $ 
+                    <input type="number">
+                </label>
+                <span class="separate">- 
+                </span>
+                <label>
+                    $ 
+                    <input type="number">
+                </label>
+                <input type="submit" value="Go">
+            </form>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="others leftbar">
+            <h3 class="title">Others
+            </h3>
+        </div>
+        @{Html.RenderAction("GenTopNew", "ImportView");}
+        <div class="clearfix">
+        </div>
+        <div class="fbl-box leftbar">
+            <h3 class="title">Facebook
+            </h3>
+            <span class="likebutton">
+                <a href="#">
+                    <img src="~/Content/images/fblike.png" alt="">
+                </a>
+            </span>
+            <p>
+                12k people like Flat Shop.
+            </p>
+            <ul>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+            <div class="fbplug">
+                <a href="#">
+                    <span>
+                        <img src="~/Content/images/fbicon.png" alt="">
+                    </span>
+                    Facebook social plugin
+                </a>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        @{Html.RenderAction("Genadvother", "ImportView");}
+    </div>
+    <div class="col-md-9">
+
+        @{Html.RenderAction("GenAdvSlide", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        <div class="products-grid">
+            <div class="toolbar">
+                <div class="sorter">
+                    <div class="view-mode">
+                      
+                    </div>
+                   
+                </div>
+                <div class="pager">
+                   
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            
+            <div class="col-md-12">
+              <div class="checkout-page">
+                <ol class="checkout-steps">
+                  
+                  <li class="steps active">
+                    <a href="#" class="step-title" title="@Model.title">
+                      @Model.title
+                    </a>
+                    <div class="step-description">@Html.Raw(Model.content)
+                    </div>
+                  </li>
+                  
+                </ol>
+              </div>
+            </div>
+
+            <div class="clearfix">
+            </div>
+            <div class="toolbar">
+                <div class="sorter bottom">
+                    <div class="view-mode">
+                      
+                    </div>
+              
+                </div>
+                <div class="pager">
+                   
+                </div>
+
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+</div>
+

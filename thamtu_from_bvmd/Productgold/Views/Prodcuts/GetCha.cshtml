@@ -1,0 +1,8 @@
+﻿@model IList<Productgold.Models.Category>
+<select name="catep" id="catep" class="form-control csinput">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <option value="@Model[i].id">@Model[i].name</option>
+        @Html.Raw(ClassExten.GetConcon(Model[i].id.ToString()))
+        }
+    </select>

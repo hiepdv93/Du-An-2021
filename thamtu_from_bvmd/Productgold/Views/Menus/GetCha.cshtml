@@ -1,0 +1,10 @@
+﻿@model IList<Productgold.Models.Menu>
+<select name="catep" id="catep" class="form-control csinput">
+    <option value="-1">Nhóm cha</option>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <option value="@Model[i].id">@Model[i].name</option>
+            @Html.Raw(ClassExten.GetConMenu(Model[i].id.ToString(), (int)ViewBag.idthis))
+
+    }
+</select>

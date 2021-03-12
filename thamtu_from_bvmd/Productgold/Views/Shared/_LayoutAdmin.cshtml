@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <link href="~/Content/CssAdmin/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Content/CssAdmin/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAdmin/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/CssAdmin/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/AdminStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+
+    <style type="text/css">
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            padding: 6px !important;
+        }
+
+        h4, h5, h6 {
+            margin-top: 5px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .classbtAdd {
+            padding: 3px 10px !important;
+        }
+
+        #saveproduct, #saveproduct1, #saveproduct2, #saveproduct3 {
+            background-color: #5db2ff !important;
+            border-color: #5db2ff;
+            color: #fff;
+        }
+
+        .imgadmin {
+            width: 40px;
+            height: 30px;
+        }
+
+        table th {
+            text-align: center;
+            background: #3c8dbc;
+            color: white;
+        }
+
+        .divw700 {
+            width: 70%;
+        }
+
+        input[type=checkbox] {
+            opacity: 1 !important;
+        }
+    </style>
+    <script type="text/javascript">
+        function DeleteConfirm() {
+            debugger;
+            if (confirm("Bạn có chắc chắn muốn xóa bản ghi này?"))
+                return true;
+            else
+                return false;
+        }
+        checked = false;
+
+    </script>
+
+</head>
+<body class="skin-blue">
+    @{
+        string userName = "";
+        var loginInfo = ClassExten.GetCokies();
+        if (loginInfo != null)
+        {
+            userName = loginInfo.FullName;
+        }
+    }
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+        <a href="/MNGAdmin" class="logo">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            Admin Manager
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <select style="margin-top:7px;color:white;background:#3c8dbc;" name="slNgonngu" id="slNgonngu" class="form-control"><option value="vi">Tiếng Việt</option><option value="en">Tiếng Anh</option></select>
+                    </li>
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                            <span>@userName<i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header bg-light-blue">
+                                <img src="../../Content/img/avatar.png" class="img-circle" alt="User Image" />
+                                <p>
+                                    Adminstrator - Web Manager
+                                    <small>Copyright by TPA - 2017</small>
+                                </p>
+                            </li>
+                            <!-- Menu Body -->
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" data-target="#clickpassmodam" data-toggle="modal" class="btn btn-default btn-flat">Đổi mật khẩu</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="/MNGAdmin/LoginAdmin" class="btn btn-default btn-flat">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            @Html.Partial("_PartialMenuleftAdmin")
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h5 style="text-transform:uppercase">
+                    @ViewBag.controller
+                </h5>
+                <ol class="breadcrumb">
+                    <li>
+                        @{if (Session["ok"] != null)
+                            {
+                                <label class="control-label" for="inputSuccess">
+                                    <i class="fa fa-check"></i>
+                                    @Html.Raw(Session["ok"].ToString())
+                                </label>
+                                Session["ok"] = null;
+
+                            }}
+                    </li>
+
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                @RenderBody()
+
+            </section>
+            <!-- /.content -->
+        </aside>
+        <!-- /.right-side -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- Modal -->
+    <div id="myModaldel" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="lbHeader1">Thông báo</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa bản ghi này?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="linkDel1">
+                        <button type="button" class="btn btn-info" style="margin-bottom:10px"><span class="glyphicon glyphicon-floppy-disk"></span> Đồng ý</button>
+                    </a>
+                    <button type="button" style="margin-bottom:10px" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Thoát</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @using (Html.BeginForm("ChagePass", "MNGAdmin"))
+    {
+        <div id="clickpassmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+            <div class="modal-dialog" style="width:430px">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #5db2ff; color: white">
+                        <button type="button" id="close_product" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="dntitle">Đổi mật khẩu cho admin</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <span class="input-icon icon-right">
+                                        <label>Nhập pass cũ:</label>
+                                        <input type="password" class="form-control" id="p0" name="p0" placeholder="Nhập pass cũ" required="required">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <span class="input-icon icon-right">
+                                        <label>Nhập pass mới:</label>
+                                        <input type="password" class="form-control" name="p1" id="p1" placeholder="Nhập pass mới" required="required">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="form-group">
+                                    <span class="input-icon icon-right">
+                                        <label>Nhập lại pass:</label>
+                                        <input type="password" class="form-control" name="p2" id="p2" placeholder="Nhập lại pass" required="required">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="modal-footer" style="margin-top: -20px;">
+                            <button type="submit" id="saveproduct" onclick="return CheckPassUser()" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                            <button type="button" id="closeprddddoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <script type="text/javascript">
+        function CheckPassUser() {
+            var url = "/MNGAdmin/CheckPassUser";
+            $.ajax({
+                url: url,
+                data: { pass: $('#p0').val() },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    if (data == "1") {
+                        return true;
+                    } else {
+                        var password0 = document.getElementById('p0');
+                        password0.setCustomValidity('Mật khẩu không đúng.');
+                        return false;
+                    }
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+        var password1 = document.getElementById('p1');
+        var password2 = document.getElementById('p2');
+
+        var checkPasswordValidity = function () {
+            if (password1.value == password2.value) {
+                password2.setCustomValidity('');
+            }
+            else { password2.setCustomValidity('Mật khẩu mới phải giống nhau.'); }
+        };
+
+        password1.addEventListener('change', checkPasswordValidity, false);
+        password2.addEventListener('change', checkPasswordValidity, false);
+
+    </script>
+    <script>
+        $('#slNgonngu').on('change', function () {
+            var lang = $(this).val();
+            var url = "/Config/ChangeLangAdmin";
+            $.ajax({
+                url: url,
+                data: { lang: lang },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    window.location.reload();
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        });
+
+        @{
+            string lang = "";
+            if (HttpContext.Current.Request.Cookies["langcookis"] != null)
+            {
+                HttpCookie htc = (HttpContext.Current.Request.Cookies["langcookis"]);
+                lang = htc.Values["langcode"];
+            }
+     }
+        $('#slNgonngu').val('@lang');
+    </script>
+</body>
+</html>

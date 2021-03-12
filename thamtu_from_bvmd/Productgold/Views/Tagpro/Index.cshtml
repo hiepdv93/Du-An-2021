@@ -1,0 +1,126 @@
+﻿@model IList<Productgold.Models.Tagpro>
+@{
+    ViewBag.Title = "Administrator - Danh sách thẻ tag";
+    ViewBag.controller = "Danh sách thẻ tag";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+    @*<button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px;padding-bottom:7PX">
+            <form method="post" action="/Adv/IndexSearch">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Tên thẻ tag</th>
+                        <th width="130px">Thứ tự</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].tagName</td>
+                            <td>@Model[i].tagOrder</td>
+
+                            <td><a href="#" onclick="hamsua(@Model[i].tagId)" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                            @Html.ActionLink("Xóa", "Delete", new { id = Model[i].tagId }, new { @onclick = "return DeleteConfirm()", @class = "fa fa-trash-o" ,@title="Xóa"})</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+
+@using (Html.BeginForm("Update", "Tagpro"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa thẻ tag</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tên thẻ tag(*)</label>
+                                    <input type="text" class="form-control" placeholder="Tên thẻ tag" id="name" name="name" required="required">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Thứ tự(*)</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" value="-1" />
+                                    <input type="number" class="form-control" name="thutu" id="thutu" placeholder="Thứ tự" value="1" required="required">
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i>Bỏ qua</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function hamsua(id)
+    {
+        var url = "/Tagpro/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.tagId);
+                $("#thutu").val(data.tagOrder);
+                $("#name").val(data.tagName);
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>
+

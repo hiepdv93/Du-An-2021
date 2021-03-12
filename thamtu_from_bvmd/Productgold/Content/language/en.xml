@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Languages>
+  <!--Global variable-->
+  <Items>
+    <Id>home</Id>
+    <Name><![CDATA[Home]]></Name>
+  </Items>
+  <Items>
+    <Id>news</Id>
+    <Name><![CDATA[News]]></Name>
+  </Items>
+  <Items>
+    <Id>contact</Id>
+    <Name><![CDATA[Contact]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gia</Id>
+    <Name><![CDATA[Price]]></Name>
+  </Items>
+  <Items>
+    <Id>key_timchungtoi</Id>
+    <Name><![CDATA[Find us on]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dienthoaihotro</Id>
+    <Name><![CDATA[Phone support 24/7]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tiengviet</Id>
+    <Name>
+      <![CDATA[Vietnamese]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tienganh</Id>
+    <Name><![CDATA[English]]></Name>
+  </Items>
+  <Items>
+    <Id>key_timkiem</Id>
+    <Name><![CDATA[Search]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ketquatimkiem</Id>
+    <Name><![CDATA[Search results]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dienthoai247</Id>
+    <Name><![CDATA[Phone support 24/7]]></Name>
+  </Items>
+  <Items>
+    <Id>key_khongtinthaynoidung</Id>
+    <Name><![CDATA[Article not found]]></Name>
+  </Items>
+  <Items>
+    <Id>key_baivietcungchuyenmuc</Id>
+    <Name><![CDATA[Posts same category]]></Name>
+  </Items>
+  <Items>
+    <Id>key_xemthem</Id>
+    <Name>
+      <![CDATA[View more]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tintucsukien</Id>
+    <Name><![CDATA[Event News]]></Name>
+  </Items>
+  <Items>
+    <Id>key_luotxem</Id>
+    <Name><![CDATA[View]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_linhvuc</Id>
+    <Name><![CDATA[Field of operation]]></Name>
+  </Items>
+  <Items>
+    <Id>key_khachhang</Id>
+    <Name><![CDATA[Customer]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thuvien</Id>
+    <Name><![CDATA[Library]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Downloadtailieu</Id>
+    <Name><![CDATA[Download Document]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Anhsp</Id>
+    <Name><![CDATA[Image product]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Tensp</Id>
+    <Name><![CDATA[Name product]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thongsokt</Id>
+    <Name><![CDATA[Specifications]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Danhmuc</Id>
+    <Name><![CDATA[Category]]></Name>
+  </Items>
+  <Items>
+    <Id>key_Download</Id>
+    <Name><![CDATA[Download]]></Name>
+  </Items>
+  <Items>
+    <Id>key_lienhevoichungtoi</Id>
+    <Name>
+      <![CDATA[Contact us]]></Name>
+  </Items>
+
+  <Items>
+    <Id>key_hoten</Id>
+    <Name><![CDATA[Full name]]></Name>
+  </Items>
+
+  <Items>
+    <Id>key_diachiemail</Id>
+    <Name><![CDATA[Address email]]></Name>
+  </Items>
+  <Items>
+    <Id>key_sdt</Id>
+    <Name><![CDATA[Phone]]></Name>
+  </Items>
+  <Items>
+    <Id>key_vanphong</Id>
+    <Name><![CDATA[Office]]></Name>
+  </Items>
+  <Items>
+    <Id>key_nhanvao</Id>
+    <Name><![CDATA[Click]]></Name>
+  </Items>
+  <Items>
+    <Id>key_day</Id>
+    <Name><![CDATA[here]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_tinnhan</Id>
+    <Name><![CDATA[Message]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guitinnhan</Id>
+    <Name><![CDATA[Send message]]></Name>
+  </Items>
+  <Items>
+    <Id>key_danhmucsp</Id>
+    <Name><![CDATA[Product portfolio]]></Name>
+  </Items>
+  <Items>
+    <Id>key_sanpham</Id>
+    <Name><![CDATA[Product]]></Name>
+  </Items>
+  <Items>
+    <Id>key_lienhe</Id>
+    <Name><![CDATA[Contact]]></Name>
+  </Items>
+  <Items>
+    <Id>key_modelsp</Id>
+    <Name><![CDATA[Model]]></Name>
+  </Items>
+  <Items>
+    <Id>key_baohanh</Id>
+    <Name><![CDATA[Guarantee]]></Name>
+  </Items>
+  <Items>
+    <Id>key_chatlieu</Id>
+    <Name><![CDATA[Material]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thuonghieu</Id>
+    <Name><![CDATA[Brand]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spcungchuyenmuc</Id>
+    <Name><![CDATA[Products in same category]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tbcungchuyenmuc</Id>
+    <Name><![CDATA[Equipment same category]]></Name>
+  </Items>
+  <Items>
+    <Id>key_motathem</Id>
+    <Name><![CDATA[Additional Description]]></Name>
+  </Items>
+  <Items>
+    <Id>key_muangay</Id>
+    <Name><![CDATA[Buy now]]></Name>
+  </Items>
+
+  <Items>
+    <Id>key_mota</Id>
+    <Name><![CDATA[Description]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thongsokt</Id>
+    <Name><![CDATA[Specifications]]></Name>
+  </Items>
+  <Items>
+    <Id>key_video</Id>
+    <Name><![CDATA[Video]]></Name>
+  </Items>
+  <Items>
+    <Id>key_chonchungtoi</Id>
+    <Name><![CDATA[The reason you choose us?]]></Name>
+  </Items>
+  <Items>
+    <Id>key_giohang</Id>
+    <Name><![CDATA[Cart]]></Name>
+  </Items>
+
+  <Items>
+    <Id>key_yeucaubaogia</Id>
+    <Name><![CDATA[Request a quote]]></Name>
+  </Items>
+  <Items>
+    <Id>key_emailsdt</Id>
+    <Name><![CDATA[Email/SĐT]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tencongty</Id>
+    <Name><![CDATA[Company name]]></Name>
+  </Items>
+  <Items>
+    <Id>key_ndyeucau</Id>
+    <Name><![CDATA[Content required]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guiyeucau</Id>
+    <Name>
+      <![CDATA[Send require]]></Name>
+  </Items>
+  <Items>
+    <Id>key_xemchitiet</Id>
+    <Name><![CDATA[View detail]]></Name>
+  </Items>
+  <Items>
+    <Id>key_linhvuchd</Id>
+    <Name><![CDATA[FIELD OF OPERATION]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thietbi</Id>
+    <Name><![CDATA[Device]]></Name>
+  </Items>
+  <Items>
+    <Id>key_guilienhe</Id>
+    <Name>
+      <![CDATA[Send the contact]]></Name>
+  </Items>
+  <Items>
+    <Id>key_lienhevoitpa</Id>
+    <Name><![CDATA[Liên hệ với TPA]]></Name>
+  </Items>
+  <Items>
+    <Id>key_diachilienhe</Id>
+    <Name><![CDATA[Address]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_ndlienhe</Id>
+    <Name><![CDATA[Contact content]]></Name>
+  </Items>
+  <Items>
+    <Id>key_spnoibat</Id>
+    <Name><![CDATA[Featured Products]]></Name>
+  </Items>
+  <Items>
+    <Id>key_dsthietbi</Id>
+    <Name><![CDATA[List of devices]]></Name>
+  </Items>
+  <Items>
+    <Id>key_nhomsp</Id>
+    <Name><![CDATA[Product Groups]]></Name>
+  </Items>
+  <Items>
+    <Id>key_thoat</Id>
+    <Name><![CDATA[Exit]]></Name>
+  </Items>
+   <Items>
+    <Id>key_tinxemnhieu</Id>
+    <Name><![CDATA[MOST VIEWED NEWS]]></Name>
+  </Items>
+  <Items>
+    <Id>key_vechungtoi</Id>
+    <Name><![CDATA[ABOUT US]]></Name>
+  </Items>
+  <Items>
+    <Id>key_hinhanhhoatdong</Id>
+    <Name><![CDATA[ACTIVITY PICTURES]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinmoi</Id>
+    <Name><![CDATA[LATEST NEWS]]></Name>
+  </Items>
+  <Items>
+    <Id>key_tinnoibat</Id>
+    <Name><![CDATA[HOT NEWS]]></Name>
+  </Items>
+  <Items>
+    <Id>key_diachilh</Id>
+    <Name><![CDATA[Address]]></Name>
+  </Items>
+  <Items>
+    <Id>key_hoidap</Id>
+    <Name><![CDATA[Q & A]]></Name>
+  </Items>
+  <Items>
+    <Id>key_traloihoidap</Id>
+    <Name><![CDATA[Answer the question]]></Name>
+  </Items>
+  <Items>
+    <Id>key_datcauhoi</Id>
+    <Name><![CDATA[Ask questions here!]]></Name>
+  </Items>
+  <Items>
+    <Id>key_datcauhoi_tvhd</Id>
+    <Name><![CDATA[Questioning - Q & A]]></Name>
+  </Items>
+  <Items>
+    <Id>key_email_diachi</Id>
+    <Name><![CDATA[Email - Address]]></Name>
+  </Items>
+  <Items>
+    <Id>key_email_ndch</Id>
+    <Name><![CDATA[Content]]></Name>
+  </Items>
+  <Items>
+    <Id>key_gui_cauhoi</Id>
+    <Name><![CDATA[Send question]]></Name>
+  </Items>
+ 
+  <Items>
+    <Id>key_gui_bl</Id>
+    <Name><![CDATA[Send comment]]></Name>
+  </Items>
+  <Items>
+    <Id>key_sua</Id>
+    <Name><![CDATA[Edit]]></Name>
+  </Items>
+</Languages>

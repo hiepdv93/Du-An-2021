@@ -1,0 +1,64 @@
+﻿@model IList<Productgold.Models.Adv>
+@{
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+
+<div class="products-pages khach-hang">
+    <div class="container">
+        <div class="bre">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li><a href="#" title="@ViewBag.Navkhachhang">@ViewBag.Navkhachhang</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-blog-section">
+            <div class="right-section">
+                <div class="sp-new">
+                    @foreach (var item in Model)
+                    {
+                        <div class="items-pro-products-pages-cus">
+                            <div class="pro">
+                                <div class="ov-img-cus">
+                                    <a href="javascript:void(0)">
+                                        <img alt="@item.advName" data-toggle="modal" data-target="#myModal_@item.id"
+                                             class="img-responsive" src="@item.images">
+                                        <div class="modal fade" id="myModal_@item.id">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">@item.advName</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        <a href="#"><img src="@item.images" alt="@item.advName"></a>
+                                                        <p>@Html.Raw(item.note)</p>
+                                                </div>
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div><!--end ov-img-->
+                                <div class="profile text-center">
+                                    <p>@item.advName</p>
+                                </div><!--end profile-->
+                        </div><!--end pro-->
+                    </div><!--end items-pro-products-pages-->
+                    }
+
+                </div><!--end sp-new-->
+                <div class="cleafix"></div>
+            </div><!--end right-section--->
+        </div><!--end box-blog-section-->
+    </div><!--end container-->
+</div><!--end products-pages-->

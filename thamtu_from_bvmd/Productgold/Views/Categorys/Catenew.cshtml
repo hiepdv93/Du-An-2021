@@ -1,0 +1,133 @@
+﻿@model IList<Productgold.Models.Category>
+@{
+    ViewBag.Title = "Administrator - Danh sách nhóm tin";
+    ViewBag.controller = "Danh sách nhóm tin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var ncha = "";
+    string search = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    string vitrihome = "";
+    if (Request["titleSearch"] != null)
+    {
+        vitrihome = Request["vitrihome"];
+    }
+}
+
+<div class="row">
+    @*<button class="btn btn-info classbtAdd" onclick="window.location = '/Categorys/AddCatenews'"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Categorys/IndexSearch">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Tên nhóm.." />
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control csinput" name="vitrihome" id="vitrihome">
+                            <option value="0">Tất cả vị trí</option>
+                            <option value="1">Khối trên</option>
+                            <option value="2">Khối giữa</option>
+                            <option value="3">Khối dưới</option>
+                        </select> 
+                     </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="window.location = '/Categorys/Catenew'"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                        <div class="col-md-3 text-right">
+                            <button class="btn btn-info" type="button" onclick="window.location = '/Categorys/AddCatenews'"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th>Tên nhóm</th>
+                        <th width="200px">Nhóm cha</th>
+                        <th width="200px">Vị trí</th>
+                        <th width="130px">Thứ tự</th>
+                        <th width="140px">Trạng thái</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].name</td>
+                            <td>@{ ncha = ClassExten.GetNhomcha(Model[i].catepar_id.Value);} @ncha</td>
+                            <td>@{ ncha = ClassExten.GetVT(Model[i].cateLevel);} @ncha</td>
+                            <td>@Model[i].cateOrder</td>
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            <td>
+                                <a href="/Categorys/UpdateCatenews/@Model[i].id" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+<script>
+    $('#vitrihome').val('@vitrihome');
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa nhóm tin!');
+        $('#linkDel1').attr('href', '/Categorys/Deletenew/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id) {
+        var url = "/Categorys/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.id);
+                $("#name").val(data.name);
+                $("#key").val(data.keys);
+                var active = data.active;
+                var secondCombo = document.getElementById("active");
+                if (active == true) {
+                    secondCombo.value = "1";
+                } else {
+                    secondCombo.value = "0";
+                }
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,186 @@
+﻿@model IList<Productgold.Models.News>
+@{
+    ViewBag.Title = "Danh  sách tin tức";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+<div class="row">
+    <div class="col-md-3">
+        @{Html.RenderAction("Gencate", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        @{Html.RenderAction("GenNhomBrand", "ImportView");}
+        <div class="clearfix">
+        </div>
+        <div class="price-filter leftbar">
+            <h3 class="title">Price
+            </h3>
+            <form class="pricing">
+                <label>
+                    $ 
+                    <input type="number">
+                </label>
+                <span class="separate">- 
+                </span>
+                <label>
+                    $ 
+                    <input type="number">
+                </label>
+                <input type="submit" value="Go">
+            </form>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="others leftbar">
+            <h3 class="title">Others
+            </h3>
+        </div>
+        @{Html.RenderAction("GenTopNew", "ImportView");}
+        <div class="clearfix">
+        </div>
+        <div class="fbl-box leftbar">
+            <h3 class="title">Facebook
+            </h3>
+            <span class="likebutton">
+                <a href="#">
+                    <img src="~/Content/images/fblike.png" alt="">
+                </a>
+            </span>
+            <p>
+                12k people like Flat Shop.
+            </p>
+            <ul>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+            <div class="fbplug">
+                <a href="#">
+                    <span>
+                        <img src="~/Content/images/fbicon.png" alt="">
+                    </span>
+                    Facebook social plugin
+                </a>
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        @{Html.RenderAction("Genadvother", "ImportView");}
+    </div>
+    <div class="col-md-9">
+
+        @{Html.RenderAction("GenAdvSlide", "ImportView");}
+
+        <div class="clearfix">
+        </div>
+        <div class="products-grid">
+            <div class="toolbar">
+                <div class="sorter">
+                    <div class="view-mode">
+                      
+                    </div>
+                    <div class="sort-by">
+                        Sort by : 
+                      <select name="sorder" id="sorder" >
+                          <option value="Default" selected>Default
+                          </option>
+                          <option value="name">Name
+                          </option>
+                          <option value="price">Price
+                          </option>
+                      </select>
+                    </div>
+                   
+                </div>
+                <div class="pager">
+                   
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            
+                <ul class="products-listItem">
+                   @for (int i = 0; i < Model.Count; i++)
+                   {
+                       
+                    <li class="products">
+                       
+                        <div class="thumbnail">
+                           <a href="/Tintuc/Chitiet/@Model[i].new_key" title="@Model[i].title">
+                                        <img src="@Model[i].images" alt="@Model[i].title">
+                                    </a>
+                        </div>
+                        <div class="product-list-description">
+                            <div class="productname">
+                                @Model[i].title
+                            </div>
+                          
+                            <p>@Model[i].descript
+                            </p>
+                            <div class="list_bottom">
+                                
+                                <div class="button_group">
+                              
+                                    <a href="/Tintuc/Chitiet/@Model[i].new_key" title="@Model[i].title">
+                                        <button class="button add-cart" type="button">chi tiết</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                   }
+
+                </ul>
+
+            <div class="clearfix">
+            </div>
+            <div class="toolbar">
+                <div class="sorter bottom">
+                    <div class="view-mode">
+                      
+                    </div>
+                    <div class="sort-by">
+                        Sort by : 
+                      <select name="">
+                          <option value="Default" selected>Default
+                          </option>
+                          <option value="name">Name
+                          </option>
+                          <option value="price">Price
+                          </option>
+                      </select>
+                    </div>
+              
+                </div>
+                <div class="pager">
+                   
+                </div>
+
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+</div>

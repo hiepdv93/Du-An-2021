@@ -1,0 +1,136 @@
+﻿@model IList<Productgold.Models.Menu>
+@{
+    ViewBag.controller = "Danh sách menu";
+    ViewBag.Title = "Administrator - Danh sách menu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string slposition = "";
+    string sltype = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["sltype"] != null)
+    {
+        sltype = Request["sltype"];
+    }
+    if (Request["slposition"] != null)
+    {
+        slposition = Request["slposition"];
+    }
+}
+
+
+<div class="row">
+   @* <button class="btn btn-info classbtAdd" onclick="window.location='/Menus/Add'"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Menus/IndexSearch">
+                <div class="row">
+                    <div class="col-md-2">
+                        <select name="slposition" id="slposition" class="form-control">
+                            <option value="-1">Tất cả vị trí</option>
+                            <option value="1">Menu trên</option>
+                            <option value="2">Menu dưới</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="sltype" id="sltype" class="form-control">
+                            <option value="-1">Tất cả loại menu</option>
+                            <option value="1">Menu link</option>
+                            <option value="3">Menu liên kết</option>
+                            <option value="2">Menu nội dung</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Tên menu.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info" type="button" onclick="Themmoi()"><i class="fa fa-fw fa-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:1000px">
+                <thead>
+                    <tr>
+                        <th>Tên menu</th>
+                        <th width="200px">Link</th>
+                        <th width="200px">Cấp cha</th>
+                        <th width="130px">Loại menu</th>
+                        <th width="130px">Trạng thái</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].name</td>
+                            <td>@Model[i].link</td>
+                            <td>@{var x = Productgold.Models.StringClass.Getmenu(Model[i].par_id.ToString());} @x</td>
+                            @if (Model[i].mtype == 1)
+                            {
+                                <td>Menu link</td>
+                            }
+                            else if (Model[i].mtype == 2)
+                            {
+                                <td>Menu nội dung</td>
+                            }
+                            else
+                            {
+                                <td>Menu liên kết</td>
+                            }
+
+                            @if (Model[i].active == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            <td>
+                                <a href="/Menus/Update/@Model[i].id"><span class="fa fa-edit" title="Sửa"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+<script>
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa menu!');
+        $('#linkDel1').attr('href', '/Menus/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+</script>
+<script>
+    $('#sltype').val('@sltype');
+    $('#slposition').val('@slposition');
+    function Lammoi() {
+        window.location.href = '/Menus/';
+    }
+    function Themmoi() {
+        window.location.href = '/Menus/Add/';
+    }
+</script>

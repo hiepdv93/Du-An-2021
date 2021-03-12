@@ -1,0 +1,16 @@
+﻿@model IList<Productgold.Models.Brand>            
+<div class="branch leftbar">
+    <h3 class="title">Thương hiệu
+    </h3>
+    <ul>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <li>
+                <a href="/Sanpham/Thuonghieu/@Model[i].id" title="@Model[i].name">
+                    @Model[i].name
+                </a>
+            </li> 
+        }
+
+    </ul>
+</div>

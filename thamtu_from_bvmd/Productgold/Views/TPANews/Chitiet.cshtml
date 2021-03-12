@@ -1,0 +1,50 @@
+﻿@model Productgold.Models.News
+@{
+
+    Layout = "~/Views/Shared/_LayoutPageHome2.cshtml";
+}
+<style>
+    .content-blog img {
+        max-width: 660px;
+    }
+</style>
+<div class="products">
+    <div class="container no-padding">
+        <div class="col-xs-12 col-5 col-sm-7 no-padding">
+            <div class="blog-type">
+                <div class="bre-cum">
+                    <ul>
+                        <li><a href="/" title="@ViewBag.NavTrangchu">@ViewBag.NavTrangchu</a></li>
+                        <li>>></li>
+                        <li><a href="/Tin-tuc" title="@ViewBag.NavTintuc">@ViewBag.NavTintuc</a></li>
+                        <li>>></li>
+                        <li><a href="/Tin-tuc/@ViewBag.NavChakeys" title="@ViewBag.NavCha">@ViewBag.NavCha</a></li>
+                        <li>>></li>
+                        <li><a href="/" title="@ViewBag.NavCon">@ViewBag.NavCon</a></li>
+                    </ul>
+                </div><!--end bre-cum-->
+                <div class="content-blog">
+                    <h4>@ViewBag.NavCon</h4>
+                    <div class="date">
+                        <p>
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> @Model.createdate.Value.ToString("HH:mm") / @Model.createdate.Value.ToString("dd/MM/yyyy")
+                        </p>
+                    </div><!--end date-->
+                    <p>
+                        <b>@Model.descript</b>
+                      @Html.Raw(Model.contents)
+                    </p>
+                    <div class="other-list">
+                        @Html.Raw(ViewBag.MenuOther)
+                    </div><!--end other-list-->
+                </div><!--end content-blog-->
+
+            </div><!--ed blog-type-->
+        </div><!--end col-sm-7-->
+
+
+        <div class="col-xs-12 col-5 col-sm-5 col-5xs no-padding">
+            @Html.Action("GenNewRight", "TPAImport")
+        </div><!--end col-sm-5-->
+    </div><!--end container-->
+</div><!--end products-->

@@ -1,0 +1,147 @@
+﻿@model IList<Productgold.Models.Brand>
+@{
+    ViewBag.Title = "Administrator - Danh sách thương hiệu";
+    ViewBag.controller = "Danh sách thương hiệu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+    @*<button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>*@
+
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px;padding-bottom:7PX">
+            <form method="post" action="/Adv/IndexSearch">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th width="120px">Ảnh</th>
+                        <th>Tên thương hiệu</th>
+                        <th width="130px">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td><img class="imgadmin" src="@Model[i].images" /></td>
+                            <td>@Model[i].name</td>
+                            <td>
+                                <a href="#" onclick="hamsua(@Model[i].id)" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+
+@using (Html.BeginForm("Update", "Brands"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa thương hiệu</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Chọn ảnh:</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" value="-1" />
+                                    <input type="text" class="form-control" name="img" id="img" placeholder="Chọn ảnh">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tên thương hiệu(*):</label>
+                                    <input type="text" class="form-control" placeholder="Tên thương hiệu" id="name" name="name" required="required">
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa thương hiệu!');
+        $('#linkDel1').attr('href', '/Brands/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id) {
+        var url = "/Brands/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.id);
+                $("#img").val(data.images);
+                $("#name").val(data.name);
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+</script>

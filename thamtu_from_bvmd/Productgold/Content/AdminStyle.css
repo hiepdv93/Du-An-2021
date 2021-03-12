@@ -1,0 +1,12 @@
+﻿.pageadmin              { height: 30px; width: 100%; font-family: Arial; font-size: 11px; text-align: center}
+.pagingContainer        { float: left; margin: 5px 0 5px 330px;}
+.pagingContainer a      { background: #f2fa8c; padding: 2px 5px; margin: 0 5px; border: 1px solid #048fee; color: #215dc6; text-decoration: none}
+.pagingContainer a:hover{ border: 1px solid red; text-decoration: none}
+.pageInfo               { float: left; padding: 0 8px;  margin: 3px 0; background: #048fee; border: 1px solid #001eed; border-radius: 2px; color: white}
+
+/*Phan trang*/
+.tablePaging                { border-color:RGB(0,61,121); font-family:Arial; font-size:12px; margin:5px auto;}
+.tablePaging td a           { border:1px solid #dfe0df; background:#ffffff; padding:4px 7px; margin:2px; color:#5aa9de; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px}
+.tablePaging td a:hover     { background:#63aede; color:#fff; border:1px solid #1f79b4;}
+.tablePaging td span        { border:1px solid #1f79b4; background:#5aa9de url(images/bg_pager.png) repeat-x; padding:4px 7px; margin:2px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; color:#fff}
+

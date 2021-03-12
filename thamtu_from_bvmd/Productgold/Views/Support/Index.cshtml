@@ -1,0 +1,177 @@
+﻿@model IList<Productgold.Models.Support>
+@{
+    ViewBag.Title = "Administrator - Danh sách hỗ trợ trực tuyến";
+    ViewBag.controller = "Danh sách hỗ trợ trực tuyến";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="box">
+
+        <div class="col-md-12" style="padding-top:8px">
+            <form method="post" action="/Adv/IndexSearch">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-info classbtAdd" id="addproductbutton" data-toggle="modal" data-target="#editmodam"><i class="glyphicon glyphicon-plus"></i>Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="box-body table-responsive" style="overflow-x:auto">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;min-width:900px">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th width="150px">Nick</th>
+                        <th width="150px">Phone</th>
+                        <th width="130px">Trạng thái</th>
+                        <th width="130px">Chức năng</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].fullname</td>
+                            <td>@Model[i].nick</td>
+                            <td>@Model[i].phone</td>
+                            @if (Model[i].stype == true)
+                            {
+                                <td class="active"><span class="fa  fa-check"></span>Kích hoạt</td>
+                            }
+                            else
+                            {
+                                <td class="active"><span class="fa fa-times-circle"></span>Ko kích hoạt</td>
+                            }
+                            <td>
+                                <a href="#" onclick="hamsua(@Model[i].id)" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+
+@using (Html.BeginForm("Update", "Support"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa hỗ trợ trực tuyến</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên(*)</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" value="-1" />
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Họ tên" required="required">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nick(*)</label>
+                                    <input type="text" class="form-control" placeholder="nick" id="nick" name="nick" required="required">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" placeholder="phone" id="phone" name="phone">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Kích hoạt:</label>
+                                    <select class="form-control" id="active" name="active">
+                                        <option value="1">Kích hoạt</option>
+                                        <option value="0">Không kích hoạt</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa hỗ trợ trực tuyến!');
+        $('#linkDel1').attr('href', '/Support/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id) {
+        var url = "/Support/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.id);
+                $("#name").val(data.fullname);
+                $("#phone").val(data.phone);
+                $("#nick").val(data.nick);
+                var active = data.stype;
+
+                var secondCombo = document.getElementById("active");
+                if (active == true) {
+                    secondCombo.value = "1";
+                } else {
+                    secondCombo.value = "0";
+                }
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,185 @@
+﻿@model IList<Productgold.Models.Oder>
+@{
+    ViewBag.Title = "Administrator - Danh sách hóa đơn";
+    ViewBag.controller = "Danh sách hóa đơn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    string search = "";
+    string sltype = "";
+    if (Request["titleSearch"] != null)
+    {
+        search = Request["titleSearch"];
+    }
+    if (Request["sltype"] != null)
+    {
+        sltype = Request["sltype"];
+    }
+}
+
+<div class="row">
+    <div class="box">
+        <div class="col-md-12" style="padding-top:8px;padding-bottom:8px">
+            <form method="post" action="/Oders/IndexSearch">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <select name="sltype" class="form-control">
+                            <option value="-1">Tất cả trạng thái</option>
+                            <option value="0">Chưa xử lý</option>
+                            <option value="1">Đã xử lý</option>
+                            <option value="2">Đã hủy</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="titleSearch" value="@search" class="form-control" placeholder="Tên khách hàng.." />
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <button type="submit" class="btn  btn-success"><i class="fa fa-fw fa-search"></i> Tìm kiếm</button>
+                            <button class="btn btn-default" type="button" onclick="Lammoi()"><i class="fa fa-fw fa-refresh"></i> Làm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 text-right">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-body table-responsive">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th width="150px">Tổng tiền</th>
+                        <th width="140px">Ngày tạo</th>
+                        <th width="140px">Trạng thái</th>
+                        <th width="170px">Chức năng</th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].fullName</td>
+                            <td>@Model[i].total</td>
+                            <td>@{var e = Productgold.Models.StringClass.Fmdate(@Model[i].createdate.ToString());}@e</td>
+                            <td>@{var tt = Productgold.Models.StringClass.Tinhtrang(Model[i].statust.ToString());}@tt</td>
+                            <td>
+                                <a href="/Oders/ViewDetail/@Model[i].id" title="Xem chi tiết"><span class="glyphicon glyphicon-list-alt"></span> Xem</a>
+                                <a href="#" onclick="hamsua(@Model[i].id)" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                                <a href="#" onclick="DeleteConfim(@Model[i].id)" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                            </td>
+                        </tr>
+                                }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    @Html.Raw(ViewBag.pages)
+</div>
+
+
+@using (Html.BeginForm("Update", "Oders"))
+{
+    <div id="editmodam" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #5db2ff; color: white">
+                    <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="dntitle">Thêm/sửa thương hiệu</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tổng tiền:</label>
+                                    <input type="hidden" id="idupdate" name="idupdate" value="-1" />
+                                    <input type="text" class="form-control" id="total" disabled="disabled">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Trạng thái:</label>
+                                    <select name="trangthai" class="form-control" id="trangthai">
+                                        <option value="0">Chưa xử lí</option>
+                                        <option value="1">Đã xử lí</option>
+                                        <option value="2">Đã hủy</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="modal-footer" style="margin-top: -20px;">
+
+                        <button type="submit" id="saveproduct1" class="btn btn-blue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                        <button type="button" id="closeprffffoduct" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $('#sltype').val('@sltype');
+    function Lammoi() {
+        window.location.href = '/Oders/';
+    }
+
+    function DeleteConfim(id) {
+        $('#lbHeader1').html('Xóa đơn hàng!');
+        $('#linkDel1').attr('href', '/Oders/Delete/' + id);
+        $('#myModaldel').modal({
+            show: 'true'
+
+        });
+    }
+    function hamsua(id)
+    {
+        var url = "/Oders/Getbyid";
+        $.ajax({
+            url: url,
+            data: { id: id },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                $("#idupdate").val(data.id);
+                $("#total").val(data.total);
+                var comb = document.getElementById("trangthai");
+                if (data.statust==0) {
+                    comb.value = "0";
+                } else if (data.statust == 1) {
+                    comb.value = "1";
+                } else {
+                    comb.value = "2";
+                }
+
+                $('#editmodam').modal({
+                    show: 'true'
+
+                });
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+    }
+</script>
+<script>
+    function Lammoi()
+    {
+        window.location.href = '/Oders/';
+    }
+</script>

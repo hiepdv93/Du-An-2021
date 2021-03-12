@@ -1,0 +1,144 @@
+﻿@model IList<Productgold.Models.Ykien>
+@{
+    var data = (Productgold.Models.Ykien)ViewBag.datap;
+    var admin = (Productgold.Models.Admin)ViewBag.admin;
+    string name = string.Empty;
+    string emailadd = string.Empty;
+    if (admin!=null)
+    {
+        name = admin.fullname;
+        emailadd = admin.email + " - " + admin.addresss;
+    }
+}
+
+<div class="feedback_of_customer">
+    <div class="feedback_of_customer_top">
+        <figure class="avatar_feedback_of_customer">
+            <a href=""><img src="/images/imgnew/binhluanimg.png" alt=""></a>
+        </figure>
+        <figcaption class="info_feedback_of_customer">
+            <h2 class="title_feedback_of_customer">@data.yName</h2>
+            <p class="address_feedback_of_customer">@data.yEmailAdd</p>
+        </figcaption>
+    </div>
+    <div class="highlight_feedback_of_customer">
+        <img src="/images/icon_y_kien_khach_hang.png" alt="" class="icon_hightlight_left">
+        <p>@data.ynote</p>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="feedback_of_customer">
+        <div class="feedback_of_customer_top">
+            <figure class="avatar_feedback_of_customer">
+                @if (item.AdminId != "NotAdmin")
+                {
+                    <a href="#"><img src="/images/imgnew/doctor_256.png" alt="@item.yName"></a>
+                }
+                else
+                {
+                    <a href="#"><img src="/images/imgnew/binhluanimg.png" alt="@item.yName"></a>
+                }
+
+            </figure>
+            <figcaption class="info_feedback_of_customer">
+                <h2 class="title_feedback_of_customer">@item.yName</h2>
+                <p class="address_feedback_of_customer">@item.yEmailAdd</p>
+            </figcaption>
+        </div>
+        <div class="highlight_feedback_of_customer">
+            <img src="/images/icon_y_kien_khach_hang.png" alt="" class="icon_hightlight_left">
+            <p>@item.ynote</p>
+        
+            @if (Session["admins"] != null)
+            {
+                if (Session["admins"].ToString().Equals(item.AdminId))
+                {
+                    <p class="text-right">
+                        <a href="javascript:void(0)" style="text-decoration:underline !important" onclick="Chinhsua(@item.yId,'@item.yName','@item.yEmailAdd','@item.ynote')">@ViewBag.key_sua</a>
+                    </p>
+                  
+                }
+
+            }
+
+        </div>
+    </div>
+}
+
+<form method="post" action="">
+    <div class="row">
+        <div class="col-md-5">
+            <input type="hidden" id="id_bl_edit" value=""/>
+            <input type="text" class="form-control" id="hoten_id" value="@name" required placeholder="@ViewBag.key_hoten (*)" />
+        </div>
+        <div class="col-md-7">
+            <input type="text" class="form-control" id="email_dc_id" value="@emailadd" required placeholder="@ViewBag.key_email_diachi (*)" />
+        </div>
+        <div class="col-md-12">
+            <textarea class="form-control margintop5" id="ndch_id" rows="7" required placeholder="@ViewBag.key_email_ndch .. (*)"></textarea>
+        </div>
+    </div>
+    <button type="button" id="id123" onclick="Guibinhluan()" class="btn btn-warning btn_form_make_a_question margintop5">@ViewBag.key_gui_bl</button>
+    <button type="button" id="id_bl_huy" style="display:none" onclick="Huybinhluan()" class="btn btn-danger btn_form_make_a_question margintop5">@ViewBag.key_thoat</button>
+</form>
+<script>
+    function Huybinhluan()
+    {
+        $('#id_bl_edit').val('');
+        $('#ndch_id').val('');
+        $('#hoten_id').val('');
+        $('#email_dc_id').val('');
+        document.getElementById("id_bl_huy").style.display = "none";
+    }
+    function Chinhsua(id,name,email_add,note)
+    {
+        $('#id_bl_edit').val(id);
+        $('#ndch_id').val(note);
+        $('#hoten_id').val(name);
+        $('#email_dc_id').val(email_add);
+        document.getElementById("id_bl_huy").style.display = "inline";
+        $('#id123').focus();
+        return false;
+    }
+    function Guibinhluan() {
+        var id_bl_edit = $('#id_bl_edit').val();
+        var ndch_id = $('#ndch_id').val();
+        var email_dc_id = $('#email_dc_id').val();
+        var hoten_id = $('#hoten_id').val();
+        if (hoten_id == '' || hoten_id == ' ') {
+            toastr.error("Bạn phải nhập họ tên!", { timeOut: 5000 });
+            return false;
+        } else
+            if (email_dc_id == '' || email_dc_id == ' ') {
+                toastr.error("Bạn phải nhập email hoặc địa chỉ!", { timeOut: 5000 });
+                return false;
+            }
+            else
+                if (ndch_id == '' || ndch_id == ' ') {
+                    toastr.error("Bạn phải nhập nội dung bình luận!", { timeOut: 5000 });
+                    return false;
+                } else {
+                    var url = "/BVMDHome/AddComment";
+                    $.ajax({
+                        url: url,
+                        data: { id: @data.yId, name:hoten_id,email:email_dc_id,note:ndch_id ,idedit:id_bl_edit},
+                        cache: false,
+                        type: "POST",
+                        success: function (data) {
+                            if (data == true) {
+                                $('#div_chitiet').load('/BVMDHome/lstDetail/'+@data.yId);
+                                toastr.success("Gửi bình luận thành công, xin cảm ơn!", { timeOut: 5000 });
+                            } else {
+                                toastr.error("Đã xảy ra lỗi khi bình luận vui lòng thử lại sau!", { timeOut: 5000 });
+                            }
+                        },
+                        error: function (reponse) {
+                            alert("error : " + reponse);
+                        }
+                    });
+                }
+    }
+</script>
+

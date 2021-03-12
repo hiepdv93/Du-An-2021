@@ -1,0 +1,130 @@
+﻿@model Productgold.Models.Customer
+@{
+    ViewBag.cart = "Liên hệ với chúng tôi";
+    ViewBag.Title = "Viết liên hệ góp ý";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+}
+ <div class="row">
+            <div class="col-md-12">
+              <h5 class="title contact-title">
+                Contact Us
+              </h5>
+              <div class="clearfix">
+              </div>
+              <div class="map">
+                  @Html.Raw(ViewBag.map)
+              </div>
+              <div class="clearfix">
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="contact-infoormation">
+                    <h5>
+                      Liên hệ với chúng tôi
+                    </h5>
+                    <p>
+                      Các đóng góp ý kiến của các bạn là niềm vui đối với chúng tôi!
+                    </p>
+                    <ul>
+                      <li>
+                        <span class="icon">
+                          <img src="~/Content/images/message.png" />
+                        </span>
+                        <p>
+                          @ViewBag.email
+                          <br /> @ViewBag.email
+                        </p>
+                      </li>
+                      <li>
+                        <span class="icon">
+                          <img src="~/Content/images/phone.png" />
+                        </span>
+                        <p>
+                          @ViewBag.phone
+                         <br />@ViewBag.phone
+                        </p>
+                      </li>
+                      <li>
+                        <span class="icon">
+                          <img src="~/Content/images/address.png" />
+                        </span>
+                        <p>
+                         @ViewBag.add
+                            <br />
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="ContactForm">
+                    <h5>
+                      Form liên hệ
+                    </h5>
+                    <form method="post" action="/Trangchu/Lienhe">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label>
+                            Họ tên 
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <input class="inputfild" type="text" name="name" value="@Model.fullname" required="required">
+                        </div>
+                        <div class="col-md-6">
+                          <label>
+                             Email
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <input class="inputfild" type="email" name="email" value="@Model.email"  required="required">
+                        </div>
+                      </div>
+                            <div class="row">
+                        <div class="col-md-6">
+                          <label>
+                            Tiêu đề 
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <input class="inputfild" type="text" name="title"  required="required">
+                        </div>
+                        <div class="col-md-6">
+                          <label>
+                            Phone
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <input class="inputfild" type="number" name="phone" value="@Model.phone"  required="required">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Nội dung 
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <textarea class="inputfild" rows="8" name="nd"  required="required">
+                          </textarea>
+                        </div>
+                      </div>
+                        @if (Session["guiok"]!=null)
+                        {
+                        <span style="color:red">@Session["guiok"].ToString()</span>
+                            Session["guiok"]=null;
+                        }
+                      <button type="submit" class="pull-right">
+                        Gửi
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
