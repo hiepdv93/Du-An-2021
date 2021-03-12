@@ -308,6 +308,7 @@
     <Property Name="proContentTab2" Type="ntext" />
     <Property Name="introContent" Type="ntext" />
     <Property Name="pro_home" Type="bit" />
+    <Property Name="pro_sale" Type="bit" />
     <Property Name="pro_hot" Type="bit" />
     <Property Name="active" Type="bit" />
     <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />

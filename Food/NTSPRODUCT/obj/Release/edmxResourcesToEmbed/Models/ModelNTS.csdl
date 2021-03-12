@@ -16,7 +16,6 @@
     <EntitySet Name="Oderdts" EntityType="NTSWEBModel.Oderdt" />
     <EntitySet Name="Oders" EntityType="NTSWEBModel.Oder" />
     <EntitySet Name="Partners" EntityType="NTSWEBModel.Partner" />
-    <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
     <EntitySet Name="ProTags" EntityType="NTSWEBModel.ProTag" />
     <EntitySet Name="SayWes" EntityType="NTSWEBModel.SayWe" />
     <EntitySet Name="Slides" EntityType="NTSWEBModel.Slide" />
@@ -32,6 +31,7 @@
     </AssociationSet>
     <EntitySet Name="Tagproes" EntityType="NTSWEBModel.Tagpro" />
     <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
+    <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -274,41 +274,6 @@
     <Property Name="groupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="lang" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="proPrice" Type="Int32" />
-    <Property Name="proPrice_sale" Type="Int32" />
-    <Property Name="pro_view" Type="Int32" />
-    <Property Name="proOrder" Type="Int32" />
-    <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proImages5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proImages4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proImages3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proImages2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proImages1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
-    <Property Name="brank" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="pro_home" Type="Boolean" />
-    <Property Name="pro_hot" Type="Boolean" />
-    <Property Name="active" Type="Boolean" />
-    <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="cateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="createDate" Type="DateTime" Precision="3" />
-    <Property Name="updateDate" Type="DateTime" Precision="3" />
-    <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="ProTag">
     <Key>
       <PropertyRef Name="idPT" />
@@ -458,5 +423,41 @@
     <Property Name="infoPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="favicon" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
     <Property Name="langDefault" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="proPrice" Type="Int32" />
+    <Property Name="proPrice_sale" Type="Int32" />
+    <Property Name="pro_view" Type="Int32" />
+    <Property Name="proOrder" Type="Int32" />
+    <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proImages5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proImages4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proImages3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proImages2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proImages1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
+    <Property Name="brank" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pro_home" Type="Boolean" />
+    <Property Name="pro_sale" Type="Boolean" />
+    <Property Name="pro_hot" Type="Boolean" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="updateDate" Type="DateTime" Precision="3" />
+    <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

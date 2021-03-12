@@ -1,0 +1,8 @@
+﻿
+.aside-item.collection-category .nav-item{position:relative;clear:left;font-size:1.07143em;width: 100%;}
+.aside-item.collection-category .nav-item a{font-size:1.07143em;background: none;}
+.aside-item.collection-category .nav-item .fa{position: absolute; right: 3px; top: 4px; padding: 10px; cursor: pointer;}
+.aside-item.collection-category .nav-item .dropdown-menu{position:static;width:100%;border:0;padding-left:15px;box-shadow:none}
+.aside-item.collection-category .nav-item.active>a{color:#189eff}
+.aside-item.collection-category .nav-item.active>.dropdown-menu{display:block}
+

@@ -34,6 +34,7 @@ namespace NTSPRODUCT.Models
         public string proContentTab2 { get; set; }
         public string introContent { get; set; }
         public Nullable<bool> pro_home { get; set; }
+        public Nullable<bool> pro_sale { get; set; }
         public Nullable<bool> pro_hot { get; set; }
         public Nullable<bool> active { get; set; }
         public string titleSeo { get; set; }

@@ -4,7 +4,7 @@ $(document).ready(function ($) {
 }); 
 	 
 	 function awe_category(){
-		 $('.categories-box .fa-angle-down').click(function(e){
+		 $('.nav-category .fa-angle-down').click(function(e){
 			 $(this).parent().toggleClass('active');
 		 });
 	 } window.awe_category=awe_category;

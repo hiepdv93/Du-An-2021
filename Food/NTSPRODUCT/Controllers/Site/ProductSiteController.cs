@@ -32,33 +32,61 @@ namespace NTSPRODUCT.Controllers.Site
                        && a.active == true
                        orderby a.proOrder
                        select a).AsQueryable();
+         
             if (!string.IsNullOrEmpty(id))
             {
-                #region[xu ly lay sp]
-                var cateP = db.Categorys.FirstOrDefault(u => u.cateKey.Equals(id));
-                ViewBag.cateP = cateP;
-
-                if (cateP.cate_cap != 3)
+                switch (id)
                 {
-                    cateid = GetListId(cateP.id, cateP.cate_cap.Value);
+                    case "km":
+                        all = all.Where(u => u.pro_sale == true);
+                        #region[load seo]
+                        ViewBag.title = conf.titleSeo;
+                        ViewBag.description = conf.desSeo;
+                        ViewBag.keywords = conf.keySeo;
+                        ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+                        ViewBag.img = ClassExten.GetUrlHost() + conf.logoTop;
+                        ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
+                        #endregion
+                        break;
+                    case "hot":
+                        {
+                            all = all.Where(u => u.pro_hot==true);
+                            #region[load seo]
+                            ViewBag.title = conf.titleSeo;
+                            ViewBag.description = conf.desSeo;
+                            ViewBag.keywords = conf.keySeo;
+                            ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+                            ViewBag.img = ClassExten.GetUrlHost() + conf.logoTop;
+                            ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
+                            #endregion
+                        }
+                        break;
+                    default:
+                        {
+                            var cateP = db.Categorys.FirstOrDefault(u => u.cateKey.Equals(id));
+                            ViewBag.cateP = cateP;
+
+                            if (cateP.cate_cap != 3)
+                            {
+                                cateid = GetListId(cateP.id, cateP.cate_cap.Value);
+                            }
+                            else
+                            {
+                                cateid.Add(cateP.id);
+                            }
+                            all = all.Where(u => cateid.Contains(u.cateId));
+
+                            #region[load seo]
+                            ViewBag.title = cateP.titleSeo;
+                            ViewBag.description = cateP.desSeo;
+                            ViewBag.keywords = cateP.keySeo;
+                            ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+                            ViewBag.img = ClassExten.GetUrlHost() + cateP.cateImage;
+                            ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
+                            #endregion
+                        }
+                        break;
                 }
-                else
-                {
-                    cateid.Add(cateP.id);
-                }
-                all = all.Where(u => cateid.Contains(u.cateId));
-
-                #region[load seo]
-                ViewBag.title = cateP.titleSeo;
-                ViewBag.description = cateP.desSeo;
-                ViewBag.keywords = cateP.keySeo;
-                ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
-                ViewBag.img = ClassExten.GetUrlHost() + cateP.cateImage;
-                ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
-                #endregion
-
-                #endregion
-
             }
             else
             {

@@ -96,8 +96,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Link logo</label>
-                                        <input type="text" class="form-control csinput" name="linkLogo" maxlength="300" placeholder="Link logo" value="@Model.linkLogo" />
+                                        <label>Logo/Ảnh phải footer</label>
+                                        <input type="text" class="form-control csinput" name="linkLogo" id="linkLogo" maxlength="300" placeholder="Logo/Ảnh phải footer" value="@Model.linkLogo" />
                                     </div>
                                 </div>
 
@@ -332,4 +332,14 @@
             finder.popup();
         });
     });
+    $(function () {
+        $("#linkLogo").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#linkLogo").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    
 </script>

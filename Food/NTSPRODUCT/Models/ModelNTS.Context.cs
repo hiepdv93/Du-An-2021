@@ -40,7 +40,6 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<Oderdt> Oderdts { get; set; }
         public virtual DbSet<Oder> Oders { get; set; }
         public virtual DbSet<Partner> Partners { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProTag> ProTags { get; set; }
         public virtual DbSet<SayWe> SayWes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
@@ -48,5 +47,6 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
         public virtual DbSet<Tagpro> Tagproes { get; set; }
         public virtual DbSet<Config> Configs { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

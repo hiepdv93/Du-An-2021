@@ -194,6 +194,8 @@ function AddCart() {
             Address: cartAddress
         };
         OpenWaiting();
+
+        document.getElementById("btnContactUs").style.disabled = true;
         $.ajax({
             url: "/Carts/Dathang",
             type: "POST",
@@ -208,9 +210,11 @@ function AddCart() {
                     window.location = '/danh-muc/';
                 }
                 CloseWaiting();
+                document.getElementById("btnContactUs").style.disabled = false;
             },
             error: function (response) {
                 CloseWaiting();
+                document.getElementById("btnContactUs").style.disabled = false;
                 toastr.error(GetNotifyByKey('rs_Cart_error'), { timeOut: 5000 });
             }
         });

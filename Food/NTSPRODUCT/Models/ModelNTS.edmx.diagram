@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="NTSWEBModel.Oderdt" Width="1.5" PointX="3" PointY="1.375" />
         <EntityTypeShape EntityType="NTSWEBModel.Oder" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="NTSWEBModel.Partner" Width="1.5" PointX="6.75" PointY="11.75" />
-        <EntityTypeShape EntityType="NTSWEBModel.Product" Width="1.5" PointX="11.75" PointY="9.75" />
         <EntityTypeShape EntityType="NTSWEBModel.ProTag" Width="1.5" PointX="13.75" PointY="0.75" />
         <EntityTypeShape EntityType="NTSWEBModel.SayWe" Width="1.5" PointX="13.75" PointY="3.75" />
         <EntityTypeShape EntityType="NTSWEBModel.Slide" Width="1.5" PointX="13.75" PointY="8.75" />
@@ -30,6 +29,7 @@
         <AssociationConnector Association="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1" />
         <EntityTypeShape EntityType="NTSWEBModel.Tagpro" Width="1.5" PointX="14.375" PointY="12.75" />
         <EntityTypeShape EntityType="NTSWEBModel.Config" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NTSWEBModel.Product" Width="1.5" PointX="11.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

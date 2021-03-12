@@ -10,6 +10,7 @@
                 <th>Tên sản phẩm</th>
                 <th width="300px">Danh mục</th>
                 <th width="100px" class="text-center">SP KM</th>
+                <th width="100px" class="text-center">SP BC</th>
                 <th width="100px" class="text-center">Hiển thị</th>
 
             </tr>
@@ -31,7 +32,13 @@
 
                 <td class="text-center">
                     <label class="switch">
-                        <input type="checkbox" onchange="ChangeProductSale('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
+                        <input type="checkbox" onchange="ChangeProductSale('@item.id')" @(item.pro_sale == Constants.Checked ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeProductHot('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
                         <span class="slider round"></span>
                     </label>
                 </td>

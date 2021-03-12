@@ -253,42 +253,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="NTSWEBModel.Product">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="brandId" ColumnName="brandId" />
-          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-          <ScalarProperty Name="createDate" ColumnName="createDate" />
-          <ScalarProperty Name="cateId" ColumnName="cateId" />
-          <ScalarProperty Name="pLang" ColumnName="pLang" />
-          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
-          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
-          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
-          <ScalarProperty Name="pro_home" ColumnName="pro_home" />
-          <ScalarProperty Name="introContent" ColumnName="introContent" />
-          <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
-          <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
-          <ScalarProperty Name="desPro" ColumnName="desPro" />
-          <ScalarProperty Name="brank" ColumnName="brank" />
-          <ScalarProperty Name="proFile" ColumnName="proFile" />
-          <ScalarProperty Name="proImages1" ColumnName="proImages1" />
-          <ScalarProperty Name="proImages2" ColumnName="proImages2" />
-          <ScalarProperty Name="proImages3" ColumnName="proImages3" />
-          <ScalarProperty Name="proImages4" ColumnName="proImages4" />
-          <ScalarProperty Name="proImages5" ColumnName="proImages5" />
-          <ScalarProperty Name="proAvata" ColumnName="proAvata" />
-          <ScalarProperty Name="proOrder" ColumnName="proOrder" />
-          <ScalarProperty Name="pro_view" ColumnName="pro_view" />
-          <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
-          <ScalarProperty Name="proPrice" ColumnName="proPrice" />
-          <ScalarProperty Name="pro_key" ColumnName="pro_key" />
-          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProTags">
       <EntityTypeMapping TypeName="NTSWEBModel.ProTag">
         <MappingFragment StoreEntitySet="ProTag">
@@ -414,6 +378,43 @@
           <ScalarProperty Name="email_Inbox" ColumnName="email_Inbox" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="hotLine" ColumnName="hotLine" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="NTSWEBModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="cateId" ColumnName="cateId" />
+          <ScalarProperty Name="pLang" ColumnName="pLang" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+          <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+          <ScalarProperty Name="pro_home" ColumnName="pro_home" />
+          <ScalarProperty Name="introContent" ColumnName="introContent" />
+          <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
+          <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
+          <ScalarProperty Name="desPro" ColumnName="desPro" />
+          <ScalarProperty Name="brank" ColumnName="brank" />
+          <ScalarProperty Name="proFile" ColumnName="proFile" />
+          <ScalarProperty Name="proImages1" ColumnName="proImages1" />
+          <ScalarProperty Name="proImages2" ColumnName="proImages2" />
+          <ScalarProperty Name="proImages3" ColumnName="proImages3" />
+          <ScalarProperty Name="proImages4" ColumnName="proImages4" />
+          <ScalarProperty Name="proImages5" ColumnName="proImages5" />
+          <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+          <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+          <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+          <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+          <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+          <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

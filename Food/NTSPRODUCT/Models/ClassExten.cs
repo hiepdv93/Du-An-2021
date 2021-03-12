@@ -332,10 +332,11 @@ public class ClassExten
             var cate = list.Where(u => u.catepar_id.Equals(idcha)).OrderBy(u => u.cateOrder).ToList();
             if (cate.Count > 0)
             {
-                rs += "<ul class='nav1'>";
+                rs += "<i class='fa fa-angle-down'></i>";
+                rs += "<ul class='dropdown-menu'>";
                 foreach (var item in cate)
                 {
-                    rs += "<li><a href='/Tin-tuc/" + item.cateKey + "' title='" + item.cateName + "' class='nav1-child'><span>" + item.cateName + "</span></a></li>";
+                    rs += "<li class='nav-item'><a class='nav-link' href='/Tin-tuc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
                 }
                 rs += "</ul>";
             }

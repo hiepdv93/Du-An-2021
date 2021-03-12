@@ -60,6 +60,16 @@ namespace NTSPRODUCT
             defaults: new { controller = "ProductSite", action = "Index", id = UrlParameter.Optional }
         );
             routes.MapRoute(
+            name: "KM",
+            url: "khuyen-mai",
+            defaults: new { controller = "ProductSite", action = "Index", id = "km" }
+        );
+            routes.MapRoute(
+            name: "hot",
+            url: "top-ban-chay",
+            defaults: new { controller = "ProductSite", action = "Index", id = "hot" }
+        );
+            routes.MapRoute(
             name: "Tim-kiem tin",
             url: "tim-kiem/{id}",
             defaults: new { controller = "ProductSite", action = "Search", id = UrlParameter.Optional }

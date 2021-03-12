@@ -1,0 +1,42 @@
+﻿/* -------------------- CSS Default -------------------- */
+*{margin:0;padding:0;}
+
+body{
+	font-size:12px;
+	font-family: "Arial", sans-serif;
+	background: #e8e8e8;
+}
+	
+li{list-style-type:none;}
+
+a{
+	text-decoration:none;
+	transition: all 0.1s ease;}
+	
+.clr{clear:both;}
+a:focus{outline:none;}
+a:hover, a:active, a:link, a:visited{text-decoration:none;}
+	
+h1,h2,h3,h4,h5,h6 , .margin0{margin:0;}
+.margin0auto{margin:0 auto;}
+.padding0{padding:0;}
+img{
+	width: 100%;
+}
+.carousel-indicators .active {
+    background-color: #000;
+}
+.carousel-indicators li {
+    border: 1px solid #000;
+}
+@media screen and (min-width: 1000px) {
+	.Zeptain_LT {
+        width: 1000px;
+        margin: 0 auto;}
+}
+@media screen and (min-width: 768px){
+.carousel-indicators {
+    bottom: 0px;
+}
+}
+/* -------------------- CSS FULL -------------------- */

@@ -49,19 +49,25 @@
                                     <input type="text" class="form-control " placeholder="Url sản phẩm" maxlength="800" id="pro_key" name="pro_key" />
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="display:none">
                                 <div class="form-group">
                                     <label>Giá gốc</label><span class="text-red">(*)</span>
                                     <input type="number" value="0" class="form-control " name="price" required="required" />
                                 </div>
                             </div>
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Giá KM(nhập 0 nếu muốn giá liên hệ)</label><span class="text-red">(*)</span>
                                     <input type="number" value="0" class="form-control " name="priceSale" required="required" />
                                 </div>
                             </div>
-
+                            <div class="col-md-3" >
+                                <div class="form-group">
+                                    <label>Đơn vị tính</label><span class="">(VNĐ/KG)</span>
+                                    <input type="text"  class="form-control " name="brank"  />
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Thương hiệu</label>
@@ -87,14 +93,23 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label class="display-block">Sản phẩm KM</label>
+                                    <label class="display-block">Sản phẩm BC</label>
                                     <label class="switch">
                                         <input type="checkbox" name="proHot">
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2" style="display:none">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="display-block">Sản phẩm KM</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="pro_sale">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="display-block">Hiện trang chủ</label>
                                     <label class="switch">

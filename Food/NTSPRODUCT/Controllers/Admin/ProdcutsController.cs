@@ -76,6 +76,9 @@ namespace NTSPRODUCT.Controllers
                 var pro_home = f["proHome"];
                 var pro_hot = f["proHot"];
                 var active = f["proStatus"];
+                var pro_sale = f["pro_sale"];
+
+                data.pro_sale = pro_sale == null ? false : true;
                 data.pro_home = pro_home == null ? false : true;
                 data.pro_hot = pro_hot == null ? false : true;
                 data.active = active == null ? false : true;
@@ -198,6 +201,9 @@ namespace NTSPRODUCT.Controllers
                 var pro_home = f["proHome"];
                 var pro_hot = f["proHot"];
                 var active = f["proStatus"];
+                var pro_sale = f["pro_sale"];
+
+                data.pro_sale = pro_sale == null ? false : true;
                 data.pro_home = pro_home == null ? false : true;
                 data.pro_hot = pro_hot == null ? false : true;
                 data.active = active == null ? false : true;
@@ -323,6 +329,29 @@ namespace NTSPRODUCT.Controllers
 
         #region[cac ham cap nhap nhanh trang thai]
         public ActionResult ChangeProductSale(string id)
+        {
+            var data = db.Products.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    if (data.pro_sale == true)
+                    {
+                        data.pro_sale = false;
+                    }
+                    else
+                    {
+                        data.pro_sale = true;
+                    }
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+        public ActionResult ChangeProductHot(string id)
         {
             var data = db.Products.First(u => u.id.Equals(id));
             {

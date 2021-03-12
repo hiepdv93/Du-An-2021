@@ -34,74 +34,39 @@
     </div>
 </section>
 
-
-<section class="page-detail">
+<div class="list-prodcut-home">
     <div class="container">
         <div class="row">
-            @Html.Action("PageProLeft", "ChildView", new { lang = ViewBag.lang, typePage = "list", cateKey = ViewBag.key })
-            <div class="col-md-9 col-xs-12 col-lg-9">
-                <div class="box-title">
-                    <span>@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</span>
-                    <hr>
+            <div class="col-md-12 col-xs-12">
+                <div class="pro-title">
+                    <h3>@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</h3>
                 </div>
-               
-                <div class="row">
-                    @if (Model != null)
-                    {
-                        foreach (var item in Model)
-                        {
-                            <div class="col-md-12 col-xs-12 col-lg-4">
-                                <div class="col-item col-item-grid">
-
-                                    <div class="item-inner">
-                                        <div class="product-wrapper ">
-                                            <div class="thumb-wrapper">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                    <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title">
-                                                    <h3 class="text2line">
-                                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="item-content">
-                                                    <div class="price-box price-loop-style">
-                                                        <span class="special-price">
-                                                            <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
-                                                        </span>
-                                                        @if (item.proPrice != 0)
-                                                        {
-                                                            <span class="old-price">
-                                                                <span class="price">
-                                                                    @item.proPrice.Value.ToString("N0")
-                                                                </span>
-                                                            </span>
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="view-detail">
-                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">@ClassExten.GetLangKey("key_chitiet")</a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                    else
-                    {
-                        <h2>@ClassExten.GetLangKey("key_khongtinthaynoidung")</h2>
-                    }
-                </div>
-                <nav aria-label="Page navigation example">
-                    @Html.Raw(ViewBag.pages)
-                </nav>
             </div>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="pro-home">
+                            <div class="pro-img">
+                                <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
+                            </div>
+                            <div class="pro-name">
+                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                            </div>
+                            <div class="pro-price">
+                                <span>@((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span>
+                                <span>@item.brank</span>
+                            </div>
+                            <div class="pro-sub">
+                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">Chọn mua</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
         </div>
     </div>
-</section>
+</div>
