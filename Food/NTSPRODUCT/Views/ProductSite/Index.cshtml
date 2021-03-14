@@ -4,35 +4,31 @@
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Action("NavMenu", "ChildView")
 
-<section class="bread-crumb">
-    <span class="crumb-border"></span>
+<div class="product-de">
     <div class="container">
-        <div class="rows">
-            <div class="col-xs-12 a-left">
-                <ul class="breadcrumb" itemscope="">
-                    <li class="home">
-                        <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                    </li>
-                    @if (cateP != null)
-                    {
-                        <li class="home">
-                            <a itemprop="url" href="/danh-muc" title="@ClassExten.GetLangKey("key_danhmuc")"><span itemprop="title">@ClassExten.GetLangKey("key_danhmuc")</span></a>
-                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                        </li>
-                        <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
-                    }
-                    else
-                    {
-                        <li><strong><span itemprop="title"> Danh mục sản phẩm</span></strong></li>
-                    }
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="breack">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <nav class="nav-bre" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
+                                    <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")">@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
 
-                </ul>
             </div>
+
         </div>
     </div>
-</section>
+</div>
 
 <div class="list-prodcut-home">
     <div class="container">
@@ -46,7 +42,6 @@
             {
                 foreach (var item in Model)
                 {
-
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="pro-home">
                             <div class="pro-img">

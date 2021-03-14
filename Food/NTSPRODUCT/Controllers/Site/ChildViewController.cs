@@ -47,27 +47,19 @@ namespace NTSPRODUCT.Controllers.Site
                 ConfigModel.listConfig = db.Configs.ToList();
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
-            var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
 
-            var advs = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
-            var slide = db.Slides.Where(u => u.active == true).OrderBy(u => u.numberOder).ToList();
             int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 9;
 
 
-            var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
             var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
 
             ViewBag.SayWe = SayWe;
-            ViewBag.advs = advs;
-            ViewBag.sologan = sologan;
 
-            ViewBag.slide = slide;
             ViewBag.lang = lang;
             ViewBag.conf = conf;
 
             var proHome = db.Products.Where(u => u.pro_home == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
-            ViewBag.proHome = proHome;
-            return PartialView(allCate);
+            return PartialView(proHome);
         }
 
         public List<string> GetListId(string idp, int cap, string lang)
@@ -142,6 +134,35 @@ namespace NTSPRODUCT.Controllers.Site
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
             ViewBag.Slogan = conf.shopName;
             return PartialView();
+        }
+
+        public ActionResult NavMenu()
+        {
+            bool isHome = false;
+            Config conf;
+            if (ConfigModel.listConfig == null)
+            {
+                ConfigModel.listConfig = db.Configs.ToList();
+            }
+            conf = ConfigModel.listConfig.FirstOrDefault();
+            ViewBag.conf = conf;
+            var advs = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
+            ViewBag.advs = advs;
+
+            var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
+            string path = HttpContext.Request.Url.AbsolutePath;
+            if (path.Equals("/") || path.Equals(""))
+            {
+                var slide = db.Slides.Where(u => u.active == true).OrderBy(u => u.numberOder).ToList();
+                var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
+
+                ViewBag.slide = slide;
+                ViewBag.sologan = sologan;
+                isHome = true;
+            }
+            ViewBag.isHome = isHome;
+
+            return PartialView(allCate);
         }
 
 

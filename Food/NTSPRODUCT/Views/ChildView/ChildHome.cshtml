@@ -1,150 +1,14 @@
-﻿@model IList<NTSPRODUCT.Models.Category>
+﻿@model IList<NTSPRODUCT.Models.Product>
 @{
-    var sologan = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologan;
     var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
 
-    var proHome = (List<NTSPRODUCT.Models.Product>)ViewBag.proHome;
+    //  var proHome = (List<NTSPRODUCT.Models.Product>)ViewBag.proHome;
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
-    var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
-    var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
     var isMobile = Request.Browser.IsMobileDevice;
 
-    var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
-    var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
+
 }
-
-<div class="nav-top">
-    <div class="nav-destop">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-12 left-top">
-                    <div class="nav-left">
-                        <aside class="aside-item collection-category blog-category">
-                            <div class="heading">
-                                <h2 class="title-head"><span><img src="~/Content/CssSite/images/danh-mục.png" alt="Danh mục"></span><span class="hred">Danh mục</span></h2>
-                            </div>
-                            <div class="aside-content">
-                                <nav class="nav-category  navbar-toggleable-md">
-                                    <ul class="nav navbar-pills">
-                                        @*<li class="nav-item ">
-                                                <a href="" class="nav-link">Tivi, Loa, Âm thanh</a>
-                                                <i class="fa fa-angle-down"></i>
-                                                <ul class="dropdown-menu">
-                                                    <li class="dropdown-submenu nav-item">
-                                                        <a class="nav-link" href="">Tivi</a>
-                                                        <i class="fa fa-angle-down"></i>
-                                                        <ul class="dropdown-menu">
-                                                            <li class="dropdown-submenu nav-item">
-                                                                <a class="nav-link" href="">Tivi trả góp 0-1%</a>
-                                                            </li>
-                                                            <li class="dropdown-submenu nav-item">
-                                                                <a class="nav-link" href="">Đời mới 2017</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="nav-item"><a class="nav-link" href="">Thương hiệu</a></li>
-                                                </ul>
-                                            </li>*@
-                                        @foreach (var item in cateParent)
-                                        {
-                                            <li class="nav-item ">
-                                                <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a>
-                                                @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
-                                            </li>
-                                        }
-                                    </ul>
-                                </nav>
-                            </div>
-                        </aside>
-                    </div>
-                    <div class="banner-top">
-                        @if (adv != null)
-                        {
-                            <a href="@adv.advLink" title="@adv.advName"><img src="@adv.advImage" alt="@adv.advName" width="100%"></a>
-                        }
-                    </div>
-                </div>
-                <div class="col-md-9 col-xs-12">
-                    <div class="row">
-                        <div class="nav-right-slide">
-                            <div class="col-md-3 col-xs-12">
-                                <div class="nav-sale">
-                                    <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
-                                    <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-xs-12">
-                                <div class="nav-banch">
-                                    <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
-                                    <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="nav-right-slide-top">
-                            <div class="col-md-9 col-xs-12 slide-left">
-                                <div class="slide-top">
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            @for (int i = 0; i < slide.Count; i++)
-                                            {
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0?"active":"")"></li>
-                                            }
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            @for (int i = 0; i < slide.Count; i++)
-                                            {
-                                                <div class="carousel-item @(i==0?"active":"")">
-                                                    <img class="d-block w-100" src="@slide[i].images" alt="@slide[i].name">
-                                                </div>
-                                            }
-                                        </div>
-                                        <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                        </a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-xs-12 slide-right">
-                                <div class="baner-right">
-                                    <a href=""><img src="~/Content/CssSite/images/vxcsdf.png" alt="" width="100%"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="about-home">
-                            <div class="about-head">
-                                <h4 class="ab-title">Về chúng tôi</h4>
-                            </div>
-                            <div class="about-conten">
-                                @Html.Raw(conf.infoPage)
-                            </div>
-                        </div>
-                        <div class="about-bottom">
-                            @foreach (var item in sologan)
-                            {
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="ab-1">
-                                        <span><img src="@item.image" alt="@item.title"></span>
-                                        <span class="ab-text">@item.title</span>
-                                    </div>
-                                </div>
-                            }
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Action("NavMenu", "ChildView")
 <div class="list-prodcut-home">
     <div class="container">
         <div class="row">
@@ -153,7 +17,7 @@
                     <h3>Thực phẩm các loại</h3>
                 </div>
             </div>
-            @foreach (var item in proHome)
+            @foreach (var item in Model)
             {
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="pro-home">

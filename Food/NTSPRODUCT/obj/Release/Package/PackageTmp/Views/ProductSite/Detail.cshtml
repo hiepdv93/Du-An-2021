@@ -5,218 +5,233 @@
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
     var protag = (List<NTSPRODUCT.Models.Tagpro>)ViewBag.protag;
+    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    var newsPro = (List<NTSPRODUCT.Models.News>)ViewBag.newsPro;
+    var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="bread-crumb">
-    <span class="crumb-border"></span>
-    <div class="container">
-        <div class="rows">
-            <div class="col-xs-12 a-left">
-                <ul class="breadcrumb" itemscope="">
-                    <li class="home">
-                        <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                    </li>
-                    @if (catePSub != null)
-                    {
-                        <li class="home">
-                            <a itemprop="url" href="/danh-muc" title="@ClassExten.GetLangKey("key_danhmuc")"><span itemprop="title">@ClassExten.GetLangKey("key_danhmuc")</span></a>
-                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                        </li>
-                        <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
-                    }
-                    <li>
-                        <a itemprop="url" href="/danh-muc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                    </li>
-
-                    <li><strong><span itemprop="title">@pro.pro_name</span></strong></li>
-
-
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="page-detail">
+@Html.Action("NavMenu", "ChildView")
+<div class="product-de">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-xs-12 col-lg-9 details-product">
-                <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="breack">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <nav class="nav-bre" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
+                                    <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
+                                    <li class="breadcrumb-item"><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@cateP.cateName</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@pro.pro_name">@pro.pro_name</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                <div class="detail-pro">
+                    <div class="row">
+                        <div class="col-md-7 col-xs-12">
+                            <div class="pro-slide">
+                                <div class="demo">
+                                    <div class="item">
+                                        <div class="clearfix" style="max-width:474px;">
+                                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                                <li data-thumb="@pro.proAvata">
+                                                    <img src="@pro.proAvata" alt="@pro.pro_name" />
+                                                </li>
+                                                @if (!string.IsNullOrEmpty(pro.proImages1))
+                                                {
+                                                    <li data-thumb="@pro.proImages1">
+                                                        <img src="@pro.proImages1" alt="@pro.pro_name" />
+                                                    </li>
+                                                }
+                                                @if (!string.IsNullOrEmpty(pro.proImages2))
+                                                {
+                                                    <li data-thumb="@pro.proImages2">
+                                                        <img src="@pro.proImages2" alt="@pro.pro_name" />
+                                                    </li>
+                                                }
+                                                @if (!string.IsNullOrEmpty(pro.proImages3))
+                                                {
+                                                    <li data-thumb="@pro.proImages3">
+                                                        <img src="@pro.proImages3" alt="@pro.pro_name" />
+                                                    </li>
+                                                }
+                                                @if (!string.IsNullOrEmpty(pro.proImages4))
+                                                {
+                                                    <li data-thumb="@pro.proImages4">
+                                                        <img src="@pro.proImages4" alt="@pro.pro_name" />
+                                                    </li>
+                                                }
+                                                @if (!string.IsNullOrEmpty(pro.proImages5))
+                                                {
+                                                    <li data-thumb="@pro.proImages5">
+                                                        <img src="@pro.proImages5" alt="@pro.pro_name" />
+                                                    </li>
+                                                }
 
-                    <div class="col-md-6 col-xs-12 col-lg-6">
-                        <div class="img-product">
-                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                <li data-thumb="@pro.proAvata">
-                                    <img src="@pro.proAvata" />
-                                </li>
-                                @if (!string.IsNullOrEmpty(pro.proImages1))
-                                {
-                                    <li data-thumb="@pro.proImages1">
-                                        <img src="@pro.proImages1" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages2))
-                                {
-                                    <li data-thumb="@pro.proImages2">
-                                        <img src="@pro.proImages2" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages3))
-                                {
-                                    <li data-thumb="@pro.proImages3">
-                                        <img src="@pro.proImages3" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages4))
-                                {
-                                    <li data-thumb="@pro.proImages4">
-                                        <img src="@pro.proImages4" />
-                                    </li>
-                                }
-                                @if (!string.IsNullOrEmpty(pro.proImages5))
-                                {
-                                    <li data-thumb="@pro.proImages5">
-                                        <img src="@pro.proImages5" />
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xs-12 col-lg-6 details-pro">
-                        <div class="product-top clearfix">
-                            <h1 class="title-head">@pro.pro_name</h1>
-                            <input type="hidden" id="idPro" value="@pro.id" />
-                        </div>
-                        <div class="price-box clearfix" itemscope="">
-                            <span class="special-price">
-                                @ClassExten.GetLangKey("key_gia"):
-                                <span class="price product-price" itemprop="price">@(pro.proPrice_sale != 0 ? pro.proPrice_sale.Value.ToString("N0") : @ClassExten.GetLangKey("contact"))</span>
-                            </span>
-                        </div>
-                        <div class="product-summary product_description margin-bottom-15 margin-top-15">
-                            <div class="rte description">
-                                @Html.Raw(pro.introContent)
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        @*@if (!string.IsNullOrEmpty(pro.proFile))
-                        {
-                            <div class="down-document">
-                                <a href="@pro.proFile" title="@ClassExten.GetLangKey("key_downLib")">
-                                    <i class="fa fa-download"></i> @ClassExten.GetLangKey("key_downLib")
-                                </a>
-                            </div>
-                        }*@
-                        <div class="form-product">
-                            <div class="form-group">
-                                <div class="clearfix">
-                                    <button type="button" class="btn btn-lg btn-gray btn-cart add_to_cart btn_buy add_to_cart" onclick="PushProduct()"><span class="txt-main">Mua ngay</span></button>
+                        <div class="col-md-5 col-xs-12">
+                            <div class="pro-content">
+                                <h1>@pro.pro_name</h1>
+                                <p class="check-pro">(Còn Hàng)</p>
+                                <div class="pro-price">
+                                    <p>Đơn giá</p>
+                                    <p class="pri">
+                                        <span>@((pro.proPrice_sale!=null && pro.proPrice_sale!=0)? pro.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span><span>@pro.brank</span>
+                                    </p>
+                                </div>
+                                <div class="cont">
+                                    @Html.Raw(pro.desPro)
+                                </div>
+                                <div class="total">
+                                    <p>Số lượng:</p>
+                                    <input type="number" value="1" name="" class="total-pro">
+                                    <input type="hidden" id="idPro" value="@pro.id" />
+
+                                </div>
+                                <div class="sumit">
+                                    <button type="button" onclick="PushProduct()">Đặt Mua</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-                        <div class="info-product">
-                            <ul class="tabs-product">
-                                <li class="tab-link current" data-tab="tab-1">Mô tả sản phẩm</li>
-                                <li class="tab-link" data-tab="tab-2">Thông tin bổ sung</li>
-                            </ul>
-                            <div id="tab-1" class="info-product-tab-content current">
-                                @Html.Raw(pro.proContentTab1)
-                            </div>
-                            <div id="tab-2" class="info-product-tab-content">
-                                @Html.Raw(pro.proContentTab2)
-                            </div>
-                        </div>
-                        <div class="product_meta">
-                            @if (protag.Count > 0)
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @if (adv != null)
+                {
+                    <div class="pag-banner-right">
+                        <a href="@adv.advLink" title="@adv.advName"><img src="@adv.advImage" alt="@adv.advName"></a>
+
+                    </div>
+                }
+                <div class="y-kien-kh">
+                    <div class="tile">
+                        <h4>ý kiến khách hàng</h4>
+                    </div>
+                    <div class="y-kien-cont">
+                        <div class="row">
+                            @foreach (var item in SayWe)
                             {
-                                int row = 0;
-                                <span class="posted_in">
-                                    Tag:
-                                    @foreach (var item in protag)
-                                    {
-                                        row++;
-                                        if (row == 1)
-                                        {
-                                            <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">@item.tagName</a>
-                                        }
-                                        else
-                                        {
-                                            <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">, @item.tagName</a>
-                                        }
-                                    }
-                                </span>
+                                <div class="yk-item">
+                                    <div class="col-md-4 col-xs-12">
+                                        <div class="yk-img">
+                                            <span><img src="@item.avata" alt="@item.fullName"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-xs-12">
+                                        <div class="yk-name">
+                                            <p class="name">@item.fullName</p>
+                                            <p class="adrees">@item.addresss</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="yk-cont">
+                                            <p>@item.contents </p>
+                                        </div>
+                                    </div>
+                                </div>
                             }
+
                         </div>
                     </div>
                 </div>
             </div>
-            @Html.Action("PageProLeft", "ChildView", new { lang = ViewBag.lang, typePage = "detail", cateKey = cateP.cateKey })
         </div>
+    </div>
+</div>
+<div class="info-detai-pro">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xs-12 col-lg-12">
-                <div class="heading_spbc">
-                    <h2 class="title-head">
-                        <a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@ClassExten.GetLangKey("key_spcungchuyenmuc")</a>
-                    </h2>
+            <div class="col-md-9 col-xs-12">
+                <div class="info-pro">
+                    <div class="pro-detail-title">
+                        <h3>Chi tiết sản phẩm</h3>
+                    </div>
+                    <div class="info-cont">
+                        @Html.Raw(pro.proContentTab1)
+                    </div>
                 </div>
             </div>
-            <div class="col-md-12 col-xs-12 col-lg-12">
-                <div id="owl-pro-detail" class="owl-carousel owl-theme owl-pro-home">
-                    @foreach (var item in Model)
+            <div class="col-md-3 col-xs-12">
+                <div class="pro-right">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="pro-detail-title">
+                                <h3>Sản phẩm có thể bạn thích</h3>
+                            </div>
+                        </div>
+                        @foreach (var item in Model)
+                        {
+                            <div class="pro-right-item">
+                                <div class="col-md-6 col-xs-12 rigth1">
+                                    <div class="pro-rigt-img">
+                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12 rigth2">
+                                    <div class="pro-right-name">
+                                        <h2>@item.pro_name</h2>
+                                        <div class="pro-right-price">
+                                            <p>Đơn giá</p>
+                                            <p class="pri">@((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" ) <span>@item.brank</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="pro-right-2">
+                    <div class="pro-detail-title">
+                        <h3>Món ngon cùng tân sơn food</h3>
+                    </div>
+                    @foreach (var item in newsPro)
                     {
-                        <div class="item">
-                            <div class="col-item col-item-grid">
-                                <div class="sale-label sale-top-right">
-                                    <span>New</span>
-                                </div>
-                                <div class="item-inner">
-                                    <div class="product-wrapper ">
-                                        <div class="thumb-wrapper">
-                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title">
-                                                <h3 class="text2line">
-                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                                </h3>
-                                            </div>
-                                            <div class="item-content">
-                                                <div class="price-box price-loop-style">
-                                                    <span class="special-price">
-                                                        <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
-                                                    </span>
-                                                    @if (item.proPrice != 0)
-                                                    {
-                                                        <span class="old-price">
-                                                            <span class="price">
-                                                                @item.proPrice.Value.ToString("N0")
-                                                            </span>
-                                                        </span>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="view-detail">
-                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@ClassExten.GetLangKey("key_chitiet")</a>
-                                </div>
+                        <div class="pro-right-2-item">
+                            <div class="right-2-img">
+                                <a href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
+                            </div>
+                            <div class="right-2-text">
+                                <a href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 38)</a>
                             </div>
                         </div>
                     }
+
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
+
+<script>
+    $(document).ready(function () {
+        $("#content-slider").lightSlider({
+            loop: true,
+            keyPress: true
+        });
+        $('#image-gallery').lightSlider({
+            gallery: true,
+            item: 1,
+            thumbItem: 3,
+            slideMargin: 0,
+            speed: 500,
+            auto: true,
+            loop: true,
+            onSliderLoad: function () {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    });
+</script>

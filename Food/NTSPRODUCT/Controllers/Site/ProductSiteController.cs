@@ -32,7 +32,7 @@ namespace NTSPRODUCT.Controllers.Site
                        && a.active == true
                        orderby a.proOrder
                        select a).AsQueryable();
-         
+
             if (!string.IsNullOrEmpty(id))
             {
                 switch (id)
@@ -50,7 +50,7 @@ namespace NTSPRODUCT.Controllers.Site
                         break;
                     case "hot":
                         {
-                            all = all.Where(u => u.pro_hot==true);
+                            all = all.Where(u => u.pro_hot == true);
                             #region[load seo]
                             ViewBag.title = conf.titleSeo;
                             ViewBag.description = conf.desSeo;
@@ -171,6 +171,11 @@ namespace NTSPRODUCT.Controllers.Site
 
                 var cateP = db.Categorys.FirstOrDefault(u => u.id.Equals(proData.cateId));
                 var catePSub = db.Categorys.FirstOrDefault(u => u.id.Equals(cateP.catepar_id));
+
+                var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
+                var advs = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
+                var newsPro = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(4).ToList();
+
                 #region[load seo]
                 ViewBag.title = proData.titleSeo;
                 ViewBag.description = proData.desSeo;
@@ -179,6 +184,12 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.img = ClassExten.GetUrlHost() + proData.proAvata;
                 ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                 #endregion
+
+                ViewBag.SayWe = SayWe;
+                ViewBag.advs = advs;
+                ViewBag.newsPro = newsPro;
+
+
                 ViewBag.pro = proData;
                 ViewBag.cateP = cateP;
                 ViewBag.catePSub = catePSub;
