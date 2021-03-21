@@ -35,7 +35,7 @@
 h2.title-head {
     line-height: 22px;
     background: #ffc435;
-    padding: 5px;
+    padding: 4px;
 }
 .nav-right-slide {
     width: 100%;
@@ -45,11 +45,9 @@ h2.title-head {
 .nav-right-slide-top {
     width: 100%;
     float: left;
-    margin: 8px 0 0 0;
+    margin: 9px 0 0 0;
 }
-.nav-destop .col-md-3.col-xs-12.left-top {
-    padding-right: 0;
-}
+
 .nav-right-slide-top .col-md-9.col-xs-12.slide-left {
     padding: 0;
 }
@@ -58,11 +56,11 @@ h2.title-head {
     padding-right: 0;
 }
 .baner-right img {
-    height: 249px;
+    height: 279px;
     object-fit: cover;
 }
 .about-home {
-    padding: 25px 25px 20px 25px;
+    padding: 25px 15px 20px 15px;
     margin-top: 5px;
 }
 .about-bottom .ab-1 img {

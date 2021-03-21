@@ -3,15 +3,15 @@
 
 body{
 	font-size:14px;
-	font-family: "Arial", sans-serif;
-	background: #e8e8e8;
+	font-family: 'segoe ui', 'Open Sans', sans-serif;
 }
 	
 li{list-style-type:none;}
 
 a{
 	text-decoration:none;
-	transition: all 0.1s ease;}
+	transition: all 0.1s ease;
+color: #000;}
 	
 .clr{clear:both;}
 a:focus{outline:none;}
@@ -29,14 +29,36 @@ img{
 .carousel-indicators li {
     border: 1px solid #000;
 }
+.desktop-none{
+	display: none;
+}
 @media screen and (min-width: 1000px) {
 	.Zeptain_LT {
         width: 1000px;
-        margin: 0 auto;}
+        margin: 0 auto;
+    }
+
+}
+@media screen and (min-width:1px) and (max-width:1000px){
+.desktop-none{
+	display: block;
+}
+
 }
 @media screen and (min-width: 768px){
 .carousel-indicators {
     bottom: 0px;
+}
+
+}
+@media (min-width: 1200px){
+.container {
+    width: 1270px;
+}
+}
+@media (min-width: 1200px){
+.container {
+    max-width: 1270px;
 }
 }
 /* -------------------- CSS FULL -------------------- */

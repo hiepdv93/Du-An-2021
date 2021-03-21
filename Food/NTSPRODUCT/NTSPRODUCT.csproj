@@ -1893,7 +1893,9 @@
     <Content Include="Content\CssSite\css\home\footer.css" />
     <Content Include="Content\CssSite\css\home\header.css" />
     <Content Include="Content\CssSite\css\home\layout.css" />
+    <Content Include="Content\CssSite\css\home\menu-mobile.css" />
     <Content Include="Content\CssSite\css\home\nav-desktop.css" />
+    <Content Include="Content\CssSite\css\home\news-home.css" />
     <Content Include="Content\CssSite\css\home\product-home.css" />
     <Content Include="Content\CssSite\css\home\y-kien-home.css" />
     <Content Include="Content\CssSite\css\lightslider.css" />

@@ -418,5 +418,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LichSuTruyCaps">
+      <EntityTypeMapping TypeName="NTSWEBModel.LichSuTruyCap">
+        <MappingFragment StoreEntitySet="LichSuTruyCap">
+          <ScalarProperty Name="countTotal" ColumnName="countTotal" />
+          <ScalarProperty Name="viewYear" ColumnName="viewYear" />
+          <ScalarProperty Name="viewMonth" ColumnName="viewMonth" />
+          <ScalarProperty Name="viewDay" ColumnName="viewDay" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

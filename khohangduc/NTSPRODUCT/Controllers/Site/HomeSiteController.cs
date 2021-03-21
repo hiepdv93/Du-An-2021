@@ -1,4 +1,5 @@
-﻿using NTSPRODUCT.Models;
+﻿using NTSPRODUCT.Hubs;
+using NTSPRODUCT.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -224,6 +225,13 @@ namespace NTSPRODUCT.Controllers.Site
             #endregion
             return View();
         }
-        
+
+        public ActionResult PushCount()
+        {
+            new CounterInit().PushCount();
+            return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+
+        }
+
     }
 }

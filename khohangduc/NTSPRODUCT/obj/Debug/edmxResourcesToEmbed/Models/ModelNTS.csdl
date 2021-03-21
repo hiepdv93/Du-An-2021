@@ -32,6 +32,7 @@
     </AssociationSet>
     <EntitySet Name="Tagproes" EntityType="NTSWEBModel.Tagpro" />
     <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
+    <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -458,5 +459,15 @@
     <Property Name="infoPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="favicon" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
     <Property Name="langDefault" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="viewDay" Type="Int32" Nullable="false" />
+    <Property Name="viewMonth" Type="Int32" Nullable="false" />
+    <Property Name="viewYear" Type="Int32" Nullable="false" />
+    <Property Name="countTotal" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

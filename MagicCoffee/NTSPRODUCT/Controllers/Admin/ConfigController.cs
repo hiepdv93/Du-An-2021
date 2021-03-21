@@ -77,7 +77,7 @@ namespace NTSPRODUCT.Controllers
                 data.desSeo = f["desseo"];
                 data.keySeo = f["keyseo"];
                 data.titleSeo = f["titleseo"];
-
+                ConfigModel.listCate = null;
                 db.SaveChanges();
                 ConfigModel.listConfig = null;
                 Session["ok"] = "Cập nhật thành công!";

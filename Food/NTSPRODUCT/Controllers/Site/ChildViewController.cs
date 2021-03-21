@@ -39,6 +39,8 @@ namespace NTSPRODUCT.Controllers.Site
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHome(string lang)
         {
+            List<Product> lstPro = db.Products.Where(u => u.active == true).ToList();
+            List<Category> lstCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             //danh mục hiển thị trang chủ là nhóm cấp 1 dc check  hiển thị trang chủ
             //sản phẩm hiển thị theo nhóm là những nhóm cấp 2 check hiển thị trang chủ
             Config conf;
@@ -48,41 +50,56 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
 
-            int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 9;
-
-
+            int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 12;
+            int numNew = conf.viewNewPageHome != null ? conf.viewNewPageHome.Value : 5;
+            var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
             var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
 
+            var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+
+            List<string> cateId = null;
+            List<ProductModel> proHome = new List<ProductModel>();
+            ProductModel productModel;
+            var cateHome = lstCate.Where(u => u.cateActiveHome == true).ToList();//lấy ra nhóm hiển thị trang chủ
+            foreach (var item in cateHome)
+            {
+                cateId = GetListId(item.id, item.cate_cap.Value, lstCate);
+                productModel = new ProductModel();
+                productModel.cate = item;
+                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).ToList();
+                proHome.Add(productModel);
+            }
+
+            ViewBag.newsHot = newsHot;
             ViewBag.SayWe = SayWe;
 
             ViewBag.lang = lang;
             ViewBag.conf = conf;
 
-            var proHome = db.Products.Where(u => u.pro_home == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            ViewBag.proSale = proSale;
+            ViewBag.proBanChay = proBanChay;
+
             return PartialView(proHome);
         }
 
-        public List<string> GetListId(string idp, int cap, string lang)
+        public List<string> GetListId(string idp, int cap, List<Category> allCate)
         {
             List<string> list = new List<string>();
-            //if (cap == 1)
-            //{
-            //    if (allCate == null)
-            //    {
-            //        allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
-            //    }
-            //    list = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.catepar_id.Equals(idp) && u.cate_cap == 2 && u.cateActive == true).Select(u => u.id).ToList();
-            //    var listCap3 = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.cate_cap == 3 && u.cateActive == true && list.Contains(u.catepar_id)).Select(u => u.id).ToList();
-            //    foreach (var item in listCap3)
-            //    {
-            //        list.Add(item);
-            //    }
-            //}
-            //else
-            //{
-            //    list = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.catepar_id.Equals(idp) && u.cate_cap == 3 && u.cateActive == true).Select(u => u.id).ToList();
-            //}
-            //list.Add(idp);
+            if (cap == 1)
+            {
+                list = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.catepar_id.Equals(idp) && u.cate_cap == 2 && u.cateActive == true).Select(u => u.id).ToList();
+                var listCap3 = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.cate_cap == 3 && u.cateActive == true && list.Contains(u.catepar_id)).Select(u => u.id).ToList();
+                foreach (var item in listCap3)
+                {
+                    list.Add(item);
+                }
+            }
+            else
+            {
+                list = allCate.Where(u => u.cateType == ClassExten.typeProduct && u.catepar_id.Equals(idp) && u.cate_cap == 3 && u.cateActive == true).Select(u => u.id).ToList();
+            }
+            list.Add(idp);
             return list;
         }
 
@@ -146,8 +163,10 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
-            var advs = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
-            ViewBag.advs = advs;
+            var advLeft = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
+            var advRight = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 2);//quảng cáo phải slide
+            ViewBag.advLeft = advLeft;
+            ViewBag.advRight = advRight;
 
             var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             string path = HttpContext.Request.Url.AbsolutePath;

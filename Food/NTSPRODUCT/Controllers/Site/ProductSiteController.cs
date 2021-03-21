@@ -48,7 +48,7 @@ namespace NTSPRODUCT.Controllers.Site
                         ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                         #endregion
                         break;
-                    case "hot":
+                    case "bc":
                         {
                             all = all.Where(u => u.pro_hot == true);
                             #region[load seo]
@@ -174,7 +174,7 @@ namespace NTSPRODUCT.Controllers.Site
 
                 var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
                 var advs = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
-                var newsPro = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(4).ToList();
+                var newsPro = db.News.Where(u => u.status == Constants.Active && u.newNew == true).OrderBy(u => u.newOrder).Take(4).ToList();//tin mới
 
                 #region[load seo]
                 ViewBag.title = proData.titleSeo;

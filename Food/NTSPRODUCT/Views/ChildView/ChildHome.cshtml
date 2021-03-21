@@ -1,43 +1,196 @@
-﻿@model IList<NTSPRODUCT.Models.Product>
+﻿@model IList<NTSPRODUCT.Models.ProductModel>
 @{
-    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
+    var proBanChay = (List<NTSPRODUCT.Models.Product>)ViewBag.proBanChay;
 
-    //  var proHome = (List<NTSPRODUCT.Models.Product>)ViewBag.proHome;
+    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
+
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var isMobile = Request.Browser.IsMobileDevice;
-
+    float pt = 0;
 
 }
 @Html.Action("NavMenu", "ChildView")
+
 <div class="list-prodcut-home">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="pro-title">
-                    <h3>Thực phẩm các loại</h3>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="news-left">
+                    <h4 class="menu-content">Tin tức</h4>
+                    @foreach (var item in newsHot)
+                    {
+                        <div class="item-news">
+                            <a class="news-img" href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
+                            <a class="news-nanme" href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 35)</a>
+                            <div class="news-time">
+                                <span><i class="fa fa-calendar"></i> @item.createDate.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            @foreach (var item in Model)
-            {
-                <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                @if (proSale != null && proSale.Count > 0)
+                {
                     <div class="pro-home">
-                        <div class="pro-img">
-                            <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
+                        <div class="titles">
+                            <a href="/khuyen-mai" title="Sản phẩm khuyến mại">
+                                <span>Sản phẩm khuyến mại</span>
+                            </a>
+                            <span class="pull-right readmore-index"><a href="/khuyen-mai" title="Sản phẩm khuyến mại"> &gt;&gt; Xem thêm</a></span>
                         </div>
-                        <div class="pro-name">
-                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                        </div>
-                        <div class="pro-price">
-                            <span>@((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span>
-                            <span>@item.brank</span>
-                        </div>
-                        <div class="pro-sub">
-                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">Chọn mua</a>
+                        <div class="product-wrapper">
+                            <div class="row">
+                                @foreach (var item in proSale)
+                                {
+
+                                    <div class="col-md-3 col-xs-12 col-sm-12">
+                                        <div class="product-item">
+                                            <div class="image">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
+                                                    <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
+                                                </a>
+                                            </div>
+                                            <div class="name" style="height: 55px;">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                            </div>
+                                            <div class="price" style="float:left">
+                                                <em>
+                                                    @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
+                                                    <span class="variant_title">/@item.brank</span>
+                                                </em>
+                                            </div>
+                                            @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice!=0 && item.proPrice != item.proPrice_sale)
+                                            {
+                                                pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
+                                                <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
+                                                <div class="sale">-@(Math.Round(pt,0))%</div>
+                                            }
+                                            <div class="addcart addcart-collection">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                    <button class="addtocart addcartcollection" type="button">
+                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+                @if (proSale != null && proSale.Count > 0)
+                {
+                    <div class="pro-home">
+                        <div class="titles">
+                            <a href="/top-ban-chay" title="Sản phẩm bán chạy">
+                                <span>Sản phẩm bán chạy</span>
+                            </a>
+                            <span class="pull-right readmore-index"><a href="/top-ban-chay" title="Sản phẩm bán chạy"> &gt;&gt; Xem thêm</a></span>
+                        </div>
+                        <div class="product-wrapper">
+                            <div class="row">
+                                @foreach (var item in proBanChay)
+                                {
 
+                                    <div class="col-md-3 col-xs-12 col-sm-12">
+                                        <div class="product-item">
+                                            <div class="image">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
+                                                    <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
+                                                </a>
+                                            </div>
+                                            <div class="name" style="height: 55px;">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                            </div>
+                                            <div class="price" style="float:left">
+                                                <em>
+                                                    @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
+                                                    <span class="variant_title">/@item.brank</span>
+                                                </em>
+                                            </div>
+                                            @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
+                                            {
+                                                pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
+                                                <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
+                                                <div class="sale">-@(Math.Round(pt,0))%</div>
+                                            }
+
+                                            <div class="addcart addcart-collection">
+                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                    <button class="addtocart addcartcollection" type="button">
+                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var itemHome in Model)
+                    {
+                        <div class="pro-home">
+                            <div class="titles">
+                                <a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName">
+                                    <span>@itemHome.cate.cateName</span>
+                                </a>
+                                <span class="pull-right readmore-index"><a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName"> &gt;&gt; Xem thêm</a></span>
+                            </div>
+                            <div class="product-wrapper">
+                                <div class="row">
+                                    @foreach (var item in itemHome.pro)
+                                    {
+
+                                        <div class="col-md-3 col-xs-12 col-sm-12">
+                                            <div class="product-item">
+                                                <div class="image">
+                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
+                                                        <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
+                                                    </a>
+                                                </div>
+                                                <div class="name" style="height: 55px;">
+                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                                </div>
+                                                <div class="price" style="float:left">
+                                                    <em>
+                                                        @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
+                                                        <span class="variant_title">/@item.brank</span>
+                                                    </em>
+                                                </div>
+                                                @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
+                                                {
+                                                    pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
+                                                    <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
+                                                    <div class="sale">-@(Math.Round(pt,0))%</div>
+                                                }
+
+                                                <div class="addcart addcart-collection">
+                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                        <button class="addtocart addcartcollection" type="button">
+                                                            THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>

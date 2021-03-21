@@ -6,7 +6,7 @@
 }
 @Html.Action("NavMenu", "ChildView")
 
-<div class="product-de">
+@*<div class="product-de">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-xs-12">
@@ -28,40 +28,65 @@
 
         </div>
     </div>
-</div>
+</div>*@
 
-<div class="list-prodcut-home">
+<div class="product-list">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="pro-title">
-                    <h3>@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</h3>
+            <div class="pro-home">
+                <div class="titles">
+                    <span>@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</span>
+                </div>
+                <div class="product-wrapper">
+                    <div class="row">
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-3 col-xs-12 col-sm-12">
+                                    <div class="product-item">
+                                        <div class="image">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
+                                                <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
+                                            </a>
+                                        </div>
+                                        <div class="name" style="height: 55px;">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                        </div>
+                                        <div class="price" style="float:left">
+                                            <em>
+                                                @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
+                                                <span class="variant_title">/@item.brank</span>
+                                            </em>
+                                        </div>
+                                        @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
+                                        {
+                                            pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
+                                            <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
+                                            <div class="sale">-@(Math.Round(pt,0))%</div>
+                                        }
+                                        <div class="addcart addcart-collection">
+                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                <button class="addtocart addcartcollection">
+                                                    THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <h2>@ClassExten.GetLangKey("key_khongtinthaynoidung")</h2>
+                        }
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        @Html.Raw(ViewBag.pages)
+                    </nav>
                 </div>
             </div>
-            @if (Model != null)
-            {
-                foreach (var item in Model)
-                {
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="pro-home">
-                            <div class="pro-img">
-                                <a href="/san-pham/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name"></a>
-                            </div>
-                            <div class="pro-name">
-                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                            </div>
-                            <div class="pro-price">
-                                <span>@((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span>
-                                <span>@item.brank</span>
-                            </div>
-                            <div class="pro-sub">
-                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">Chọn mua</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-
         </div>
     </div>
 </div>
+

@@ -2,7 +2,8 @@
 @{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
-    var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
+    var advLeft = (NTSPRODUCT.Models.Adv)ViewBag.advLeft;
+    var advRight = (NTSPRODUCT.Models.Adv)ViewBag.advRight;
     var sologan = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologan;
     bool isHome = ViewBag.isHome;
     var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
@@ -25,7 +26,7 @@
                                         @foreach (var item in cateParent)
                                         {
                                             <li class="nav-item ">
-                                                <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a>
+                                                <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName"><img src="@item.cateImage" alt="@item.cateName"><span>@item.cateName</span></a>
                                                 @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
                                             </li>
                                         }
@@ -37,9 +38,9 @@
                     @if (isHome)
                     {
                         <div class="banner-top">
-                            @if (adv != null)
+                            @if (advLeft != null)
                             {
-                                <a href="@adv.advLink" title="@adv.advName"><img src="@adv.advImage" alt="@adv.advName" width="100%"></a>
+                                <a href="@advLeft.advLink" title="@advLeft.advName"><img src="@advLeft.advImage" alt="@advLeft.advName" width="100%"></a>
                             }
                         </div>
                     }
@@ -88,7 +89,10 @@
                                 </div>
                                 <div class="col-md-3 col-xs-12 slide-right">
                                     <div class="baner-right">
-                                        <a href=""><img src="~/Content/CssSite/images/vxcsdf.png" alt="" width="100%"></a>
+                                        @if (advRight != null)
+                                        {
+                                            <a href="@advRight.advLink" title="@advRight.advName"><img src="@advRight.advImage" alt="@advRight.advName" width="100%"></a>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -124,4 +128,25 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="menu-mobile desktop-none">
+    <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
+    <div id="overlay"></div>
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Item 01</a></li>
+            <li><a href="#">Item 02</a></li>
+            <li>
+                <a href="#">Item 03</a>
+                <ul>
+                    <li><a href="#">Submenu 01</a></li>
+                    <li><a href="#">Submenu 02</a></li>
+                    <li><a href="#">Submenu 03</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Item 04</a></li>
+            <li><a href="#">Item 05</a></li>
+        </ul>
+    </nav>
 </div>

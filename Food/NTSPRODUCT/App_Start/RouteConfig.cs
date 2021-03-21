@@ -67,7 +67,7 @@ namespace NTSPRODUCT
             routes.MapRoute(
             name: "hot",
             url: "top-ban-chay",
-            defaults: new { controller = "ProductSite", action = "Index", id = "hot" }
+            defaults: new { controller = "ProductSite", action = "Index", id = "bc" }
         );
             routes.MapRoute(
             name: "Tim-kiem tin",

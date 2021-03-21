@@ -992,6 +992,8 @@ E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.ApplicationInsights.d
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -1021,6 +1023,10 @@ E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryCha
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AI.Web.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\System.Web.Helpers.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\System.Web.Mvc.xml
