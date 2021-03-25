@@ -336,7 +336,7 @@ public class ClassExten
                 rs += "<ul class='dropdown-menu'>";
                 foreach (var item in cate)
                 {
-                    rs += "<li class='nav-item'><a class='nav-link' href='/Tin-tuc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
+                    rs += "<li class='nav-item'><a class='nav-link' href='/danh-muc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
                 }
                 rs += "</ul>";
             }
@@ -345,7 +345,27 @@ public class ClassExten
         { }
         return rs;
     }
-
+    public static string GetCateNewChildMobile(string idcha, List<Category> list)
+    {
+        string rs = "";
+        try
+        {
+            var cate = list.Where(u => u.catepar_id.Equals(idcha)).OrderBy(u => u.cateOrder).ToList();
+            if (cate.Count > 0)
+            {
+                rs += "";
+                rs += "<ul >";
+                foreach (var item in cate)
+                {
+                    rs += "<li><a href='/danh-muc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
+                }
+                rs += "</ul>";
+            }
+        }
+        catch (Exception)
+        { }
+        return rs;
+    }
     public static string GetCateLib(int tyepe, string idCate)
     {
         string rs = "";

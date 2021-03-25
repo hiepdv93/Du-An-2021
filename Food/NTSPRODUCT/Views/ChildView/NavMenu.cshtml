@@ -8,6 +8,7 @@
     bool isHome = ViewBag.isHome;
     var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
     var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
+    var isMobile = Request.Browser.IsMobileDevice;
 }
 
 <div class="nav-top">
@@ -21,17 +22,20 @@
                                 <h2 class="title-head"><span><img src="~/Content/CssSite/images/danh-mục.png" alt="Danh mục"></span><span class="hred">Danh mục</span></h2>
                             </div>
                             <div class="aside-content">
-                                <nav class="nav-category  navbar-toggleable-md">
-                                    <ul class="nav navbar-pills">
-                                        @foreach (var item in cateParent)
-                                        {
-                                            <li class="nav-item ">
-                                                <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName"><img src="@item.cateImage" alt="@item.cateName"><span>@item.cateName</span></a>
-                                                @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
-                                            </li>
-                                        }
-                                    </ul>
-                                </nav>
+                                @if (!isMobile)
+                                {
+                                    <nav class="nav-category  navbar-toggleable-md">
+                                        <ul class="nav navbar-pills">
+                                            @foreach (var item in cateParent)
+                                            {
+                                                <li class="nav-item ">
+                                                    <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName"><img src="@item.cateImage" alt="@item.cateName"><span>@item.cateName</span></a>
+                                                    @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
+                                                </li>
+                                            }
+                                        </ul>
+                                    </nav>
+                                }
                             </div>
                         </aside>
                     </div>
@@ -101,14 +105,7 @@
                     @if (sologan != null)
                     {
                         <div class="row">
-                            <div class="about-home">
-                                <div class="about-head">
-                                    <h4 class="ab-title">Về chúng tôi</h4>
-                                </div>
-                                <div class="about-conten">
-                                    @Html.Raw(conf.infoPage)
-                                </div>
-                            </div>
+                           
                             <div class="about-bottom">
                                 @foreach (var item in sologan)
                                 {
@@ -129,24 +126,21 @@
         </div>
     </div>
 </div>
-
-<div class="menu-mobile desktop-none">
-    <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
-    <div id="overlay"></div>
-    <nav id="menu">
-        <ul>
-            <li><a href="#">Item 01</a></li>
-            <li><a href="#">Item 02</a></li>
-            <li>
-                <a href="#">Item 03</a>
-                <ul>
-                    <li><a href="#">Submenu 01</a></li>
-                    <li><a href="#">Submenu 02</a></li>
-                    <li><a href="#">Submenu 03</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Item 04</a></li>
-            <li><a href="#">Item 05</a></li>
-        </ul>
-    </nav>
-</div>
+@if (isMobile)
+{
+    <div class="menu-mobile desktop-none">
+        <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
+        <div id="overlay"></div>
+        <nav id="menu">
+            <ul>
+                @foreach (var item in cateParent)
+                {
+                    <li>
+                        <a href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a>
+                        @Html.Raw(ClassExten.GetCateNewChildMobile(item.id, cateChild))
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+}
