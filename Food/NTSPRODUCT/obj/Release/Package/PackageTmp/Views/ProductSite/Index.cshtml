@@ -3,6 +3,7 @@
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     Layout = "~/Views/Shared/_Layout.cshtml";
+	 float pt = 0;
 }
 @Html.Action("NavMenu", "ChildView")
 
@@ -43,7 +44,7 @@
                         {
                             foreach (var item in Model)
                             {
-                                <div class="col-md-3 col-xs-12 col-sm-12">
+                                <div class="col-md-3 col-xs-6 col-sm-6">
                                     <div class="product-item">
                                         <div class="image">
                                             <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">

@@ -141,7 +141,7 @@ namespace NTSPRODUCT.Controllers
                 var newHot = f["newHot"];
                 var newStatus = f["newStatus"];
                 var newNew = f["newNew"];
-               // string key = StringClass.NameToTag(data.title.ToLower()).Replace(" ", "").Replace(System.Environment.NewLine, string.Empty);
+                // string key = StringClass.NameToTag(data.title.ToLower()).Replace(" ", "").Replace(System.Environment.NewLine, string.Empty);
                 data.new_key = f["new_key"];// checkTrung(key);
 
                 data.newHot = newHot == null ? false : true;
@@ -273,6 +273,23 @@ namespace NTSPRODUCT.Controllers
                 }
             }
         }
+        public ActionResult ChangeOrder(string id, int newOrder)
+        {
+            var data = db.News.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.newOrder = newOrder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+
         [MyAuthorize]
         public ActionResult ChangeStatus(string id)
         {

@@ -3,7 +3,7 @@
     var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
     var proBanChay = (List<NTSPRODUCT.Models.Product>)ViewBag.proBanChay;
 
-    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    // var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
     var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
 
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
@@ -194,12 +194,37 @@
         </div>
     </div>
 </div>
+
+
+
 <div class="y-ken">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-xs-12">
-                <div class="video-home">
+                <div class="row">
                     @Html.Raw(conf.homeVideo)
+
+                    @*<div class="col-md-6 col-xs-12">
+                        <div class="video-home">
+                            <iframe width="100%" height="150" src="https://www.youtube.com/embed/hLGinlqQOfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="video-home">
+                            <iframe width="100%" height="150" src="https://www.youtube.com/embed/hLGinlqQOfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="video-home">
+                            <iframe width="100%" height="150" src="https://www.youtube.com/embed/hLGinlqQOfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="video-home">
+                            <iframe width="100%" height="150" src="https://www.youtube.com/embed/hLGinlqQOfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>*@
+
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
@@ -211,41 +236,15 @@
                         @Html.Raw(conf.infoPage)
                     </div>
                 </div>
-                <div class="facebook-home">
-                    <h3>Facebook Page</h3>
-                    <div class="page-fb">
-                        @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
-                        @Html.Raw(fb)
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="fapage">
+                            @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='120' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
+                            @Html.Raw(fb)
+                            @*<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftazweb.thietkewebsitechuanseo&tabs=timeline&width=340&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=115260129092655" width="100%" height="120" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>*@
+                        </div>
                     </div>
                 </div>
-
-                @*<div class="y-kien-right">
-                        <div class="pro-title">
-                            <h3>Ý kiến khách hàng</h3>
-                        </div>
-                        <div class="y-kien-contet">
-                            <div class="row">
-                                @foreach (var item in SayWe)
-                                {
-                                    <div class="yk-item">
-                                        <div class="col-md-3 col-xs-12">
-                                            <div class="yk-img">
-                                                <span><img src="@item.avata" alt="@item.fullName"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-9 col-xs-12">
-                                            <div class="k-cont">
-                                                <p class="cont">@item.contents</p>
-                                                <p class="cont-name">@item.fullName - @item.addresss</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
-                    </div>*@
-
             </div>
         </div>
     </div>

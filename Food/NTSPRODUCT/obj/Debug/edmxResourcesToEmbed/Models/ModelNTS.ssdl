@@ -128,6 +128,9 @@
     <Property Name="infoPage" Type="ntext" />
     <Property Name="favicon" Type="nvarchar" MaxLength="350" />
     <Property Name="langDefault" Type="varchar" MaxLength="10" />
+    <Property Name="viewProBy" Type="int" />
+    <Property Name="viewPercen" Type="bit" />
+    <Property Name="viewPrice" Type="int" />
   </EntityType>
   <EntityType Name="Contacts">
     <Key>
@@ -197,6 +200,16 @@
     <Property Name="contents" Type="nvarchar(max)" />
     <Property Name="lang" Type="nvarchar" MaxLength="50" />
     <Property Name="createDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="viewDay" Type="int" Nullable="false" />
+    <Property Name="viewMonth" Type="int" Nullable="false" />
+    <Property Name="viewYear" Type="int" Nullable="false" />
+    <Property Name="countTotal" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Menus">
     <Key>
@@ -435,6 +448,7 @@
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />

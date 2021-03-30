@@ -53,7 +53,7 @@ namespace NTSPRODUCT.Controllers.Site
             int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 12;
             int numNew = conf.viewNewPageHome != null ? conf.viewNewPageHome.Value : 5;
             var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
-            var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
+           // var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
 
             var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
             var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
@@ -61,18 +61,18 @@ namespace NTSPRODUCT.Controllers.Site
             List<string> cateId = null;
             List<ProductModel> proHome = new List<ProductModel>();
             ProductModel productModel;
-            var cateHome = lstCate.Where(u => u.cateActiveHome == true).ToList();//lấy ra nhóm hiển thị trang chủ
+            var cateHome = lstCate.Where(u => u.cateActiveHome == true).OrderBy(u => u.cateOrder).ToList();//lấy ra nhóm hiển thị trang chủ
             foreach (var item in cateHome)
             {
                 cateId = GetListId(item.id, item.cate_cap.Value, lstCate);
                 productModel = new ProductModel();
                 productModel.cate = item;
-                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).ToList();
+                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).OrderBy(u => u.proOrder).ToList();
                 proHome.Add(productModel);
             }
 
             ViewBag.newsHot = newsHot;
-            ViewBag.SayWe = SayWe;
+           // ViewBag.SayWe = SayWe;
 
             ViewBag.lang = lang;
             ViewBag.conf = conf;

@@ -1,0 +1,16 @@
+.y-kien-kh .pro-right-2 {
+    margin: 0;
+    padding: 0;
+}
+.y-kien-cont .right-2-text {
+    width: 50%;
+    float: left;
+}
+.y-kien-cont .right-2-img {
+    width: 48%;
+    float: left;
+    padding-right: 10px;
+}
+.video-home {
+    margin-top: 10px;
+}

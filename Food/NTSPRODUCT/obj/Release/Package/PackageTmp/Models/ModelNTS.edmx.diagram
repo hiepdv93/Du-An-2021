@@ -28,8 +28,9 @@
         <AssociationConnector Association="NTSWEBModel.FK__News__groupid__1BFD2C07" />
         <AssociationConnector Association="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1" />
         <EntityTypeShape EntityType="NTSWEBModel.Tagpro" Width="1.5" PointX="14.375" PointY="12.75" />
-        <EntityTypeShape EntityType="NTSWEBModel.Config" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="NTSWEBModel.Product" Width="1.5" PointX="11.375" PointY="13.75" />
+        <EntityTypeShape EntityType="NTSWEBModel.Config" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NTSWEBModel.LichSuTruyCap" Width="1.5" PointX="2.75" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

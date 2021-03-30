@@ -16,6 +16,11 @@ public class ClassExten
 
     static NTSWEBEntities db = new NTSWEBEntities();
     public static DataTable langData;
+    public class ViewPro
+    {
+        public const int ThuTu = 1;
+        public const int NgayTao = 2;
+    }
     public class Bill_Status
     {
         public const int MoiTao = 1;

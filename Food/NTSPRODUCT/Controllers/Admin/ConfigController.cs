@@ -18,7 +18,7 @@ namespace NTSPRODUCT.Controllers
         [MyAuthorize]
         public ActionResult Index()
         {
-            var data = db.Configs.FirstOrDefault(u => u.conLang == lang );
+            var data = db.Configs.FirstOrDefault(u => u.conLang == lang);
             return View(data);
         }
         #endregion
@@ -31,7 +31,7 @@ namespace NTSPRODUCT.Controllers
         {
             try
             {
-                var idupdate =f["idupdate"];
+                var idupdate = f["idupdate"];
                 var data = db.Configs.First(u => u.id == idupdate);
 
                 data.shopName = f["shopname"];
@@ -81,6 +81,10 @@ namespace NTSPRODUCT.Controllers
                 data.zaloChat = f["zaloChat"];
                 data.langDefault = f["langDefault"];
 
+                int viewProBy = 1;
+                Int32.TryParse(f["viewProBy"], out viewProBy);
+                data.viewProBy = viewProBy;
+
                 db.SaveChanges();
                 ConfigModel.listConfig = null;
                 Session["ok"] = "Cập nhật thành công!";
@@ -109,7 +113,7 @@ namespace NTSPRODUCT.Controllers
         public ActionResult ChangeLangAdmin(string lang)
         {
             ClassExten.Changelang(lang);
-            return Json(JsonRequestBehavior.AllowGet,"ok");
+            return Json(JsonRequestBehavior.AllowGet, "ok");
         }
 
         public ActionResult ChangeLangSite(string lang)

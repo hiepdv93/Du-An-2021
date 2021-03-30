@@ -18,7 +18,7 @@ namespace NTSPRODUCT.Controllers
         [MyAuthorize]
         public ActionResult Deletepro(string id)
         {
-        
+
             var cateChild = db.Categorys.FirstOrDefault(u => u.catepar_id.Equals(id));
             if (cateChild != null)
             {
@@ -362,7 +362,7 @@ namespace NTSPRODUCT.Controllers
                 cate.cateDescription = fr["cateDescription"];
                 cate.cateKey = checkTrung(key, ClassExten.typeNew);
                 cate.cateType = ClassExten.typeNew;
-        
+
                 cate.cateActiveHome = ckHome == null ? false : true;
                 cate.cateActive = ckActive == null ? false : true;
                 cate.cateLang = lang;
@@ -465,7 +465,7 @@ namespace NTSPRODUCT.Controllers
         public ActionResult ChangeStatus(string id)
         {
             var data = db.Categorys.First(u => u.id == id);
-            if (data==null)
+            if (data == null)
             {
                 return Json(new { ok = false, mess = "Bản ghi này đã bị xóa bởi người dùng khác!" }, JsonRequestBehavior.AllowGet);
             }
@@ -499,5 +499,23 @@ namespace NTSPRODUCT.Controllers
                 return Json(new { ok = false, mess = "Phát sinh lỗi vui lòn thử lại!" }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult ChangeOrder(string id, int cateOrder)
+        {
+            var data = db.Categorys.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.cateOrder = cateOrder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+
     }
 }

@@ -189,6 +189,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Sắp xếp sản phẩm quản trị</label>
+                                        <select name="viewProBy" id="viewProBy" class="form-control">
+                                            <option value="1">Thứ tự</option>
+                                            <option value="2">Ngày tạo</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -280,7 +288,7 @@
 @if (Session["erro"] != null) { Session["erro"] = null; }
 
 <script type="text/javascript">
-
+    $('#viewProBy').val('@Model.viewProBy');
     var editor;
     function createEditor(languageCode, id) {
         var editor = CKEDITOR.replace(id, {
@@ -341,5 +349,5 @@
             finder.popup();
         });
     });
-    
+
 </script>

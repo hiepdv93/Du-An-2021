@@ -133,6 +133,9 @@
           <Property Name="infoPage" Type="ntext" />
           <Property Name="favicon" Type="nvarchar" MaxLength="350" />
           <Property Name="langDefault" Type="varchar" MaxLength="10" />
+          <Property Name="viewProBy" Type="int" />
+          <Property Name="viewPercen" Type="bit" />
+          <Property Name="viewPrice" Type="int" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -202,6 +205,16 @@
           <Property Name="contents" Type="nvarchar(max)" />
           <Property Name="lang" Type="nvarchar" MaxLength="50" />
           <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LichSuTruyCap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="viewDay" Type="int" Nullable="false" />
+          <Property Name="viewMonth" Type="int" Nullable="false" />
+          <Property Name="viewYear" Type="int" Nullable="false" />
+          <Property Name="countTotal" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Menus">
           <Key>
@@ -440,6 +453,7 @@
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />
@@ -495,8 +509,9 @@
             <End Role="Oderdt" EntitySet="Oderdts" />
           </AssociationSet>
           <EntitySet Name="Tagproes" EntityType="NTSWEBModel.Tagpro" />
-          <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
           <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
+          <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
+          <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -842,6 +857,42 @@
           <Property Name="tagOrder" Type="Int32" />
           <Property Name="lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="proPrice" Type="Int32" />
+          <Property Name="proPrice_sale" Type="Int32" />
+          <Property Name="pro_view" Type="Int32" />
+          <Property Name="proOrder" Type="Int32" />
+          <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proImages1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
+          <Property Name="brank" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pro_home" Type="Boolean" />
+          <Property Name="pro_sale" Type="Boolean" />
+          <Property Name="pro_hot" Type="Boolean" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Config">
           <Key>
             <PropertyRef Name="id" />
@@ -888,42 +939,19 @@
           <Property Name="infoPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="favicon" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
           <Property Name="langDefault" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="viewProBy" Type="Int32" />
+          <Property Name="viewPercen" Type="Boolean" />
+          <Property Name="viewPrice" Type="Int32" />
         </EntityType>
-        <EntityType Name="Product">
+        <EntityType Name="LichSuTruyCap">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pro_name" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="pro_key" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="proPrice" Type="Int32" />
-          <Property Name="proPrice_sale" Type="Int32" />
-          <Property Name="pro_view" Type="Int32" />
-          <Property Name="proOrder" Type="Int32" />
-          <Property Name="proAvata" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proImages5" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proImages4" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proImages3" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proImages2" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proImages1" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="proFile" Type="String" MaxLength="456" FixedLength="false" Unicode="true" />
-          <Property Name="brank" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="desPro" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="proContentTab1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="proContentTab2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="introContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="pro_home" Type="Boolean" />
-          <Property Name="pro_sale" Type="Boolean" />
-          <Property Name="pro_hot" Type="Boolean" />
-          <Property Name="active" Type="Boolean" />
-          <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-          <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="createDate" Type="DateTime" Precision="3" />
-          <Property Name="updateDate" Type="DateTime" Precision="3" />
-          <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="viewDay" Type="Int32" Nullable="false" />
+          <Property Name="viewMonth" Type="Int32" Nullable="false" />
+          <Property Name="viewYear" Type="Int32" Nullable="false" />
+          <Property Name="countTotal" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1264,9 +1292,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="NTSWEBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="cateId" ColumnName="cateId" />
+                <ScalarProperty Name="pLang" ColumnName="pLang" />
+                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+                <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+                <ScalarProperty Name="pro_home" ColumnName="pro_home" />
+                <ScalarProperty Name="introContent" ColumnName="introContent" />
+                <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
+                <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
+                <ScalarProperty Name="desPro" ColumnName="desPro" />
+                <ScalarProperty Name="brank" ColumnName="brank" />
+                <ScalarProperty Name="proFile" ColumnName="proFile" />
+                <ScalarProperty Name="proImages1" ColumnName="proImages1" />
+                <ScalarProperty Name="proImages2" ColumnName="proImages2" />
+                <ScalarProperty Name="proImages3" ColumnName="proImages3" />
+                <ScalarProperty Name="proImages4" ColumnName="proImages4" />
+                <ScalarProperty Name="proImages5" ColumnName="proImages5" />
+                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+                <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+                <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Configs">
             <EntityTypeMapping TypeName="NTSWEBModel.Config">
               <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="viewPrice" ColumnName="viewPrice" />
+                <ScalarProperty Name="viewPercen" ColumnName="viewPercen" />
+                <ScalarProperty Name="viewProBy" ColumnName="viewProBy" />
                 <ScalarProperty Name="langDefault" ColumnName="langDefault" />
                 <ScalarProperty Name="favicon" ColumnName="favicon" />
                 <ScalarProperty Name="infoPage" ColumnName="infoPage" />
@@ -1312,39 +1380,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="NTSWEBModel.Product">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="brandId" ColumnName="brandId" />
-                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="cateId" ColumnName="cateId" />
-                <ScalarProperty Name="pLang" ColumnName="pLang" />
-                <ScalarProperty Name="desSeo" ColumnName="desSeo" />
-                <ScalarProperty Name="keySeo" ColumnName="keySeo" />
-                <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
-                <ScalarProperty Name="active" ColumnName="active" />
-                <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
-                <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
-                <ScalarProperty Name="pro_home" ColumnName="pro_home" />
-                <ScalarProperty Name="introContent" ColumnName="introContent" />
-                <ScalarProperty Name="proContentTab2" ColumnName="proContentTab2" />
-                <ScalarProperty Name="proContentTab1" ColumnName="proContentTab1" />
-                <ScalarProperty Name="desPro" ColumnName="desPro" />
-                <ScalarProperty Name="brank" ColumnName="brank" />
-                <ScalarProperty Name="proFile" ColumnName="proFile" />
-                <ScalarProperty Name="proImages1" ColumnName="proImages1" />
-                <ScalarProperty Name="proImages2" ColumnName="proImages2" />
-                <ScalarProperty Name="proImages3" ColumnName="proImages3" />
-                <ScalarProperty Name="proImages4" ColumnName="proImages4" />
-                <ScalarProperty Name="proImages5" ColumnName="proImages5" />
-                <ScalarProperty Name="proAvata" ColumnName="proAvata" />
-                <ScalarProperty Name="proOrder" ColumnName="proOrder" />
-                <ScalarProperty Name="pro_view" ColumnName="pro_view" />
-                <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
-                <ScalarProperty Name="proPrice" ColumnName="proPrice" />
-                <ScalarProperty Name="pro_key" ColumnName="pro_key" />
-                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <EntitySetMapping Name="LichSuTruyCaps">
+            <EntityTypeMapping TypeName="NTSWEBModel.LichSuTruyCap">
+              <MappingFragment StoreEntitySet="LichSuTruyCap">
+                <ScalarProperty Name="countTotal" ColumnName="countTotal" />
+                <ScalarProperty Name="viewYear" ColumnName="viewYear" />
+                <ScalarProperty Name="viewMonth" ColumnName="viewMonth" />
+                <ScalarProperty Name="viewDay" ColumnName="viewDay" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

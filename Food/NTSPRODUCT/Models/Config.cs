@@ -56,5 +56,8 @@ namespace NTSPRODUCT.Models
         public string infoPage { get; set; }
         public string favicon { get; set; }
         public string langDefault { get; set; }
+        public Nullable<int> viewProBy { get; set; }
+        public Nullable<bool> viewPercen { get; set; }
+        public Nullable<int> viewPrice { get; set; }
     }
 }

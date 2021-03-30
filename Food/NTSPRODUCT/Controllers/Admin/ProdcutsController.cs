@@ -23,13 +23,27 @@ namespace NTSPRODUCT.Controllers
         [MyAuthorize]
         public ActionResult GetList(SearchModel model)
         {
+            Config conf;
+            if (ConfigModel.listConfig == null)
+            {
+                ConfigModel.listConfig = db.Configs.ToList();
+            }
+            conf = ConfigModel.listConfig.FirstOrDefault();
+
             var all = (from a in db.Products.AsNoTracking()
                        where a.pLang.Equals(lang)
                        && (string.IsNullOrEmpty(model.CateId) || a.cateId.Equals(model.CateId))
                       && (string.IsNullOrEmpty(model.Name) || a.pro_name.ToLower().Contains(model.Name.ToLower()))
-                       orderby a.createDate descending
+                       //orderby a.createDate descending
                        select a).AsQueryable();
-
+            if (conf.viewProBy == ClassExten.ViewPro.ThuTu)
+            {
+                all = all.OrderBy(u => u.proOrder);
+            }
+            else
+            {
+                all = all.OrderByDescending(u => u.createDate);
+            }
             var numOfNews = all.Select(u => u.id).Count();
             var currPage = model.PageNumber - 1;
             var data = all.Skip((model.PageNumber - 1) * model.PageSize).Take(model.PageSize).ToList();
@@ -388,6 +402,22 @@ namespace NTSPRODUCT.Controllers
                     {
                         data.active = Constants.Checked;
                     }
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+        public ActionResult ChangeOrder(string id, int proOrder)
+        {
+            var data = db.Products.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.proOrder = proOrder;
                     db.SaveChanges();
                     return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
                 }

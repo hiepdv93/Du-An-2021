@@ -5,8 +5,9 @@
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
     var protag = (List<NTSPRODUCT.Models.Tagpro>)ViewBag.protag;
-    var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+  //  var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
     var newsPro = (List<NTSPRODUCT.Models.News>)ViewBag.newsPro;
+    var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
     var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
 
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -111,41 +112,31 @@
                 {
                     <div class="pag-banner-right">
                         <a href="@adv.advLink" title="@adv.advName"><img src="@adv.advImage" alt="@adv.advName"></a>
-
                     </div>
                 }
+
                 <div class="y-kien-kh">
                     <div class="tile">
-                        <h4>ý kiến khách hàng</h4>
+                        <h4>Bài viết liên quan</h4>
                     </div>
                     <div class="y-kien-cont">
-                        <div class="row">
-                            @foreach (var item in SayWe)
+                        <div class="pro-right-2">
+                            @foreach (var item in newsHot)
                             {
-                                <div class="yk-item">
-                                    <div class="col-md-4 col-xs-12">
-                                        <div class="yk-img">
-                                            <span><img src="@item.avata" alt="@item.fullName"></span>
-                                        </div>
+                                <div class="pro-right-2-item">
+                                    <div class="right-2-img">
+                                        <a href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
                                     </div>
-                                    <div class="col-md-8 col-xs-12">
-                                        <div class="yk-name">
-                                            <p class="name">@item.fullName</p>
-                                            <p class="adrees">@item.addresss</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-xs-12">
-                                        <div class="yk-cont">
-                                            <p>@item.contents </p>
-                                        </div>
+                                    <div class="right-2-text">
+                                        <a href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 38)</a>
                                     </div>
                                 </div>
                             }
-
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

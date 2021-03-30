@@ -2,6 +2,7 @@
     ViewBag.Title = "Administrator - Danh sách sản phẩm";
     ViewBag.controller = "Quản lý sản phẩm";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string cateId = Request["cateId"];
 }
 
 <!-- SELECT2 EXAMPLE -->
@@ -15,14 +16,19 @@
     <!-- /.box-header -->
     <div class="box-body">
         <div class="row">
-          
+
             <div class="col-md-3">
                 <select name="cateSearch" id="cateSearch" class="form-control">
                     <option value="">Tất cả danh mục</option>
                     @Html.Action("GetCateSearch", "ImportView", new { type = ClassExten.typeProduct })
                 </select>
             </div>
-          
+            @if (!string.IsNullOrEmpty(cateId))
+            {
+                <script>
+                    $('#cateSearch').val('@cateId');
+                </script>
+            }
             <div class="col-md-3">
                 <input type="text" id="nameSearch" class="form-control" placeholder="sản phẩm.." />
             </div>
