@@ -1225,3 +1225,4 @@ E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileIn
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
