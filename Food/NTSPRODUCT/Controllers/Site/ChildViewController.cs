@@ -163,6 +163,8 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
             ViewBag.conf = conf;
+
+            var menu = db.Menus.Where(u => u.mPosition == 1 && u.active == true && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
             var advLeft = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
             var advRight = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 2);//quảng cáo phải slide
             ViewBag.advLeft = advLeft;
@@ -180,6 +182,7 @@ namespace NTSPRODUCT.Controllers.Site
                 isHome = true;
             }
             ViewBag.isHome = isHome;
+            ViewBag.menu = menu;
 
             return PartialView(allCate);
         }

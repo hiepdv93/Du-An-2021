@@ -1,6 +1,8 @@
 ﻿@model IList<NTSPRODUCT.Models.Category>
 @{
+
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
     var advLeft = (NTSPRODUCT.Models.Adv)ViewBag.advLeft;
     var advRight = (NTSPRODUCT.Models.Adv)ViewBag.advRight;
@@ -53,18 +55,34 @@
                 <div class="col-md-9 col-xs-12">
                     <div class="row">
                         <div class="nav-right-slide">
-                            <div class="col-md-3 col-xs-12">
-                                <div class="nav-sale">
-                                    <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
-                                    <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
+                            @if (menu.Count > 0)
+                            {
+                                foreach (var item in menu)
+                                {
+                                    <div class="col-md-2 col-xs-3">
+                                        <div class="nav-sale">
+                                            
+                                            <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="col-md-3 col-xs-12">
+                                    <div class="nav-sale">
+                                        <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
+                                        <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 col-xs-12">
-                                <div class="nav-banch">
-                                    <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
-                                    <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
+                                <div class="col-md-3 col-xs-12">
+                                    <div class="nav-banch">
+                                        <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
+                                        <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
+                                    </div>
                                 </div>
-                            </div>
+                            }
+
                         </div>
                     </div>
                     @if (slide != null)
@@ -102,10 +120,10 @@
                             </div>
                         </div>
                     }
-                    @if (sologan != null)
+                    @if (sologan != null && isMobile == false)
                     {
                         <div class="row">
-                           
+
                             <div class="about-bottom">
                                 @foreach (var item in sologan)
                                 {

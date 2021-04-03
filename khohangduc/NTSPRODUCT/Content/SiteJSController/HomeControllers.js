@@ -221,7 +221,7 @@ function AddCart() {
     }
 }
 
-function PushCount() {
+function ActionPush() {
     try {
         $.ajax({
             url: "/HomeSite/PushCount",
@@ -238,4 +238,8 @@ function PushCount() {
             },
         });
     } catch (e) { }
+}
+function PushCount() {
+    setTimeout(function () { ActionPush(); }, 3000);
+
 }

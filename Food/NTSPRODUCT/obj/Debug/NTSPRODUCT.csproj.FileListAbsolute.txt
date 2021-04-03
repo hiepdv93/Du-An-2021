@@ -1221,8 +1221,8 @@ E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
-E:\Project Old\DuAnWeb\Food\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache

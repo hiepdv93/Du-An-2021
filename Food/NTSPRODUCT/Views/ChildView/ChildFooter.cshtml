@@ -8,13 +8,13 @@
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-xs-12">
+            <div class="col-md-12 col-xs-12">
                 <div class="row">
                     @foreach (var item in cateParent)
                     {
                         lstChild = Model.Where(u => u.par_id.Equals(item.id)).OrderBy(u => u.mOrder).ToList();
 
-                        <div class="col-md-3 col-xs-12">
+                        <div class="col-md-2 col-xs-6">
                             <div class="nav-footer">
                                 <div class="title-nav-footer">
                                     <h3> <a href="@item.link" title="@item.name">@item.name</a></h3>
@@ -35,11 +35,11 @@
 
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12">
+            @*<div class="col-md-4 col-xs-12">
                 <div class="banner-footer">
                     <a  href="/" title="@conf.shopName"><img src="@conf.linkLogo" alt="@conf.shopName"></a>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="row">
             <div class="footer2">
