@@ -14,14 +14,33 @@ namespace NTSPRODUCT.Controllers
         public ActionResult Index()
         {
             var dateNow = DateTime.Now;
-            var lichsu = db.LichSuTruyCaps.Where(u => u.viewMonth == dateNow.Month && u.viewYear == dateNow.Year).ToList();
+            var lichsu = db.LichSuTruyCaps.Where(u => u.viewYear == dateNow.Year).ToList();
+            //biểu đồ theo tháng
+            List<int> lstThang = new List<int>();
+            for (int i = 1; i < 13; i++)
+            {
+                lstThang.Add(lichsu.Where(u => u.viewMonth == i).Sum(u => u.countTotal));
+            }
+            ViewBag.dataChart = string.Join(",", lstThang);
+
+            //biểu đồ theo ngày
+            DateTime dateTemp;
+            List<int> lstTuan = new List<int>();
+            List<string> lstTitleTuan = new List<string>();
+            for (int i = 7; i >=1; i--)
+            {
+                dateTemp = dateNow.AddDays(i*-1);
+                lstTuan.Add(lichsu.Where(u => u.viewMonth == dateTemp.Month && u.viewDay== dateTemp.Day).Sum(u => u.countTotal));
+                lstTitleTuan.Add(dateTemp.ToString("dd/MM"));
+            }
+            ViewBag.dataChartTuan = string.Join(",", lstTuan);
+            ViewBag.dataTitleTuan = string.Join(",", lstTitleTuan);
             try
             {
                 ViewBag.proCount = db.Products.Where(u => u.pLang.Equals(lang)).Select(u => u.id).Count();
                 ViewBag.newsCount = db.News.Where(u => u.newLang.Equals(lang)).Select(u => u.id).Count();
                 ViewBag.teacherCount = db.Oders.Select(u => u.id).Count();
                 ViewBag.contactCount = db.Contacts.Select(u => u.id).Count();
-
             }
             catch (Exception)
             { }
