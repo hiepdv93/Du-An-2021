@@ -146,7 +146,7 @@
 
     <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
     <script src="@Url.Content("~/signalr/hubs")"></script>
-    <div id="count_online" style="color:red; font-weight:bold"></div>
+    @*<div id="count_online" style="color:red; font-weight:bold"></div>*@
     <script>
         new WOW().init();
     </script>
@@ -196,9 +196,11 @@
             console.log('ok');
             PushCount();
         });
-        counterHub.client.updateCount = function (count, counterAll) {
+        counterHub.client.updateCount = function (count, counterAll, counterMonth) {
             console.log(count + '---' + counterAll);
-            $('#count_online').text(count + '---' + counterAll);
+            $('#count_online').text(count);
+            $('#counterAll').text(counterAll);
+            $('#counterMonth').text(counterMonth);
         }
 
 

@@ -5,7 +5,7 @@
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
     var protag = (List<NTSPRODUCT.Models.Tagpro>)ViewBag.protag;
-  //  var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    //  var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
     var newsPro = (List<NTSPRODUCT.Models.News>)ViewBag.newsPro;
     var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
     var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
@@ -14,23 +14,41 @@
 }
 
 @Html.Action("NavMenu", "ChildView")
+
 <div class="product-de">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-xs-12">
                 <div class="breack">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
-                            <nav class="nav-bre" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
-                                    <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
-                                    <li class="breadcrumb-item"><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@cateP.cateName</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@pro.pro_name">@pro.pro_name</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </nav>
+
+                    <ul class="breadcrumb" itemscope="">
+                        <li class="home">
+                            <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li class="home">
+                            <a itemprop="url" href="/danh-muc" title="Sản phẩm"><span itemprop="title">Sản phẩm</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li class="home">
+                            <a itemprop="url" href="/danh-muc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li><strong><span itemprop="title">@pro.pro_name</span></strong></li>
+                    </ul>
+
+                    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <div class="container-fluid">
+                                <nav class="nav-bre" aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
+                                        <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
+                                        <li class="breadcrumb-item"><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@cateP.cateName</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@pro.pro_name">@pro.pro_name</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </nav>*@
                 </div>
                 <div class="detail-pro">
                     <div class="row">
@@ -140,6 +158,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="info-detai-pro">
     <div class="container">
         <div class="row">

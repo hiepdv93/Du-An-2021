@@ -197,11 +197,17 @@
 
     <div class="y-ken">
         <div class="container">
+            @if (isMobile)
+            {
+                <div class="titles">
+                        <span style="color:red">Kênh Youtube Tanson Foods</span>
+                </div>
+            }
             <div class="row list-video">
                 @Html.Raw(conf.homeVideo)
             </div>
             <div class="row intro-fanpage">
-                <div class="col-md-9 col-xs-7">
+                <div class="col-md-9 col-xs-12">
                     <div class="about-home">
                         <div class="about-head">
                             <h4 class="ab-title">Về chúng tôi</h4>
@@ -211,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-xs-5">
+                <div class="col-md-3 col-xs-12">
                     <div class="fapage">
                         @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='250' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
                         @Html.Raw(fb)

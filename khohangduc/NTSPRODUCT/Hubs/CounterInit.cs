@@ -21,7 +21,19 @@ namespace NTSPRODUCT.Hubs
             { }
             return countResult;
         }
+        public int GetCountMonth(int month,int year)
+        {
+            NTSWEBEntities db = new NTSWEBEntities();
 
+            int countResult = 0;
+            try
+            {
+                countResult = db.LichSuTruyCaps.Where(u=>u.viewMonth==month && u.viewYear==year).Sum(u => u.countTotal);
+            }
+            catch (Exception)
+            { }
+            return countResult;
+        }
         public void PushCount()
         {
             try

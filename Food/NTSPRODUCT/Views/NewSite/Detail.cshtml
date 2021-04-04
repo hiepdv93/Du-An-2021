@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
 }
-
+@Html.Action("NavMenu", "ChildView")
 <section class="bread-crumb">
     <span class="crumb-border"></span>
     <div class="container">

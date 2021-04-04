@@ -55,34 +55,28 @@
                 <div class="col-md-9 col-xs-12">
                     <div class="row">
                         <div class="nav-right-slide">
-                            @if (menu.Count > 0)
-                            {
-                                foreach (var item in menu)
-                                {
-                                    <div class="col-md-2 col-xs-3">
-                                        <div class="nav-sale">
-                                            
-                                            <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                            else
-                            {
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="nav-sale">
-                                        <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
-                                        <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="nav-banch">
-                                        <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
-                                        <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
-                                    </div>
-                                </div>
-                            }
-
+                            <ul class="nav navbar-pills menu-top">
+                                    @if (menu.Count > 0)
+                                    {
+                                        foreach (var item in menu)
+                                        {
+                                            <li class="nav-sale">
+                                                <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-sale">
+                                            <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
+                                            <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
+                                        </li>
+                                        <li class="nav-banch">
+                                            <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
+                                            <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
+                                        </li>
+                                    }
+                                </ul>
                         </div>
                     </div>
                     @if (slide != null)

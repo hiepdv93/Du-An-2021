@@ -2274,6 +2274,7 @@
     <Content Include="Views\Menus\NhomThuonghieu.cshtml" />
     <Content Include="Views\Prodcuts\AutoPro.cshtml" />
     <Content Include="Views\ProductSite\Tags.cshtml" />
+    <Content Include="Views\Home\Chart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

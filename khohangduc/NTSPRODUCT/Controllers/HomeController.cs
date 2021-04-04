@@ -13,9 +13,11 @@ namespace NTSPRODUCT.Controllers
         string lang = ClassExten.GetLang();
         public ActionResult Index()
         {
+            var dateNow = DateTime.Now;
+            var lichsu = db.LichSuTruyCaps.Where(u => u.viewMonth == dateNow.Month && u.viewYear == dateNow.Year).ToList();
             try
             {
-                ViewBag.proCount = db.Products.Where(u => u.pLang.Equals(lang) ).Select(u => u.id).Count();
+                ViewBag.proCount = db.Products.Where(u => u.pLang.Equals(lang)).Select(u => u.id).Count();
                 ViewBag.newsCount = db.News.Where(u => u.newLang.Equals(lang)).Select(u => u.id).Count();
                 ViewBag.teacherCount = db.Oders.Select(u => u.id).Count();
                 ViewBag.contactCount = db.Contacts.Select(u => u.id).Count();
@@ -23,7 +25,7 @@ namespace NTSPRODUCT.Controllers
             }
             catch (Exception)
             { }
-            return View();
+            return View(lichsu);
         }
 
         public ActionResult About()
@@ -37,6 +39,11 @@ namespace NTSPRODUCT.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Chart()
+        {
             return View();
         }
     }

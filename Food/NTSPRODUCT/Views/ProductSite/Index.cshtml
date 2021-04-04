@@ -7,36 +7,12 @@
 }
 @Html.Action("NavMenu", "ChildView")
 
-@*<div class="product-de">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-xs-12">
-                <div class="breack">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
-                            <nav class="nav-bre" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
-                                    <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")">@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </nav>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>*@
-
 <div class="product-list">
     <div class="container">
         <div class="row">
             <div class="pro-home">
                 <div class="titles">
-                    <span>@(cateP!=null? cateP.cateName: "Danh mục sản phẩm")</span>
+                    <span>@(cateP!=null? cateP.cateName: "Danh sách sản phẩm")</span>
                 </div>
                 <div class="product-wrapper">
                     <div class="row">
