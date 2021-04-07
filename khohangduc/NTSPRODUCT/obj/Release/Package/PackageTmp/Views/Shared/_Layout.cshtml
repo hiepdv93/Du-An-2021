@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/animate.css">
     <link href="~/Content/CssSite/css/lightslider.css" rel="stylesheet" />
     <link href="~/Content/CssSite/css/mobile.css" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/custom.css" rel="stylesheet" />
     <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
 
 
@@ -141,7 +142,11 @@
     <script src="~/Content/CssSite/js/maina.js"></script>
     <script src="~/Content/toastr/toastr.js"></script>
     <script src="~/Content/AdminJSController/script_validate.js"></script>
-    <script src="~/Content/SiteJSController/HomeControllers.js"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js?v=2.0"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="@Url.Content("~/signalr/hubs")"></script>
+    @*<div id="count_online" style="color:red; font-weight:bold"></div>*@
     <script>
         new WOW().init();
     </script>
@@ -175,15 +180,29 @@
             });
         });
 
-
-
-
         $('#owl-partner-home img').each(function (i, v) {
             if (i == 0) {
                 $('.section-category-img .center-block').attr('src', $(this).attr('src'));
                 $('.section-category-img .center-block').attr('alt', $(this).attr('alt'));
             }
         });
+
+    </script>
+
+    <script>
+        var counterHub = $.connection.counterHub;
+        $.connection.hub.start().done(function () {
+            console.clear();
+            console.log('ok');
+        });
+        counterHub.client.updateCount = function (count, counterAll, counterMonth) {
+            console.log(count + '---' + counterAll);
+            $('#count_online').text(count);
+            $('#counterAll').text(counterAll);
+            $('#counterMonth').text(counterMonth);
+        }
+
+        PushCount();
 
     </script>
 

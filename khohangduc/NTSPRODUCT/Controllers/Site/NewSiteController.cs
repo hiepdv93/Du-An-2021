@@ -114,6 +114,8 @@ namespace NTSPRODUCT.Controllers.Site
                 #region[lay cac bai lien quan]
                 newOther = db.News.Where(u => u.status == Constants.Active && u.groupId.Equals(newData.groupId) && !u.id.Equals(newData.id)).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
                 #endregion
+                newData.viewCount = (newData.viewCount!=null? newData.viewCount:1) + 1;
+                db.SaveChanges();
             }
             return View(newOther);
         }

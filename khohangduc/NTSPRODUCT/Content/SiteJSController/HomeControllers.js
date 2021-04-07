@@ -240,6 +240,6 @@ function ActionPush() {
     } catch (e) { }
 }
 function PushCount() {
-    setTimeout(function () { ActionPush(); }, 3000);
+    setTimeout(function () { ActionPush(); }, 2000);
 
 }

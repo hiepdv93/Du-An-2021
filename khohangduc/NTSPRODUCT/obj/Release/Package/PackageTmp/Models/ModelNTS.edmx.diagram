@@ -30,6 +30,7 @@
         <AssociationConnector Association="NTSWEBModel.FK__Oderdt__oderid__34C8D9D1" />
         <EntityTypeShape EntityType="NTSWEBModel.Tagpro" Width="1.5" PointX="14.375" PointY="12.75" />
         <EntityTypeShape EntityType="NTSWEBModel.Config" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="NTSWEBModel.LichSuTruyCap" Width="1.5" PointX="3.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

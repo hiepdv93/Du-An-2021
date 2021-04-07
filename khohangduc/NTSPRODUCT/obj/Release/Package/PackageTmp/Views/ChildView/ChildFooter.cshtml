@@ -1,77 +1,5 @@
-﻿@model IList<NTSPRODUCT.Models.Menu>
+﻿﻿@model IList<NTSPRODUCT.Models.Menu>
 @{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
-
-
-@*<footer class="footer">
-    <div class="site-footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="row">
-                    <div class="block block-cs col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <div class="footer-widget">
-                            <h4>
-                                <span>
-                                    THÔNG TIN LIÊN HỆ
-                                </span>
-                            </h4>
-                            @Html.Raw(conf.infoPage)
-                        </div>
-                    </div>
-
-                    <div class="block block-cs col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                        <div class="footer-widget">
-                            <h4>
-                                <span>BẢN ĐỒ</span>
-                            </h4>
-                            @Html.Raw(conf.mapSmall)
-
-                        </div>
-                    </div>
-                    <div class="block block-cs col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                        <div class="footer-widget">
-                            <h4>
-                                <span>Facebook</span>
-                            </h4>
-                            @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
-                            @Html.Raw(fb)
-                            <ul class="list-menu has-toggle social-media-footer" style="display: block;">
-                                @if (!string.IsNullOrEmpty(conf.twiter))
-                                {
-                                    <li><a href="@conf.twiter" title="twitter"><i class="fa fa-twitter"> </i></a></li>
-                                }
-                                @if (!string.IsNullOrEmpty(conf.faceBook))
-                                {
-                                    <li><a href="@conf.faceBook" title="facebook"><i class="fa fa-facebook"> </i></a></li>
-                                }
-                                @if (!string.IsNullOrEmpty(conf.google))
-                                {
-                                    <li><a href="@conf.google" title="instagram"><i class="fa fa-google-plus"> </i></a></li>
-                                }
-                                @if (!string.IsNullOrEmpty(conf.youTube))
-                                {
-                                    <li><a href="@conf.youTube" title="youtube"><i class="fa fa-youtube"> </i></a></li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright clearfix">
-        <div class="container">
-            <div class="inner clearfix">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="text-center copy-right-text">
-                            <span class="cungcap"><a href="#" title="@conf.shopName">@conf.copyRight</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>*@
 
 <footer class="footer">
     <div class="site-footer">
@@ -81,42 +9,29 @@
                     <div class="block block-cs col-xs-12 col-sm-5 col-md-3 col-lg-3">
                         <div class="footer-widget">
                             @Html.Raw(conf.footer)
-                            @*<h4>
-                                    <span>GỐM SỨ PHILONG</span>
-                                </h4>
-                                <ul class="list-menu infomation" style="display: block;">
-                                    <li class="item">
-                                        <div class="company"><i class="fa fa-map-marker"></i>Công ty cổ phần gốm sứ phiLong </div>
-                                        <div class="address">Địa chỉ: Tầng 6, Tòa nhà 3D, Số 3 Phố Duy Tân, Phường Dịch Vọng Hậu, Quận Cầu Giấy, TP. Hà Nội, Việt Nam</div>
-                                        <div class="hotline">Hotline: <a href="tel:0356998866" title="Phone">(+84) 243.206.1888 6</a></div>
-                                    </li>
-                                </ul>*@
                         </div>
                     </div>
                     <div class="block block-cs col-xs-12 col-sm-5 col-md-3 col-lg-3">
                         <div class="footer-widget">
                             @Html.Raw(conf.footerExten)
-                            @*<h4>
-                                    <span>Xưởng sản xuất</span>
-                                </h4>
-                                <ul class="list-menu infomation" style="display: block;">
-                                    <li class="item">
-                                        <div class="address"><i class="fa fa-map-marker"></i> Showroom 1: Tòa nhà Lê Huỳnh, Số 23B Đường số 3, Phường Bình An, Quận 2 , Tp. Hồ Chí Minh, Việt Nam</div>
-                                        <div class="address"><i class="fa fa-map-marker"></i> Showroom 2: Tòa nhà Lê Huỳnh, Số 23B Đường số 3, Phường Bình An, Quận 2 , Tp. Hồ Chí Minh, Việt Nam</div>
-                                    </li>
-                                </ul>*@
                         </div>
                     </div>
                     <div class="block block-cs col-xs-12 col-sm-3 col-md-2 col-lg-2">
                         <div class="footer-widget">
                             <h4>
-                                <span>Chính sách</span>
+                               <span style="color: #ccff99;">Thống kê truy cập</span>
                             </h4>
                             <ul class="list-menu has-toggle">
-                                @foreach (var item in Model)
-                                {
-                                    <li><a href="@item.link" title="@item.name">@item.name</a></li>
-                                }
+                                @*@foreach (var item in Model)
+        {
+            <li><a href="@item.link" title="@item.name">@item.name</a></li>
+        }*@
+
+                                <li><i class="fa fa-user-md" aria-hidden="true"></i> Đang online: <b id="count_online"></b></li>
+                                <li><i class="fa fa-user-secret" aria-hidden="true"></i> Trong tháng: <b id="counterMonth"></b></li>
+                                <li>
+                                    <i class="fa fa-users" aria-hidden="true"></i> Lượt truy cập: <b id="counterAll"></b>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -143,48 +58,8 @@
                                 }
                             </ul>
 
-                            @*<h4>
-                                    <span>Kết nối với chúng tôi</span>
-                                </h4>
-                                <p>Với sứ mệnh giữ gìn và tôn vinh vẻ đẹp Việt, trong suốt 14 năm qua.Chúng tôi mong muốn tạo nên Tập đoàn Thẩm mỹ uy tín nhất tại Việt Nam.</p>
-                                <ul class="list-menu has-toggle social-media-footer" style="display: block;">
-                                    <li><a href="https://twitter.com/" title="twitter"><i class="fa fa-twitter"> </i></a></li>
-                                    <li><a href="https://www.facebook.com/" title="facebook"><i class="fa fa-facebook"> </i></a></li>
-                                    <li><a href="http://instagram.com" title="instagram"><i class="fa fa-instagram"> </i></a></li>
-                                    <li><a href="https://www.youtube.com/" title="youtube"><i class="fa fa-youtube"> </i></a></li>
-                                </ul>*@
                         </div>
                     </div>
-
-
-                    @*<div class="block block-cs col-xs-12 col-sm-4 col-md-3 col-lg-3">
-                            <div class="footer-widget">
-                                <h4>
-                                    <span>Facebook</span>
-                                </h4>
-                                @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
-                                @Html.Raw(fb)
-                                <ul class="list-menu has-toggle social-media-footer" style="display: block;">
-                                    @if (!string.IsNullOrEmpty(conf.twiter))
-                                    {
-                                        <li><a href="@conf.twiter" title="twitter"><i class="fa fa-twitter"> </i></a></li>
-                                    }
-                                    @if (!string.IsNullOrEmpty(conf.faceBook))
-                                    {
-                                        <li><a href="@conf.faceBook" title="facebook"><i class="fa fa-facebook"> </i></a></li>
-                                    }
-                                    @if (!string.IsNullOrEmpty(conf.google))
-                                    {
-                                        <li><a href="@conf.google" title="instagram"><i class="fa fa-google-plus"> </i></a></li>
-                                    }
-                                    @if (!string.IsNullOrEmpty(conf.youTube))
-                                    {
-                                        <li><a href="@conf.youTube" title="youtube"><i class="fa fa-youtube"> </i></a></li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>*@
-
                 </div>
             </div>
         </div>
@@ -195,7 +70,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="text-center copy-right-text">
-                            @conf.copyRight <span class="nc hidden-xs">|</span> <span class="cungcap">Thiết kế bởi <a style="color: #c2bebe" href="https://thietkewebsitedomain.com/" title="Sapo">thietkewebsitedomain.com</a></span>
+                            @conf.copyRight <span class="nc hidden-xs">|</span> <span class="cungcap">Thiết kế bởi <a style="color: #c2bebe" target="_blank" href="https://thietkewebsitedomain.com/" title="Sapo">thietkewebsitedomain.com</a></span>
                         </div>
                     </div>
                 </div>
@@ -204,10 +79,10 @@
     </div>
 </footer>
 
-@*<section id="hotline-zalo-fb">
-    @if (!string.IsNullOrEmpty(conf.hotLine))
+<section id="hotline-zalo-fb">
+    @if (!string.IsNullOrEmpty(conf.phone))
     {
-        <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+        <a href="tel:@conf.phone" class="call-icon" rel="nofollow">
             <img src="~/Content/CssSite/images/hotline.png" />
             <span>Hotline</span>
         </a>
@@ -226,7 +101,28 @@
             <span>Facebook</span>
         </a>
     }
-</section>*@
+    @if (!string.IsNullOrEmpty(conf.youTube))
+    {
+        <a href="@conf.youTube" target="_blank" class="mes">
+            <img src="~/Content/CssSite/images/youTube.png" />
+            <span>YouTube</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.shoppe))
+    {
+        <a href="@conf.shoppe" target="_blank" class="mes">
+            <img src="~/Content/CssSite/images/shoppe.png" />
+            <span>Shoppe</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.tiki))
+    {
+        <a href="@conf.tiki" target="_blank" class="mes">
+            <img src="~/Content/CssSite/images/tiki.png" />
+            <span>Tiki</span>
+        </a>
+    }
+</section>
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
@@ -254,6 +150,47 @@
 
     .level0 .level1 a span:hover {
         color: #e33725 !important
+    }
+
+    section#hotline-zalo-fb {
+        position: fixed;
+        top: 25%;
+        right: 10px;
+        z-index: 9999;
+    }
+
+    #hotline-zalo-fb a {
+        display: block;
+    }
+
+    .call-icon img {
+        border-radius: 50%;
+        background: #64bc46;
+        padding: 6px;
+    }
+
+    #hotline-zalo-fb a img {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    #hotline-zalo-fb a.call-icon {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    #hotline-zalo-fb a span {
+        display: none;
+    }
+
+    .smalltext {
+        padding-top: 1px;
+        font-size: 14px;
+        color: #000;
     }
 </style>
 <script>

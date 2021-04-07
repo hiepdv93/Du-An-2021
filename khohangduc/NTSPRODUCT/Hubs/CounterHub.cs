@@ -32,6 +32,12 @@ namespace NTSPRODUCT.Hubs
             Clients.All.UpdateCount(counter, counterAll, counterMonth);
             return base.OnConnected();
         }
+        public override Task OnReconnected()
+        {
+            counter = counter + 1;
+            Clients.All.UpdateCount(counter, counterAll, counterMonth);
+            return base.OnReconnected();
+        }
         public override Task OnDisconnected(bool stopCalled)
         {
             counter = counter - 1;

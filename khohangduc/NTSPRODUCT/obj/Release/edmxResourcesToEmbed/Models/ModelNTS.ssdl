@@ -198,6 +198,16 @@
     <Property Name="lang" Type="nvarchar" MaxLength="50" />
     <Property Name="createDate" Type="datetime" />
   </EntityType>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="viewDay" Type="int" Nullable="false" />
+    <Property Name="viewMonth" Type="int" Nullable="false" />
+    <Property Name="viewYear" Type="int" Nullable="false" />
+    <Property Name="countTotal" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Menus">
     <Key>
       <PropertyRef Name="id" />
@@ -434,6 +444,7 @@
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />

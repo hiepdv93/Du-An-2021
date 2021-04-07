@@ -34,7 +34,9 @@
                 </td>
                 <td> @strCap @Model[i].cateName</td>
                 <td>@ClassExten.GetCateCha(Model[i].catepar_id)</td>
-                <td class="text-center">@Model[i].cateOrder</td>
+                <td>
+                    <input type="number" style="width:60px" value="@Model[i].cateOrder" alt="@Model[i].id" class="proCateOrderChange" />
+                </td>
                 <td class="text-center">
                     <label class="switch">
                         <input type="checkbox" onchange="ChangeActiveHome('@Model[i].id')" @(Model[i].cateActiveHome == true ? "checked" : "")>
@@ -73,4 +75,25 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+    $('.proCateOrderChange').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+
+        $.ajax({
+            url: "/Categorys/ChangeOrder?id=" + id + '&cateOrder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+
+    });
 </script>

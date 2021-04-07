@@ -1051,8 +1051,8 @@ E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.Security.OAuth.x
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.Security.Google.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CoreCompileInputs.cache
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.csproj.CopyComplete
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.dll
 E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.pdb
+E:\Project Old\DuAnWeb\khohangduc\NTSPRODUCT\obj\Debug\NTSPRODUCT.csprojAssemblyReference.cache

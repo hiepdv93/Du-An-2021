@@ -194,7 +194,6 @@
         $.connection.hub.start().done(function () {
             console.clear();
             console.log('ok');
-            PushCount();
         });
         counterHub.client.updateCount = function (count, counterAll, counterMonth) {
             console.log(count + '---' + counterAll);
@@ -203,6 +202,7 @@
             $('#counterMonth').text(counterMonth);
         }
 
+        PushCount();
 
     </script>
 
