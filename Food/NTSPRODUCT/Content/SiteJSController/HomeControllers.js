@@ -220,3 +220,25 @@ function AddCart() {
         });
     }
 }
+
+function ActionPush() {
+    try {
+        $.ajax({
+            url: "/HomeSite/PushCount",
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    console.log('add ls ok');
+                } else {
+                    console.log(data.mess);
+                }
+            },
+            error: function (response) {
+                console.log('Đã xảy ra lỗi');
+            },
+        });
+    } catch (e) { }
+}
+function PushCount() {
+    setTimeout(function () { ActionPush(); }, 2000);
+}

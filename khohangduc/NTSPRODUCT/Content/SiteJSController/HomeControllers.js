@@ -241,5 +241,4 @@ function ActionPush() {
 }
 function PushCount() {
     setTimeout(function () { ActionPush(); }, 2000);
-
 }
