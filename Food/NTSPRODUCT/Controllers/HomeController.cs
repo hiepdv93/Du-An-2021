@@ -32,7 +32,7 @@ namespace NTSPRODUCT.Controllers
             DateTime dateTemp;
             List<int> lstTuan = new List<int>();
             List<string> lstTitleTuan = new List<string>();
-            for (int i = 7; i >= 1; i--)
+            for (int i = 6; i >= 0; i--)
             {
                 dateTemp = dateNow.AddDays(i * -1);
                 lstTuan.Add(lichsu.Where(u => u.viewMonth == dateTemp.Month && u.viewDay == dateTemp.Day).Sum(u => u.countTotal));
