@@ -31,7 +31,9 @@
                 <td>@item.fullName</td>
                 <td>@item.email</td>
                 <td>@item.phone</td>
-                <td>@item.numberOder</td>
+                <td>
+                    <input type="number" style="width:60px" value="@item.numberOder" alt="@item.id" class="numberOder" />
+                </td>
                 <td>@item.addresss</td>
                 <td class="text-center">
                     <label class="switch">
@@ -67,5 +69,27 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+    $('.numberOder').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+        OpenWaiting();
+        $.ajax({
+            url: "/Saywe/ChangeOrder?id=" + id + '&numberOder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+        CloseWaiting();
+    });
+
 </script>
 

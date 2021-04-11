@@ -281,5 +281,22 @@ namespace NTSPRODUCT.Controllers
                 return Json(new { ok = false, rs = "" }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult ChangeOrder(string id, int numberOder)
+        {
+            var data = db.Departments.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.dOrder = numberOder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
     }
 }

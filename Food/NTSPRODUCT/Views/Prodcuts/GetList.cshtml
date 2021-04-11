@@ -79,7 +79,7 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
-
+    OpenWaiting();
     $('.proOrderChange').change(function (e) {
         var number = $(this).val();
         var id = $(this).attr('alt');
@@ -100,4 +100,5 @@
         });
 
     });
+    CloseWaiting();
 </script>

@@ -135,6 +135,23 @@ namespace NTSPRODUCT.Controllers
         {
             return PartialView();
         }
+        public ActionResult ChangeOrder(string id, int numberOder)
+        {
+            var data = db.Tagproes.First(u => u.tagId.Equals(id));
+            {
+                try
+                {
+                    data.tagOrder = numberOder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+
 
     }
 }

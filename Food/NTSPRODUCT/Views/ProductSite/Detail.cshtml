@@ -172,6 +172,27 @@
                         @Html.Raw(pro.proContentTab1)
                     </div>
                 </div>
+                <div class="product_meta">
+                    @if (protag.Count > 0)
+                    {
+                        int row = 0;
+                        <span class="posted_in">
+                            Tag:
+                            @foreach (var item in protag)
+                            {
+                                row++;
+                                if (row == 1)
+                                {
+                                    <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">@item.tagName</a>
+                                }
+                                else
+                                {
+                                    <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">, @item.tagName</a>
+                                }
+                            }
+                        </span>
+                    }
+                </div>
             </div>
             <div class="col-md-3 col-xs-12">
                 <div class="pro-right">
