@@ -49,14 +49,15 @@ namespace NTSPRODUCT.Controllers.Site
                 ConfigModel.listConfig = db.Configs.ToList();
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
+            ViewBag.conf = conf;
 
             int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 12;
             int numNew = conf.viewNewPageHome != null ? conf.viewNewPageHome.Value : 5;
             var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
-           // var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
+                                                                                                                                              // var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
 
-            var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
-            var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            //var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            //var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
 
             List<string> cateId = null;
             List<ProductModel> proHome = new List<ProductModel>();
@@ -72,13 +73,14 @@ namespace NTSPRODUCT.Controllers.Site
             }
 
             ViewBag.newsHot = newsHot;
-           // ViewBag.SayWe = SayWe;
+            // ViewBag.SayWe = SayWe;
 
             ViewBag.lang = lang;
-            ViewBag.conf = conf;
 
-            ViewBag.proSale = proSale;
-            ViewBag.proBanChay = proBanChay;
+            //ViewBag.proSale = proSale;
+            //ViewBag.proBanChay = proBanChay;
+            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(4).ToList(); ;
+            ViewBag.videos = videos;
 
             return PartialView(proHome);
         }

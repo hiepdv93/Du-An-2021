@@ -43,6 +43,11 @@ namespace NTSPRODUCT
             url: "gio-hang",
             defaults: new { controller = "Carts", action = "index", id = UrlParameter.Optional }
         );
+            routes.MapRoute(
+           name: "Video",
+           url: "video",
+           defaults: new { controller = "HomeSite", action = "Video", id = UrlParameter.Optional }
+       );
 
             routes.MapRoute(
             name: "Lien he",

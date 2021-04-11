@@ -2239,6 +2239,7 @@
     <Content Include="Views\Prodcuts\AutoPro.cshtml" />
     <Content Include="Views\ProductSite\Tags.cshtml" />
     <Content Include="Views\ChildView\NavMenu.cshtml" />
+    <Content Include="Views\HomeSite\Video.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

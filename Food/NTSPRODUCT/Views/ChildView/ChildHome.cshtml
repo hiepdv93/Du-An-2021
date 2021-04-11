@@ -1,10 +1,11 @@
 ﻿@model IList<NTSPRODUCT.Models.ProductModel>
 @{
-    var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
-    var proBanChay = (List<NTSPRODUCT.Models.Product>)ViewBag.proBanChay;
+    //var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
+    //var proBanChay = (List<NTSPRODUCT.Models.Product>)ViewBag.proBanChay;
 
     // var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
     var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
+    var videos = (List<NTSPRODUCT.Models.Adv>)ViewBag.videos;
 
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var isMobile = Request.Browser.IsMobileDevice;
@@ -32,109 +33,7 @@
                 </div>
             </div>
             <div class="col-md-9 col-sm-12 col-xs-12">
-                @if (proSale != null && proSale.Count > 0)
-                {
-                    <div class="pro-home">
-                        <div class="titles">
-                            <a href="/khuyen-mai" title="Sản phẩm khuyến mại">
-                                <span>Sản phẩm khuyến mại</span>
-                            </a>
-                            <span class="pull-right readmore-index"><a href="/khuyen-mai" title="Sản phẩm khuyến mại"> &gt;&gt; Xem thêm</a></span>
-                        </div>
-                        <div class="product-wrapper">
-                            <div class="row">
-                                @foreach (var item in proSale)
-                                {
 
-                                    <div class="col-md-3 col-xs-6 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="image">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
-                                                    <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
-                                                </a>
-                                            </div>
-                                            <div class="name" style="height: 55px;">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                            </div>
-                                            <div class="price" style="float:left">
-                                                <em>
-                                                    @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
-                                                    <span class="variant_title">/@item.brank</span>
-                                                </em>
-                                            </div>
-                                            @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
-                                            {
-                                                pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
-                                                <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
-                                                <div class="sale">-@(Math.Round(pt,0))%</div>
-                                            }
-                                            <div class="addcart addcart-collection">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                    <button class="addtocart addcartcollection" type="button">
-                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-                }
-                @if (proBanChay != null && proBanChay.Count > 0)
-                {
-                    <div class="pro-home">
-                        <div class="titles">
-                            <a href="/top-ban-chay" title="Sản phẩm bán chạy">
-                                <span>Sản phẩm bán chạy</span>
-                            </a>
-                            <span class="pull-right readmore-index"><a href="/top-ban-chay" title="Sản phẩm bán chạy"> &gt;&gt; Xem thêm</a></span>
-                        </div>
-                        <div class="product-wrapper">
-                            <div class="row">
-                                @foreach (var item in proBanChay)
-                                {
-
-                                    <div class="col-md-3 col-xs-6 col-sm-6">
-                                        <div class="product-item">
-                                            <div class="image">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
-                                                    <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
-                                                </a>
-                                            </div>
-                                            <div class="name" style="height: 55px;">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                            </div>
-                                            <div class="price" style="float:left">
-                                                <em>
-                                                    @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
-                                                    <span class="variant_title">/@item.brank</span>
-                                                </em>
-                                            </div>
-                                            @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
-                                            {
-                                                pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
-                                                <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
-                                                <div class="sale">-@(Math.Round(pt,0))%</div>
-                                            }
-
-                                            <div class="addcart addcart-collection">
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                    <button class="addtocart addcartcollection" type="button">
-                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-                }
                 @if (Model != null && Model.Count > 0)
                 {
                     foreach (var itemHome in Model)
@@ -195,36 +94,44 @@
     </div>
 </div>
 
-    <div class="y-ken">
-        <div class="container">
-            @if (isMobile)
+<div class="y-ken">
+    <div class="container">
+        <div class="titles">
+            <a href="/video" title="Kênh Youtube Tanson Foods">
+                <span style="color:red">Kênh Youtube Tanson Foods</span>
+            </a>
+            <span class="pull-right readmore-index"><a href="/video" title="Kênh Youtube Tanson Foods"> &gt;&gt; Xem thêm</a></span>
+        </div>
+      
+        <div class="row list-video">
+            @foreach (var item in videos)
             {
-                <div class="titles">
-                        <span style="color:red">Kênh Youtube Tanson Foods</span>
+                <div class="col-md-3 col-xs-12">
+                    <iframe allowfullscreen="1" frameborder="0" height="315" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                    </iframe>
                 </div>
             }
-            <div class="row list-video">
-                @Html.Raw(conf.homeVideo)
+            @*@Html.Raw(conf.homeVideo)*@
+        </div>
+        <div class="row intro-fanpage">
+            <div class="col-md-9 col-xs-12">
+                <div class="about-home">
+                    <div class="about-head">
+                        <h4 class="ab-title">Về chúng tôi</h4>
+                    </div>
+                    <div class="about-conten">
+                        @Html.Raw(conf.infoPage)
+                    </div>
+                </div>
             </div>
-            <div class="row intro-fanpage">
-                <div class="col-md-9 col-xs-12">
-                    <div class="about-home">
-                        <div class="about-head">
-                            <h4 class="ab-title">Về chúng tôi</h4>
-                        </div>
-                        <div class="about-conten">
-                            @Html.Raw(conf.infoPage)
-                        </div>
-                    </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="fapage">
+                    @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='250' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
+                    @Html.Raw(fb)
                 </div>
-                <div class="col-md-3 col-xs-12">
-                    <div class="fapage">
-                        @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='250' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
-                        @Html.Raw(fb)
-                    </div>
-                </div>
+            </div>
 
-            </div>
         </div>
     </div>
+</div>
 

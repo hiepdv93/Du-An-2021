@@ -599,6 +599,20 @@ public class ClassExten
         HttpContext.Current.Response.Cookies.Add(cookie);
     }
 
-
-
+    public static string GetIdVideo(string link)
+    {
+        string rs = "";
+        //https://www.youtube.com/watch?v=yCN3Tja_ii0
+        try
+        {
+            var arr = link.Split('=').ToList();
+            if (arr.Count>1)
+            {
+                return arr[1];
+            }
+        }
+        catch (Exception)
+        { }
+        return rs;
+    }
 }

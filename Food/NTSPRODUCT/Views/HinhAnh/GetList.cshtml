@@ -7,8 +7,8 @@
                 <th width="50px" class="text-center">STT</th>
                 <th width="100px" class="text-center">Chức năng</th>
                 <th width="100px" class="text-center">Ảnh</th>
-                <th>Tên hình ảnh</th>
-                <th>Loại hình ảnh</th>
+                <th>Tiêu đề</th>
+                <th>Loại</th>
                 <th>Mô tả</th>
                 <th width="100px">Thứ tự</th>
                 <th width="120px" class="text-center">Trạng thái</th>
@@ -32,10 +32,13 @@
                         @if (item.advType == 1)
                         {
                             <span>Dưới slide</span>
-                        }else if(item.advType==3)
+                        }
+                        else if (item.advType == 3)
                         { <span>Chi tiết SP</span>}
-                        else
+                        else if (item.advType == 2)
                         { <span>Phải slide</span>}
+                        else
+                        { <span>Video</span>}
                     </td>
                     <td>@item.advNote</td>
                     <td>@item.advOrder</td>
