@@ -27,11 +27,16 @@
                 </div>
             </div>
             <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="titles">
+                    <a href="/video" title="Kênh Youtube Tanson Foods">
+                        <span style="color:red">Kênh Youtube Tanson Foods</span>
+                    </a>
+                </div>
                 <div class="row list-video">
                     @foreach (var item in videos)
                     {
-                        <div class="col-md-4 col-xs-12">
-                            <iframe allowfullscreen="1" frameborder="0" height="315" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                        <div class="col-md-3 col-xs-12">
+                            <iframe allowfullscreen="1" frameborder="0" height="225" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
                             </iframe>
                         </div>
                     }

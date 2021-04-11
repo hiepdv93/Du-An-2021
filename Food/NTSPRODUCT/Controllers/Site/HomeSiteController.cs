@@ -275,6 +275,7 @@ namespace NTSPRODUCT.Controllers.Site
             var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
             var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).ToList(); ;
             ViewBag.videos = videos;
+            ViewBag.newsHot = newsHot;
             return View();
         }
 
