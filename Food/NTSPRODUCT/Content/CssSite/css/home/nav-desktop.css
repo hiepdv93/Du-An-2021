@@ -34,13 +34,19 @@
 }
 h2.title-head {
     line-height: 22px;
-    background: #ffc435;
+    background: #eda400;
     padding: 4px;
 }
 .nav-right-slide {
     width: 100%;
     float: left;
-    padding: 3px 0;
+}
+.nav-right-slide ul li a {
+    padding: 8px 20px;
+    top: 0 !important;
+}
+.nav-right-slide ul li a:hover{
+background: #ffc435;
 }
 .nav-right-slide-top {
     width: 100%;
@@ -51,17 +57,10 @@ h2.title-head {
 .nav-right-slide-top .col-md-9.col-xs-12.slide-left {
     padding: 0;
 }
-.nav-right-slide-top .col-md-3.col-xs-12.slide-right {
-    padding-left: 0;
-    padding-right: 0;
-}
+
 .baner-right img {
-    height: 279px;
+    height: 253px;
     object-fit: cover;
-}
-.about-home {
-    padding: 25px 15px 20px 15px;
-    margin-top: 5px;
 }
 .about-bottom .ab-1 img {
     width: 28px;
@@ -94,7 +93,7 @@ h2.title-head {
 .about-conten p {
     font-size: 14px;
 }
-.about-home, .about-bottom {
+.about-bottom {
     background: #fff;
 }
 .about-bottom {

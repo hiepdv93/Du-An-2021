@@ -1,16 +1,18 @@
 div#overlay { display: none; }
 
 a#toggle {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: white;
-  display: none;
-  transition: all ease-out 0.3s;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(18 161 105);
+    text-align: center;
+    color: white;
+    display: none;
+    transition: all ease-out 0.3s;
+    z-index: 9;
+    border: 1px solid white;
 }
 
 a#toggle i {
@@ -78,14 +80,14 @@ main#content {
 
 #menu {
   position: fixed;
-  width: 250px;
+  width: 350px;
   height: 100%;
   top: 0;
   left: 0;
   overflow: hidden;
   overflow-y: auto;
-  background-color: rgba(22,160,133, 0.5);
-  transform: translateX(-250px);
+  background-color: rgb(22 160 133);
+  transform: translateX(-350px);
 }
 
 #menu ul {
@@ -95,7 +97,12 @@ main#content {
 
 #menu ul li { display: block; }
 
-#menu ul li a { display: block; }
+#menu ul li a {
+    display: block;
+    background: #dda827;
+    font-size: 16px;
+border-bottom: 2px solid white;
+}
 
 #menu ul li a > i { float: right; }
 
@@ -136,11 +143,11 @@ html.open-menu div#overlay {
   visibility: visible;
   opacity: 1;
   width: calc(-150%);
-  left: 250px;
+  left: 350px;
 }
 
 html.open-menu a#toggle,
- html.open-menu main#content { transform: translateX(250px); }
+ html.open-menu main#content { transform: translateX(350px); }
 
 html.open-menu nav#menu {
   z-index: 3;
