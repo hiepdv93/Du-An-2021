@@ -8,7 +8,7 @@ namespace NTSPRODUCT.Models
     public static class ConfigModel
     {
         public static List<Config> listConfig;
-        public static List<Category> listCate;
+       // public static List<Category> listCate;
     }
     public class ProductHome
     {

@@ -2,10 +2,10 @@
 @{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
-    var product = (NTSPRODUCT.Models.Product)ViewBag.product;
+    var product = (List<NTSPRODUCT.Models.Product>)ViewBag.product;
     Layout = "~/Views/Shared/_Layout.cshtml";
     bool isCateParen = ViewBag.cateParent;
-
+    NTSPRODUCT.Models.Product pro;
 
 }
 <div id="vnt-content">
@@ -13,16 +13,46 @@
     {
         if (isCateParen)
         {
-            int index = 0;
             foreach (var item in Model)
             {
-                index++;
-                <div class="@(index%2!=0?"bannerHome right":"bannerHome left")">
-                    <div class="img"><a href="@(item.cateType==ClassExten.typePro?"/nhom-thuc-don/":"/tin-tuc/")@item.cateKey" title="@item.cateName" onmousedown="return rwt(this,'advertise',@(index%2!=0?29:75)" target="_blank"><img src="@item.cateImageHome" alt="@item.cateName"></a></div>
-                    <div class="captionWrap">
-                        <div class="wrapper">
-                            <div class="link">
-                                <a href="@(item.cateType==ClassExten.typePro?"/nhom-thuc-don/":"/tin-tuc/")@item.cateKey" title="@item.cateName"><span>KHÁM PHÁ THÊM</span></a>
+                pro = product.FirstOrDefault(u => u.cateId.Equals(item.id));
+                <div class="menuBoxMid">
+                    <div class="wrapper">
+                        <div class="box_mid">
+                            <div class="mid-title">
+                                <div class="titleL">
+                                    <h2>@item.cateName<p class="en-sp">@item.cateNameSub</p></h2>
+                                </div>
+                                <div class="titleR"></div>
+                            </div>
+                            <div class="mid-content">
+                                <div class="mod-content row">
+                                    <div id="vnt-main" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                        <div class="the-content desc">
+                                            <div class="img" style="margin-bottom: 5px;">
+                                                <a href="/nhom-thuc-don/@item.cateKey" title="@item.cateName">
+                                                    <img src="@item.cateImage" alt="@item.cateName" />
+                                                </a>
+                                            </div>
+                                            @Html.Raw(item.cateDescription)
+                                        </div>
+                                        <div class="linkM"><a href="/nhom-thuc-don/@item.cateKey" title="@item.cateName"><span>Xem sản phẩm</span></a></div>
+                                    </div>
+                                    <div id="vnt-sidebar" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                        @if (pro != null)
+                                        {
+                                            <div class="itemMenu">
+                                                <div class="img"><a href="/thuc-don/@pro.pro_key" title="@pro.pro_name"><img src="@pro.proAvata" alt="@pro.pro_name" /></a></div>
+                                                <div class="caption">
+                                                    <div class="tend">
+                                                        <h3><a href="/thuc-don/@pro.pro_key" title="@pro.pro_name">@pro.pro_name<p class="en-sp">@pro.pro_nameSub</p></a></h3>
+                                                    </div>
+                                                    <div class="des">@Html.Raw(pro.introContent)</div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -54,15 +84,15 @@
                                     <div class="linkM"><a href="/nhom-thuc-don/@cateP.cateKey" title="@cateP.cateName"><span>Xem sản phẩm</span></a></div>
                                 </div>
                                 <div id="vnt-sidebar" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    @if (product != null)
+                                    @if (product.Count > 0)
                                     {
                                         <div class="itemMenu">
-                                            <div class="img"><a href="/thuc-don/@product.pro_key" title="@product.pro_name"><img src="@product.proAvata" alt="@product.pro_name" /></a></div>
+                                            <div class="img"><a href="/thuc-don/@product[0].pro_key" title="@product[0].pro_name"><img src="@product[0].proAvata" alt="@product[0].pro_name" /></a></div>
                                             <div class="caption">
                                                 <div class="tend">
-                                                    <h3><a href="/thuc-don/@product.pro_key" title="@product.pro_name">@product.pro_name<p class="en-sp">@product.pro_nameSub</p></a></h3>
+                                                    <h3><a href="/thuc-don/@product[0].pro_key" title="@product[0].pro_name">@product[0].pro_name<p class="en-sp">@product[0].pro_nameSub</p></a></h3>
                                                 </div>
-                                                <div class="des">@Html.Raw(product.introContent)</div>
+                                                <div class="des">@Html.Raw(product[0].introContent)</div>
                                             </div>
                                         </div>
                                     }
@@ -78,24 +108,29 @@
                     <div class="box_mid">
                         <div class="mid-title">
                             <div class="titleL">
-                                <h2>DÒNG SẢN PHẨM KHÁC</h2>
+                                <h2>DANH SÁCH THỰC ĐƠN</h2>
                             </div>
                             <div class="titleR"></div>
                         </div>
                         <div class="mid-content">
                             <div id="slideOther" class="slideOther slick-init">
-                                @foreach (var item in Model)
+                                @foreach (var item in product)
                                 {
                                     <div class="item">
                                         <div class="product">
-                                            <div class="img"><a href="/nhom-thuc-don/@item.cateKey" title="@item.cateName"><img src="@item.cateImageOther" alt="@item.cateName" /></a></div>
+                                            <div class="img"><a href="/thuc-don/@item.pro_key" title="@item.pro_name"><img src="@item.proAvata" alt="@item.pro_name" /></a></div>
                                             <div class="tend">
-                                                <h3><a href="/nhom-thuc-don/@item.cateKey" title="@item.cateName">@item.cateName</a></h3>
-                                            </div>
-                                            <div class="des">@item.cateDescription</div>
+                                                <h3>
+                                                    <a href="/thuc-don/@item.pro_key" title="@item.pro_name">
+                                                        @item.pro_name
+                                                    <p class="en-sp">@item.pro_nameSub</p>
+                                                </a>
+                                            </h3>
                                         </div>
+                                        <div class="des">@item.introContent</div>
                                     </div>
-                                }
+                                </div>
+                            }
                             </div>
                         </div>
                     </div>

@@ -19,16 +19,14 @@ namespace NTSPRODUCT.Controllers.Site
             //kịch bản code trang danh sách: Nhóm cấp 1 thì sẽ hiện list nhóm con cấp 2 so le nhau
             //                               Nhóm cấp 2 thì hiện chi tiết nhóm ấy và các nhóm cấp 2 khác
             //Chi tiết nữa thì mới qua danh sách sản phẩm
-
+            List<Category> listCate;
             #region[xu ly lay sp]
             if (!string.IsNullOrEmpty(id))
             {
                 List<Category> list = new List<Category>();
-                if (ConfigModel.listCate == null)
-                {
-                    ConfigModel.listCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typePro).ToList();
-                }
-                var cateP = ConfigModel.listCate.FirstOrDefault(u => u.cateKey.Equals(id) && u.cateType == ClassExten.typePro);
+
+                listCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typePro).ToList();
+                var cateP = listCate.FirstOrDefault(u => u.cateKey.Equals(id) && u.cateType == ClassExten.typePro);
                 ViewBag.cateP = cateP;
 
                 #region[load seo]
@@ -41,14 +39,17 @@ namespace NTSPRODUCT.Controllers.Site
 
                 if (cateP.catepar_id.Equals(ClassExten.cateParent))
                 {
-                    list = ConfigModel.listCate.Where(u => u.catepar_id.Equals(cateP.id)).ToList();
+                    list = listCate.Where(u => u.catepar_id.Equals(cateP.id)).ToList();
                     ViewBag.cateParent = true;
+                    var cateID = list.Select(u => u.id).ToList();
+                    ViewBag.product = db.Products.Where(u => u.active == true && cateID.Contains(u.cateId)).OrderBy(u => u.proOrder).ToList();
+
                 }
                 else
                 {
                     ViewBag.cateParent = false;
-                    list = ConfigModel.listCate.Where(u => u.catepar_id.Equals(cateP.catepar_id) && !u.id.Equals(cateP.id)).ToList();
-                    ViewBag.product = db.Products.OrderBy(u => u.proOrder).FirstOrDefault(u => u.active == true && u.cateId.Equals(cateP.id));
+                    list = listCate.Where(u => u.catepar_id.Equals(cateP.catepar_id) && !u.id.Equals(cateP.id)).ToList();
+                    ViewBag.product = db.Products.Where(u => u.active == true && u.cateId.Equals(cateP.id)).OrderBy(u => u.proOrder).ToList();
                 }
                 return View(list);
             }
@@ -59,26 +60,7 @@ namespace NTSPRODUCT.Controllers.Site
             #endregion
         }
 
-        public List<string> GetListId(string idp, int cap)
-        {
-            List<string> list = new List<string>();
-            if (cap == 1)
-            {
-
-                list = ConfigModel.listCate.Where(u => u.cateType == ClassExten.typePro && u.catepar_id.Equals(idp) && u.cate_cap == 2 && u.cateActive == true).Select(u => u.id).ToList();
-                var listCap3 = ConfigModel.listCate.Where(u => u.cateType == ClassExten.typePro && u.cate_cap == 3 && u.cateActive == true && list.Contains(u.catepar_id)).Select(u => u.id).ToList();
-                foreach (var item in listCap3)
-                {
-                    list.Add(item);
-                }
-            }
-            else
-            {
-                list = ConfigModel.listCate.Where(u => u.cateType == ClassExten.typePro && u.catepar_id.Equals(idp) && u.cate_cap == 3 && u.cateActive == true).Select(u => u.id).ToList();
-            }
-            list.Add(idp);
-            return list;
-        }
+  
         public ActionResult Detail(string id)
         {
             List<Product> proOther = new List<Product>();
@@ -94,7 +76,7 @@ namespace NTSPRODUCT.Controllers.Site
             {
                 numberPro = conf.viewProPageDetail.Value;
             }
-            var proData = db.Products.FirstOrDefault(u => u.pro_key.Equals(id) );
+            var proData = db.Products.FirstOrDefault(u => u.pro_key.Equals(id));
             if (proData != null)
             {
                 var cateP = db.Categorys.FirstOrDefault(u => u.id.Equals(proData.cateId));

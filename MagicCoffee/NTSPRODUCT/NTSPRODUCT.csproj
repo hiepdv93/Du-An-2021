@@ -2195,10 +2195,6 @@
     <Content Include="Views\Solution\GetList.cshtml" />
     <Content Include="Views\Solution\Index.cshtml" />
     <Content Include="Views\Solution\Update.cshtml" />
-    <Content Include="Views\FieldActivity\GetList.cshtml" />
-    <Content Include="Views\FieldActivity\Index.cshtml" />
-    <Content Include="Views\FieldActivity\Update.cshtml" />
-    <Content Include="Views\FieldActivity\UpdateOrCreate.cshtml" />
     <Content Include="Views\Categorys\Catedevice.cshtml" />
     <Content Include="Views\Categorys\GetListCateDevice.cshtml" />
     <Content Include="Views\Categorys\AddCatedevice.cshtml" />
@@ -2209,7 +2205,6 @@
     <Content Include="Views\Device\Update.cshtml" />
     <Content Include="Views\Menus\Giaiphap.cshtml" />
     <Content Include="Views\ProductSite\Device.cshtml" />
-    <Content Include="Views\HomeSite\App.cshtml" />
     <Content Include="Views\HomeSite\Solution.cshtml" />
     <Content Include="Views\ImportView\GetBrank.cshtml" />
     <Content Include="Views\ChildView\RightMenu.cshtml" />

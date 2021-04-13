@@ -38,11 +38,7 @@ namespace NTSPRODUCT.Controllers.Site
 
         public ActionResult LeftCate()
         {
-            if (ConfigModel.listCate == null || true)
-            {
-                ConfigModel.listCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typePro).ToList();
-            }
-            var cate = ConfigModel.listCate.Where(u => u.cateType == ClassExten.typePro && u.cateActive == true).OrderBy(u => u.cateOrder).ToList();
+            var cate = db.Categorys.Where(u => u.cateType == ClassExten.typePro && u.cateActive == true).OrderBy(u => u.cateOrder).ToList();
             return PartialView(cate);
         }
 
@@ -74,15 +70,7 @@ namespace NTSPRODUCT.Controllers.Site
             ViewBag.slide = slide;
             return PartialView(catepro);
         }
-        public List<string> GetListId_Cap3(List<string> pId)
-        {
-            List<string> list = new List<string>();
-            foreach (var item in pId)
-            {
-                list.AddRange(ConfigModel.listCate.Where(u => u.cateType == ClassExten.typePro && u.catepar_id.Equals(item) && u.cateActive == true).Select(u => u.id).ToList());
-            }
-            return list;
-        }
+      
 
         //  [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHomeTop(string lang)
@@ -173,39 +161,7 @@ namespace NTSPRODUCT.Controllers.Site
         }
         #endregion
 
-        #region[bên trái trang sản phẩm]
-        //[OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
-        public ActionResult PageProLeft(Category category)
-        {
-            if (ConfigModel.listCate == null || true)
-            {
-                ConfigModel.listCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typePro).ToList();
-            }
-            List<Category> listCate;
-            if (category != null)
-            {
-                if (category.cate_cap == 1)
-                {
-                    ViewBag.categoryP = category;
-                    listCate = ConfigModel.listCate.Where(u => u.cateActive == true && u.catepar_id.Equals(category.id)).OrderBy(u => u.cateOrder).ToList();
-                }
-                else
-                {
-                    ViewBag.categoryP = ConfigModel.listCate.FirstOrDefault(u => u.id.Equals(category.catepar_id));
-
-                    listCate = ConfigModel.listCate.Where(u => u.cateActive == true && u.catepar_id.Equals(category.catepar_id)).OrderBy(u => u.cateOrder).ToList();
-                }
-            }
-            else
-            {
-
-                listCate = ConfigModel.listCate.Where(u => u.cateActive == true && u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
-            }
-            ViewBag.category = category;
-
-            return PartialView(listCate);
-        }
-        #endregion
+ 
 
         public ActionResult ChildSlogan(string lang)
         {
