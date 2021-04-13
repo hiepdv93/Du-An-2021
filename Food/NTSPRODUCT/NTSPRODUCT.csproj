@@ -1974,6 +1974,8 @@
     <Content Include="Content\CssSite\js\bootstrap.js" />
     <Content Include="Content\CssSite\js\bootstrap.min.js" />
     <Content Include="Content\CssSite\js\catalog.js" />
+    <Content Include="Content\CssSite\js\jquery-scrolltofixed-min.js" />
+    <Content Include="Content\CssSite\js\jquery-scrolltofixed.js" />
     <Content Include="Content\CssSite\js\jquery.min.js" />
     <Content Include="Content\CssSite\js\json-slider.js" />
     <Content Include="Content\CssSite\js\lightslider.js" />
