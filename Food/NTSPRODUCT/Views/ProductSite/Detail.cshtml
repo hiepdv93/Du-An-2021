@@ -13,7 +13,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Action("NavMenu", "ChildView")
 
 <div class="product-de">
     <div class="container">
@@ -37,18 +36,6 @@
                         <li><strong><span itemprop="title">@pro.pro_name</span></strong></li>
                     </ul>
 
-                    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <div class="container-fluid">
-                                <nav class="nav-bre" aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
-                                        <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
-                                        <li class="breadcrumb-item"><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@cateP.cateName</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@pro.pro_name">@pro.pro_name</a></li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </nav>*@
                 </div>
                 <div class="detail-pro">
                     <div class="row">
@@ -101,7 +88,7 @@
                         <div class="col-md-5 col-xs-12">
                             <div class="pro-content">
                                 <h1>@pro.pro_name</h1>
-                                <p class="check-pro">(Còn Hàng)</p>
+                                @*<p class="check-pro">(Còn Hàng)</p>*@
                                 <div class="pro-price">
                                     <p>Đơn giá</p>
                                     <p class="pri">

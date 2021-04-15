@@ -486,6 +486,21 @@ namespace NTSPRODUCT.Controllers
                 return Json(new { ok = false, mess = "Phát sinh lỗi vui lòn thử lại!" }, JsonRequestBehavior.AllowGet);
             }
         }
-       
+        public ActionResult ChangeOrder(string id, int cateOrder)
+        {
+            var data = db.Categorys.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.cateOrder = cateOrder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
     }
 }

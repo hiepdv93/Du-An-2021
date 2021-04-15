@@ -341,7 +341,7 @@ public class ClassExten
                 rs += "<ul class='dropdown-menu'>";
                 foreach (var item in cate)
                 {
-                    rs += "<li class='nav-item'><a class='nav-link' href='/danh-muc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
+                    rs += "<li class='dropdown-submenu nav-item'><a class='nav-link' href='/danh-muc/" + item.cateKey + "' title='" + item.cateName + "' >" + item.cateName + "</a></li>";
                 }
                 rs += "</ul>";
             }

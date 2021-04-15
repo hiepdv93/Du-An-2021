@@ -21,19 +21,19 @@
     <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/bootstrap2.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/CssSite/css/font-awesome.min.css">
-    <link href="~/Content/CssSite/css/home/layout.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/header.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/nav-desktop.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/product-home.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/y-kien-home.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/news-home.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/menu-mobile.css?v=7.0" rel="stylesheet" />
-    <link href="~/Content/CssSite/css/home/footer.css?v=7.0" rel="stylesheet" />
-    <link href='~/Content/CssSite/css/home/base.scssa.css?v=7.0' rel='stylesheet' type='text/css' />
+    <link href="~/Content/CssSite/css/home/layout.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/header.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/nav-desktop.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/product-home.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/y-kien-home.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/news-home.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/menu-mobile.css?v=8.1" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/home/footer.css?v=8.1" rel="stylesheet" />
+    <link href='~/Content/CssSite/css/home/base.scssa.css?v=8.1' rel='stylesheet' type='text/css' />
 
-    <link href='~/Content/CssSite/css/page-detail/page-detail.css?v=7.0' rel='stylesheet' type='text/css' />
-    <link href='~/Content/CssSite/css/page-detail/detail-product.css?v=7.0' rel='stylesheet' type='text/css' />
-    <link href='~/Content/CssSite/css/page-detail/css-them.css?v=7.0' rel='stylesheet' type='text/css' />
+    <link href='~/Content/CssSite/css/page-detail/page-detail.css?v=8.1' rel='stylesheet' type='text/css' />
+    <link href='~/Content/CssSite/css/page-detail/detail-product.css?v=8.1' rel='stylesheet' type='text/css' />
+    <link href='~/Content/CssSite/css/page-detail/css-them.css?v=8.1' rel='stylesheet' type='text/css' />
     <link href='~/Content/CssSite/css/lightslider.css' rel='stylesheet' type='text/css' />
 
     <link href='~/Content/CssSite/css/owl.carousel.css' rel='stylesheet' type='text/css' />
@@ -41,7 +41,7 @@
     <link href='~/Content/CssSite/css/owl.theme.default.css' rel='stylesheet' type='text/css' />
     <link href='~/Content/CssSite/css/owl.theme.default.min.css' rel='stylesheet' type='text/css' />
 
-    <link href="~/Content/CssSite/css/custom.css?v=7.0" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/custom.css?v=8.1" rel="stylesheet" />
     <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
 
     <style>
@@ -164,13 +164,20 @@
     <script src="~/Content/CssSite/js/owl.carousel.min.js"></script>
     <script src="~/Content/CssSite/js/owl.carousel.js"></script>
     <script src="~/Content/CssSite/js/lightslider.js"></script>
-    <script src='~/Content/CssSite/js/maina.js?v=7.0' type='text/javascript'></script>
+    <script src='~/Content/CssSite/js/maina.js?v=8.1' type='text/javascript'></script>
 
     <script src="~/Content/toastr/toastr.js"></script>
-    <script src="~/Content/AdminJSController/script_validate.js?v=7.0"></script>
-    <script src="~/Content/SiteJSController/HomeControllers.js?v=7.0"></script>
-    <script src="~/Content/CssSite/js/jquery-scrolltofixed-min.js?v=7.0"></script>
-    <script src="~/Content/CssSite/js/jquery-scrolltofixed.js?v=7.0"></script>
+    <script src="~/Content/AdminJSController/script_validate.js?v=8.1"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js?v=8.1"></script>
+    <script src="~/Content/CssSite/js/jquery-scrolltofixed-min.js?v=8.1"></script>
+    <script src="~/Content/CssSite/js/jquery-scrolltofixed.js?v=8.1"></script>
+
+    <script type="text/javascript">
+        $('.header-bottom').scrollToFixed();
+    </script>
+    <script type="text/javascript">
+        $('.header-destop').scrollToFixed();
+    </script>
     <script>
 
         PushCount();
@@ -195,7 +202,7 @@
 
         })(jQuery)
     </script>
-    @if (path.Equals("/") == false && path.Equals("") == false)
+    @if (path.Equals("/") == true || path.Equals("") == true)
     {
         <script>
             $(document).ready(function () {
@@ -203,36 +210,64 @@
                     loop: true,
                     keyPress: true
                 });
-                $('#image-gallery').lightSlider({
-                    gallery: true,
-                    item: 1,
-                    thumbItem: 3,
-                    slideMargin: 0,
-                    speed: 500,
-                    auto: true,
-                    loop: true,
-                    onSliderLoad: function () {
-                        $('#image-gallery').removeClass('cS-hidden');
+
+            });
+
+            $('#owl-video-home').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false
                     }
-                });
+                }
+            })
+        </script>
+
+        <script type="text/javascript">
+            var owl = $('#owl-slide-right');
+            owl.owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true
             });
         </script>
     }
-    <script>
-        $(document).ready(function () { $('.header-top').scrollToFixed(); });
-    </script>
-    @*<script type="text/javascript">
-            jQuery("document").ready(function ($) {
-                var nav = $('#navBar');
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 150) {
-                        nav.addClass("div_banner_fixed");
-                    } else {
-                        nav.removeClass("div_banner_fixed");
-                    }
-                });
-            });
-        </script>*@
+    @if (path.Contains("/san-pham/") == true)
+    {
+        <script>
 
+            $('#image-gallery').lightSlider({
+                gallery: true,
+                item: 1,
+                thumbItem: 3,
+                slideMargin: 0,
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        </script>
+
+    }
 </body>
 </html>

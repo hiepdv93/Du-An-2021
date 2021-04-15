@@ -31,9 +31,12 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
 
-            var menu = db.Menus.Where(u => u.mLang.Equals(lang) && u.mPosition == 1 && u.active == true).ToList();
+            var menu = db.Menus.Where(u => u.mPosition == 1 && u.active == true && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+            var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             ViewBag.conf = conf;
-            return PartialView(menu);
+            ViewBag.menu = menu;
+
+            return PartialView(allCate);
         }
 
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
@@ -68,7 +71,7 @@ namespace NTSPRODUCT.Controllers.Site
                 cateId = GetListId(item.id, item.cate_cap.Value, lstCate);
                 productModel = new ProductModel();
                 productModel.cate = item;
-                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).OrderBy(u => u.proOrder).ToList();
+                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).OrderBy(u => u.proOrder).Take(numPro).ToList();
                 proHome.Add(productModel);
             }
 
@@ -79,7 +82,7 @@ namespace NTSPRODUCT.Controllers.Site
 
             //ViewBag.proSale = proSale;
             //ViewBag.proBanChay = proBanChay;
-            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(4).ToList(); ;
+            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
             ViewBag.videos = videos;
 
             return PartialView(proHome);
@@ -167,22 +170,18 @@ namespace NTSPRODUCT.Controllers.Site
             ViewBag.conf = conf;
 
             var menu = db.Menus.Where(u => u.mPosition == 1 && u.active == true && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
-            var advLeft = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 1);//quảng cáo dưới slide
-            var advRight = db.Advs.FirstOrDefault(u => u.advActive == true && u.advType == 2);//quảng cáo phải slide
-            ViewBag.advLeft = advLeft;
+            var advRight = db.Advs.Where(u => u.advActive == true && u.advType == 2).Take(4).ToList();//quảng cáo phải slide
             ViewBag.advRight = advRight;
 
             var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             string path = HttpContext.Request.Url.AbsolutePath;
-            if (path.Equals("/") || path.Equals(""))
-            {
-                var slide = db.Slides.Where(u => u.active == true).OrderBy(u => u.numberOder).ToList();
-                var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
 
-                ViewBag.slide = slide;
-                ViewBag.sologan = sologan;
-                isHome = true;
-            }
+            var slide = db.Slides.Where(u => u.active == true).OrderBy(u => u.numberOder).ToList();
+            var sologan = db.WhyChooseUsses.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();//slogan cam kết
+
+            ViewBag.slide = slide;
+            ViewBag.sologan = sologan;
+            isHome = true;
             ViewBag.isHome = isHome;
             ViewBag.menu = menu;
 

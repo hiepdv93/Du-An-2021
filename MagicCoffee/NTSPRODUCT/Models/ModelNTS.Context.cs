@@ -42,5 +42,6 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<Tagpro> Tagproes { get; set; }
         public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
         public virtual DbSet<Category> Categorys { get; set; }
+        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
     }
 }

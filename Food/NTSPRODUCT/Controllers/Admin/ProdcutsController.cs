@@ -427,6 +427,30 @@ namespace NTSPRODUCT.Controllers
                 }
             }
         }
+
+        public ActionResult ChangePrice(string id, string price, int type)
+        {
+            var data = db.Products.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    if (type == 1)
+                    {
+                        data.proPrice = int.Parse(price.Trim().Replace(",", string.Empty));
+                    }
+                    else
+                    {
+                        data.proPrice_sale = int.Parse(price.Trim().Replace(",", string.Empty));
+                    }
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = "Đơn giá phải là số" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
         #endregion
 
         public ActionResult CheckKeyCreate(Product model)

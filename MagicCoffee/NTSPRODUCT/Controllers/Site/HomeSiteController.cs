@@ -214,5 +214,41 @@ namespace NTSPRODUCT.Controllers.Site
             }
         }
 
+
+        public ActionResult PushCount()
+        {
+            ActionPushCount();
+            return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+
+        }
+        public void ActionPushCount()
+        {
+            try
+            {
+                NTSWEBEntities db = new NTSWEBEntities();
+                var dateNow = DateTime.Now;
+                var data = db.LichSuTruyCaps.FirstOrDefault(u => u.viewDay == dateNow.Day && u.viewMonth == dateNow.Month && u.viewYear == dateNow.Year);
+                if (data != null)
+                {
+                    data.countTotal = data.countTotal + 1;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    LichSuTruyCap ls = new LichSuTruyCap();
+                    ls.id = Guid.NewGuid().ToString();
+                    ls.viewDay = dateNow.Day;
+                    ls.viewMonth = dateNow.Month;
+                    ls.viewYear = dateNow.Year;
+                    ls.countTotal = 1;
+                    db.LichSuTruyCaps.Add(ls);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            { }
+
+        }
+
     }
 }

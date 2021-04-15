@@ -4,8 +4,7 @@
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
-    var advLeft = (NTSPRODUCT.Models.Adv)ViewBag.advLeft;
-    var advRight = (NTSPRODUCT.Models.Adv)ViewBag.advRight;
+    var advRight = (List<NTSPRODUCT.Models.Adv>)ViewBag.advRight;
     var sologan = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.sologan;
     bool isHome = ViewBag.isHome;
     var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
@@ -18,121 +17,61 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-12 left-top">
-                    <div class="nav-left">
-                        <aside class="aside-item collection-category blog-category">
-                            <div class="heading">
-                                <h2 class="title-head"><span><img src="~/Content/CssSite/images/danh-mục.png" alt="Danh mục"></span><span class="hred">Danh mục</span></h2>
-                            </div>
-                            <div class="aside-content">
-                                @if (!isMobile)
-                                {
-                                    <nav class="nav-category  navbar-toggleable-md">
-                                        <ul class="nav navbar-pills">
-                                            @foreach (var item in cateParent)
-                                            {
-                                                <li class="nav-item ">
-                                                    <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName"><img src="@item.cateImage" alt="@item.cateName"><span>@item.cateName</span></a>
-                                                    @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
-                                                </li>
-                                            }
-                                        </ul>
-                                    </nav>
-                                }
-                            </div>
-                        </aside>
-                    </div>
-                    @if (isHome)
-                    {
-                        <div class="banner-top">
-                            @if (advLeft != null)
-                            {
-                                <a href="@advLeft.advLink" title="@advLeft.advName"><img src="@advLeft.advImage" alt="@advLeft.advName" width="100%"></a>
-                            }
-                        </div>
-                    }
 
                 </div>
                 <div class="col-md-9 col-xs-12">
                     <div class="row">
-                        <div class="nav-right-slide">
-                            <ul class="nav navbar-pills menu-top">
-                                    @if (menu.Count > 0)
+                        <div class="nav-right-slide-top">
+                            <div class="col-md-9 col-xs-12 slide-left">
+                                <div class="slide-top">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            @for (int i = 0; i < slide.Count; i++)
+                                            {
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0?"active":"")"></li>
+                                            }
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            @for (int i = 0; i < slide.Count; i++)
+                                            {
+                                                <div class="carousel-item @(i==0?"active":"")">
+                                                    <img class="d-block w-100" src="@slide[i].images" alt="@slide[i].name">
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-12 slide-right">
+                                <div id="owl-slide-right" class="owl-carousel owl-theme">
+                                    @foreach (var item in advRight)
                                     {
-                                        foreach (var item in menu)
-                                        {
-                                            <li class="nav-sale">
-                                                <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
-                                            </li>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <li class="nav-sale">
-                                            <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
-                                            <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
-                                        </li>
-                                        <li class="nav-banch">
-                                            <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
-                                            <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
-                                        </li>
-                                    }
-                                </ul>
-                        </div>
-                    </div>
-                    @if (slide != null)
-                    {
-                        <div class="row">
-                            <div class="nav-right-slide-top">
-                                <div class="col-md-9 col-xs-12 slide-left">
-                                    <div class="slide-top">
-                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                            <ol class="carousel-indicators">
-                                                @for (int i = 0; i < slide.Count; i++)
-                                                {
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i==0?"active":"")"></li>
-                                                }
-                                            </ol>
-                                            <div class="carousel-inner">
-                                                @for (int i = 0; i < slide.Count; i++)
-                                                {
-                                                    <div class="carousel-item @(i==0?"active":"")">
-                                                        <img class="d-block w-100" src="@slide[i].images" alt="@slide[i].name">
-                                                    </div>
-                                                }
+                                        <div class="item">
+                                            <div class="baner-right">
+                                                <a href="@item.advLink" title="@item.advName"><img src="@item.advImage" alt="@item.advName" width="100%"></a>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-xs-12 slide-right">
-                                    <div class="baner-right">
-                                        @if (advRight != null)
-                                        {
-                                            <a href="@advRight.advLink" title="@advRight.advName"><img src="@advRight.advImage" alt="@advRight.advName" width="100%"></a>
-                                        }
-                                    </div>
+                                    }
                                 </div>
                             </div>
-                        </div>
-                    }
-                    @if (sologan != null && isMobile == false)
-                    {
-                        <div class="row">
 
-                            <div class="about-bottom">
-                                @foreach (var item in sologan)
-                                {
-                                    <div class="col-md-3 col-xs-12">
-                                        <div class="ab-1">
-                                            <span><img src="@item.image" alt="@item.title"></span>
-                                            <span class="ab-text">@item.title</span>
-                                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="about-bottom">
+                            @foreach (var item in sologan)
+                            {
+                                <div class="col-md-3 col-xs-12">
+                                    <div class="ab-1">
+                                        <span><img src="@item.image" alt="@item.title"></span>
+                                        <span class="ab-text">@item.title</span>
                                     </div>
-                                }
-
-                            </div>
+                                </div>
+                            }
                         </div>
-                    }
-
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,6 @@
     var isMobile = Request.Browser.IsMobileDevice;
 }
 
-@Html.Action("NavMenu", "ChildView")
 
 <div class="list-prodcut-home">
     <div class="container">
@@ -35,8 +34,8 @@
                 <div class="row list-video">
                     @foreach (var item in videos)
                     {
-                        <div class="col-md-3 col-xs-12">
-                            <iframe allowfullscreen="1" frameborder="0" height="225" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                        <div class="col-md-4 col-xs-12">
+                            <iframe allowfullscreen="1" height="220" frameborder="0" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
                             </iframe>
                         </div>
                     }

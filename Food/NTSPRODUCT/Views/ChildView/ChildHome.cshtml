@@ -24,7 +24,7 @@
                     {
                         <div class="item-news">
                             <a class="news-img" href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
-                            <a class="news-nanme" href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 35)</a>
+                            <a class="news-nanme" href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.title, 35)</a>
                             <div class="news-time">
                                 <span><i class="fa fa-calendar"></i> @item.createDate.Value.ToString("dd/MM/yyyy HH:mm")</span>
                             </div>
@@ -38,55 +38,58 @@
                 {
                     foreach (var itemHome in Model)
                     {
-                        <div class="pro-home">
-                            <div class="titles">
-                                <a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName">
-                                    <span>@itemHome.cate.cateName</span>
-                                </a>
-                                <span class="pull-right readmore-index"><a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName"> &gt;&gt; Xem thêm</a></span>
-                            </div>
-                            <div class="product-wrapper">
-                                <div class="row">
-                                    @foreach (var item in itemHome.pro)
-                                    {
+                        if (itemHome.pro != null && itemHome.pro.Count > 0)
+                        {
+                            <div class="pro-home">
+                                <div class="titles">
+                                    <a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName">
+                                        <span>@itemHome.cate.cateName</span>
+                                    </a>
+                                    <span class="pull-right readmore-index"><a href="/danh-muc/@itemHome.cate.cateKey" title="@itemHome.cate.cateName"> &gt;&gt; Xem thêm</a></span>
+                                </div>
+                                <div class="product-wrapper">
+                                    <div class="row">
+                                        @foreach (var item in itemHome.pro)
+                                        {
 
-                                        <div class="col-md-3 col-xs-6 col-sm-6">
-                                            <div class="product-item">
-                                                <div class="image">
-                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
-                                                        <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
-                                                    </a>
-                                                </div>
-                                                <div class="name" style="height: 55px;">
-                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                                </div>
-                                                <div class="price" style="float:left">
-                                                    <em>
-                                                        @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
-                                                        <span class="variant_title">/@item.brank</span>
-                                                    </em>
-                                                </div>
-                                                @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
-                                                {
-                                                    pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
-                                                    <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
-                                                    <div class="sale">-@(Math.Round(pt,0))%</div>
-                                                }
+                                            <div class="col-md-3 col-xs-6 col-sm-6">
+                                                <div class="product-item">
+                                                    <div class="image">
+                                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
+                                                            <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
+                                                        </a>
+                                                    </div>
+                                                    <div class="name" style="height: 55px;">
+                                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
+                                                    </div>
+                                                    <div class="price" style="float:left">
+                                                        <em>
+                                                            @((item.proPrice_sale!=null && item.proPrice_sale!=0)? item.proPrice_sale.Value.ToString("N0"):"Liên hệ" )
+                                                            <span class="variant_title">/@item.brank</span>
+                                                        </em>
+                                                    </div>
+                                                    @if (item.proPrice_sale != null && item.proPrice != null && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
+                                                    {
+                                                        pt = (item.proPrice.Value - item.proPrice_sale.Value) * 100 / item.proPrice.Value;
+                                                        <div class="price-old1">@item.proPrice.Value.ToString("N0")</div>
+                                                        <div class="sale">-@(Math.Round(pt,0))%</div>
+                                                    }
 
-                                                <div class="addcart addcart-collection">
-                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                        <button class="addtocart addcartcollection" type="button">
-                                                            THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                        </button>
-                                                    </a>
+                                                    <div class="addcart addcart-collection">
+                                                        <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                                            <button class="addtocart addcartcollection" type="button">
+                                                                THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    }
+                                        }
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
                 }
             </div>
@@ -104,14 +107,22 @@
         </div>
       
         <div class="row list-video">
-            @foreach (var item in videos)
-            {
-                <div class="col-md-3 col-xs-12">
-                    <iframe allowfullscreen="1" frameborder="0" height="315" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
-                    </iframe>
+
+            <div class="col-md-12 col-xs-12">
+                <div id="owl-video-home" class="owl-carousel owl-theme">
+                    @foreach (var item in videos)
+                    {
+                        <div class="item">
+                            <div class="video">
+                                <iframe allowfullscreen="1" frameborder="0" height="315" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                                </iframe>
+                            </div>
+                        </div>
+                    }
+                   
                 </div>
-            }
-            @*@Html.Raw(conf.homeVideo)*@
+            </div>
+
         </div>
         <div class="row intro-fanpage">
             <div class="col-md-9 col-xs-12">

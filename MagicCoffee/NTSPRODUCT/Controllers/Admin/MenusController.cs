@@ -96,7 +96,22 @@ namespace NTSPRODUCT.Controllers
             }
             return PartialView(data);
         }
-
+        public ActionResult ChangeOrder(string id, int mOrder)
+        {
+            var data = db.Menus.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.mOrder = mOrder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
         public List<Menu> GetMenuChil(string idP)
         {
             List<Menu> list = new List<Menu>();

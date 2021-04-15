@@ -264,6 +264,9 @@
       <DependentUpon>ModelNTS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LichSuTruyCap.cs">
+      <DependentUpon>ModelNTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginProfileModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs">
