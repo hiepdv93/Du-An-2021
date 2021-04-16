@@ -27,7 +27,7 @@ namespace NTSPRODUCT.Controllers
             var all = (from a in db.Slides.AsNoTracking()
                        where a.slang.Equals(lang)
                        && (string.IsNullOrEmpty(model.Name) || a.name.ToLower().Contains(model.Name.ToLower()))
-                       orderby a.name
+                       orderby a.numberOder
                        select a).AsQueryable();
 
             var numOfSlides = all.Select(u => u.id).Count();

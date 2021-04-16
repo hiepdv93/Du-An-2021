@@ -58,6 +58,24 @@
                                                         <a href="/san-pham/@item.pro_key" title="@item.pro_name" data-toggle="tooltip">
                                                             <img class="main_img" src="@item.proAvata" alt="@item.pro_name">
                                                         </a>
+                                                        @if (item.pro_hot == true && item.pro_sale == false)
+                                                        {
+                                                            <div class="tag_icon">
+                                                                <img src="~/Content/CssSite/images/icon-sphot.png" height="26px" alt="Sản phẩm hot">
+                                                            </div>
+                                                        }
+                                                        else if (item.pro_sale == true && item.pro_hot == false)
+                                                        {
+                                                            <div class="tag_icon">
+                                                                <img src="~/Content/CssSite/images/icon-km.png" height="26px" alt="Sản phẩm hot">
+                                                            </div>
+                                                        }
+                                                        else if (item.pro_sale == true && item.pro_hot == true)
+                                                        {
+                                                            <div class="tag_icon">
+                                                                <img src="~/Content/CssSite/images/icon-km.png" height="26px" alt="Sản phẩm hot">
+                                                            </div>
+                                                        }
                                                     </div>
                                                     <div class="name" style="height: 55px;">
                                                         <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
@@ -105,8 +123,8 @@
             </a>
             <span class="pull-right readmore-index"><a href="/video" title="Kênh Youtube Tanson Foods"> &gt;&gt; Xem thêm</a></span>
         </div>
-      
-        <div class="row list-video">
+
+        <div class="list-video">
 
             <div class="col-md-12 col-xs-12">
                 <div id="owl-video-home" class="owl-carousel owl-theme">
@@ -119,7 +137,7 @@
                             </div>
                         </div>
                     }
-                   
+
                 </div>
             </div>
 

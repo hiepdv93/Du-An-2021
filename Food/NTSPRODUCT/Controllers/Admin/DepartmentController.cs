@@ -30,7 +30,7 @@ namespace NTSPRODUCT.Controllers
                        where (a.lang.Equals(lang)
                        && (string.IsNullOrEmpty(model.Name) || a.name.ToLower().Contains(model.Name.ToLower()))
                        )
-                       orderby a.createDate descending
+                       orderby a.dOrder 
                        select a).AsQueryable();
 
             var numOfNews = all.Select(u => u.id).Count();

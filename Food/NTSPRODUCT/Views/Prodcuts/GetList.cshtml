@@ -12,8 +12,8 @@
                 <th width="100px">Giá Sale</th>
                 <th width="100px">Giá gốc</th>
                 <th width="60px">Thứ tự</th>
-                @*<th width="100px" class="text-center">SP KM</th>
-                <th width="100px" class="text-center">SP BC</th>*@
+                <th width="100px" class="text-center">Icon KM</th>
+                <th width="100px" class="text-center">Icon Hot</th>
                 <th width="100px" class="text-center">Hiển thị</th>
 
             </tr>
@@ -43,7 +43,7 @@
                     <td>
                         <input type="number" style="width:60px" value="@item.proOrder" alt="@item.id" class="proOrderChange" />
                     </td>
-                    @*<td class="text-center">
+                    <td class="text-center">
                         <label class="switch">
                             <input type="checkbox" onchange="ChangeProductSale('@item.id')" @(item.pro_sale == Constants.Checked ? "checked" : "")>
                             <span class="slider round"></span>
@@ -54,7 +54,7 @@
                             <input type="checkbox" onchange="ChangeProductHot('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
                             <span class="slider round"></span>
                         </label>
-                    </td>*@
+                    </td>
                     <td class="text-center">
                         <label class="switch">
                             <input type="checkbox" onchange="ChangeStatus('@item.id')" @(item.active == Constants.Checked ? "checked" : "")>

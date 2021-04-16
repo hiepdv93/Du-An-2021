@@ -27,7 +27,7 @@ namespace NTSPRODUCT.Controllers
                        where
                         (string.IsNullOrEmpty(model.Name) || a.fullName.ToLower().Contains(model.Name.ToLower()))
                        && (string.IsNullOrEmpty(model.Nick) || a.nick.ToLower().Contains(model.Nick.ToLower()) || a.phone.ToLower().Contains(model.Nick.ToLower()))
-                       orderby a.fullName
+                       orderby a.numberOder
                        select a).AsQueryable();
 
             var numOfSupport = all.Select(u => u.id).Count();

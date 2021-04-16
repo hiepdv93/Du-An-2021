@@ -25,7 +25,7 @@ namespace NTSPRODUCT.Controllers
             var all = (from a in db.WhyChooseUsses.AsNoTracking()
                        where a.slang.Equals(lang)
                        && (string.IsNullOrEmpty(model.Name) || a.title.ToLower().Contains(model.Name.ToLower()))
-                       orderby a.createDate descending
+                       orderby a.numberOder 
                        select a).AsQueryable();
 
             var numOfSayWes = all.Select(u => u.id).Count();

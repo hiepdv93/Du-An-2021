@@ -28,7 +28,7 @@ namespace NTSPRODUCT.Controllers
                        where (a.advLang.Equals(lang)
                        && (string.IsNullOrEmpty(model.Name) || a.advName.ToLower().Contains(model.Name.ToLower())))
                        && (model.Type==null || model.Type==a.advType)
-                       orderby a.createDate descending
+                       orderby a.advOrder 
                        select a).AsQueryable();
 
             var numOfAdvs = all.Select(u => u.id).Count();

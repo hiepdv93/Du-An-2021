@@ -50,8 +50,8 @@
                     @Html.Raw(newData.contents)
 
                     <hr />
-                    <h2>Tin cùng chuyên mục</h2>
-                    <ul>
+                    <h2 class="title-news-other">Tin cùng chuyên mục</h2>
+                    <ul class="list-news-other">
                         @foreach (var item in Model)
                         {
                             <li><a href="/dich-vu/@item.new_key" title="@item.title"><i class="fa fa-caret-right" aria-hidden="true"></i> @item.title (@item.updateDate.Value.ToString("dd/MM/yyyy"))</a></li>

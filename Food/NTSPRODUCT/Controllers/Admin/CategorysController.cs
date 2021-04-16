@@ -85,7 +85,7 @@ namespace NTSPRODUCT.Controllers
             var numOfNews = all.Select(u => u.id).Count();
             var currPage = model.PageNumber - 1;
 
-            var listP = all.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateName).ThenByDescending(u => u.createDate).ToList();
+            var listP = all.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ThenByDescending(u => u.createDate).ToList();
 
             List<Category> list = new List<Category>();
             foreach (var item in listP)
@@ -108,7 +108,7 @@ namespace NTSPRODUCT.Controllers
         public List<Category> GetMenuChil(string idP)
         {
             List<Category> list = new List<Category>();
-            var listP = all.Where(u => u.catepar_id.Equals(idP)).OrderBy(u => u.cateName).ThenByDescending(u => u.createDate).ToList();
+            var listP = all.Where(u => u.catepar_id.Equals(idP)).OrderBy(u => u.cateOrder).ThenByDescending(u => u.createDate).ToList();
             foreach (var item in listP)
             {
                 list.Add(item);
@@ -130,7 +130,7 @@ namespace NTSPRODUCT.Controllers
             var all = (from a in db.Categorys.AsNoTracking()
                        where a.cateLang.Equals(lang) && ClassExten.typeNew == a.cateType
                              && (string.IsNullOrEmpty(model.Name) || a.cateName.ToLower().Contains(model.Name.ToLower()))
-                       orderby a.cate_cap, a.cateName
+                       orderby a.cateOrder
                        select a).AsQueryable();
 
             var numOfNews = all.Select(u => u.id).Count();

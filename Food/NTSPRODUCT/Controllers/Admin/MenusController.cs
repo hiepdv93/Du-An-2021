@@ -100,7 +100,7 @@ namespace NTSPRODUCT.Controllers
         public List<Menu> GetMenuChil(string idP)
         {
             List<Menu> list = new List<Menu>();
-            var listP = all.Where(u => u.par_id.Equals(idP)).OrderBy(u => u.mPosition).ThenBy(u => u.mOrder).ToList();
+            var listP = all.Where(u => u.par_id.Equals(idP)).OrderBy(u => u.mOrder).ThenBy(u => u.name).ToList();
             foreach (var item in listP)
             {
                 list.Add(item);

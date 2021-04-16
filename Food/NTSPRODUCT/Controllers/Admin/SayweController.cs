@@ -26,7 +26,7 @@ namespace NTSPRODUCT.Controllers
                        where a.slang.Equals(lang)
                        && (string.IsNullOrEmpty(model.Name) || a.fullName.ToLower().Contains(model.Name.ToLower()))
                        && (string.IsNullOrEmpty(model.Email) || a.email.ToLower().Contains(model.Email.ToLower()))
-                       orderby a.createDate descending
+                       orderby a.numberOder 
                        select a).AsQueryable();
 
             var numOfSayWes = all.Select(u => u.id).Count();

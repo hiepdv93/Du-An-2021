@@ -31,14 +31,19 @@
                         <span style="color:red">Kênh Youtube Tanson Foods</span>
                     </a>
                 </div>
-                <div class="row list-video">
-                    @foreach (var item in videos)
-                    {
-                        <div class="col-md-4 col-xs-12">
-                            <iframe allowfullscreen="1" height="220" frameborder="0" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
-                            </iframe>
-                        </div>
-                    }
+                <div class="list-video">
+
+                        @foreach (var item in videos)
+                        {
+                            <div class="col-md-4 col-xs-12">
+                                <div class="item">
+                                    <div class="video">
+                                        <iframe allowfullscreen="1" height="220" frameborder="0" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                 </div>
             </div>
         </div>

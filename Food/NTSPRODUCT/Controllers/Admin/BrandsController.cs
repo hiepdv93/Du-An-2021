@@ -26,7 +26,7 @@ namespace NTSPRODUCT.Controllers
         {
             var all = (from a in db.Brands.AsNoTracking()
                        where string.IsNullOrEmpty(model.Name) || a.bkName.ToLower().Contains(model.Name.ToLower())
-                       orderby a.bkName
+                       orderby a.numberOder
                        select a).AsQueryable();
 
             var numOfBrands = all.Select(u => u.id).Count();

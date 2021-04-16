@@ -40,7 +40,7 @@ namespace NTSPRODUCT.Controllers
             var cartGet = ClassExten.GetCokiesCart();
             if (cartGet == null)
             {
-                return Redirect("/danh-muc");
+                return View();
             }
             else
             {
