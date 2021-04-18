@@ -5,7 +5,7 @@
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
     var protag = (List<NTSPRODUCT.Models.Tagpro>)ViewBag.protag;
-  //  var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
+    //  var SayWe = (List<NTSPRODUCT.Models.SayWe>)ViewBag.SayWe;
     var newsPro = (List<NTSPRODUCT.Models.News>)ViewBag.newsPro;
     var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
     var adv = (NTSPRODUCT.Models.Adv)ViewBag.advs;
@@ -13,24 +13,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Action("NavMenu", "ChildView")
+<script src="~/Content/SiteJSController/HomeControllers.js"></script>
+
 <div class="product-de">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-xs-12">
                 <div class="breack">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
-                            <nav class="nav-bre" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/" title="@ClassExten.GetLangKey("home")">@ClassExten.GetLangKey("home")</a></li>
-                                    <li class="breadcrumb-item"><a href="/danh-muc" title="Sản phẩm">Sản phẩm</a></li>
-                                    <li class="breadcrumb-item"><a href="/danh-muc/@cateP.cateKey" title="@cateP.cateName">@cateP.cateName</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="#" title="@pro.pro_name">@pro.pro_name</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </nav>
+
+                    <ul class="breadcrumb" itemscope="">
+                        <li class="home">
+                            <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li class="home">
+                            <a itemprop="url" href="/danh-muc" title="Sản phẩm"><span itemprop="title">Sản phẩm</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li class="home">
+                            <a itemprop="url" href="/danh-muc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                        </li>
+                        <li><strong><span itemprop="title">@pro.pro_name</span></strong></li>
+                    </ul>
+
                 </div>
                 <div class="detail-pro">
                     <div class="row">
@@ -83,20 +89,27 @@
                         <div class="col-md-5 col-xs-12">
                             <div class="pro-content">
                                 <h1>@pro.pro_name</h1>
-                                <p class="check-pro">(Còn Hàng)</p>
+                                @*<p class="check-pro">(Còn Hàng)</p>*@
                                 <div class="pro-price">
                                     <p>Đơn giá</p>
                                     <p class="pri">
                                         <span>@((pro.proPrice_sale!=null && pro.proPrice_sale!=0)? pro.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span><span>@pro.brank</span>
                                     </p>
+                                    @if (pro.proPrice_sale != null && pro.proPrice_sale != 0)
+                                    {
+                                        <p>Thành tiền</p>
+                                        <p class="pri" id="price_calc">@pro.proPrice_sale.Value.ToString("N0") VND</p>
+                                    }
+
                                 </div>
                                 <div class="cont">
-                                    @Html.Raw(pro.desPro)
+                                    @Html.Raw(pro.introContent)
                                 </div>
                                 <div class="total">
                                     <p>Số lượng:</p>
-                                    <input type="number" value="1" name="" class="total-pro">
+                                    <input type="number" value="1" name="" class="total-pro" id="number_pro" onchange="changeNum()" onkeyup="changeNum()">
                                     <input type="hidden" id="idPro" value="@pro.id" />
+                                    <input type="hidden" id="proPrice_sale" value="@(pro.proPrice_sale)" />
 
                                 </div>
                                 <div class="sumit">
@@ -140,6 +153,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="info-detai-pro">
     <div class="container">
         <div class="row">
@@ -151,6 +166,27 @@
                     <div class="info-cont">
                         @Html.Raw(pro.proContentTab1)
                     </div>
+                </div>
+                <div class="product_meta">
+                    @if (protag.Count > 0)
+                    {
+                        int row = 0;
+                        <span class="posted_in">
+                            Tag:
+                            @foreach (var item in protag)
+                            {
+                                row++;
+                                if (row == 1)
+                                {
+                                    <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">@item.tagName</a>
+                                }
+                                else
+                                {
+                                    <a href="/tag/@item.tagKey" target="_blank" title="@item.tagName" rel="tag">, @item.tagName</a>
+                                }
+                            }
+                        </span>
+                    }
                 </div>
             </div>
             <div class="col-md-3 col-xs-12">

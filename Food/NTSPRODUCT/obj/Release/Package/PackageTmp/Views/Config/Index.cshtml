@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Banner hiển thị mobile</label>
+                                        <label>Logo dưới(bên trái)</label>
                                         <input type="text" class="form-control csinput" maxlength="256" name="logoBottom" id="logoBottom" placeholder="Chọn ảnh " value="@Model.logoBottom" />
                                     </div>
                                 </div>
@@ -96,8 +96,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Logo/Ảnh phải footer</label>
-                                        <input type="text" class="form-control csinput" name="linkLogo" id="linkLogo" maxlength="300" placeholder="Logo/Ảnh phải footer" value="@Model.linkLogo" />
+                                        <label>Link click vào logo</label>
+                                        <input type="text" class="form-control csinput" name="linkLogo" id="linkLogo" maxlength="300" placeholder="Link click vào logo" value="@Model.linkLogo" />
                                     </div>
                                 </div>
 
@@ -109,24 +109,24 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Địa chỉ/Intro giới thiệu</label>
+                                        <label for="exampleInputPassword1">Địa chỉ cửa hàng/công ty</label>
                                         <input type="text" class="form-control csinput" name="addresss" maxlength="350" placeholder="Địa chỉ/Intro giới thiệu.." value="@Model.addresss" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display:none">
                                 <label for="exampleInputPassword1">Video trang chủ</label>
                                 @Html.TextAreaFor(u => u.homeVideo)
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Giới thiệu chân trang</label>
+                                <label for="exampleInputPassword1">Giới thiệu trang chủ</label>
                                 @Html.TextAreaFor(u => u.infoPage)
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Thông tin chân trang</label>
                                 @Html.TextAreaFor(u => u.footer)
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display:none">
                                 <label for="exampleInputPassword1">Xưởng sản xuất</label>
                                 @Html.TextAreaFor(u => u.footerExten)
                             </div>
@@ -196,8 +196,30 @@
                                             <option value="2">Ngày tạo</option>
                                         </select>
                                     </div>
-
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Gửi mail khi mua hàng</label>
+                                        <select name="typeSendMail" id="typeSendMail" class="form-control">
+                                            <option value="1">Không gửi mail</option>
+                                            <option value="2">Chỉ gửi Admin</option>
+                                            <option value="3">Chỉ gửi cho khách</option>
+                                            <option value="4">Gửi cho cả 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Kênh video trang chủ</label>
+                                        <select name="isShowVideoHome" id="isShowVideoHome" class="form-control">
+                                            <option value="1">Hiện thị video</option>
+                                            <option value="0">Ẩn video</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -289,6 +311,8 @@
 
 <script type="text/javascript">
     $('#viewProBy').val('@Model.viewProBy');
+    $('#isShowVideoHome').val('@Model.isShowVideoHome');
+    $('#typeSendMail').val('@Model.typeSendMail');
     var editor;
     function createEditor(languageCode, id) {
         var editor = CKEDITOR.replace(id, {
@@ -340,14 +364,6 @@
             finder.popup();
         });
     });
-    $(function () {
-        $("#linkLogo").click(function () {
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (fileUrl) {
-                $("#linkLogo").val(fileUrl);
-            };
-            finder.popup();
-        });
-    });
+   
 
 </script>

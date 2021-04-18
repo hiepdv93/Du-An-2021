@@ -84,7 +84,7 @@
     $('.newsOrderChange').change(function (e) {
         var number = $(this).val();
         var id = $(this).attr('alt');
-
+        OpenWaiting();
         $.ajax({
             url: "/News/ChangeOrder?id=" + id + '&newOrder=' + number,
             type: "POST",
@@ -99,7 +99,7 @@
                 toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
             },
         });
-
+        CloseWaiting();
     });
 
 </script>

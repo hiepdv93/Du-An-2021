@@ -43,6 +43,103 @@ img{
 .desktop-none{
 	display: block;
 }
+.carousel-indicators{
+z-index: 2;
+}
+.hotline-top {
+    display: none;
+}
+.shoping, .login {
+    display: none;
+}
+.header-destop.scrollfixed {
+    z-index: 2000 !important;
+}
+}
+@media screen and (min-width:1px) and (max-width:479px){
+.logo-top {
+    text-align: center;
+}
+.header-destop .col-md-3.col-xs-12:nth-child(3), .header-destop .col-md-3.col-xs-12:nth-child(4) {
+    width: 50%;
+}
+.header-bottom.scrollfixed {
+    top: 109px !important;
+}
+.header-destop .hotline-top .right {
+    float: none !important;
+    text-align: center;
+}
+.header-destop .hotline-top .left {
+    float: none !important;
+    text-align: center;
+    margin-top: 10px;
+}
+.header-destop .login, .header-destop .shoping {
+    float: none !important;
+    text-align: center;
+}
+.nav-sale a, .nav-banch a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    top: 4px;
+}
+.nav-right-slide .col-md-3.col-xs-12 {
+    width: 50%;
+}
+.nav-left {
+    display: none !important;
+}
+.nav-right-slide-top .baner-right {
+    display: none;
+}
+.about-bottom .ab-1 {
+    padding: 10px 0;
+}
+.news-left {
+    display: none;
+}
+.y-ken .col-md-3.col-xs-6 {
+    width: 100%;
+}
+.y-ken iframe {
+    height: 200px;
+    width: 100%;
+}
+.y-ken .col-md-9.col-xs-7 {
+    width: 100%;
+}
+.titel-detail h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.about-home {
+    margin: 20px 0;
+}
+.y-ken .col-md-3.col-xs-5 {
+    width: 100%;
+}
+.contact-footer {
+    margin: 20px 0;
+}
+article.blog-item {
+    width: calc(100% - 20px) !important;
+}
+.nav-right-slide ul li a {
+    padding: 8px 8px !important;
+    top: 0 !important;
+    font-size: 12px !important;
+}
+}
+@media screen and (max-width: 639px) and (min-width: 480px){
+
+}
+@media screen and (min-width:640px) and (max-width:767px){
+
+}
+@media screen and (min-width: 768px) and (max-width: 980px){
 
 }
 @media screen and (min-width: 768px){
@@ -59,6 +156,10 @@ img{
 @media (min-width: 1200px){
 .container {
     max-width: 1270px;
+}
+
+.header-bottom.scrollfixed {
+    top: 72px !important;
 }
 }
 /* -------------------- CSS FULL -------------------- */

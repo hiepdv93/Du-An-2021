@@ -38,7 +38,7 @@
 .pro-content .sumit button {
     background: red;
     color: #fff;
-    padding: 4px 0;
+    padding: 7px 0;
     border: none;
     border-radius: 20px;
     font-size: 15px;
@@ -120,19 +120,16 @@
 .pro-right .pro-right-name h2 {
     font-size: 16px;
     text-transform: uppercase;
-    line-height: 24px;
+    line-height: 22px;
 }
 .pro-right .pro-right-price p {
     margin: 0;
     font-size: 14px;
 }
-.pro-right .pro-right-price {
-    margin-top: 13px;
-}
 .pro-right .pro-right-price p.pri {
     color: red;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 }
 .pro-right {
     padding: 15px 15px 10px 0px;
@@ -190,7 +187,23 @@
 }
 .pro-right-2-item {
     margin: 15px 0 0 0;
+    width: 100%;
+    float: left;
+}
+.pro-right-2-item .right-2-img {
+    width: 48%;
+    float: left;
+    padding-right: 10px;
+}
+.pro-right-2-item .right-2-text {
+    width: 50%;
+    float: left;
+}
+.y-kien-cont .pro-right-2-item {
     padding: 0 0 15px 1px;
+    width: 100%;
+    float: left;
+    margin: 0;
 }
 .product-list .pro-home .titles{
     border-bottom: 2px solid #E25B26;

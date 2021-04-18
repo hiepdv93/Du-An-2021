@@ -1,13 +1,17 @@
-.nav-top{
-	position: relative;
+.nav-top {
+    position: relative;
+    margin-top: -20px;
 }
-.nav-destop:before {
+.header-bottom:before {
     content: "";
     position: absolute;
     background: red;
     width: 100%;
     height: 37px;
     top: 0;
+}
+.header-bottom {
+    position: relative;
 }
 .nav-sale span img{
     width: 13px;
@@ -34,34 +38,40 @@
 }
 h2.title-head {
     line-height: 22px;
-    background: #ffc435;
-    padding: 4px;
+    background: #eda400;
+    padding: 4px 4px 5px 4px;
 }
 .nav-right-slide {
     width: 100%;
     float: left;
-    padding: 3px 0;
+}
+.nav-right-slide ul li a {
+    padding: 8px 20px;
+    top: 0 !important;
+}
+.nav-right-slide ul li a:hover{
+background: #eda400;
 }
 .nav-right-slide-top {
     width: 100%;
     float: left;
     margin: 9px 0 0 0;
 }
-
+.logo-footer img {
+    width: 390px;
+    height: 100px;
+    object-fit: contain;
+}
 .nav-right-slide-top .col-md-9.col-xs-12.slide-left {
     padding: 0;
 }
-.nav-right-slide-top .col-md-3.col-xs-12.slide-right {
-    padding-left: 0;
-    padding-right: 0;
-}
-.baner-right img {
-    height: 279px;
+.slide-top .carousel-item img.d-block.w-100 {
+    height: 270px;
     object-fit: cover;
 }
-.about-home {
-    padding: 25px 15px 20px 15px;
-    margin-top: 5px;
+.baner-right img {
+    height: 270px;
+    object-fit: cover;
 }
 .about-bottom .ab-1 img {
     width: 28px;
@@ -72,7 +82,8 @@ h2.title-head {
     position: relative;
     left: 8px;
     font-size: 15px;
-    line-height: 15px;
+    line-height: 21px;
+    display: flex;
 }
 .about-head h4.ab-title {
     color: red;
@@ -94,13 +105,88 @@ h2.title-head {
 .about-conten p {
     font-size: 14px;
 }
-.about-home, .about-bottom {
-    background: #fff;
-}
 .about-bottom {
-    padding: 10px 0 30px 0;
+    background: #fff;
+    padding: 25px 0 0 0;
+    width: 100%;
+    float: left;
+}
+.about-bottom .sub {
+    font-size: 11px !important;
 }
 .nav-left {
     margin-bottom: 20px;
     background: #fff;
+}
+.aside-content {
+    position: absolute;
+    background: #ffffff;
+    min-height: 50px;
+    z-index: 90;
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.header-bottom.scrollfixed .aside-content {
+    display: none;
+}
+.header-bottom.scrollfixed .aside-item:hover .aside-content{
+    display: block;
+}
+.owl-dots{
+    display: none;
+}
+button.owl-prev {
+    position: absolute;
+    top: 50%;
+    left: -17px;
+}
+button.owl-prev span, button.owl-next span {
+    font-size: 25px;
+    background: #12a169;
+    padding: 2px;
+    color: white;
+}
+button.owl-next {
+    position: absolute;
+    top: 50%;
+    right: -17px;
+}
+#owl-demo .item{
+    background: #42bdc2;
+    padding: 30px 0px;
+    margin: 5px;
+    color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+.list-video .owl-carousel .owl-item .video {
+    border: 2px solid #d9d9d9;
+    padding: 3px;
+    border-radius: 6px;
+}
+.about-conten p {
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 400;
+}
+.header-destop .shoping {
+    position: relative;
+}
+.header-destop .shoping a span {
+    position: absolute;
+    background: red;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 11px;
+    right: 0;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    top: 0;
+}
+.pro-content .cont {
+    text-align: justify;
 }

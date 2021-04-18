@@ -36,7 +36,7 @@ function GetNotifyByKey(key) {
     }
 }
 function PushProduct() {
-    var numberPro = 1;// $('#qty').val();
+    var numberPro = $('#number_pro').val();
     var idPro = $('#idPro').val();
     if (isNaN(numberPro)) {
         toastr.error(GetNotifyByKey('Error_numberPro')); return;
@@ -202,12 +202,12 @@ function AddCart() {
             data: model,
             success: function (data) {
                 if (data.ok === 1) {
-                    sessionStorage.setItem("okCart", GetNotifyByKey('rs_Cart_ok'));
-                    window.location = '/';
+                    toastr.success('Gửi đơn hàng thành công, xin cám ơn quý khách', { timeOut: 5000 });
+                    setTimeout(function () { window.location = '/'; }, 1000);
                 } else if (data.ok === 0) {
-                    toastr.error(GetNotifyByKey('rs_Cart_error'), { timeOut: 5000 });
+                    toastr.error('Đã xảy ra lỗi vui lòn thử lại', { timeOut: 5000 });
                 } else {
-                    window.location = '/danh-muc/';
+                    setTimeout(function () { window.location = '/'; }, 1000);
                 }
                 CloseWaiting();
                 document.getElementById("btnContactUs").style.disabled = false;
@@ -218,5 +218,90 @@ function AddCart() {
                 toastr.error(GetNotifyByKey('rs_Cart_error'), { timeOut: 5000 });
             }
         });
+    }
+}
+
+function ActionPush() {
+    try {
+        $.ajax({
+            url: "/HomeSite/PushCount",
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    console.log('add ls ok');
+                } else {
+                    console.log(data.mess);
+                }
+            },
+            error: function (response) {
+                console.log('Đã xảy ra lỗi');
+            },
+        });
+    } catch (e) { }
+}
+function PushCount() {
+    setTimeout(function () { ActionPush(); }, 2000);
+}
+
+function changeNum() {
+    var x = $('#proPrice_sale').val();
+    if (x !== undefined && x !== '' && x !== '0') {
+        var sl = $('#number_pro').val();
+        $('#price_calc').html(formatMoney(x, sl));
+    }
+}
+
+function formatMoney(price, number) {
+    var rs = parseInt(price) * parseInt(number);
+    let txtView = rs.toLocaleString('vi', { style: 'currency', currency: 'VND' });
+    return txtView.replaceAll('.', ',');
+}
+function showPushPro(idPro, namePro, price, priceSale, donvi) {
+    $('#pro_number_base').val('1');
+    $('#pro_id_base').val(idPro);
+    $('#pro_name_base').html(namePro);
+    $('#pro_price_base').html(formatMoney(price, 1) + '/' + donvi);
+    $('#pro_pricesale_base').html(formatMoney(priceSale, 1) + '/' + donvi);
+
+    $('#pro_dongia_base').val(priceSale);
+    $('#pro_money_base').html(formatMoney(priceSale, 1));
+
+    $("#modamPro").modal();
+}
+
+function changeNumList() {
+    var x = $('#pro_dongia_base').val();
+    var sl = $('#pro_number_base').val();
+
+    if (x !== undefined && x !== '' && x !== '0') {
+        $('#pro_money_base').html(formatMoney(x, sl));
+    }
+}
+function PushProductList() {
+    var numberPro = $('#pro_number_base').val();
+    var idPro = $('#pro_id_base').val();
+    if (isNaN(numberPro)) {
+        toastr.error("Nhập số lượng sản phẩm"); return;
+    } else {
+        var url = '/Carts/Addcarts/' + idPro + '?number=' + numberPro;
+        OpenWaiting();
+        $.ajax({
+            url: url,
+            // data: { lang: lang },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === 1) {
+                    $('#total_count_cart').html(data.countcart + '');
+                    $('#modamPro').modal('hide');
+
+                    toastr.success('Thêm sản phẩm vào giỏ hàng thành công!', { timeOut: 5000 });
+                }
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+        CloseWaiting();
     }
 }

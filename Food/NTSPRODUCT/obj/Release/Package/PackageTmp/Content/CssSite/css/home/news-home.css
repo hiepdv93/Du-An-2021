@@ -1,7 +1,8 @@
 .news-left {
-    height: 100%;
     border: 1px solid #d9d9d9;
     border-bottom: none;
+    width: 100%;
+    float: left;
 }
 .news-left .menu-content {
     background-color: #1dad4b;
@@ -38,7 +39,6 @@
     padding: 5px 5px 20px 5px;
     width: 100%;
     float: left;
-    margin-bottom: 20px;
     border-bottom: 1px solid #d7d7d7;
 }
 .news-left .news-time span {
@@ -56,6 +56,8 @@
 .product-item .image {
     position: relative;
     width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
 }
 .product-item .image a {
     display: block;
@@ -73,6 +75,10 @@
     bottom: 0px;
     margin: auto;
     display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 .product-item .name {
     padding-top: 10px;

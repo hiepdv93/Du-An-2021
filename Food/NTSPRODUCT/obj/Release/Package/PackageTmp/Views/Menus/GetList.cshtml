@@ -5,13 +5,13 @@
         <thead>
             <tr>
                 <th width="50px" class="text-center">STT</th>
-                <th width="130px">Chức năng</th>
+                <th width="120px">Chức năng</th>
                 <th>Tên menu</th>
-                <th width="200px">Menu cha</th>
-                <th width="160px">Vị trí</th>
-                <th width="160px">Loại menu</th>
-                <th width="110px">Thứ tự</th>
-                <th width="130px">Hiển thị</th>
+                <th>Menu cha</th>
+                <th width="120px">Vị trí</th>
+                <th width="120px">Loại menu</th>
+                <th width="90px">Thứ tự</th>
+                <th width="60px">Hiển thị</th>
 
             </tr>
         </thead>
@@ -54,7 +54,9 @@
                 {
                     <td>Menu liên kết</td>
                 }
-                <td>@Model[i].mOrder</td>
+                <td>
+                    <input type="number" style="width:60px" value="@Model[i].mOrder" alt="@Model[i].id" class="mOrderChange" />
+                </td>
                 <td class="text-center">
                     <label class="switch">
                         <input type="checkbox" onchange="ChangeStatus('@Model[i].id')" @(Model[i].active == true ? "checked" : "")>
@@ -88,4 +90,26 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+    $('.mOrderChange').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+        OpenWaiting();
+        $.ajax({
+            url: "/Menus/ChangeOrder?id=" + id + '&mOrder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+        CloseWaiting();
+    });
+
 </script>

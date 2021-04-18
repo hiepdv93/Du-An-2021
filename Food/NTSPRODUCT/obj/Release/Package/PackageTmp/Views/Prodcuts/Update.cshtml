@@ -50,7 +50,7 @@
                                     <input type="text" class="form-control " placeholder="Url sản phẩm" value="@Model.pro_key" maxlength="800" id="pro_key" name="pro_key" />
                                 </div>
                             </div>
-                            <div class="col-md-3" style="display:none">
+                            <div class="col-md-3" >
                                 <div class="form-group">
                                     <label>Giá gốc</label><span class="text-red">(*)</span>
                                     <input type="number" value="0" class="form-control " name="price" required="required" />
@@ -62,18 +62,18 @@
                                     <input type="number" value="@Model.proPrice_sale" class="form-control " name="priceSale" required="required" />
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Đơn vị tính</label><span class="">(VNĐ/KG)</span>
-                                    <input type="text" class="form-control " value="@Model.brank" name="brank"  />
+                                    <input type="text" class="form-control " value="@Model.brank" name="brank"  maxlength="250"/>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            @*<div class="col-md-6">
                                 <div class="form-group">
                                     <label>Thương hiệu</label>
-                                    <input type="text" class="form-control " placeholder="Thương hiệu" value="@Model.brank" maxlength="250" name="brank" />
+                                    <input type="text" class="form-control " placeholder="Thương hiệu" value="@Model.brank"  name="brank" />
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Thứ tự</label><span class="text-red">(*)</span>
@@ -89,25 +89,25 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2" >
                                 <div class="form-group">
-                                    <label class="display-block">Sản phẩm BC</label>
+                                    <label class="display-block">Hiện icon Hot</label>
                                     <label class="switch">
                                         <input type="checkbox" name="proHot" @(Model.pro_hot == true ? "checked" : "")>
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2" >
                                 <div class="form-group">
-                                    <label class="display-block">Sản phẩm KM</label>
+                                    <label class="display-block">Hiện icon Sale</label>
                                     <label class="switch">
                                         <input type="checkbox" name="pro_sale" @(Model.pro_sale == true ? "checked" : "")>
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2" style="display:none">
                                 <div class="form-group">
                                     <label class="display-block">Hiện trang chủ</label>
                                     <label class="switch">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="clearfix"></div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="display:none">
                                 <div class="form-group">
                                     <label>Mô tả ngắn</label><span class="text-red"></span>
                                     <textarea rows="3" maxlength="800" class="form-control" name="desPro">@Model.desPro</textarea>
@@ -131,10 +131,10 @@
                             @Html.TextAreaFor(u => u.introContent)
                         </div>
                         <div class="form-group">
-                            <label>Chi tiết sản phẩm(Tab1)</label>
+                            <label>Chi tiết sản phẩm</label>
                             @Html.TextAreaFor(u => u.proContentTab1)
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:none">
                             <label>Mô tả/Chính sách(Thông tin mở rộng Tab2)</label>
                             @Html.TextAreaFor(u => u.proContentTab2)
                         </div>
@@ -165,11 +165,11 @@
                         </div>
                         <div class="form-group">
                             <label>Ảnh số 4</label>
-                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata4" id="proAvata4" value="@Model.proImages3" placeholder="Chọn ảnh" />
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata4" id="proAvata4" value="@Model.proImages4" placeholder="Chọn ảnh" />
                         </div>
                         <div class="form-group">
                             <label>Ảnh số 5</label>
-                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata5" id="proAvata5" value="@Model.proImages3" placeholder="Chọn ảnh" />
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata5" id="proAvata5" value="@Model.proImages5" placeholder="Chọn ảnh" />
                         </div>
                     </div>
                     <div class="tab-pane" id="tab_3">

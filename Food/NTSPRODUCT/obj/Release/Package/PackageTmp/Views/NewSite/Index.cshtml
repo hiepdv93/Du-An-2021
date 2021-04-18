@@ -5,35 +5,34 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-    <section class="bread-crumb">
-        <span class="crumb-border"></span>
-        <div class="container">
-            <div class="rows">
-                <div class="col-xs-12 a-left">
-                    <ul class="breadcrumb" itemscope="">
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="rows">
+            <div class="col-xs-12 a-left">
+                <ul class="breadcrumb" itemscope="">
+                    <li class="home">
+                        <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+                    </li>
+                    @if (cateP != null)
+                    {
                         <li class="home">
-                            <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
                             <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
                         </li>
-                        @if (cateP != null)
-                        {
-                            <li class="home">
-                                <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
-                                <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                            </li>
-                            <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
-                        }
-                        else
-                        {
-                            <li><strong><span itemprop="title">@ClassExten.GetLangKey("news")</span></strong></li>
-                        }
+                        <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
+                    }
+                    else
+                    {
+                        <li><strong><span itemprop="title">@ClassExten.GetLangKey("news")</span></strong></li>
+                    }
 
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <section class="page-detail">
     <div class="container">
@@ -44,7 +43,7 @@
                     <span>@(cateP!=null? cateP.cateName: "Danh sách tin tức")</span>
                     <hr>
                 </div>
-              
+
                 <div class="row">
                     <section class="list-blogs blog-main flex-margin-20">
                         @foreach (var item in Model)
