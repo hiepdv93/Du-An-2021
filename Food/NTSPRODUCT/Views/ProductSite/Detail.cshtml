@@ -98,7 +98,7 @@
                                     @if (pro.proPrice_sale != null && pro.proPrice_sale != 0)
                                     {
                                         <p>Thành tiền</p>
-                                        <p class="pri" id="price_calc">@pro.proPrice_sale.Value.ToString("N0") VND</p>
+                                        <p class="pri" id="price_calc" style="color: #12a169; font-size: 19px;">@pro.proPrice_sale.Value.ToString("N0") đ</p>
                                     }
 
                                 </div>
@@ -113,7 +113,11 @@
 
                                 </div>
                                 <div class="sumit">
-                                    <button type="button" onclick="PushProduct()">Đặt Mua</button>
+                                    <div class="p5 alert-success text-center" id="detail-show-giohang" style="margin-top: 1px;display:none">
+                                        <span class="small"><strong><span class="fa fa-check"></span></strong> Thêm vào <span class="text-italic">giỏ hàng</span> thành công.</span>
+                                        <br><a href="/gio-hang" target="_blank" class="text-bold" style="text-decoration: underline">Thanh toán đơn hàng</a>
+                                    </div>
+                                    <button type="button" onclick="PushProduct()"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                                 </div>
                             </div>
                         </div>

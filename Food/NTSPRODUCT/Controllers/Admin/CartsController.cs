@@ -239,8 +239,10 @@ namespace NTSPRODUCT.Controllers
                     cartTotal += shoppCart.CartItems[j].total;
                 }
                 shoppCart.CartTotal = cartTotal;
+                var number = shoppCart.CartItems.Sum(u => u.count);
+
                 ClassExten.UpdateCookiesCart(JsonConvert.SerializeObject(shoppCart));
-                return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                return Json(new { ok = true, mess = "", countcart = number }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

@@ -256,9 +256,22 @@
                     loop: true,
                     keyPress: true
                 });
-
             });
+        </script>
 
+        <script type="text/javascript">
+            var owl = $('#owl-slide-right');
+            owl.owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true
+            });
+        </script>
+
+        <script>
             $('#owl-video-home').owlCarousel({
                 loop: true,
                 margin: 10,
@@ -282,18 +295,6 @@
                     }
                 }
             })
-        </script>
-
-        <script type="text/javascript">
-            var owl = $('#owl-slide-right');
-            owl.owlCarousel({
-                items: 1,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true
-            });
         </script>
     }
     @if (path.Contains("/san-pham/") == true)

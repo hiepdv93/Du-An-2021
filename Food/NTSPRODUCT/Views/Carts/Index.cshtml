@@ -129,6 +129,7 @@
             success: function (data) {
                 if (data.ok === true) {
                     toastr.success(GetNotifyByKey('update_Cart_ok'), { timeOut: 5000 });
+                    $('#total_count_cart').html(data.countcart + '');
                     LoadCart();
                 } else {
                     toastr.error(GetNotifyByKey('update_Cart_error'), { timeOut: 5000 });

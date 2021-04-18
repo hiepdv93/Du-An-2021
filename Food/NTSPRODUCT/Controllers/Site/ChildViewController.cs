@@ -12,11 +12,11 @@ namespace NTSPRODUCT.Controllers.Site
         NTSWEBEntities db = new NTSWEBEntities();
         // GET: ChildView
 
-        [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
+       // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHeader(string lang)
         {
-
-            ViewBag.countSp = CountCart();
+            int count=CountCart();
+            ViewBag.countSp = count;
 
             Config conf;
             if (ConfigModel.listConfig == null)

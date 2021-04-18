@@ -35,15 +35,7 @@ function GetNotifyByKey(key) {
         return dataLang[index].valueVi;
     }
 }
-function PushProduct() {
-    var numberPro = $('#number_pro').val();
-    var idPro = $('#idPro').val();
-    if (isNaN(numberPro)) {
-        toastr.error(GetNotifyByKey('Error_numberPro')); return;
-    } else {
-        window.location = '/Carts/Addcart/' + idPro + '?number=' + numberPro;
-    }
-}
+
 function SendContact() {
     var ctName = $('#ctName').val();
     var ctEmail = $('#ctEmail').val();
@@ -203,9 +195,9 @@ function AddCart() {
             success: function (data) {
                 if (data.ok === 1) {
                     toastr.success('Gửi đơn hàng thành công, xin cám ơn quý khách', { timeOut: 5000 });
-                    setTimeout(function () { window.location = '/'; }, 1000);
+                    setTimeout(function () { window.location = '/'; }, 2000);
                 } else if (data.ok === 0) {
-                    toastr.error('Đã xảy ra lỗi vui lòn thử lại', { timeOut: 5000 });
+                    toastr.error('Đã xảy ra lỗi vui lòng thử lại', { timeOut: 5000 });
                 } else {
                     setTimeout(function () { window.location = '/'; }, 1000);
                 }
@@ -275,6 +267,34 @@ function changeNumList() {
 
     if (x !== undefined && x !== '' && x !== '0') {
         $('#pro_money_base').html(formatMoney(x, sl));
+    }
+}
+
+function PushProduct() {
+    var numberPro = $('#number_pro').val();
+    var idPro = $('#idPro').val();
+    if (isNaN(numberPro)) {
+        toastr.error(GetNotifyByKey('Error_numberPro')); return;
+    } else {
+        var url = '/Carts/Addcarts/' + idPro + '?number=' + numberPro;
+        OpenWaiting();
+        $.ajax({
+            url: url,
+            // data: { lang: lang },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === 1) {
+                    $('#total_count_cart').html(data.countcart + '');
+                    document.getElementById('detail-show-giohang').style.display = 'block';
+                    toastr.success('Thêm sản phẩm vào giỏ hàng thành công!', { timeOut: 5000 });
+                }
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+        CloseWaiting();
     }
 }
 function PushProductList() {
