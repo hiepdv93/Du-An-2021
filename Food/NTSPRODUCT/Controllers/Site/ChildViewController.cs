@@ -16,13 +16,7 @@ namespace NTSPRODUCT.Controllers.Site
         public ActionResult ChildHeader(string lang)
         {
 
-            int countSp = 0;
-            var cartGet = ClassExten.GetCokiesCart();
-            if (cartGet != null)
-            {
-                countSp = cartGet.CartItems.Count;
-            }
-            ViewBag.countSp = countSp;
+            ViewBag.countSp = CountCart();
 
             Config conf;
             if (ConfigModel.listConfig == null)
@@ -38,7 +32,19 @@ namespace NTSPRODUCT.Controllers.Site
 
             return PartialView(allCate);
         }
-
+        private int CountCart()
+        {
+            int countSp = 0;
+            var cartGet = ClassExten.GetCokiesCart();
+            if (cartGet != null)
+            {
+                if (cartGet.CartItems!=null)
+                {
+                    countSp = cartGet.CartItems.Sum(u=>u.count);
+                }
+            }
+            return countSp;
+        }
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHome(string lang)
         {
@@ -59,8 +65,8 @@ namespace NTSPRODUCT.Controllers.Site
             var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
                                                                                                                                               // var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
 
-            //var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
-            //var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
+            var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
 
             List<string> cateId = null;
             List<ProductModel> proHome = new List<ProductModel>();
@@ -80,10 +86,13 @@ namespace NTSPRODUCT.Controllers.Site
 
             ViewBag.lang = lang;
 
-            //ViewBag.proSale = proSale;
-            //ViewBag.proBanChay = proBanChay;
-            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
-            ViewBag.videos = videos;
+            ViewBag.proSale = proSale;
+            ViewBag.proBanChay = proBanChay;
+            if (conf.isShowVideoHome == true)
+            {
+                var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
+                ViewBag.videos = videos;
+            }
 
             return PartialView(proHome);
         }

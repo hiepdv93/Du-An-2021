@@ -59,5 +59,7 @@ namespace NTSPRODUCT.Models
         public Nullable<int> viewProBy { get; set; }
         public Nullable<bool> viewPercen { get; set; }
         public Nullable<int> viewPrice { get; set; }
+        public Nullable<int> typeSendMail { get; set; }
+        public Nullable<bool> isShowVideoHome { get; set; }
     }
 }

@@ -72,64 +72,41 @@ namespace NTSPRODUCT.Controllers
         #region[Addcart ngoai site]
         public ActionResult Addcarts(string id)
         {
-            int soluong = 1;
-            var obj = db.Products.First(u => u.pro_key.Equals(id) && u.pLang.Equals(lang));
-            int tong = (soluong);
-            int flag = -1;
-
-            ShoppingCartViewModel shoppCart;
-            var cartGet = ClassExten.GetCokiesCart();
-            if (cartGet == null)
+            try
             {
-                shoppCart = new ShoppingCartViewModel();
-                ClassExten.CreateCookiesCart(string.Empty);
-            }
-            else
-            {
-                shoppCart = cartGet;
-            }
-
-            if (GetCartItem(shoppCart, obj.id) == flag)
-            {
-                var cartItem = new Cart
+                int soluong = 1;
+                if (Request["number"] != null)
                 {
-                    productId = obj.id,
-                    productName = obj.pro_name,
-                    productImg = obj.proAvata,
-                    price = obj.proPrice_sale != null ? obj.proPrice_sale.Value : 0,
-                    count = soluong,
-                    total = tong,
-                    key = obj.pro_key
-                };
-                shoppCart.CartItems.Add(cartItem);
-            }
-            else
-            {
-                flag = GetCartItem(shoppCart, obj.id);
-                shoppCart.CartItems[flag].count += soluong;
-                shoppCart.CartItems[flag].total = shoppCart.CartItems[flag].price * shoppCart.CartItems[flag].count;
-            }
+                    soluong = int.Parse(Request["number"].ToString());
+                }
 
-
-            for (int k = 0; k < shoppCart.CartItems.Count; k++)
-            {
-                cartTotal += shoppCart.CartItems[k].total;
+                var cart = AddCartPro(id, soluong);
+                var number = cart.CartItems.Sum(u=>u.count);
+                return Json(new { ok = 1, mess = "", countcart = number }, JsonRequestBehavior.AllowGet);
             }
-            shoppCart.CartTotal = cartTotal;
-            ClassExten.UpdateCookiesCart(JsonConvert.SerializeObject(shoppCart));
-            return Redirect("/Gio-hang");
+            catch (Exception)
+            {
+                return Json(new { ok = 2, mess = "" }, JsonRequestBehavior.AllowGet);
+            }
         }
         #endregion
 
         #region[Addcart chi tiet]
         public ActionResult Addcart(string id)
         {
-            string prokey = id;
+            //string prokey = id;
             int soluong = 1;
             if (Request["number"] != null)
             {
                 soluong = int.Parse(Request["number"].ToString());
             }
+            AddCartPro(id, soluong);
+            return Redirect("/Gio-hang");
+        }
+        #endregion
+
+        private ShoppingCartViewModel AddCartPro(string id, int soluong)
+        {
             var obj = db.Products.First(u => u.id.Equals(id));
             int flag = -1;
             int gia = obj.proPrice_sale.Value;
@@ -173,11 +150,9 @@ namespace NTSPRODUCT.Controllers
             }
             shoppCart.CartTotal = cartTotal;
             ClassExten.UpdateCookiesCart(JsonConvert.SerializeObject(shoppCart));
-            return Redirect("/Gio-hang");
+            return shoppCart;
+
         }
-        #endregion
-
-
         #region[remo cart]
         public ActionResult RemoveFromCart(string id)
         {
@@ -391,8 +366,33 @@ namespace NTSPRODUCT.Controllers
                     }
 
                     content += "</table>";
-                    ClassExten.SendMail(model.email, conf.email_Send, conf.emailPass, conf.mail_Port.Value, title, content);
-                    ClassExten.SendMail(conf.email_Inbox, conf.email_Send, conf.emailPass, conf.mail_Port.Value, titleAdmin, content);
+                    switch (conf.typeSendMail)
+                    {
+                        case 2:
+                            {
+                                //Chỉ gửi Admin
+                                ClassExten.SendMail(conf.email_Inbox, conf.email_Send, conf.emailPass, conf.mail_Port.Value, titleAdmin, content);
+
+                            }
+                            break;
+
+                        case 3:
+                            {
+                                //Chỉ gửi cho khách
+                                ClassExten.SendMail(model.email, conf.email_Send, conf.emailPass, conf.mail_Port.Value, title, content);
+                            }
+                            break;
+
+                        case 4:
+                            {
+                                //gửi full
+                                ClassExten.SendMail(model.email, conf.email_Send, conf.emailPass, conf.mail_Port.Value, title, content);
+                                ClassExten.SendMail(conf.email_Inbox, conf.email_Send, conf.emailPass, conf.mail_Port.Value, titleAdmin, content);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
 
 
                     return Json(new { ok = 1, mess = "" }, JsonRequestBehavior.AllowGet);

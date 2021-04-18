@@ -40,8 +40,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light .container-fluid {
     background: #fff;
 }
 .breadcrumb {
-    background-color: #ffffff;
+    background-color: #e5e5e5;
     position: relative;
     top: 5px;
-    padding: 8px 0;
+    padding: 8px 0 8px 10px;
+}
+.breadcrumb li span.mr_lr {
+    display: none;
 }

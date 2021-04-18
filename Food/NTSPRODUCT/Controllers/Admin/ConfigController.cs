@@ -80,6 +80,8 @@ namespace NTSPRODUCT.Controllers
                 data.mapSmall = f["mapSmall"];
                 data.zaloChat = f["zaloChat"];
                 data.langDefault = f["langDefault"];
+                data.isShowVideoHome = Boolean.Parse(f["isShowVideoHome"]);
+                data.typeSendMail = int.Parse(f["typeSendMail"]);
 
                 int viewProBy = 1;
                 Int32.TryParse(f["viewProBy"], out viewProBy);

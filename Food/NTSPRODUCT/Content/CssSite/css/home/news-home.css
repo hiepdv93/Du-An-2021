@@ -56,6 +56,8 @@
 .product-item .image {
     position: relative;
     width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
 }
 .product-item .image a {
     display: block;
@@ -73,6 +75,10 @@
     bottom: 0px;
     margin: auto;
     display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 .product-item .name {
     padding-top: 10px;

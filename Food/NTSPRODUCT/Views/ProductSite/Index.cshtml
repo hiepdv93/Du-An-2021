@@ -3,8 +3,10 @@
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     Layout = "~/Views/Shared/_Layout.cshtml";
-	 float pt = 0;
+    float pt = 0;
+
 }
+<script src="~/Content/SiteJSController/HomeControllers.js"></script>
 
 <div class="product-list">
     <div class="container">
@@ -60,11 +62,10 @@
                                             <div class="sale">-@(Math.Round(pt,0))%</div>
                                         }
                                         <div class="addcart addcart-collection">
-                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                <button class="addtocart addcartcollection">
-                                                    THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                </button>
-                                            </a>
+                                            <button class="addtocart addcartcollection" type="button" 
+                                                    onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
+                                                THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

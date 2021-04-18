@@ -13,6 +13,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Content/SiteJSController/HomeControllers.js"></script>
 
 <div class="product-de">
     <div class="container">
@@ -94,14 +95,21 @@
                                     <p class="pri">
                                         <span>@((pro.proPrice_sale!=null && pro.proPrice_sale!=0)? pro.proPrice_sale.Value.ToString("N0"):"Liên hệ" )</span><span>@pro.brank</span>
                                     </p>
+                                    @if (pro.proPrice_sale != null && pro.proPrice_sale != 0)
+                                    {
+                                        <p>Thành tiền</p>
+                                        <p class="pri" id="price_calc">@pro.proPrice_sale.Value.ToString("N0") VND</p>
+                                    }
+
                                 </div>
                                 <div class="cont">
-                                    @Html.Raw(pro.desPro)
+                                    @Html.Raw(pro.introContent)
                                 </div>
                                 <div class="total">
                                     <p>Số lượng:</p>
-                                    <input type="number" value="1" name="" class="total-pro">
+                                    <input type="number" value="1" name="" class="total-pro" id="number_pro" onchange="changeNum()" onkeyup="changeNum()">
                                     <input type="hidden" id="idPro" value="@pro.id" />
+                                    <input type="hidden" id="proPrice_sale" value="@(pro.proPrice_sale)" />
 
                                 </div>
                                 <div class="sumit">

@@ -12,7 +12,7 @@
     padding-right: 10px;
 }
 .y-ken iframe {
-    height: 200px;
+    height: 195px;
 }
 .y-ken {
     background: #f8f8f8;
@@ -67,7 +67,7 @@ margin-bottom: 2rem;
     height: 0;
     border-style: solid;
     border-width: 0 8px 12px 0;
-    border-color: transparent #00709e transparent transparent;
+    border-color: transparent #12a169 transparent transparent;
 }
 .title_module h2 {
     font-family: 'Arial', sans-serif;
@@ -76,7 +76,7 @@ margin-bottom: 2rem;
     font-size: 16px;
     font-weight: bold;
     padding: 5px 20px;
-    background-color: #00709e;
+    background-color: #12a169;
 }
 .title_module h2 span{
     color: #fff;
@@ -91,7 +91,7 @@ margin-bottom: 2rem;
     height: 0;
     border-style: solid;
     border-width: 20px 0 20px 20px;
-    border-color: transparent transparent transparent #00709e;
+    border-color: transparent transparent transparent #12a169;
 }
 .categories-box {
     margin: 21px 0 0 0;
@@ -348,4 +348,58 @@ span.input-group-addon:before {
 }
 .input-group-addon {
     padding: 6px 16px;
+}
+.row.intro-fanpage {
+    margin: 30px 0;
+}
+.product-item .tag_icon {
+    position: absolute;
+    top: 0;
+    right: -8px;
+    z-index: 9;
+}
+.product-item .tag_icon img {
+    width: 45px;
+    height: 28px;
+    object-fit: cover;
+    right: 0;
+}
+.info-detai-pro .product_meta a {
+    background: #e5e5e5;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.info-detai-pro .product_meta a:hover{
+	background: #12a169;
+	color: #fff;
+}
+.page-detail-text ul.list-news-other {
+    margin-top: 15px;
+}
+.page-detail-text ul.list-news-other li {
+    border-bottom: 1px solid #ddd3d3;
+    padding: 5px 0 5px 10px;
+}
+.page-detail-text ul.list-news-other li:hover {
+    background: #efefef;
+}
+.nav-right-slide li.nav-sale {
+}
+.nav-right-slide li.nav-sale:before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: #fff;
+    top: 8px;
+    right: 0;
+}
+.nav-right-slide li.nav-sale:last-child:before{
+	content: "";
+    position: absolute;
+    width: 0;
+    height: 20px;
+    background: #fff;
+    top: 8px;
+    right: 0;
 }

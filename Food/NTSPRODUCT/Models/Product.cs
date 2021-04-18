@@ -45,5 +45,6 @@ namespace NTSPRODUCT.Models
         public Nullable<System.DateTime> createDate { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
         public string brandId { get; set; }
+        public Nullable<bool> conHang { get; set; }
     }
 }

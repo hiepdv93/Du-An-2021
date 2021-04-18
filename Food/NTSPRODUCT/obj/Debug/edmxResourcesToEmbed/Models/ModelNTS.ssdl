@@ -131,6 +131,8 @@
     <Property Name="viewProBy" Type="int" />
     <Property Name="viewPercen" Type="bit" />
     <Property Name="viewPrice" Type="int" />
+    <Property Name="typeSendMail" Type="int" />
+    <Property Name="isShowVideoHome" Type="bit" />
   </EntityType>
   <EntityType Name="Contacts">
     <Key>
@@ -332,6 +334,7 @@
     <Property Name="createDate" Type="datetime" />
     <Property Name="updateDate" Type="datetime" />
     <Property Name="brandId" Type="varchar" MaxLength="50" />
+    <Property Name="conHang" Type="bit" />
   </EntityType>
   <EntityType Name="ProTag">
     <Key>

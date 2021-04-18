@@ -46,6 +46,15 @@ img{
 .carousel-indicators{
 z-index: 2;
 }
+.hotline-top {
+    display: none;
+}
+.shoping, .login {
+    display: none;
+}
+.header-destop.scrollfixed {
+    z-index: 2000 !important;
+}
 }
 @media screen and (min-width:1px) and (max-width:479px){
 .logo-top {
@@ -53,6 +62,9 @@ z-index: 2;
 }
 .header-destop .col-md-3.col-xs-12:nth-child(3), .header-destop .col-md-3.col-xs-12:nth-child(4) {
     width: 50%;
+}
+.header-bottom.scrollfixed {
+    top: 109px !important;
 }
 .header-destop .hotline-top .right {
     float: none !important;
@@ -144,6 +156,10 @@ article.blog-item {
 @media (min-width: 1200px){
 .container {
     max-width: 1270px;
+}
+
+.header-bottom.scrollfixed {
+    top: 72px !important;
 }
 }
 /* -------------------- CSS FULL -------------------- */

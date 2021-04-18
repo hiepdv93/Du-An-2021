@@ -11,7 +11,7 @@ a#toggle {
     color: white;
     display: none;
     transition: all ease-out 0.3s;
-    z-index: 9;
+    z-index: 9999;
     border: 1px solid white;
 }
 
@@ -150,6 +150,6 @@ html.open-menu a#toggle,
  html.open-menu main#content { transform: translateX(350px); }
 
 html.open-menu nav#menu {
-  z-index: 3;
+  z-index: 9999;
   transform: translateX(0);
 }

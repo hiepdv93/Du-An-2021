@@ -196,8 +196,30 @@
                                             <option value="2">Ngày tạo</option>
                                         </select>
                                     </div>
-
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Gửi mail khi mua hàng</label>
+                                        <select name="typeSendMail" id="typeSendMail" class="form-control">
+                                            <option value="1">Không gửi mail</option>
+                                            <option value="2">Chỉ gửi Admin</option>
+                                            <option value="3">Chỉ gửi cho khách</option>
+                                            <option value="4">Gửi cho cả 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Kênh video trang chủ</label>
+                                        <select name="isShowVideoHome" id="isShowVideoHome" class="form-control">
+                                            <option value="1">Hiện thị video</option>
+                                            <option value="0">Ẩn video</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -289,6 +311,8 @@
 
 <script type="text/javascript">
     $('#viewProBy').val('@Model.viewProBy');
+    $('#isShowVideoHome').val('@Model.isShowVideoHome');
+    $('#typeSendMail').val('@Model.typeSendMail');
     var editor;
     function createEditor(languageCode, id) {
         var editor = CKEDITOR.replace(id, {
