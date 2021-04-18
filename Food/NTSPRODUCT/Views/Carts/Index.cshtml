@@ -142,18 +142,7 @@
             }
         });
     }
-    $(".quantityCart").on('keyup', function () {
-        var id = $(this).attr("data-id");
-        //Set quantity number to 0 if input value is empty
-        var countToUpdate = $(this).val();
-        if (countToUpdate == '') {
-            countToUpdate = '1';
-        }
-        if (isNaN(countToUpdate)) {
-            countToUpdate = '1';
-        }
-        UpdateCart(id, countToUpdate);
-    });
+
     function DownNumberCart(id) {
         var numberPro = parseInt($('#input_' + id).val());
         if (numberPro != 1) {
