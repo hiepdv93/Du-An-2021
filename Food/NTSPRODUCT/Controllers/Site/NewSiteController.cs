@@ -34,7 +34,7 @@ namespace NTSPRODUCT.Controllers.Site
             var all = (from a in db.News.AsNoTracking()
                        where a.newLang.Equals(lang)
                        && a.status == Constants.Active
-                       orderby a.createDate descending
+                       orderby a.newOrder 
                        select a).AsQueryable();
 
             List<string> cateid = new List<string>();

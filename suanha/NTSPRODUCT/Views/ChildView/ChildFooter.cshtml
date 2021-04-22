@@ -1,5 +1,12 @@
 ﻿@model IList<NTSPRODUCT.Models.Menu>
-@{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    List<string> lstPhone = new List<string>();
+    if (!string.IsNullOrEmpty(conf.hotLine))
+    {
+        lstPhone = conf.hotLine.Split(';').ToList();
+    }
+}
 
 
 <footer class="footer">
@@ -88,13 +95,24 @@
 </footer>
 
 <section id="hotline-zalo-fb">
-    @if (!string.IsNullOrEmpty(conf.hotLine))
+    @foreach (var item in lstPhone)
     {
-        <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
-            <img src="~/Content/CssSite/images/hotline.png" />
-            <span>Hotline</span>
-        </a>
+        if (!string.IsNullOrEmpty(item))
+        {
+            <a href="tel:@item" class="call-icon" rel="nofollow">
+                <img src="~/Content/CssSite/images/hotline.png" />
+                <span>Hotline</span>
+            </a>
+        }
     }
+    @*@if (!string.IsNullOrEmpty(conf.hotLine))
+        {
+            <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+                <img src="~/Content/CssSite/images/hotline.png" />
+                <span>Hotline</span>
+            </a>
+        }*@
+
     @if (!string.IsNullOrEmpty(conf.zaloChat))
     {
         <a href="@("http://zalo.me/"+conf.zaloChat)" class="zalo">

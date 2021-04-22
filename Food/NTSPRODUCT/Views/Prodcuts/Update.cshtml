@@ -50,36 +50,34 @@
                                     <input type="text" class="form-control " placeholder="Url sản phẩm" value="@Model.pro_key" maxlength="800" id="pro_key" name="pro_key" />
                                 </div>
                             </div>
-                            <div class="col-md-3" >
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Giá gốc</label><span class="text-red">(*)</span>
-                                    <input type="number" value="0" class="form-control " name="price" required="required" />
+                                    <input type="number" value="0" id="price" class="form-control " name="price" required="required" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Giá KM(nhập 0 nếu muốn giá liên hệ)</label><span class="text-red">(*)</span>
-                                    <input type="number" value="@Model.proPrice_sale" class="form-control " name="priceSale" required="required" />
+                                    <input type="number" onblur = "myFunction()" id="priceSale" value="@Model.proPrice_sale" class="form-control " name="priceSale" required="required" />
                                 </div>
                             </div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Đơn vị tính</label><span class="">(VNĐ/KG)</span>
-                                    <input type="text" class="form-control " value="@Model.brank" name="brank"  maxlength="250"/>
+                                    <input type="text" class="form-control " value="@Model.brank" name="brank" maxlength="250" />
                                 </div>
                             </div>
-                            @*<div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Thương hiệu</label>
-                                    <input type="text" class="form-control " placeholder="Thương hiệu" value="@Model.brank"  name="brank" />
-                                </div>
-                            </div>*@
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Thứ tự</label><span class="text-red">(*)</span>
                                     <input type="number" value="@Model.proOrder" class="form-control " name="proOrder" required="required" />
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="display-block">Hiển thị</label>
@@ -89,7 +87,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2" >
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="display-block">Hiện icon Hot</label>
                                     <label class="switch">
@@ -98,7 +96,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-2" >
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="display-block">Hiện icon Sale</label>
                                     <label class="switch">
@@ -139,9 +137,9 @@
                             @Html.TextAreaFor(u => u.proContentTab2)
                         </div>
                         @*<div class="form-group">
-                <label>Nội dung tab3</label>
-                @Html.TextAreaFor(u => u.proContentTab3)
-            </div>*@
+                                <label>Nội dung tab3</label>
+                                @Html.TextAreaFor(u => u.proContentTab3)
+                            </div>*@
 
                     </div>
 
@@ -382,4 +380,13 @@
         });
     });
 
+</script>
+<script>
+    
+    function myFunction() {
+        var price = $('#price').val();
+        if (price === '0') {
+            $('#price').val($('#priceSale').val());
+        }
+    }
 </script>

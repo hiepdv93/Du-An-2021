@@ -4,7 +4,7 @@ var modelNews =
     CateId: '',
     Name: '',
 
-    PageSize: 15,
+    PageSize: 50,
     PageNumber: 1
 };
 
