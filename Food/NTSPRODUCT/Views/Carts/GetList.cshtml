@@ -1,4 +1,7 @@
 ﻿@model NTSPRODUCT.Models.ShoppingCartViewModel
+
+@{var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+
 @if (Model != null)
 {
     foreach (var item in Model.CartItems)
@@ -15,9 +18,9 @@
             </td>
             <td class="product-quantity" data-title="Số lượng">
                 <div class="input-quanlity">
-                    <button class="btn left" onclick="DownNumberCart('@item.productId')" type="button"><strong>-</strong></button>
+                    <button class="btn left" onclick="DownNumberCart_List('@item.productId')" type="button"><strong>-</strong></button>
                     <input style="width:40px" type="text" value="@item.count" min="1" max="100" step="1" data-id="@item.productId" id="input_@item.productId" class="quantityCart" />
-                    <button class="btn right" onclick="UpNumberCart('@item.productId')" type="button"><strong>+</strong></button>
+                    <button class="btn right" onclick="UpNumberCart_List('@item.productId')" type="button"><strong>+</strong></button>
                 </div>
             </td>
 
@@ -30,10 +33,22 @@
             </td>
         </tr>
     }
-    <tr class="cart_item">
-        <td colspan="5"></td>
+    <tr  >
+        <td></td>
+        <td colspan="4" style="line-height:35px">
+            <b>  Phí giao hàng tạm tính</b>
+        </td>
         <td class="product-subtotal">
-            <span class="amount">@Model.CartTotal.ToString("N0")<span></span></span>
+            <span style="color:orangered" class="amount">@conf.priceShip.Value.ToString("N0")<span></span></span>
+        </td>
+    </tr>
+    <tr class="cart_item" >
+        <td></td>
+        <td colspan="4">
+            <b style="color:orangered">Tổng tiền</b>
+        </td>
+        <td class="product-subtotal">
+            <span style="color:orangered" class="amount">@((Model.CartTotal+ conf.priceShip.Value).ToString("N0"))<span></span></span>
         </td>
     </tr>
 

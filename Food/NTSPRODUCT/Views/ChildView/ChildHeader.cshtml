@@ -1,10 +1,12 @@
 ﻿@model IList<NTSPRODUCT.Models.Category>
 @{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cart = (NTSPRODUCT.Models.ShoppingCartViewModel)ViewBag.cart;
     var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
     var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
     var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
     var isMobile = Request.Browser.IsMobileDevice;
+
 }
 <div class="header-top">
     <div class="header-destop">
@@ -44,6 +46,49 @@
                                 @ViewBag.countSp
                             </span>
                         </a>
+                        <div class="div-cart">
+                            @if (cart != null && cart.CartTotal > 0)
+                            {
+                                foreach (var item in cart.CartItems)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="/san-pham/@item.key" title="@item.productName">
+                                                <img src="@item.productImg"
+                                                     style="width:60px;height:55px;object-fit:contain;border:1px solid #e2d3d3;border-radius:3px" />
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8 col-xs-12">
+                                            <a href="/san-pham/@item.key" title="@item.productName">
+                                                @item.productName
+                                                <b style="float:right">@item.count</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <a href="/gio-hang" title="giỏ hàng">
+                                            <button type="button" class="btn btn-cart pull-right"
+                                                    style="width:100%;margin-top:10px;padding:10px 10px;text-transform:uppercase;color:white;background:#12a169">
+                                                Xem giỏ hàng
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        Không có sản phẩm nào trong giỏ hàng
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
                     </div>
                     <div class="login">
                         <button type='button' class="btn btn-success" data-toggle="modal" data-target="#popUpWindow">Đăng Nhập</button>
@@ -52,6 +97,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="header-bottom">
         <div class="container">
@@ -112,3 +158,24 @@
         </div>
     </div>
 </div>
+<style>
+    .div-cart {
+        min-height: 50px;
+        height: auto;
+        width: 350px;
+        background: white;
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        border: 1px solid #808080;
+        z-index: 1000;
+        padding: 10px;
+        box-shadow: 31px;
+        border-radius: 6px;
+    }
+
+    .shoping:hover .div-cart {
+        display: block !important
+    }
+</style>

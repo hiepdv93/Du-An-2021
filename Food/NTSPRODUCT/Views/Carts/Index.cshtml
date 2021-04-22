@@ -1,5 +1,6 @@
 ﻿@model NTSPRODUCT.Models.ShoppingCartViewModel
 @{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div id="main" class="clearfix">
@@ -34,13 +35,17 @@
                                     </table>
                                     <div class="pull">
                                         <div class="pull-left">
-                                            <a class="is-outline" href="/danh-muc/" title="@ClassExten.GetLangKey("key_tieptuc_muasp")">
+                                            <a style="font-weight:bold;color:#12a169" class="is-outline" href="/danh-muc/" title="@ClassExten.GetLangKey("key_tieptuc_muasp")">
                                                 ← @ClassExten.GetLangKey("key_tieptuc_muasp")
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                        <div class="car-content" >
+                            <hr />
+                            @Html.Raw(conf.footerExten)
                         </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 col-xs-12">
@@ -143,7 +148,7 @@
         });
     }
 
-    function DownNumberCart(id) {
+    function DownNumberCart_List(id) {
         var numberPro = parseInt($('#input_' + id).val());
         if (numberPro != 1) {
             numberPro--;
@@ -151,7 +156,7 @@
         }
 
     }
-    function UpNumberCart(id) {
+    function UpNumberCart_List(id) {
         var numberPro = parseInt($('#input_' + id).val());
         if (numberPro < 100) {
             numberPro++;
@@ -169,10 +174,12 @@
 </script>
 
 <style>
+    .cart_item{border-bottom:1px solid #ebebeb}
     #btnContactUs:hover {
         background: #08481e !important;
         color: white
     }
+
     .shop_table .cart_item img {
         width: 70px;
         border-radius: 5px;

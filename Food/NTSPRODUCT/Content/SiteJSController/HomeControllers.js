@@ -244,7 +244,32 @@ function changeNum() {
         $('#price_calc').html(formatMoney(x, sl));
     }
 }
-
+function DownNumberCart() {
+    var number_pro = $('#number_pro').val();
+    if (number_pro !== '' && !isNaN(number_pro)) {
+        var number = parseInt(number_pro);
+        if (number >= 2) {
+            number = number - 1;
+            $('#number_pro').val(number + '')
+        } else {
+            $('#number_pro').val('1')
+        }
+    } else {
+        $('#number_pro').val('1')
+    }
+    changeNum();
+}
+function UpNumberCart() {
+    var number_pro = $('#number_pro').val();
+    if (number_pro !== '' && !isNaN(number_pro)) {
+        var number = parseInt(number_pro);
+        number = number + 1;
+        $('#number_pro').val(number + '')
+    } else {
+        $('#number_pro').val('1')
+    }
+    changeNum();
+}
 function formatMoney(price, number) {
     var rs = parseInt(price) * parseInt(number);
     let txtView = rs.toLocaleString('vi', { style: 'currency', currency: 'VND' });
@@ -317,7 +342,7 @@ function PushProductList() {
                     $('#total_count_cart').html(data.countcart + '');
                     $('#modamPro').modal('hide');
 
-                  //  toastr.success('Thêm sản phẩm vào giỏ hàng thành công!', { timeOut: 5000 });
+                    //  toastr.success('Thêm sản phẩm vào giỏ hàng thành công!', { timeOut: 5000 });
                 }
             },
             error: function (reponse) {

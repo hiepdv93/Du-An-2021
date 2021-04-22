@@ -27,6 +27,8 @@ namespace NTSPRODUCT.Controllers
                 ConfigModel.listConfig = db.Configs.ToList();
             }
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+            ViewBag.conf = conf;
+
             #region[load seo]
             ViewBag.title = ClassExten.GetLangKey("key_giohang");
             ViewBag.description = conf.desSeo;
@@ -52,6 +54,14 @@ namespace NTSPRODUCT.Controllers
 
         public ActionResult GetList()
         {
+            Config conf;
+            if (ConfigModel.listConfig == null)
+            {
+                ConfigModel.listConfig = db.Configs.ToList();
+            }
+            conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+            ViewBag.conf = conf;
+
             ShoppingCartViewModel shoppCart;
             var cartGet = ClassExten.GetCokiesCart();
             if (cartGet == null)
@@ -318,11 +328,11 @@ namespace NTSPRODUCT.Controllers
                     or.createDate = DateTime.Now;
                     or.id = Guid.NewGuid().ToString();
 
-                    or.total = list.CartTotal;
+                    or.total = list.CartTotal + conf.priceShip;
                     // or.noteSite = model.noteSite;
                     or.noteSite = string.Empty;
                     or.status = ClassExten.Bill_Status.MoiTao;
-                    or.priceShip = 0;
+                    or.priceShip = conf.priceShip;
                     or.createDate = DateTime.Now;
                     if (cus != null)
                     {

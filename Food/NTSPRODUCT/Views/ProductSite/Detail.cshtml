@@ -107,7 +107,12 @@
                                 </div>
                                 <div class="total">
                                     <p>Số lượng:</p>
-                                    <input type="number" value="1" name="" class="total-pro" id="number_pro" onchange="changeNum()" onkeyup="changeNum()">
+                                    <button style="margin-left:30px;line-height:18px;margin-bottom:4px" class="btn left" onclick="DownNumberCart('eaa00ade-71a3-4d39-be36-23554bd36775')" type="button"><strong>-</strong></button>
+                                    <input style="margin-left:0px" type="number" value="1" name="" class="total-pro" id="number_pro" onchange="changeNum()" onkeyup="changeNum()">
+                                    <button style="line-height:18px;margin-bottom:4px" class="btn right" onclick="UpNumberCart('eaa00ade-71a3-4d39-be36-23554bd36775')" type="button"><strong>+</strong></button>
+                                    <script>
+                                      
+                                    </script>
                                     <input type="hidden" id="idPro" value="@pro.id" />
                                     <input type="hidden" id="proPrice_sale" value="@(pro.proPrice_sale)" />
 

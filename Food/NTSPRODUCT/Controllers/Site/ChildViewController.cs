@@ -12,11 +12,20 @@ namespace NTSPRODUCT.Controllers.Site
         NTSWEBEntities db = new NTSWEBEntities();
         // GET: ChildView
 
-       // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
+        // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHeader(string lang)
         {
-            int count=CountCart();
-            ViewBag.countSp = count;
+            int countSp = 0;
+            var cartGet = CountCart();
+            ViewBag.cart = cartGet;
+            if (cartGet != null)
+            {
+                if (cartGet.CartItems != null)
+                {
+                    countSp = cartGet.CartItems.Sum(u => u.count);
+                }
+            }
+            ViewBag.countSp = countSp;
 
             Config conf;
             if (ConfigModel.listConfig == null)
@@ -32,18 +41,11 @@ namespace NTSPRODUCT.Controllers.Site
 
             return PartialView(allCate);
         }
-        private int CountCart()
+        private ShoppingCartViewModel CountCart()
         {
-            int countSp = 0;
-            var cartGet = ClassExten.GetCokiesCart();
-            if (cartGet != null)
-            {
-                if (cartGet.CartItems!=null)
-                {
-                    countSp = cartGet.CartItems.Sum(u=>u.count);
-                }
-            }
-            return countSp;
+            ShoppingCartViewModel cartGet = ClassExten.GetCokiesCart();
+
+            return cartGet;
         }
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHome(string lang)
