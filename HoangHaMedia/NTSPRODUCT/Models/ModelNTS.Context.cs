@@ -48,5 +48,6 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<SayWe> SayWes { get; set; }
         public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
     }
 }

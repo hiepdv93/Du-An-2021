@@ -32,6 +32,7 @@
     <EntitySet Name="SayWes" EntityType="NTSWEBModel.SayWe" />
     <EntitySet Name="WhyChooseUsses" EntityType="NTSWEBModel.WhyChooseUss" />
     <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
+    <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -466,5 +467,15 @@
     <Property Name="pLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="createDate" Type="DateTime" Precision="3" />
     <Property Name="updateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="viewDay" Type="Int32" Nullable="false" />
+    <Property Name="viewMonth" Type="Int32" Nullable="false" />
+    <Property Name="viewYear" Type="Int32" Nullable="false" />
+    <Property Name="countTotal" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

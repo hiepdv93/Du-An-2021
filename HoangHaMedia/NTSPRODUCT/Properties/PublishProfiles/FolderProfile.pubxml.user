@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Admin\Desktop\hoanghapub</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Admin\Desktop\Pub\hoangha</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -97,10 +97,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:40</publishTime>
     </File>
     <File Include="bin/NTSPRODUCT.dll">
-      <publishTime>02/27/2021 18:22:06</publishTime>
+      <publishTime>04/25/2021 10:57:05</publishTime>
     </File>
     <File Include="bin/NTSPRODUCT.pdb">
-      <publishTime>02/27/2021 18:22:06</publishTime>
+      <publishTime>04/25/2021 10:57:05</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>02/05/2021 08:54:40</publishTime>
@@ -5557,7 +5557,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Content/SiteJSController/HomeControllers.js">
-      <publishTime>02/07/2021 20:06:59</publishTime>
+      <publishTime>04/25/2021 10:40:28</publishTime>
     </File>
     <File Include="Content/toastr/toastr.js">
       <publishTime>02/05/2021 08:54:38</publishTime>
@@ -5584,7 +5584,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:38</publishTime>
     </File>
     <File Include="Models/ModelNTS.edmx.diagram">
-      <publishTime>02/27/2021 16:18:40</publishTime>
+      <publishTime>04/25/2021 10:27:09</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>02/05/2021 08:54:40</publishTime>
@@ -5698,7 +5698,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Categorys/GetListCateNews.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:46:58</publishTime>
     </File>
     <File Include="Views/Categorys/GetListCatePro.cshtml">
       <publishTime>02/07/2021 21:54:45</publishTime>
@@ -5854,7 +5854,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/HinhAnh/GetList.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:56:52</publishTime>
     </File>
     <File Include="Views/HinhAnh/Index.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5866,7 +5866,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:37:59</publishTime>
     </File>
     <File Include="Views/HomeSite/Contact.cshtml">
       <publishTime>02/07/2021 20:06:38</publishTime>
@@ -5929,7 +5929,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2021 17:27:22</publishTime>
     </File>
     <File Include="Views/Menus/GetList.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:51:47</publishTime>
     </File>
     <File Include="Views/Menus/GetMenuAdd.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -5953,7 +5953,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/News/GetList.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:51:06</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6013,7 +6013,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Prodcuts/GetList.cshtml">
-      <publishTime>02/07/2021 22:00:49</publishTime>
+      <publishTime>04/25/2021 10:48:16</publishTime>
     </File>
     <File Include="Views/Prodcuts/Index.cshtml">
       <publishTime>02/07/2021 22:00:49</publishTime>
@@ -6028,7 +6028,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2021 16:54:00</publishTime>
     </File>
     <File Include="Views/ProductExten/GetList.cshtml">
-      <publishTime>02/27/2021 17:03:53</publishTime>
+      <publishTime>04/25/2021 10:49:11</publishTime>
     </File>
     <File Include="Views/ProductExten/Index.cshtml">
       <publishTime>02/27/2021 17:03:45</publishTime>
@@ -6088,7 +6088,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2021 08:54:39</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/27/2021 18:21:54</publishTime>
+      <publishTime>04/25/2021 10:41:00</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>
@@ -6100,7 +6100,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2021 17:03:31</publishTime>
     </File>
     <File Include="Views/Slide/GetList.cshtml">
-      <publishTime>02/05/2021 08:54:39</publishTime>
+      <publishTime>04/25/2021 10:49:58</publishTime>
     </File>
     <File Include="Views/Slide/Index.cshtml">
       <publishTime>02/05/2021 08:54:39</publishTime>

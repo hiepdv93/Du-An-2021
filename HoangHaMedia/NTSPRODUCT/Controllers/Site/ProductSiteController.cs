@@ -243,6 +243,9 @@ namespace NTSPRODUCT.Controllers.Site
                 #region[lay cac bai lien quan]
                 proOther = db.Products.Where(u => u.active == true && !u.id.Equals(proData.id)).OrderBy(u => u.proOrder).Take(numberPro).ToList();
                 #endregion
+
+                proData.pro_view = proData.pro_view.HasValue ? proData.pro_view + 1 : 2;
+                db.SaveChanges();
             }
             return View(proOther);
         }

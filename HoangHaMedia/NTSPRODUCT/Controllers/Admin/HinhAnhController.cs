@@ -158,5 +158,22 @@ namespace NTSPRODUCT.Controllers
                 }
             }
         }
+
+        public ActionResult ChangeOrder(string id, int numberOder)
+        {
+            var data = db.Advs.First(u => u.id.Equals(id));
+            {
+                try
+                {
+                    data.advOrder = numberOder;
+                    db.SaveChanges();
+                    return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { ok = false, mess = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
     }
 }

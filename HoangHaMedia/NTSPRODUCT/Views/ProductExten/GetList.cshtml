@@ -8,6 +8,7 @@
                 <th width="90px" class="text-center">Chức năng</th>
                 <th width="80px" class="text-center">Ảnh</th>
                 <th>Tên sự kiện</th>
+                <th width="60px">Thứ tự</th>
                 <th width="100px" class="text-center">Hiện trang chủ</th>
                 <th width="100px" class="text-center">Hiển thị</th>
 
@@ -26,7 +27,9 @@
                 </td>
                 <td class="text-center"><img class="avata-admin" src="@item.proAvata" /></td>
                 <td>@item.pro_name</td>
-
+                <td>
+                    <input type="number" style="width:60px" value="@item.proOrder" alt="@item.id" class="proOrderChange" />
+                </td>
                 <td class="text-center">
                     <label class="switch">
                         <input type="checkbox" onchange="ChangeProductSale('@item.id')" @(item.pro_home == Constants.Checked ? "checked" : "")>
@@ -67,4 +70,28 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+
+    $('.proOrderChange').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+        OpenWaiting();
+
+        $.ajax({
+            url: "/Prodcuts/ChangeOrder?id=" + id + '&proOrder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+        CloseWaiting();
+
+    });
 </script>

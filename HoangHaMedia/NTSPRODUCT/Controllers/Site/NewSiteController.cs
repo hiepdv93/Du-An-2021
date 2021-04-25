@@ -113,6 +113,8 @@ namespace NTSPRODUCT.Controllers.Site
                 #region[lay cac bai lien quan]
                 // newOther = db.News.Where(u => u.newLang.Equals(lang) && u.status == Constants.Active && u.newHot == false).OrderByDescending(u => u.createDate).Take(conf.viewNewPageDetail.Value).ToList();
                 #endregion
+                newData.viewCount = newData.viewCount.HasValue ? newData.viewCount + 1 : 2;
+                db.SaveChanges();
             }
             return View();
         }
