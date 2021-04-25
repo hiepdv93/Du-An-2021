@@ -32,6 +32,7 @@ namespace NTSPRODUCT.Controllers
                            cusId = a.cusId,
                            status = a.status,
                            createDate = a.createDate,
+                           updateDate = a.updateDate,
                            priceShip = a.priceShip,
                            noteSite = a.noteSite,
                            noteSiteAdmin = a.noteSiteAdmin,
@@ -104,6 +105,7 @@ namespace NTSPRODUCT.Controllers
                 data.status = model.status;
                 data.noteSiteAdmin = model.noteSiteAdmin;
                 data.updateBy = loginInfo.Id;
+                data.updateDate =DateTime.Now;
                 db.SaveChanges();
                 return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
             }
@@ -181,16 +183,12 @@ namespace NTSPRODUCT.Controllers
             try
             {
                 string lang = ClassExten.GetLangSite();
-                Config conf;
-                if (ConfigModel.listConfig == null)
-                {
-                    ConfigModel.listConfig = db.Configs.ToList();
-                }
-                conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+                var loginInfo = ClassExten.GetCokies();
 
                 var data = db.Oders.First(u => u.id.Equals(model.id));
                 data.status = ClassExten.Bill_Status.DaMuaHang;
-
+                data.updateDate = DateTime.Now;
+                data.updateBy = loginInfo.Id;
                 db.SaveChanges();
                 return Json(new { ok = true, mess = "" }, JsonRequestBehavior.AllowGet);
             }

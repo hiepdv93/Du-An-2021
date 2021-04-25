@@ -3,21 +3,25 @@
     int index = ViewBag.Index;
 }
 <div class="col-sm-12 " style="overflow-x:auto">
-    <table class="table table-bordered table-hover" style="min-width:1480px">
+    <table class="table table-bordered table-hover" >
         <thead>
             <tr>
                 <th class="text-center" width="50px">STT</th>
-                <th class="text-center" width="140px">Chức năng</th>
+                <th class="text-center" width="120px">Chức năng</th>
                 <th class="text-left">Khách hàng</th>
-                <th class="text-left" width="140px">Email</th>
-                <th class="text-left" width="140px">Phone</th>
-                <th class="text-left" width="140px">Địa chỉ</th>
-                <th class="text-left" width="140px">Tổng tiền</th>
-                <th class="text-left" width="140px">Phí ship</th>
-                <th class="text-center" width="130px">Ngày tạo</th>
-                <th class="text-center" width="130px">Ngày cập nhật</th>
+                <th class="text-left">Phone</th>
+                <th class="text-left">Địa chỉ</th>
+                <th class="text-left">Email</th>
+                <th class="text-left">
+                    Tổng tiền
+                    <p>(Phí ship)</p>
+                </th>
+                <th class="text-center" width="130px">
+                    Ngày tạo
+                    <p>NgàyCập nhật</p>
+                </th>
                 <th class="text-center" width="130px">NV cập nhật</th>
-                <th class="text-center" width="150px">Trạng thái</th>
+                <th class="text-center" width="110px">Trạng thái</th>
 
             </tr>
         </thead>
@@ -25,22 +29,27 @@
             @for (int i = 0; i < Model.Count; i++)
             {
                 index++;
-            <tr>
-                <td class="text-center">@index</td>
-                <td class="text-center">
-                    <a target="_blank" href="/Oders/ViewDetail/@Model[i].id" title="Xem chi tiết"><span class="glyphicon glyphicon-list-alt font18"></span> </a>
-                    <a href="javascript:void(0)" onclick="viewUpdate('@Model[i].id')" title="Sửa trạng thái"><span class="fa fa-edit font18"></span></a>
-                    <a href="javascript:void(0)" onclick="DeleteConfim('@Model[i].id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
-                </td>
-                <td class="text-left">@Model[i].fullName</td>
-                <td class="text-left">@Model[i].email</td>
-                <td class="text-left">@Model[i].phone</td>
-                <td class="text-left">@Model[i].addresss</td>
-                <td class="text-right">@Model[i].total.Value.ToString("N0")</td>
-                <td class="text-right">@Model[i].priceShip.Value.ToString("N0")</td>
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td class="text-center">
+                        <a target="_blank" href="/Oders/ViewDetail/@Model[i].id" title="Xem chi tiết"><span class="glyphicon glyphicon-list-alt font18"></span> </a>
+                        <a href="javascript:void(0)" onclick="viewUpdate('@Model[i].id')" title="Sửa trạng thái"><span class="fa fa-edit font18"></span></a>
+                        <a href="javascript:void(0)" onclick="DeleteConfim('@Model[i].id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                    </td>
+                    <td class="text-left">@Model[i].fullName</td>
+                    <td class="text-left">@Model[i].phone</td>
+                    <td class="text-left">@Model[i].addresss</td>
+                    <td class="text-left">@Model[i].email</td>
 
-                <td class="text-center">@Model[i].createDate.Value.ToString("dd/MM/yyyy HH:mm")</td>
-                <td class="text-center">@(Model[i].updateDate!=null? Model[i].updateDate.Value.ToString("dd/MM/yyyy HH:mm"):"")</td>
+                    <td class="text-right">
+                        @Model[i].total.Value.ToString("N0")
+                    <p>(@Model[i].priceShip.Value.ToString("N0"))</p>
+                </td>
+
+                <td class="text-center">
+                    @Model[i].createDate.Value.ToString("dd/MM/yyyy HH:mm")
+                    <p>@(Model[i].updateDate!=null? Model[i].updateDate.Value.ToString("dd/MM/yyyy HH:mm"):"")</p>
+                </td>
                 <td class="text-left">@Model[i].EmpName</td>
 
                 <td class="text-center">
@@ -61,7 +70,7 @@
                 </td>
 
             </tr>
-            }
+        }
         </tbody>
     </table>
 </div>
