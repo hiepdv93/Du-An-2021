@@ -287,6 +287,9 @@
     <Compile Include="Models\Lib.cs">
       <DependentUpon>ModelNTS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LichSuTruyCap.cs">
+      <DependentUpon>ModelNTS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginProfileModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs">

@@ -43,6 +43,7 @@
     <Property Name="titleSeo" Type="nvarchar" MaxLength="800" />
     <Property Name="keySeo" Type="nvarchar" MaxLength="800" />
     <Property Name="desSeo" Type="nvarchar" MaxLength="800" />
+    <Property Name="cateDesShot" Type="nvarchar" MaxLength="800" />
     <Property Name="cateDescription" Type="ntext" />
     <Property Name="cateImage" Type="nvarchar" MaxLength="450" />
     <Property Name="cateicon" Type="nvarchar" MaxLength="250" />
@@ -214,6 +215,16 @@
     <Property Name="updateDate" Type="datetime" />
     <Property Name="libType" Type="int" />
     <Property Name="cateId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="viewDay" Type="int" Nullable="false" />
+    <Property Name="viewMonth" Type="int" Nullable="false" />
+    <Property Name="viewYear" Type="int" Nullable="false" />
+    <Property Name="countTotal" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Menus">
     <Key>
@@ -425,6 +436,7 @@
     <EntitySet Name="GroupPartner" EntityType="Self.GroupPartner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lib" EntityType="Self.Lib" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />

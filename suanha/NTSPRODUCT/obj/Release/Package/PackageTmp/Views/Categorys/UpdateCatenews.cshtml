@@ -37,7 +37,7 @@
                                     <div class="col-md-6" style="display:none">
                                         <div class="form-group">
                                             <label> <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Chọn icon</a></label>
-                                            <input type="text" class="form-control csinput" name="cateicon" maxlength="250" placeholder="Chọn icon" value="@Model.cateicon"  />
+                                            <input type="text" class="form-control csinput" name="cateicon" maxlength="250" placeholder="Chọn icon" value="@Model.cateicon" />
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +55,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả ngắn</label>
+                                            <textarea rows="3" maxlength="800" class="form-control" placeholder="Mô tả ngắn" name="cateDesShot">@Model.cateDesShot</textarea>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                    <label>Mô tả </label>
+                                    <label>Nội dung</label>
                                     @Html.TextAreaFor(u => u.cateDescription)
                                 </div>
                                 <div class="row">
@@ -69,7 +77,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-md-2" >
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label class="display-block">Hiển thị trang chủ</label>
                                             <label class="switch">

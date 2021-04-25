@@ -2,22 +2,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@if (!string.IsNullOrEmpty(Model.bgProduct))
-{
-    <style>
-        .breadcrumb_background {
-            background-image: url(@Model.bgProduct);
-        }
-    </style>
-}
-<div class="breadcrumb_background">
-    <span class="overlay"></span>
-    <div class="title_full">
-        <div class="container a-center">
-            <h1 class="title_page">@ClassExten.GetLangKey("key_lienhe")</h1>
-        </div>
-    </div>
-</div>
+
 <section class="bread-crumb">
     <span class="crumb-border"></span>
     <div class="container">
@@ -104,11 +89,11 @@
                     <div class="tab-list-wrapper">
                         <ul class="tabs-maps">
                             <li class="tab-link current" data-tab="tab-map-1">
-                                <span>@ClassExten.GetLangKey("key_tphn")</span>
+                                <span>Bản đồ liên hệ</span>
                             </li>
-                            <li class="tab-link" data-tab="tab-map-2">
+                            @*<li class="tab-link" data-tab="tab-map-2">
                                 <span>@ClassExten.GetLangKey("key_tphcm")</span>
-                            </li>
+                            </li>*@
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -117,11 +102,11 @@
                                 @Html.Raw(Model.mapHN)
                             </div>
                         </div>
-                        <div id="tab-map-2" class="tab-content-maps">
+                        @*<div id="tab-map-2" class="tab-content-maps">
                             <div class="maps-home">
                                 @Html.Raw(Model.mapHCM)
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>

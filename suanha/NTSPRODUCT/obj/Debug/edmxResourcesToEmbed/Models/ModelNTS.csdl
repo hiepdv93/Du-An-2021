@@ -27,6 +27,7 @@
       <End Role="Category" EntitySet="Categorys" />
       <End Role="News" EntitySet="News" />
     </AssociationSet>
+    <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -443,4 +444,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="viewDay" Type="Int32" Nullable="false" />
+    <Property Name="viewMonth" Type="Int32" Nullable="false" />
+    <Property Name="viewYear" Type="Int32" Nullable="false" />
+    <Property Name="countTotal" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

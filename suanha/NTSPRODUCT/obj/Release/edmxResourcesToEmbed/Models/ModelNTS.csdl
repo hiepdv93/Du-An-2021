@@ -3,7 +3,6 @@
   <EntityContainer Name="NTSWEBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admins" EntityType="NTSWEBModel.Admin" />
     <EntitySet Name="Advs" EntityType="NTSWEBModel.Adv" />
-    <EntitySet Name="Categorys" EntityType="NTSWEBModel.Category" />
     <EntitySet Name="Comments" EntityType="NTSWEBModel.Comment" />
     <EntitySet Name="Contacts" EntityType="NTSWEBModel.Contact" />
     <EntitySet Name="Departments" EntityType="NTSWEBModel.Department" />
@@ -19,14 +18,16 @@
     <EntitySet Name="Slides" EntityType="NTSWEBModel.Slide" />
     <EntitySet Name="Supports" EntityType="NTSWEBModel.Support" />
     <EntitySet Name="WhyChooseUsses" EntityType="NTSWEBModel.WhyChooseUss" />
-    <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="NTSWEBModel.FK__News__groupid__1BFD2C07">
-      <End Role="Category" EntitySet="Categorys" />
-      <End Role="News" EntitySet="News" />
-    </AssociationSet>
     <EntitySet Name="Faqs" EntityType="NTSWEBModel.Faq" />
     <EntitySet Name="Teachers" EntityType="NTSWEBModel.Teacher" />
     <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
     <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
+    <EntitySet Name="Categorys" EntityType="NTSWEBModel.Category" />
+    <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="NTSWEBModel.FK__News__groupid__1BFD2C07">
+      <End Role="Category" EntitySet="Categorys" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -58,31 +59,6 @@
     <Property Name="advLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="advActive" Type="Boolean" />
     <Property Name="createDate" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="Category">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="cateName" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
-    <Property Name="cateKey" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
-    <Property Name="cateLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="cateLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
-    <Property Name="cateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="cateImage" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-    <Property Name="cateicon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="catepar_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="cateOrder" Type="Int32" />
-    <Property Name="cate_cap" Type="Int32" />
-    <Property Name="cateType" Type="Int32" />
-    <Property Name="cateActiveHome" Type="Boolean" />
-    <Property Name="cateActive" Type="Boolean" />
-    <Property Name="createDate" Type="DateTime" Precision="3" />
-    <Property Name="updateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="News" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="Category" ToRole="News" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>
@@ -308,20 +284,6 @@
     <Property Name="createDate" Type="DateTime" Precision="3" />
     <Property Name="numberOder" Type="Int32" />
   </EntityType>
-  <Association Name="FK__News__groupid__1BFD2C07">
-    <End Type="NTSWEBModel.Category" Role="Category" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="NTSWEBModel.News" Role="News" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Category">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="News">
-        <PropertyRef Name="groupId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Faq">
     <Key>
       <PropertyRef Name="id" />
@@ -441,5 +403,55 @@
     <Property Name="bgProduct" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
     <Property Name="zaloChat" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
     <Property Name="fbChat" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cateName" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="cateKey" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="cateLang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cateLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="cateDesShot" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="cateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cateImage" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="cateicon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="catepar_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cateOrder" Type="Int32" />
+    <Property Name="cate_cap" Type="Int32" />
+    <Property Name="cateType" Type="Int32" />
+    <Property Name="cateActiveHome" Type="Boolean" />
+    <Property Name="cateActive" Type="Boolean" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="updateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="News" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="Category" ToRole="News" />
+  </EntityType>
+  <Association Name="FK__News__groupid__1BFD2C07">
+    <End Type="NTSWEBModel.Category" Role="Category" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="NTSWEBModel.News" Role="News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LichSuTruyCap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Name="viewDay" Type="Int32" Nullable="false" />
+    <Property Name="viewMonth" Type="Int32" Nullable="false" />
+    <Property Name="viewYear" Type="Int32" Nullable="false" />
+    <Property Name="countTotal" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

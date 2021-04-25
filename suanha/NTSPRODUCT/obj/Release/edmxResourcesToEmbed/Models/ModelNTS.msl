@@ -34,31 +34,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Categorys">
-      <EntityTypeMapping TypeName="NTSWEBModel.Category">
-        <MappingFragment StoreEntitySet="Categorys">
-          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-          <ScalarProperty Name="createDate" ColumnName="createDate" />
-          <ScalarProperty Name="cateActive" ColumnName="cateActive" />
-          <ScalarProperty Name="cateActiveHome" ColumnName="cateActiveHome" />
-          <ScalarProperty Name="cateType" ColumnName="cateType" />
-          <ScalarProperty Name="cate_cap" ColumnName="cate_cap" />
-          <ScalarProperty Name="cateOrder" ColumnName="cateOrder" />
-          <ScalarProperty Name="catepar_id" ColumnName="catepar_id" />
-          <ScalarProperty Name="cateicon" ColumnName="cateicon" />
-          <ScalarProperty Name="cateImage" ColumnName="cateImage" />
-          <ScalarProperty Name="cateDescription" ColumnName="cateDescription" />
-          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
-          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
-          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
-          <ScalarProperty Name="cateLevel" ColumnName="cateLevel" />
-          <ScalarProperty Name="cateLang" ColumnName="cateLang" />
-          <ScalarProperty Name="cateKey" ColumnName="cateKey" />
-          <ScalarProperty Name="cateName" ColumnName="cateName" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Comments">
       <EntityTypeMapping TypeName="NTSWEBModel.Comment">
         <MappingFragment StoreEntitySet="Comment">
@@ -417,6 +392,43 @@
           <ScalarProperty Name="email_Inbox" ColumnName="email_Inbox" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="hotLine" ColumnName="hotLine" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorys">
+      <EntityTypeMapping TypeName="NTSWEBModel.Category">
+        <MappingFragment StoreEntitySet="Categorys">
+          <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="cateActive" ColumnName="cateActive" />
+          <ScalarProperty Name="cateActiveHome" ColumnName="cateActiveHome" />
+          <ScalarProperty Name="cateType" ColumnName="cateType" />
+          <ScalarProperty Name="cate_cap" ColumnName="cate_cap" />
+          <ScalarProperty Name="cateOrder" ColumnName="cateOrder" />
+          <ScalarProperty Name="catepar_id" ColumnName="catepar_id" />
+          <ScalarProperty Name="cateicon" ColumnName="cateicon" />
+          <ScalarProperty Name="cateImage" ColumnName="cateImage" />
+          <ScalarProperty Name="cateDescription" ColumnName="cateDescription" />
+          <ScalarProperty Name="cateDesShot" ColumnName="cateDesShot" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="cateLevel" ColumnName="cateLevel" />
+          <ScalarProperty Name="cateLang" ColumnName="cateLang" />
+          <ScalarProperty Name="cateKey" ColumnName="cateKey" />
+          <ScalarProperty Name="cateName" ColumnName="cateName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LichSuTruyCaps">
+      <EntityTypeMapping TypeName="NTSWEBModel.LichSuTruyCap">
+        <MappingFragment StoreEntitySet="LichSuTruyCap">
+          <ScalarProperty Name="countTotal" ColumnName="countTotal" />
+          <ScalarProperty Name="viewYear" ColumnName="viewYear" />
+          <ScalarProperty Name="viewMonth" ColumnName="viewMonth" />
+          <ScalarProperty Name="viewDay" ColumnName="viewDay" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

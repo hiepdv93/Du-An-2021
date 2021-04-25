@@ -47,5 +47,6 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Config> Configs { get; set; }
         public virtual DbSet<Category> Categorys { get; set; }
+        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 ﻿@model IList<NTSPRODUCT.Models.Product>
 @{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
-    var faq = (List<NTSPRODUCT.Models.Faq>)ViewBag.faq;
     var pro = (NTSPRODUCT.Models.Product)ViewBag.pro;
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
     var catePSub = (NTSPRODUCT.Models.Category)ViewBag.catePSub;
@@ -134,34 +133,14 @@
                     <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
                         <div class="info-product">
                             <ul class="tabs-product">
-                                <li class="tab-link current" data-tab="tab-1">@ClassExten.GetLangKey("key_spthongtinn")</li>
-                                <li class="tab-link" data-tab="tab-2">@ClassExten.GetLangKey("key_spmota")</li>
-                                <li class="tab-link" data-tab="tab-3">@ClassExten.GetLangKey("key_faq_Pro")</li>
+                                <li class="tab-link current" data-tab="tab-1">Mô tả sản phẩm</li>
+                                <li class="tab-link" data-tab="tab-2">Thông tin bổ sung</li>
                             </ul>
                             <div id="tab-1" class="info-product-tab-content current">
                                 @Html.Raw(pro.proContentTab1)
                             </div>
                             <div id="tab-2" class="info-product-tab-content">
                                 @Html.Raw(pro.proContentTab2)
-                            </div>
-                            <div id="tab-3" class="info-product-tab-content">
-                                <div id="accordion">
-                                    @for (int i = 0; i < faq.Count; i++)
-                                    {
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne_@i">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_@i" aria-expanded="true" aria-controls="collapseOne">
-                                                        @faq[i].name
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne_@i" class="collapse @(i==0?"show":"")" aria-labelledby="headingOne_@i" data-parent="#accordion">
-                                                <div class="card-body">@faq[i].contents</div>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,8 +273,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@ClassExten.GetLangKey("key_huy")</button>
                 <button type="button" onclick="SendContact()" class="btn btn-primary">@ClassExten.GetLangKey("key_dathang")</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@ClassExten.GetLangKey("key_huy")</button>
             </div>
         </div>
     </div>

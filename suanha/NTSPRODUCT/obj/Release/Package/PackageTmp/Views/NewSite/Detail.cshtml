@@ -1,17 +1,11 @@
-﻿@{
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var newData = (NTSPRODUCT.Models.News)ViewBag.newData;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
 }
-@if (!string.IsNullOrEmpty(conf.bgProduct))
-{
-    <style>
-        .breadcrumb_background {
-            background-image: url(@conf.bgProduct);
-        }
-    </style>
-}
+
 <section class="bread-crumb">
     <span class="crumb-border"></span>
     <div class="container">
@@ -23,13 +17,13 @@
                         <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
                     </li>
                     <li class="home">
-                        <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
+                        <a itemprop="url" href="/nhom-dich-vu" title="Dịch vụ"><span itemprop="title">Dịch vụ</span></a>
                         <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
                     </li>
                     @if (cateP != null)
                     {
                         <li class="home">
-                            <a itemprop="url" href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                            <a itemprop="url" href="/nhom-dich-vu/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
                             <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
                         </li>
                     }
@@ -52,6 +46,14 @@
                 </div>
                 <div class="page-detail-text">
                     @Html.Raw(newData.contents)
+                    <hr />
+                    <h2>Tin cùng chuyên mục</h2>
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li><a href="/dich-vu/@item.new_key" title="@item.title"><i class="fa fa-caret-right" aria-hidden="true"></i> @item.title (@item.updateDate.Value.ToString("dd/MM/yyyy"))</a></li>
+                        }
+                    </ul>
                 </div>
             </div>
         </div>

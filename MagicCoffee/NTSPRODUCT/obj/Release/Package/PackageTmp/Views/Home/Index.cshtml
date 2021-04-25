@@ -1,25 +1,99 @@
-﻿@{
+﻿@model IList<NTSPRODUCT.Models.LichSuTruyCap>
+@{
     ViewBag.Title = "Administrator - Hệ thống quản trị website";
     ViewBag.controller = "Hệ thống quản trị website " + Request.Url.Host;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+    var pros = (List<NTSPRODUCT.Models.Product>)ViewBag.pros;
+    var news = (List<NTSPRODUCT.Models.News>)ViewBag.news;
+    var dateNow = DateTime.Now;
 
-<!-- SELECT2 EXAMPLE -->
+}
+<style>
+    .table-responsive .table thead tr {
+        background-color: white;
+        color: black;
+    }
+
+    .small-box > .inner {
+        padding: 0px 15px;
+    }
+
+    .bg-success span, .bg-warning span, .bg-info span {
+        color: white
+    }
+
+    .products-list .product-img img {
+        margin-left: 3px;
+        border-radius: 5px;
+        width: 45px;
+        height: 42px;
+    }
+
+    .bg-warning {
+        background-color: #ffc107 !important;
+    }
+
+    .bg-success {
+        background-color: #28a745 !important;
+    }
+
+    .bg-info {
+        background-color: #17a2b8 !important;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+        border-bottom: 1px solid #f4f4f4;
+    }
+
+    .card-success {
+        background-color: #fefefe;
+    }
+
+        .card-success .card-header {
+            background-color: #28a745;
+            color: white;
+        }
+
+    .card {
+        box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+        margin-bottom: 1rem;
+    }
+
+    .card-header {
+        background-color: transparent;
+        border-bottom: 1px solid rgba(0,0,0,.125);
+        padding: 2px 5px;
+        position: relative;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+</style>
+<script src="https://www.chartjs.org/dist/master/chart.min.js"></script>
 <div class="box box-default">
     <div class="box-header with-border">
     </div>
-    <!-- /.box-header -->
     <div class="box-body">
-        <!-- Main content -->
         <section class="content">
-            <!-- Small boxes (Stat box) -->
             <div class="row">
+
                 <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>@ViewBag.teacherCount</h3>
+                            <p>Nhóm thực đơn</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="/Categorys/Catepro" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
                             <h3>@ViewBag.proCount</h3>
-                            <p>Sản phẩm</p>
+                            <p>Thực đơn</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -27,23 +101,7 @@
                         <a href="/Prodcuts/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>@ViewBag.deviceCount</h3>
-                            <p>Thiết bị</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="/Device/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
                             <h3>@ViewBag.contactCount</h3>
@@ -55,9 +113,7 @@
                         <a href="/Contacts/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>@ViewBag.newsCount</h3>
@@ -69,11 +125,353 @@
                         <a href="/News/Index" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
             </div>
-         
+
+            <hr />
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h4 class="card-title">Biểu đồ thống kê lượt truy cập theo tháng</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h4 class="card-title">Biểu đồ thống kê lượt truy cập 7 ngày gần nhât</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <canvas id="myLineChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <!-- TABLE: LATEST ORDERS -->
+                    <div class="card card-success">
+                        <div class="card-header border-transparent">
+                            <h4 class="card-title">Sản phẩm được xem nhiều nhất</h4>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Ảnh</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Lượt xem</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in pros)
+                                        {
+                                            <tr>
+                                                <td class="text-center"><img class="avata-admin" src="@item.proAvata" /></td>
+                                                <td><a target="_blank" href="/Prodcuts/update/@item.id">@item.pro_name</a></td>
+                                                <td class="text-center">@item.pro_view</td>
+                                                <td class="text-center">
+                                                    <label class="switch">
+                                                        <input type="checkbox" disabled @(item.active == Constants.Checked ? "checked" : "")>
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <a href="/Prodcuts/Index/" class="btn btn-sm btn-secondary float-right">Danh sách</a>
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+                <div class="col-md-5">
+                    <!-- TABLE: LATEST ORDERS -->
+                    <div class="card card-success">
+                        <div class="card-header border-transparent">
+                            <h4 class="card-title">Tin được xem nhiều nhất</h4>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Ảnh</th>
+                                            <th>Tiêu đề</th>
+                                            <th style="width:80px">Lượt xem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in news)
+                                        {
+                                            <tr>
+                                                <td class="text-center"><img class="avata-admin" src="@item.newImage" /></td>
+                                                <td><a target="_blank" href="/news/update/@item.id">@item.title</a></td>
+                                                <td class="text-center">@item.viewCount</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <a href="/news/Index/" class="btn btn-sm btn-secondary float-right">Danh sách</a>
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- DIRECT CHAT -->
+                    <div class="card direct-chat direct-chat-warning card-success">
+                        <div class="card-header">
+                            <h4 class="card-title">Tư vấn dịch vụ </h4>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <!-- Conversations are loaded here -->
+                            <div class="direct-chat-messages">
+                                <!-- Message. Default to the left -->
+                                <div class="direct-chat-msg">
+                                    <div class="direct-chat-infos clearfix">
+                                        <span class="direct-chat-name float-left">Đỗ Xuân  Quế</span>
+                                        <span class="direct-chat-timestamp float-right"> - 0941.699.663</span>
+                                    </div>
+                                    <!-- /.direct-chat-infos -->
+                                    <img class="direct-chat-img" src="~/Content/CssAdmin/dist/img/user1-128x128.jpg" />
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        Tư vấn dịch vụ SEO, thiết kế website trọn gói
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message. Default to the left -->
+                                <div class="direct-chat-msg">
+                                    <div class="direct-chat-infos clearfix">
+                                        <span class="direct-chat-name float-left">Chu Duy Bá</span>
+                                        <span class="direct-chat-timestamp float-right"> - 0916.103.118</span>
+                                    </div>
+                                    <!-- /.direct-chat-infos -->
+                                    <img class="direct-chat-img" src="~/Content/CssAdmin/dist/img/user1-128x128.jpg" />
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        Tư vấn dịch vụ SEO, thiết kế website trọn gói
+
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message to the right -->
+                                <div class="direct-chat-msg right">
+                                    <div class="direct-chat-infos clearfix">
+                                        <span class="direct-chat-name float-right">Dương Văn Hiệp</span>
+                                        <span class="direct-chat-timestamp float-left"> - 0964.488.393</span>
+                                    </div>
+                                    <!-- /.direct-chat-infos -->
+                                    <img class="direct-chat-img" src="~/Content/CssAdmin/dist/img/user1-128x128.jpg" />
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        Hỗ trợ kỹ thuật, thiết kế website trọn gói
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                            </div>
+                            <!--/.direct-chat-messages-->
+
+                        </div>
+
+                    </div>
+                    <!--/.direct-chat -->
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h4 class="card-title">Gia hạn hosting, domain</h4>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <ul class="products-list product-list-in-card pl-2 pr-2">
+
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="~/Content/CssAdmin/dist/img/viet.jpg" alt="Product Image" class="img-size-50">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            0301000412995
+                                            <span class="badge badge-warning float-right">Dương Văn Hiệp</span>
+                                        </a>
+                                        <span class="product-description">
+                                            Vietcombank - Chi nhánh Thành Công
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="~/Content/CssAdmin/dist/img/tech.jpg" alt="Product Image" class="img-size-50">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            19033693446011
+                                            <span class="badge badge-warning float-right">Dương Văn Hiệp</span>
+                                        </a>
+                                        <span class="product-description">
+                                            Techcombank -  Ngân hàng TMCP Kỹ thương Việt Nam
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="~/Content/CssAdmin/dist/img/mb.jpg" alt="Product Image" class="img-size-50">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            0680165565666
+                                            <span class="badge badge-warning float-right">Dương Văn Hiệp</span>
+                                        </a>
+                                        <span class="product-description">
+                                            MB: MBBANK ngân hàng quân đội
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="~/Content/CssAdmin/dist/img/viet.jpg" alt="Product Image" class="img-size-50">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            0011004305097
+                                            <span class="badge badge-warning float-right">Đỗ Xuân Quế</span>
+                                        </a>
+                                        <span class="product-description">
+                                            Vietcombank - Chi nhánh Thành Công
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Info Boxes Style 2 -->
+                    <div class="info-box mb-3 bg-warning">
+                        <span class="info-box-icon"><i class="fas fa-tag"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Tổng lượt truy cập</span>
+                            <span class="info-box-number">@ViewBag.viewAll</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                    <div class="info-box mb-3 bg-success">
+                        <span class="info-box-icon"><i class="far fa-heart"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Năm @dateNow.Year</span>
+                            <span class="info-box-number">@ViewBag.viewYear</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                    <div class="info-box mb-3 bg-info">
+                        <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Tháng @dateNow.Month</span>
+                            <span class="info-box-number">@ViewBag.viewmonth</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+
+                </div>
+
+            </div>
+
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.box-body -->
 </div>
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+            datasets: [{
+                label: 'Lượt truy cập',
+                data: '@ViewBag.dataChart'.split(','),
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    var ctx = document.getElementById('myLineChart');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+       data: {
+            labels:'@ViewBag.dataTitleTuan'.split(','),
+            datasets: [{
+                label: 'Lượt truy cập',
+                data: '@ViewBag.dataChartTuan'.split(','),
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+
+    });
+</script>

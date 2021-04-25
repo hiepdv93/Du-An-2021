@@ -9,6 +9,8 @@
                 <th width="80px" class="text-center">Ảnh</th>
                 <th>Tên sản phẩm</th>
                 <th width="300px">Danh mục</th>
+                <th width="60px">Thứ tự</th>
+
                 <th width="120px" class="text-center">Hot</th>
                 <th width="85px" class="text-center">Hiển thị</th>
 
@@ -19,30 +21,33 @@
             @foreach (var item in Model)
             {
                 index++;
-                <tr>
-                    <td class="text-center">@index</td>
-                    <td class="text-center">
-                        <a href="/Prodcuts/Update/@item.id" title="Sửa"><span class="fa fa-edit font18"></span> </a>
-                        <a href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
-                    </td>
-                    <td class="text-center"><img class="avata-admin" src="@item.proAvata" /></td>
-                    <td>@item.pro_name</td>
-                    <td>@ClassExten.GetCateCha(item.cateId)</td>
-                    <td class="text-center">
-                        <label class="switch">
-                            <input type="checkbox" onchange="ChangeProductHot('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
-                            <span class="slider round"></span>
-                        </label>
-                    </td>
+            <tr>
+                <td class="text-center">@index</td>
+                <td class="text-center">
+                    <a href="/Prodcuts/Update/@item.id" title="Sửa"><span class="fa fa-edit font18"></span> </a>
+                    <a href="javascript:void(0)" onclick="DeleteConfim('@item.id')" title="Xóa"><span class="fa fa-trash-o font18"></span> </a>
+                </td>
+                <td class="text-center"><img class="avata-admin" src="@item.proAvata" /></td>
+                <td>@item.pro_name</td>
+                <td>@ClassExten.GetCateCha(item.cateId)</td>
+                <td>
+                    <input type="number" style="width:60px" value="@item.proOrder" alt="@item.id" class="proOrderChange" />
+                </td>
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeProductHot('@item.id')" @(item.pro_hot == Constants.Checked ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
 
-                    <td class="text-center">
-                        <label class="switch">
-                            <input type="checkbox" onchange="ChangeStatus('@item.id')" @(item.active == Constants.Checked ? "checked" : "")>
-                            <span class="slider round"></span>
-                        </label>
-                    </td>
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeStatus('@item.id')" @(item.active == Constants.Checked ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
 
-                </tr>
+            </tr>
             }
 
         </tbody>
@@ -69,4 +74,27 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+    $('.proOrderChange').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+        OpenWaiting();
+
+        $.ajax({
+            url: "/Prodcuts/ChangeOrder?id=" + id + '&proOrder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+        CloseWaiting();
+
+    });
 </script>

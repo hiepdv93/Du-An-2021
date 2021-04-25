@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="NTSWEBModel.Config" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="NTSWEBModel.Category" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="NTSWEBModel.FK__News__groupid__1BFD2C07" />
+        <EntityTypeShape EntityType="NTSWEBModel.LichSuTruyCap" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

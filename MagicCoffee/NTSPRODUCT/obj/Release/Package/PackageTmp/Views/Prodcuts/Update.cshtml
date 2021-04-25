@@ -15,8 +15,8 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">Hình ảnh</a></li>
-                    <li><a href="#tab_3" data-toggle="tab" style="display:none">Thẻ Tag</a></li>
+                    @*<li><a href="#tab_2" data-toggle="tab">Hình ảnh</a></li>*@
+                
                     <li><a href="#tab_4" data-toggle="tab">Cấu hình seo</a></li>
                 </ul>
                 <div class="tab-content">
@@ -54,7 +54,7 @@
                                     <input type="text" class="form-control " placeholder="Url sản phẩm" value="@Model.pro_key" maxlength="800" id="pro_key" name="pro_key" />
                                 </div>
                             </div>
-                          
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Giá gốc</label><span class="text-red">(*)</span>
@@ -67,7 +67,12 @@
                                     <input type="number" value="@Model.proPrice_sale" class="form-control " name="priceSale" required="required" />
                                 </div>
                             </div>
-                           
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ảnh đại diện </label>
+                                    <input type="text" class="form-control csinput" maxlength="250" value="@Model.proAvata" name="proAvata" id="proAvata" placeholder="Chọn ảnh" />
+                                </div>
+                            </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Thứ tự</label><span class="text-red">(*)</span>
@@ -83,8 +88,8 @@
                                     </label>
                                 </div>
                             </div>
-                           
-                           
+
+
                         </div>
                         <div class="form-group">
                             <label>Giới thiệu ngắn</label>
@@ -98,7 +103,8 @@
 
                     </div>
                     <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
+
+                    @*<div class="tab-pane" id="tab_2">
                         <div class="form-group">
                             <label>Ảnh đại diện </label>
                             <input type="text" class="form-control csinput" maxlength="250" name="proAvata" id="proAvata" value="@Model.proAvata" placeholder="Chọn ảnh" />
@@ -123,10 +129,8 @@
                             <label>Ảnh số 5</label>
                             <input type="text" class="form-control csinput" maxlength="250" name="proAvata5" id="proAvata5" value="@Model.proImages3" placeholder="Chọn ảnh" />
                         </div>
-                    </div>
-                    <div class="tab-pane" id="tab_3" style="display:none">
-                     
-                    </div>
+                    </div>*@
+               
                     <div class="tab-pane" id="tab_4">
                         <div class="form-group">
                             <label>Tile seo </label>

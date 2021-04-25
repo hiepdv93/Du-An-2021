@@ -1,14 +1,11 @@
-﻿@model IList<NTSPRODUCT.Models.ProductModel>
+﻿@model NTSPRODUCT.Models.Config
 @{
-    var proSale = (List<NTSPRODUCT.Models.Product>)ViewBag.proSale;
     var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.catepro;
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
     var newNew = (List<NTSPRODUCT.Models.News>)ViewBag.newNew;
+    var newHot = (List<NTSPRODUCT.Models.News>)ViewBag.newHot;
     var slide = (List<NTSPRODUCT.Models.Slide>)ViewBag.slide;
-    var advs = (List<NTSPRODUCT.Models.Adv>)ViewBag.advs;
-    float sale = 0;
-    int numBer = 0;
-    var dateNow = DateTime.Now;
+    bool isMobile = Request.Browser.IsMobileDevice;
 }
 
 <section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:370px;overflow:hidden;visibility:hidden;">
@@ -36,71 +33,14 @@
         </svg>
     </div>
 </section>
-@if (proSale.Count > 0)
-{
-    <section class="awe-section-5">
-        <section class="section_topsale_month">
-            <div class="container">
-                <div class="heading_spbc">
-                    <h2 class="title-head">
-                        <span>@ClassExten.GetLangKey("key_spkm")</span>
-                    </h2>
-                </div>
-                <div class="section">
-                    <div class="wrap_item_large">
-                        @foreach (var item in proSale)
-                        {
-                            numBer++;
-                            <div class="itemproduct_sale item_product_main">
-                                <div class="thumb_settime">
-                                    <div class="product-thumbnail thumb_settime">
-                                        @if (item.proPrice_sale != 0 && item.proPrice != 0 && item.proPrice != item.proPrice_sale)
-                                        {
-                                            sale = (item.proPrice.Value - item.proPrice_sale.Value) * 100;
-                                            <div class="saleright">-@(Math.Round(sale / item.proPrice.Value, 0))% </div>
-                                        }
-                                        <a class="image_thumb thumb_product_index" href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                            <img src="@item.proAvata" alt="@item.pro_name">
-                                        </a>
-                                        <div class="product-action clearfix hidden-xs hidden-sm hidden-md">
-                                            <div class="group_action">
-                                                @*<button class="btn-buy btn-cart btn btn-circle left-to add_to_cart active ">
-                                                        <i class="fa fa-shopping-basket"></i>
-                                                    </button>*@
-                                                <a href="/san-pham/@item.pro_key" title="@item.pro_name" class="btn-circle btn_view btn right-to quick-view hidden-xs hidden-sm hidden-md">
-                                                    <i class="fa fa-search-plus" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name"><a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a></h3>
-                                        <div class="price-box">
-                                            <span class="price product-price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
-                                            @if (item.proPrice != 0)
-                                            {
-                                                <span class="compare-price">@item.proPrice.Value.ToString("N0")</span>
-                                            }
-                                        </div>
-                                        <div class="rtes section">@item.desPro</div>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-}
+
 
 <section class="awe-section-3">
     <div class="section_dich_vu">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 evo_dich_vu_title text-center">
-                    <h4 class="section_dich_vu_title">@ClassExten.GetLangKey("key_linhvuchd")</h4>
+                    <h4 class="section_dich_vu_title">DỊCH VỤ CỦA CHÚNG TÔI</h4>
                 </div>
             </div>
             <div class="row row-dich-vu">
@@ -112,9 +52,9 @@
                                 <div class="evo-box-dich-vu-image">
                                     <img src="@item.cateImage" alt="@item.cateName" class="img-responsive center-block">
                                 </div>
-                                <div class="content-box-dich-vu hidden-sm hidden-xs">@Html.Raw(item.cateDescription)</div>
+                                <div class="content-box-dich-vu hidden-sm hidden-xs">@Html.Raw(item.cateDesShot)</div>
                             </div>
-                            <h3><a href="/danh-muc/@item.cateKey" title="@item.cateName">@item.cateName</a></h3>
+                            <h3><a href="/nhom-dich-vu/@item.cateKey" title="@item.cateName">@item.cateName</a></h3>
                         </div>
                     </div>
                 }
@@ -123,91 +63,23 @@
     </div>
 </section>
 
-@if (Model.Count > 0)
-{
-    for (int i = 0; i < Model.Count; i++)
-    {
-        <section class="product-home">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 col-lg-12">
-                        <div class="heading_spbc">
-                            <h2 class="title-head">
-                                <a href="/danh-muc/@Model[i].cate.cateKey" title="@Model[i].cate.cateName">@Model[i].cate.cateName</a>
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-xs-12 col-lg-12">
-                        <div id="owl-pro-home@(i+1)" class="owl-carousel owl-theme owl-pro-home">
-                            @foreach (var item in Model[i].pro)
-                            {
-                                <div class="item">
-                                    <div class="col-item col-item-grid">
-                                        <div class="sale-label sale-top-right">
-                                            <span>New</span>
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="product-wrapper ">
-                                                <div class="thumb-wrapper">
-                                                    <a href="/san-pham/@item.pro_key" title="@item.pro_name">
-                                                        <img class="img-responsive" src="@item.proAvata" alt="@item.pro_name">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="item-info">
-                                                <div class="info-inner">
-                                                    <div class="item-title">
-                                                        <h3 class="text2line">
-                                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a>
-                                                        </h3>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="price-box price-loop-style">
-                                                            <span class="special-price">
-                                                                <span class="price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : ClassExten.GetLangKey("key_lienhe"))</span>
-                                                            </span>
-                                                            @if (item.proPrice != 0)
-                                                            {
-                                                                <span class="old-price">
-                                                                    <span class="price">@item.proPrice.Value.ToString("N0") </span>
-                                                                </span>
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="view-detail">
-                                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">@ClassExten.GetLangKey("key_chitiet")</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
-}
-
 <section class="awe-section-3">
     <div class="container space-40">
         <div class="row">
             <div class="col-md-6">
                 <div class="title-text space-20">
-                    <h2><a href="tin-tuc" title="Tin tức">@ClassExten.GetLangKey("news")</a></h2>
-                    <a class="read-more" href="/tin-tuc" title="@ClassExten.GetLangKey("key_xemthem")">@ClassExten.GetLangKey("key_xemthem")<i class="fa fa-angle-double-right"></i></a>
+                    <h2><a href="tin-tuc" title="Dịch vụ">@ClassExten.GetLangKey("news")</a></h2>
+                    <a class="read-more" href="/nhom-dich-vu" title="@ClassExten.GetLangKey("key_xemthem")">@ClassExten.GetLangKey("key_xemthem")<i class="fa fa-angle-double-right"></i></a>
                 </div>
                 <div class="home-blog">
                     @foreach (var item in newNew)
                     {
                         <div class="item">
-                            <a class="thumb img-shine" href="/tin/@item.new_key" title="@item.title">
+                            <a class="thumb img-shine" href="/dich-vu/@item.new_key" title="@item.title">
                                 <img src="@item.newImage" alt="@item.title">
                             </a>
                             <div class="text">
-                                <h3><a href="/tin/@item.new_key" title="@item.title">@item.title</a></h3>
+                                <h3><a href="/dich-vu/@item.new_key" title="@item.title">@item.title</a></h3>
                                 <div class="date">@item.createDate.Value.ToString("dd") <span>T @item.createDate.Value.ToString("MM")</span></div>
                                 <p>@item.descript</p>
                             </div>
@@ -215,17 +87,109 @@
                     }
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="title-text space-20">
-                    <h2>@ClassExten.GetLangKey("key_tvanh")</h2>
+            @if (!isMobile)
+            {
+                <div class="col-md-6">
+                    <div class="title-text space-20">
+                        <h2>DỊCH VỤ HOT</h2>
+                    </div>
+                    <div class="home-box-lightbox">
+                        @foreach (var item in newHot)
+                        {
+                            <a href="/dich-vu/@item.new_key" title="@item.title">
+                                <img class="img-responsive basic" src="@item.newImage" alt="@item.title">
+								<div class="content-box-dich-vu hidden-sm hidden-xs">@item.descript</div>
+                            </a>
+                        }
+                    </div>
                 </div>
-                <div class="home-box-lightbox">
-                    @foreach (var item in advs)
-                    {
-                        <a href="#" title="@item.advName">
-                            <img class="img-responsive basic" src="@item.advImage" alt="@item.advName">
-                        </a>
-                    }
+            }
+
+        </div>
+    </div>
+</section>
+
+<section class="page-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12 col-lg-63">
+                <div class="form-contact">
+                    <form action="" method="post" class="img-responsive">
+                        <div class="card-body p-3">
+                            <!--Body-->
+                            <div class="form-group col-lg-6 col-sm-6">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-texts"><i class="fa fa-user"></i></div>
+                                    </div>
+                                    <input type="hidden" id="referencesId" value="-1">
+                                    <input type="text" class="form-control" id="ctName" name="nombre" placeholder="@ClassExten.GetLangKey("key_hoten") (*)">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-6">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-texts"><i class="fa fa-envelope"></i></div>
+                                    </div>
+                                    <input type="email" class="form-control" id="ctEmail" name="email" placeholder="Email...">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-6">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-texts"><i class="fa fa-phone"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="ctPhone" name="nombre" placeholder="@ClassExten.GetLangKey("key_sdt") (*)">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6 col-sm-6">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-texts"><i class="fa fa-home"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="ctAddress" name="nombre" placeholder="@ClassExten.GetLangKey("key_diachi") ..">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12 col-sm-12">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-texts"><i class="fa fa-pencil"></i></div>
+                                    </div>
+                                    <textarea class="form-control" id="ctNote" rows="3" placeholder="@ClassExten.GetLangKey("key_ndmota") (*)"></textarea>
+                                </div>
+                            </div>
+                            <div class="text-right col-lg-12 col-sm-12">
+                                <div class="btn">
+                                    <button onclick="SendContact()" type="button" value="Enviar" class="submit">@ClassExten.GetLangKey("key_guilienhe") <i class="fa fa-send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 col-lg-6">
+                <div class="title-contact">
+                    @Html.Raw(Model.conTact)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 f-none grab-float">
+                <div class="wrapper">
+                    <div class="tab-list-wrapper">
+                        <ul class="tabs-maps">
+                            <li class="tab-link current" data-tab="tab-map-1">
+                                <span>Video nổi bật</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="tab-map-1" class="tab-content-maps current">
+                            <div class="maps-home">
+                                @Html.Raw(Model.homeVideo)
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

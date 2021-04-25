@@ -221,6 +221,16 @@
           <Property Name="libType" Type="int" />
           <Property Name="cateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="LichSuTruyCap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="viewDay" Type="int" Nullable="false" />
+          <Property Name="viewMonth" Type="int" Nullable="false" />
+          <Property Name="viewYear" Type="int" Nullable="false" />
+          <Property Name="countTotal" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Menus">
           <Key>
             <PropertyRef Name="id" />
@@ -431,6 +441,7 @@
           <EntitySet Name="GroupPartner" EntityType="Self.GroupPartner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lib" EntityType="Self.Lib" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichSuTruyCap" EntityType="Self.LichSuTruyCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
@@ -477,6 +488,7 @@
             <End Role="Category" EntitySet="Categorys" />
             <End Role="News" EntitySet="News" />
           </AssociationSet>
+          <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -893,6 +905,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LichSuTruyCap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="viewDay" Type="Int32" Nullable="false" />
+          <Property Name="viewMonth" Type="Int32" Nullable="false" />
+          <Property Name="viewYear" Type="Int32" Nullable="false" />
+          <Property Name="countTotal" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1316,6 +1338,17 @@
                 <ScalarProperty Name="cateLang" ColumnName="cateLang" />
                 <ScalarProperty Name="cateKey" ColumnName="cateKey" />
                 <ScalarProperty Name="cateName" ColumnName="cateName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LichSuTruyCaps">
+            <EntityTypeMapping TypeName="NTSWEBModel.LichSuTruyCap">
+              <MappingFragment StoreEntitySet="LichSuTruyCap">
+                <ScalarProperty Name="countTotal" ColumnName="countTotal" />
+                <ScalarProperty Name="viewYear" ColumnName="viewYear" />
+                <ScalarProperty Name="viewMonth" ColumnName="viewMonth" />
+                <ScalarProperty Name="viewDay" ColumnName="viewDay" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

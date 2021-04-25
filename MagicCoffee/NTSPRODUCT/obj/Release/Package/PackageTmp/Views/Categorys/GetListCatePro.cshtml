@@ -24,22 +24,24 @@
                     strCap += "==";
                 }
                 strCap += strCap.Length == 0 ? "" : ">";
-                <tr>
-                    <td class="text-center"><img class="avata-admin" src="@Model[i].cateImageHome" /></td>
-                    <td>
-                        <a href="/Categorys/UpdateCatepro/@Model[i].id" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
-                        <a href="javascript:void(0)" onclick="DeleteConfim('@Model[i].id')" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
-                    </td>
-                    <td> @strCap @Model[i].cateName</td>
-                    <td>@ClassExten.GetCateCha(Model[i].catepar_id)</td>
-                    <td class="text-center">@Model[i].cateOrder</td>
-                    <td class="text-center">
-                        <label class="switch">
-                            <input type="checkbox" onchange="ChangeStatus('@Model[i].id')" @(Model[i].cateActive == true ? "checked" : "")>
-                            <span class="slider round"></span>
-                        </label>
-                    </td>
-                </tr>
+            <tr>
+                <td class="text-center"><img class="avata-admin" src="@Model[i].cateImageHome" /></td>
+                <td>
+                    <a href="/Categorys/UpdateCatepro/@Model[i].id" title="Sửa"><span class="fa fa-edit"></span>Sửa</a> |
+                    <a href="javascript:void(0)" onclick="DeleteConfim('@Model[i].id')" title="Xóa"><span class="fa fa-trash-o"></span> Xóa</a>
+                </td>
+                <td> @strCap @Model[i].cateName</td>
+                <td>@ClassExten.GetCateCha(Model[i].catepar_id)</td>
+                <td>
+                    <input type="number" style="width:60px" value="@Model[i].cateOrder" alt="@Model[i].id" class="proCateOrderChange" />
+                </td>
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" onchange="ChangeStatus('@Model[i].id')" @(Model[i].cateActive == true ? "checked" : "")>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
@@ -64,4 +66,26 @@
 <script>
     $('#count_data').html(@ViewBag.TotalItem);
     $('#pageSize').val(@ViewBag.PageSize);
+
+
+    $('.proCateOrderChange').change(function (e) {
+        var number = $(this).val();
+        var id = $(this).attr('alt');
+        OpenWaiting();
+        $.ajax({
+            url: "/Categorys/ChangeOrder?id=" + id + '&cateOrder=' + number,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    toastr.success('Cập nhật thứ tự ưu tiên thành công', { timeOut: 5000 });
+                } else {
+                    toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+        CloseWaiting();
+    });
 </script>

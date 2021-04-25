@@ -54,8 +54,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Số hot line</label>
-                                        <input type="text" class="form-control csinput" maxlength="250" name="hotLine" placeholder="Số hot line" value="@Model.hotLine" />
+                                        <label>Số hot line(Nhiều SĐT phân tách nhau bởi ';' VD:0964xxx;0956xxx)</label>
+                                        <input type="text" class="form-control csinput" maxlength="250" name="hotLine" placeholder="Phân tách dấu ';' giữa các SĐT" value="@Model.hotLine" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -136,20 +136,24 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">bản đồ HN</label>
+                                <label for="exampleInputPassword1">Bản đồ trang liên hệ</label>
                                 @Html.TextAreaFor(u => u.mapHN)
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Bản đồ HCM</label>
+                                <label for="exampleInputPassword1">Bản đồ nhỏ chân trang</label>
                                 @Html.TextAreaFor(u => u.mapHCM)
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Giới thiệu về chúng tôi(chân trang)</label>
+                                <label for="exampleInputPassword1">Về chúng tôi</label>
+                                @Html.TextAreaFor(u => u.footer)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Thông tin liên hệ</label>
                                 @Html.TextAreaFor(u => u.infoPage)
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Thông tin liên hệ(chân trang)</label>
-                                @Html.TextAreaFor(u => u.infoHN)
+                                <label for="exampleInputPassword1">Video trang chủ</label>
+                                @Html.TextAreaFor(u => u.homeVideo)
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Thông tin trang liên hệ</label>
@@ -314,7 +318,8 @@
         createEditor('vi', 'infoPage');
         createEditor('vi', 'mapHN');
         createEditor('vi', 'mapHCM');
-        createEditor('vi', 'infoHN');
+        createEditor('vi', 'homeVideo');
+        createEditor('vi', 'footer');
 
     });
 </script>

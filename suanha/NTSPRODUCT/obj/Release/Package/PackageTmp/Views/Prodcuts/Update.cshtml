@@ -3,39 +3,7 @@
     ViewBag.Title = "Administrator - Cập nhật sản phẩm";
     ViewBag.controller = "Cập nhật sản phẩm";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    List<string> lstFaqPro = ViewBag.lstFaqPro;
-    List<NTSPRODUCT.Models.Faq> faq = ViewBag.faq;
-    var checkFaq = "";
-    //thoi gian bd
-    var hourFrom = "0";
-    var minuteFrom = "0";
-    if (!string.IsNullOrEmpty(Model.timeFrom))
-    {
-        var timeFrom = Model.timeFrom.Split(':').ToList();
-        if (timeFrom.Count() > 0)
-        {
-            hourFrom = timeFrom[0];
-        }
-        if (timeFrom.Count() > 1)
-        {
-            minuteFrom = timeFrom[1];
-        }
-    }
-    //thoi gian kt
-    var hourTo = "0";
-    var minuteTo = "0";
-    if (!string.IsNullOrEmpty(Model.timeTo))
-    {
-        var timeTo = Model.timeTo.Split(':').ToList();
-        if (timeTo.Count() > 0)
-        {
-            hourTo = timeTo[0];
-        }
-        if (timeTo.Count() > 1)
-        {
-            minuteTo = timeTo[1];
-        }
-    }
+   
 }
 
 @using (Html.BeginForm())
@@ -45,7 +13,6 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Hỏi đáp</a></li>
                     <li><a href="#tab_2" data-toggle="tab">Hình ảnh</a></li>
                     <li><a href="#tab_4" data-toggle="tab">Cấu hình seo</a></li>
                 </ul>
@@ -152,40 +119,7 @@
 
                     </div>
 
-                    <div class="tab-pane" id="tab_3">
-                        <input type="hidden" name="Faqnumber" value="@faq.Count" />
-                        <table class="table table-bordered table-hover" style="min-width:1300px">
-                            <thead>
-                                <tr>
-                                    <th width="50px" class="text-center">STT</th>
-                                    <th width="60px" class="text-center">Chọn</th>
-                                    <th width="300px">Tiêu đề</th>
-                                    <th>Nội dung</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for (int i = 0; i < faq.Count; i++)
-                                {
-                                    if (lstFaqPro.Contains(faq[i].id))
-                                    {
-                                        checkFaq = "checked='checked'";
-                                    }
-                                    else { checkFaq = ""; }
-
-                                    <tr>
-                                        <td class="text-center">@(i + 1)</td>
-                                        <td class="text-center">
-                                            <input type="hidden" id="valueCareer_@i" name="valueCareer_@i" value="@faq[i].id" />
-                                            <input type="checkbox" @checkFaq id="ckCareer_@i" name="ckCareer_@i" />
-                                        </td>
-                                        <td>@faq[i].name</td>
-                                        <td>@(NTSPRODUCT.Models.StringClass.FormatContentNews(faq[i].contents, 100))</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-
-                    </div>
+                 
                     <div class="tab-pane" id="tab_2">
                         <div class="form-group">
                             <label>Ảnh đại diện </label>
