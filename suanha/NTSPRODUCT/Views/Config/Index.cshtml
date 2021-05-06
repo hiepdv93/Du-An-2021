@@ -259,15 +259,15 @@
                             <label>Description seo</label>
                             <textarea type="text" class="form-control" name="desseo" maxlength="800" rows="2" placeholder="Description seo">@Model.desSeo</textarea>
                         </div>
-
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Nội dung bài viết trang chủ</label>
+                            @Html.TextAreaFor(u => u.googleAdsense)
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Live chat</label>
                             @Html.TextAreaFor(u => u.liveChat)
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Google Adsense</label>
-                            @Html.TextAreaFor(u => u.googleAdsense)
-                        </div>
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Google Analytics</label>
                             @Html.TextAreaFor(u => u.googleAnalytics)
