@@ -1,0 +1,23 @@
+﻿@model IList<NTSPRODUCT.Models.Partner>
+<div class="customer-home pt-5 pb-5">
+    <div class="container">
+        <div class="title-portfolio">
+            <h3 class="font-taviraj">@ClassExten.GetLangKey("key_khachhang")</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div id="owl-customer" class="owl-carousel owl-theme">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="item">
+                            <div class="cust">
+                                <a href="#" title="@item.pName"><img alt="@item.pName" src="@item.pImage"></a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

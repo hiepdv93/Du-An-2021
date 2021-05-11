@@ -1,0 +1,49 @@
+﻿
+.aside-item.collection-category .nav-item{
+	position:relative;
+	clear:left;
+	font-size: 14px;
+	width: 100%;
+	border-bottom: 1px solid #dddddc;
+}
+.aside-item.collection-category .nav-item:last-child{
+	border-bottom: 0;
+}
+.aside-item.collection-category .nav-item:hover a{
+    background: #12a169;
+    color: #fff;
+}
+.aside-item.collection-category .nav-item a{
+	background: none;
+	font-size: 14px;
+}
+.aside-item.collection-category .nav-item .fa{
+	position: absolute; 
+	right: 3px; top: 4px; 
+	padding: 10px; 
+	cursor: pointer;
+}
+.aside-item.collection-category .nav-item .dropdown-menu{
+	position:static;
+	width:100%;
+	border:0;
+	padding-left:15px;
+	box-shadow:none
+}
+.aside-item.collection-category .nav-item.active>a{
+	color:#189eff
+}
+.aside-item.collection-category .nav-item.active>.dropdown-menu{
+	display:block
+}
+.aside-item.collection-category .nav-item a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.aside-item.collection-category .nav-item a span {
+    padding-left: 10px;
+}
+.aside-item.collection-category ul.nav.navbar-pills {
+    border: 1px solid #dddddc;
+}

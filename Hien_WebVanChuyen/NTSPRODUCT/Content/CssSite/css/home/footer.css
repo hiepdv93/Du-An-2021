@@ -1,0 +1,47 @@
+.footer .container{
+	margin-top: 10px;
+	padding-top: 20px;
+}
+.title-nav-footer h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.list-nav-ft ul{
+	margin-top: 10px;
+}
+.list-nav-ft ul li a {
+    color: #000;
+    font-size: 14px;
+}
+.contact-footer h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.contact-footer p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 23px;
+}
+.footer2 {
+    padding: 45px 0;
+}
+.logo-footer {
+    margin-top: 20px;
+}
+.bo-cong-thuong {
+    margin-top: 35px;
+}
+.footer:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: #12a169;
+    bottom: 0;
+}
+.main{
+	position: relative;
+}
