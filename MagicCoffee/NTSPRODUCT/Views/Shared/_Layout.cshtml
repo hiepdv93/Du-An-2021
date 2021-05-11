@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title</title>
     <meta name="description" content="@ViewBag.description">
@@ -22,6 +22,29 @@
     <script src="~/Content/CssSite/js/jquery.js"></script>
 
     <style>
+	.bannerHome .img img {
+    width: 100%;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+.bannerHome .img:hover img {
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
+}
+.bannerHome .img {
+    overflow: hidden;
+}
+#vnt-header .logo {
+  min-height: 86px;
+  -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+#vnt-header .logo:hover img {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+	
         .pagination span {
             background-color: #0072bc !important;
             color: #fff !important;
@@ -44,8 +67,8 @@
     <link href="~/Content/CssSite/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/CssSite/js/jquery_alerts/jquery.alerts.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/CssSite/js/slick/slick.css" type="text/css" rel="stylesheet" />
-    <link href="~/Content/CssSite/js/menumobile/menumobile.css?v=1.1" type="text/css" rel="stylesheet" />
-    <link href="~/Content/CssSite/skins/default/style/screen3860.css?v=1.1" rel="stylesheet" type="text/css" />
+    <link href="~/Content/CssSite/js/menumobile/menumobile.css?v=2.0" type="text/css" rel="stylesheet" />
+    <link href="~/Content/CssSite/skins/default/style/screen3860.css?v=2.0" rel="stylesheet" type="text/css" />
     <script language="javascript">var ROOT = "/"; var ROOT_MOD = "/"; var DIR_IMAGE = "/"; var cmd = "vnTRUST"; var lang = "vn"; var mem_id = 0; var js_lang = new Array(); js_lang['announce'] = "Thông báo"; js_lang['error'] = "Báo lỗi";</script>
     <script type="text/javascript" src="~/Content/CssSite/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/Content/CssSite/js/jquery-migrate.min.js"></script>
@@ -53,19 +76,19 @@
     <script type="text/javascript" src="~/Content/CssSite/js/fancybox/jquery.fancybox.js"></script>
     <script type="text/javascript" src="~/Content/CssSite/js/jquery_alerts/jquery.alerts.js"></script>
     <script type="text/javascript" src="~/Content/CssSite/js/slick/slick.min.js"></script>
-    <script type="text/javascript" src="~/Content/CssSite/js/menumobile/menumobile.js?v=1.1"></script>
-    <script type="text/javascript" src="~/Content/CssSite/js/mnfixed/mnfixed.js"></script>
-    <script type="text/javascript" src="~/Content/CssSite/js/core.js?v=1.1"></script>
-    <script type="text/javascript" src="~/Content/CssSite/js/javascript1bce.js?v=1.1"></script>
-    <script type="text/javascript" src="~/Content/CssSite/js/style.js?v=1.1"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/menumobile/menumobile.js?v=2.0"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/mnfixed/mnfixed.js?v=2.0"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/core.js?v=2.0"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/javascript1bce.js?v=2.0"></script>
+    <script type="text/javascript" src="~/Content/CssSite/js/style.js?v=2.0"></script>
     <link rel="stylesheet" href="~/Content/CssSite/js/my_effect_scroll/lazyloading.css" type="text/css" />
-    <link rel="stylesheet" href="~/Content/CssSite/js/my_effect_scroll/animate.css?v=1.1" type="text/css" />
-    <link rel="stylesheet" href="~/Content/CssSite/modules/main/css/main.css?v=1.1" type="text/css" />
-    <script type="text/javascript" src="~/Content/CssSite/js/my_effect_scroll/my_effect_scroll.js?v=1.1"></script>
-    <script type="text/javascript" src="~/Content/CssSite/modules/main/js/mainc619.js?v=1.1"></script>
-    <link href="~/Content/CssSite/skins/default/style/custom.css?v=1.1" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="~/Content/CssSite/modules/product/css/product.css?v=1.1" type="text/css" />
-    <script type="text/javascript" src="~/Content/CssSite/modules/product/js/product.js?v=1.1"></script>
+    <link rel="stylesheet" href="~/Content/CssSite/js/my_effect_scroll/animate.css?v=2.0" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CssSite/modules/main/css/main.css?v=2.0" type="text/css" />
+    <script type="text/javascript" src="~/Content/CssSite/js/my_effect_scroll/my_effect_scroll.js?v=2.0"></script>
+    <script type="text/javascript" src="~/Content/CssSite/modules/main/js/mainc619.js?v=2.0"></script>
+    <link href="~/Content/CssSite/skins/default/style/custom.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/CssSite/modules/product/css/product.css?v=2.0" type="text/css" />
+    <script type="text/javascript" src="~/Content/CssSite/modules/product/js/product.js?v=2.0"></script>
 </head>
 <body>
     <div id="loader_id"></div>
@@ -86,7 +109,7 @@
     }
     <script src="~/Content/toastr/toastr.js"></script>
     <script src="~/Content/AdminJSController/script_validate.js"></script>
-    <script src="~/Content/SiteJSController/HomeControllers.js?v=1.1"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js?v=2.0"></script>
 
     <script>
         PushCount();
