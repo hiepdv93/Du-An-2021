@@ -22,5 +22,6 @@ namespace NTSPRODUCT.Models
         public string slang { get; set; }
         public string sLink { get; set; }
         public Nullable<int> numberOder { get; set; }
+        public string subName { get; set; }
     }
 }

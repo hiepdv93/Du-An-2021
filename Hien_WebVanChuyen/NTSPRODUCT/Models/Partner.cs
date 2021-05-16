@@ -22,5 +22,7 @@ namespace NTSPRODUCT.Models
         public string pLink { get; set; }
         public string groupId { get; set; }
         public string lang { get; set; }
+        public string bankNumber { get; set; }
+        public string bankName { get; set; }
     }
 }

@@ -30,24 +30,24 @@ namespace NTSPRODUCT.Models
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categorys { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Config> Configs { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<email> emails { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
+        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Oderdt> Oderdts { get; set; }
         public virtual DbSet<Oder> Oders { get; set; }
         public virtual DbSet<Partner> Partners { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProTag> ProTags { get; set; }
         public virtual DbSet<SayWe> SayWes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<Support> Supports { get; set; }
-        public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
         public virtual DbSet<Tagpro> Tagproes { get; set; }
-        public virtual DbSet<LichSuTruyCap> LichSuTruyCaps { get; set; }
-        public virtual DbSet<Config> Configs { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<WhyChooseUss> WhyChooseUsses { get; set; }
     }
 }

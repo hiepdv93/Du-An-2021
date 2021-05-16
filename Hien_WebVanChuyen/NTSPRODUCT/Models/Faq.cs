@@ -20,5 +20,6 @@ namespace NTSPRODUCT.Models
         public string contents { get; set; }
         public string lang { get; set; }
         public Nullable<System.DateTime> createDate { get; set; }
+        public string avata { get; set; }
     }
 }

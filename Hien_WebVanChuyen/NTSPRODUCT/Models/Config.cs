@@ -35,7 +35,6 @@ namespace NTSPRODUCT.Models
         public string shoppe { get; set; }
         public string zaloChat { get; set; }
         public string homeVideo { get; set; }
-        public string footerExten { get; set; }
         public string footer { get; set; }
         public string conTact { get; set; }
         public string liveChat { get; set; }
@@ -51,7 +50,6 @@ namespace NTSPRODUCT.Models
         public Nullable<int> viewProPageList { get; set; }
         public Nullable<int> priceShip { get; set; }
         public string conLang { get; set; }
-        public string mapSmall { get; set; }
         public string mapBig { get; set; }
         public string infoPage { get; set; }
         public string favicon { get; set; }
@@ -60,6 +58,21 @@ namespace NTSPRODUCT.Models
         public Nullable<bool> viewPercen { get; set; }
         public Nullable<int> viewPrice { get; set; }
         public Nullable<int> typeSendMail { get; set; }
-        public Nullable<bool> isShowVideoHome { get; set; }
+        public string introService { get; set; }
+        public string introWhychoose { get; set; }
+        public string introFAQ { get; set; }
+        public string titleService { get; set; }
+        public string titleWhychoose { get; set; }
+        public string titleFAQ { get; set; }
+        public string titlePrice { get; set; }
+        public string titlePriceSub1 { get; set; }
+        public string titlePriceSub2 { get; set; }
+        public string titlePriceSub3 { get; set; }
+        public string titlePriceSub4 { get; set; }
+        public string linkPrice { get; set; }
+        public string imgPrice { get; set; }
+        public string imgFaq { get; set; }
+        public string linkHDMH { get; set; }
+        public string linkHDTT { get; set; }
     }
 }

@@ -34,6 +34,12 @@ public class ClassExten
     public const string cateParent = "-1";
     // public const int timeCacheChild = 3600000;
     public const int timeCacheChild = 30;
+
+    public class TableType
+    {
+        public const int Slogan = 1;
+        public const int Whychoose = 2;
+    }
     #endregion
     #region[tao ngon ngu trong admin]
     public static string GetLang()
