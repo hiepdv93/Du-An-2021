@@ -67,7 +67,7 @@
 
 .navbar_menuvertical .nav_verticalmenu>li>a>img {
     margin-right: 10px;
-    max-width: 25px;
+    max-width: 25px !important;
     max-height: 23px;
 }
 #main_nav .menu_hori {
