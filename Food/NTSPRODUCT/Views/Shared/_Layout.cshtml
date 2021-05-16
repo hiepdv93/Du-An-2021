@@ -34,6 +34,7 @@
     <link href='~/Content/CssSite/css/page-detail/page-detail.css?v=9.2' rel='stylesheet' type='text/css' />
     <link href='~/Content/CssSite/css/page-detail/detail-product.css?v=9.2' rel='stylesheet' type='text/css' />
     <link href='~/Content/CssSite/css/page-detail/css-them.css?v=9.2' rel='stylesheet' type='text/css' />
+    <link href='~/Content/CssSite/css/page-detail/css-them2.css?v=9.2' rel='stylesheet' type='text/css' />
     <link href='~/Content/CssSite/css/lightslider.css' rel='stylesheet' type='text/css' />
 
     <link href='~/Content/CssSite/css/owl.carousel.css' rel='stylesheet' type='text/css' />
@@ -45,7 +46,25 @@
     <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
     <script src="~/Content/CssSite/js/jquery.min.js" type="text/javascript"></script>
     <script src="~/Content/CssSite/js/bootstrap.min.js"></script>
+    <script>
+        var baseUrl = "index.html";
+        $(document).ready(function () {
 
+            if (window.location.href.indexOf("search") > -1 ||
+                window.location.href.indexOf("ct") > -1 ||
+                window.location.href.indexOf("sale") > -1 ||
+                window.location.href.indexOf("new") > -1 ||
+                window.location.href.indexOf("userhome") > -1 ||
+                window.location.href.indexOf("userhistory") > -1
+            ) {
+                $('.navbar_menuvertical').hide();
+            }
+            var mrg = $('.header-top').height();
+            $("#supermain").css('margin-top', mrg + 'px');
+            $("#menu-mobile").css('margin-top', mrg + 'px');
+        }
+        );
+    </script>
 
     <style>
 
@@ -101,11 +120,12 @@
         }
     </style>
     <style>
-     .btn-primary:hover {
+        .btn-primary:hover {
             color: #fff;
             background-color: #0a5236 !important;
             border-color: #12a169;
         }
+
         .store-section .section-description {
             margin-bottom: 40px;
         }
@@ -191,7 +211,7 @@
                             <div class="form-group">
                                 <span class="input-icon icon-right">
                                     <label>Số lượng</label>
-                                    <input type="number" class="form-control" id="pro_number_base" min="1" max="1000"  onchange="changeNumList()" onkeyup="changeNumList()">
+                                    <input type="number" class="form-control" id="pro_number_base" min="1" max="1000" onchange="changeNumList()" onkeyup="changeNumList()">
                                     <input type="hidden" id="pro_id_base" />
                                     <input type="hidden" id="pro_dongia_base" />
                                 </span>
@@ -225,9 +245,9 @@
         $('.aside-content').scrollToFixed();
     </script>
     <script>
-
         PushCount();
-
+    </script>
+    <script>
         (function ($) {
             var ico = $('<i class="fa fa-caret-right"></i>');
             $('nav#menu li:has(ul) > a').append(ico);
@@ -248,6 +268,37 @@
 
         })(jQuery)
     </script>
+    <script type="text/javascript">
+        $(function () {
+            $('.title_block').click(function (e) {
+                $('.navbar_menuvertical').show();
+            });
+        })
+        $(function () {
+
+            var fixmeTop = 100;
+            $(window).scroll(function () {
+                var currentScroll = $(window).scrollTop();
+                if (currentScroll >= fixmeTop) {
+
+                    $('.navbar_menuvertical').hide();
+
+                } else {
+                    if (window.location.href.indexOf("search") == -1 &&
+                        window.location.href.indexOf("ct") == -1 &&
+                        window.location.href.indexOf("sale") == -1 &&
+                        window.location.href.indexOf("new") == -1 &&
+                        window.location.href.indexOf("userhome") == -1 &&
+                        window.location.href.indexOf("userhistory") == -1
+                    ) {
+                        $('.navbar_menuvertical').show();
+                    }
+                }
+            });
+        })
+        $(window).scroll();
+    </script>
+
     @if (path.Equals("/") == true || path.Equals("") == true)
     {
         <script>
