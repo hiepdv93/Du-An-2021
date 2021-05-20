@@ -1,0 +1,405 @@
+/*
+Theme Name:     Order
+Theme URI:      http://mystic.com
+Author:         Mystic
+Author URI:     mistic@gmail.com
+Description:    Mistic has a friendly, trustworthy design along with clean and professional code. There are 10 ready-to-use homepages and you can easily edit or create your own page with our Shortcodes and WPBakery Page Builder plugins. Besides that, easy-to-use Customizer is also a great part of theme. A lot of options reasonably arranged and live preview window might save your time building the own site.
+Version:        1.0
+License:        GNU General Public License v2 or later
+License URI:    http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:    mistic
+Tags:           left-sidebar, right-sidebar, custom-menu, featured-images, post-formats, sticky-post, translation-ready
+*/
+.header-top
+{
+	background:#364c54;
+}
+.header-nav .main-menu>li>a
+{
+	font-weight:500;
+}
+.main-header-wrapper
+{
+	padding: 1.8rem 0 1rem;
+}
+@media (min-width: 62em)
+{
+.extension-wrapper {
+    height: 29.4375vw;
+}
+}
+.extension-wrapper .heading-title-seo {
+    color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+}
+.extension-wrapper .extension-install .heading-title .title {
+   color: #fff;
+   font-weight: 500;
+	margin-bottom: 0px;
+}
+h1,h2,h3,h4,h5
+{
+	margin-top: 0;
+}
+.extension-wrapper .extension-install .extension-content a .txt b
+{
+	font-weight:400;
+}
+.extension-wrapper .extension-install .extension-content a img
+{
+	margin-right: 11px;
+	width:39px;
+}
+.extension-wrapper .extension-install .extension-content a .txt
+{
+	margin-top: 3px;
+	line-height:18px;
+}
+.extension-wrapper .extension-install .heading-title
+{
+	margin-bottom:1rem
+}
+.extension-install
+{
+	margin-bottom:10px
+}
+.bx-search-alt-2
+{
+	padding-left: 3px;
+	padding-top: 2px;
+}
+.search-form .search-content
+{
+	line-height:19px;
+}
+.main-menu>li:not(.active):before
+{
+	bottom:2px;
+}
+.heading-title.custom .title
+{
+	font-size:22px;
+}
+.heading-title.custom .title:after, .heading-title.custom .title:before
+{
+	height:3px;
+}
+.heading-title.custom
+{
+	margin-bottom: 2rem;
+}
+.services-info h3
+{
+	font-size:18px;
+}
+.price-list-wrapper .heading-title h2
+{
+	font-weight:500;
+	font-size: 22px;
+}
+.price-list-wrapper .price-list-content .step-icon
+{
+	border-radius:50%;
+	margin-right: 1.5rem;
+	width:28px;
+	height:28px;
+}
+.price-list-wrapper .price-list-content .step-icon .outer-circle
+{
+	-webkit-animation: smallScale 2s infinite;
+    animation: smallScale 2s infinite;
+    border-radius: 50%;
+}
+.price-list-wrapper .price-list-content .step-icon .step-number
+{
+	font-size:15px;
+	padding-top:1px;
+}
+.price-list-wrapper .price-list-content .step-name h4
+{
+	font-size:16px;
+	margin-top: 5px;
+	font-weight:500;
+}
+.price-list-wrapper .price-list-content .step-item
+{
+	margin-bottom:2.5rem;
+}
+.conteent-right
+{
+	margin-top:20px;
+}
+.service-commitment-wrapprt .commitment-list li h5
+{
+	font-size:16px;
+	color:#f17d59!important;
+	font-weight:500;
+}
+.service-commitment-wrapprt.enable-bg-color {
+    background-color: rgba(41, 128, 185, 0.20);
+}
+.service-commitment-wrapprt .commitment-content
+{
+	padding-top:2rem;
+}
+.service-commitment-wrapprt
+{
+	padding: 4rem 0 3rem 0;
+}
+.faq-wrapper .fqa-list li h4
+{
+	font-weight:500;
+	cursor:pointer;
+	font-size:15px;
+}
+.block-wrapper .heading-title .title
+{
+	font-size:18px;
+}
+.block-wrapper .testimonials-wrapper .testimonials-content .item-content blockquote
+{
+	font-style:italic;
+	border: none;
+	font-size: 14px;
+	padding: 0;
+}
+.block-wrapper .support-wrapper .support-content .item-info p
+{
+	font-style:italic;
+	color:#f17d59;
+	line-height: 16px;
+}
+.block-wrapper .support-wrapper .support-content .item-info b
+{
+	font-size: 14px;
+	font-weight: 500;
+	font-style: italic;
+}
+.block-wrapper .testimonials-wrapper .testimonials-content .item-name
+{
+	font-size:14px;
+	font-style:italic;
+}
+.block-wrapper .testimonials-wrapper .testimonials-content p
+{
+	font-size: 14px;
+    font-style: italic;
+}
+.section-pay-wrapper .item-content .pay-info-name
+{
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+.section-pay-wrapper .item-content .pay-info-branch small, .section-pay-wrapper .item-content .pay-info-stk small
+{
+	font-weight:500;
+}
+.section-pay-wrapper .item-content .pay-info-branch, .section-pay-wrapper .item-content .pay-info-stk
+{
+	font-size: 14px;
+	color:#f17d59;
+	line-height: 20px;
+}
+.wrap-bang-gia .mys-table thead tr
+{
+	background:none;
+	border:none;
+}
+.single-post .inner-content-post .inner-content-info .entry-title
+{
+	margin-bottom:10px;
+	font-size:20px
+}
+.inner-content-post h2
+{
+	font-size:16px
+}
+.inner-content-post h3
+{
+	font-size:14px
+}
+.single-post .inner-content-post .inner-content-info .post-meta>div a
+{
+	font-style:italic;
+	font-weight:500
+}
+.single-post .inner-content-post .inner-content-info .post-meta>div b
+{
+	font-style:italic;
+	font-weight:500
+}
+.footer-wrapper .main-footer {
+    background: url(../images/baner-footer-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #f17d59;
+    color: #ffffff;
+}
+
+.footer-wrapper .main-footer a,
+.footer-wrapper .main-footer h1,
+.footer-wrapper .main-footer h2,
+.footer-wrapper .main-footer h3,
+.footer-wrapper .main-footer h4,
+.footer-wrapper .main-footer h5,
+.footer-wrapper .main-footer h6 {
+    color: #ffffff;
+}
+
+button,
+input[type=button],
+input[type=submit],
+.paging-navigation .page-numbers.current,
+.wrap-bang-gia .mys-table thead tr {
+    background-color: #f17d59;
+}
+
+.header-top-left>div span,
+.price-list-wrapper .price-list-content .step-icon .step-number,
+.service-commitment-wrapprt .commitment-list li h5 {
+    color: #f17d59;
+}
+
+.price-list-wrapper .price-list-content .btn-more a,
+.faq-wrapper .fqa-list li.active h4,
+.content-archive-wapper .content-archive .post-content .mys-button a {
+    background-color: #f17d59;
+}
+
+.main-sidebar .widget-title {
+    border-color: #f17d59;
+}
+
+.main-sidebar .widget-extension .extension-content .caption,
+.page-title-wrapper .breadcrumbs-wrapper .breadcrumbs li span {
+    color: #898989;
+}
+
+.services-wrapper .item,
+.content-archive-wapper .content-archive .post,
+.main-sidebar .widget-extension,
+.page-template-bang-gia .inner-content-post,
+.wrap-bang-gia .mys-table tbody tr td:first-child,
+.wrap-bang-gia .mys-table tbody tr td {
+    border-color: #e1e1e1;
+}
+
+.main-sidebar .widget-title:before {
+    background-color: #e1e1e1;
+}
+
+.main-menu>li:not(.active):hover>a,
+.header-top-right .my-account>div a:hover,
+.header-top-right .cart a:hover {
+    color: #f17d59;
+}
+
+.price-list-wrapper .price-list-content .btn-more a:hover,
+.content-archive-wapper .content-archive .post-content .mys-button a:hover,
+.main-menu>li:not(.active):before,
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+.footer-wrapper .footer-socials a:hover {
+    background-color: #f17d59;
+}
+
+.header-nav {
+    background-color: #3c555d;
+}
+
+.header-nav .main-menu>li>a {
+    color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: #111111;
+    font-weight: 600;
+}
+
+.process-wrapper .item-info .process-name {
+    color: #111111;
+}
+
+body {
+    line-height: 1.8571428571429;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.page-title-wrapper .breadcrumbs-wrapper .breadcrumbs .home {
+    color: #555555;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+h1 {
+    line-height: 1.2142857142857;
+    font-size: 28px;
+    margin-bottom: 14px;
+}
+
+h2 {
+    line-height: 1.25;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    line-height: 1.2727272727273;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    line-height: 1.3;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    line-height: 1.3333333333333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    line-height: 1.5;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.time_dt
+{
+	font-size: 13px;
+	font-weight: 400;
+	font-style: italic;
+	color:#888;
+	margin-left: 5px;
+}
+.time_dt i
+{
+	top: 1px;
+	position: relative;
+}
+.img-rr
+{
+	height: 228px;
+	object-fit: cover;
+	width: 100%;
+}
