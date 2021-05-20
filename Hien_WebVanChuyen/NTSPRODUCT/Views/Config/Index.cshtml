@@ -16,6 +16,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab">Cấu hình chung</a></li>
                     <li><a href="#tab_2" data-toggle="tab"> Cấu hình sản phẩm, tin tức</a></li>
+                    <li><a href="#tab_3" data-toggle="tab"> Cấu hình trang chủ</a></li>
                     <li><a href="#tab_6" data-toggle="tab">Cấu hình mạng xã hội</a></li>
                     <li><a href="#tab_5" data-toggle="tab">Cấu hình seo</a></li>
                 </ul>
@@ -114,10 +115,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" style="display:none">
-                                <label for="exampleInputPassword1">Video trang chủ</label>
-                                @Html.TextAreaFor(u => u.homeVideo)
-                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Giới thiệu trang chủ</label>
                                 @Html.TextAreaFor(u => u.infoPage)
@@ -126,10 +124,7 @@
                                 <label for="exampleInputPassword1">Thông tin chân trang</label>
                                 @Html.TextAreaFor(u => u.footer)
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Cấu hình mô tả giỏ hàng</label>
-                                @Html.TextAreaFor(u => u.footerExten)
-                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Thông tin trang liên hệ</label>
                                 @Html.TextAreaFor(u => u.conTact)
@@ -210,7 +205,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-4" style="display:none">
                                     <div class="form-group">
                                         <label>Kênh video trang chủ</label>
                                         <select name="isShowVideoHome" id="isShowVideoHome" class="form-control">
@@ -224,6 +219,106 @@
                         </div>
                     </div>
 
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label>Title dịch vụ vận chuyển</label>
+                            <input type="text" class="form-control" name="titleService" value="@Model.titleService" maxlength="250" placeholder="VẬN CHUYỂN HÀNG TRUNG QUỐC" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Title cam kết dịch vụ</label>
+                            <input type="text" class="form-control" name="titleWhychoose" value="@Model.titleWhychoose" maxlength="250" placeholder="CAM KẾT DỊCH VỤ VẬN CHUYỂN" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Title câu hỏi thường gặp</label>
+                            <input type="text" class="form-control" name="titleFAQ" value="@Model.titleFAQ" maxlength="250" placeholder="CÂU HỎI THƯỜNG GẶP" />
+                        </div>
+                        <div class="form-group">
+                            <label>Title bảng giá</label>
+                            <input type="text" class="form-control" name="titlePrice" value="@Model.titlePrice" maxlength="250" placeholder="BẢNG GIÁ DỊCH VỤ ORDER HÀNG TRUNG QUỐC" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>TIỀN HÀNG TRÊN WEB</label>
+                                    <input type="text" class="form-control csinput" name="titlePriceSub1" value="@Model.titlePriceSub1" maxlength="150" placeholder="TIỀN HÀNG TRÊN WEB" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>PHÍ SHIP TRUNG QUỐC</label>
+                                    <input type="text" class="form-control csinput" name="titlePriceSub2" value="@Model.titlePriceSub2" maxlength="150" placeholder="PHÍ SHIP TRUNG QUỐC" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>PHÍ DỊCH VỤ</label>
+                                    <input type="text" class="form-control csinput" name="titlePriceSub3" value="@Model.titlePriceSub3" maxlength="150" placeholder="PHÍ DỊCH VỤ" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>CƯỚC VẬN CHUYỂN</label>
+                                    <input type="text" class="form-control csinput" name="titlePriceSub4" value="@Model.titlePriceSub4" maxlength="150" placeholder="CƯỚC VẬN CHUYỂN" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Link bảng giá</label>
+                                    <input type="text" class="form-control csinput" name="linkPrice" value="@Model.linkPrice" maxlength="350" placeholder="Link bảng giá" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Link phương thức thanh toán</label>
+                                    <input type="text" class="form-control csinput" name="linkHDTT" value="@Model.linkHDTT" maxlength="350" placeholder="Link phương thức thanh toán" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Link hướng dẫn mua hàng</label>
+                                    <input type="text" class="form-control csinput" name="linkHDMH" value="@Model.linkHDMH" maxlength="350" placeholder="Link hướng dẫn mua hàng" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ảnh "Câu hỏi thường gặp"</label>
+                                    <input type="text" class="form-control csinput" name="imgFaq" id="imgFaq" value="@Model.imgFaq" maxlength="350" placeholder="Ảnh Câu hỏi thường gặp" />
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ảnh nền"Bảng giá"</label>
+                                    <input type="text" class="form-control csinput" name="imgPrice" id="imgPrice" value="@Model.imgPrice" maxlength="350" placeholder="Ảnh nền Bảng giá" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Giới thiệu ngắn "Dịch vụ vận chuyển"</label>
+                            @Html.TextAreaFor(u => u.introService)
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Giới thiệu ngắn "Cam kết về dịch vụ "</label>
+                            @Html.TextAreaFor(u => u.introWhychoose)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Giới thiệu ngắn "Câu hỏi thường gặp"</label>
+                            @Html.TextAreaFor(u => u.introFAQ)
+                        </div>
+
+                    </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_6">
                         <div class="form-group">
@@ -269,10 +364,7 @@
                             <label for="exampleInputPassword1">Bản đồ trang liên hệ</label>
                             @Html.TextAreaFor(u => u.mapBig)
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Bản đồ nhỏ chân trang</label>
-                            @Html.TextAreaFor(u => u.mapSmall)
-                        </div>
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Live chat</label>
                             @Html.TextAreaFor(u => u.liveChat)
@@ -311,7 +403,7 @@
 
 <script type="text/javascript">
     $('#viewProBy').val('@Model.viewProBy');
-    $('#isShowVideoHome').val('@(Model.isShowVideoHome==true?'1':'0')');
+
     $('#typeSendMail').val('@Model.typeSendMail');
     var editor;
     function createEditor(languageCode, id) {
@@ -328,10 +420,11 @@
 
         createEditor('vi', 'infoPage');
         createEditor('vi', 'footer');
-        createEditor('vi', 'footerExten');
-        createEditor('vi', 'mapSmall');
         createEditor('vi', 'mapBig');
-        createEditor('vi', 'homeVideo');
+
+        createEditor('vi', 'introService');
+        createEditor('vi', 'introWhychoose');
+        createEditor('vi', 'introFAQ');
 
     });
 </script>
@@ -364,6 +457,26 @@
             finder.popup();
         });
     });
-   
+
+    $(function () {
+        $("#imgFaq").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#imgFaq").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+    $(function () {
+        $("#imgPrice").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#imgPrice").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
 
 </script>

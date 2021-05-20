@@ -66,7 +66,7 @@ function Delete() {
         data: { Id: id },
         success: function (data) {
             if (data.ok === true) {
-                toastr.success('Xóa đối tác thành công', { timeOut: 5000 });
+                toastr.success('Xóa bản ghi thành công', { timeOut: 5000 });
                 $('#modamDelete').modal('hide');
                 SearchSlides();
             } else {
@@ -85,7 +85,7 @@ function CreateSlide() {
     OpenWaiting();
     $.post("/Partner/UpdateOrCreate", function (result) {
         $("#divModam").html(result);
-        $('.titleSlide').html('Thêm mới đối tác');
+        $('.titleSlide').html('Thêm mới thông tin ngân hàng');
         $('#modamSlide').modal({
             show: 'true'
         });
@@ -97,7 +97,7 @@ function UpdateSlide(id) {
     $.post("/Partner/UpdateOrCreate", function (result) {
         $("#divModam").html(result);
         $("#id").val(id);
-        $('.titleSlide').html('Cập nhật đối tác');
+        $('.titleSlide').html('Cập nhật thông tin ngân hàng');
         GetbyId(id);
 
     });
@@ -110,6 +110,8 @@ function GetbyId(id) {
             $('#pName').val(data.pName);
             $('#pImage').val(data.pImage);
             $('#pNote').val(data.pNote);
+            $('#bankNumber').val(data.bankNumber);
+            $('#bankName').val(data.bankName);
             $('#pLink').val(data.pLink);
             $('#numberOder').val(data.numberOder);
             $('#groupId').val(data.groupId);
@@ -132,6 +134,8 @@ function CreateOrUpdate() {
         pName: $('#pName').val(),
         pImage: $('#pImage').val(),
         pNote: $('#pNote').val(),
+        bankNumber: $('#bankNumber').val(),
+        bankName: $('#bankName').val(),
         pLink: $('#pLink').val(),
         numberOder: $('#numberOder').val(),
         groupId: $('#groupId').val()
@@ -139,7 +143,7 @@ function CreateOrUpdate() {
 
     //validate
     if (model.pName == '') {
-        toastr.error('Nhập tên đối tác!'); return false;
+        toastr.error('Nhập tên thông tin ngân hàng!'); return false;
     }
     var url = '';
     if (model.id.length > 0) {
@@ -153,9 +157,9 @@ function CreateOrUpdate() {
         data: model,
         success: function (data) {
             if (model.id.length > 0) {
-                toastr.success('Cập nhật đối tác thành công');
+                toastr.success('Cập nhật thông tin ngân hàng thành công');
             } else {
-                toastr.success('Thêm mới đối tác thành công');
+                toastr.success('Thêm mới thông tin ngân hàng thành công');
             }
             CloseWaiting();
             SearchSlides();

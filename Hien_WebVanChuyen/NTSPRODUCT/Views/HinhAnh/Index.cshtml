@@ -1,7 +1,7 @@
 ﻿@model IList<NTSPRODUCT.Models.Adv>
 @{
-    ViewBag.Title = "Administrator - Danh sách hình ảnh/video";
-    ViewBag.controller = "Quản lý hình ảnh/video";
+    ViewBag.Title = "Administrator - Danh sách hình ảnh/Sologan";
+    ViewBag.controller = "Quản lý hình ảnh/Sologan";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -22,10 +22,8 @@
             <div class="col-md-3">
                 <select name="typeSearch" id="typeSearch" class="form-control">
                     <option value="">Tất cả vị trí</option>
-                    @*<option value="1">Dưới Slide</option>*@
-                    <option value="2">Phải slide</option>
-                    <option value="3">Bên phải chi tiết SP</option>
-                    <option value="4">Video</option>
+                    <option value="1">sologan</option>
+                    <option value="2">Hình ảnh</option>
                 </select>
             </div>
             <div class="col-md-6 text-right">

@@ -74,19 +74,37 @@ namespace NTSPRODUCT.Controllers
                 data.homeVideo = f["homeVideo"];
                 data.conTact = f["conTact"];
 
-                data.footerExten = f["footerExten"];
                 data.footer = f["footer"];
                 data.mapBig = f["mapBig"];
-                data.mapSmall = f["mapSmall"];
                 data.zaloChat = f["zaloChat"];
                 data.langDefault = f["langDefault"];
                 var isShowVideoHome = f["isShowVideoHome"];
-                data.isShowVideoHome = isShowVideoHome.Equals("1")?true:false;
                 data.typeSendMail = int.Parse(f["typeSendMail"]);
 
                 int viewProBy = 1;
                 Int32.TryParse(f["viewProBy"], out viewProBy);
                 data.viewProBy = viewProBy;
+
+                data.introService = f["introService"];
+                data.introWhychoose = f["introWhychoose"];
+                data.introFAQ = f["introFAQ"];
+
+                data.titleFAQ = f["titleFAQ"];
+                data.titlePrice = f["titlePrice"];
+                data.titleService = f["titleService"];
+                data.titleWhychoose = f["titleWhychoose"];
+
+                data.titlePriceSub1 = f["titlePriceSub1"];
+                data.titlePriceSub2 = f["titlePriceSub2"];
+                data.titlePriceSub3 = f["titlePriceSub3"];
+                data.titlePriceSub4 = f["titlePriceSub4"];
+
+                data.linkPrice = f["linkPrice"];
+                data.linkHDTT = f["linkHDTT"];
+                data.linkHDMH = f["linkHDMH"];
+                data.imgFaq = f["imgFaq"];
+                data.imgPrice = f["imgPrice"];
+
 
                 db.SaveChanges();
                 ConfigModel.listConfig = null;

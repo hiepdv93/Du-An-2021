@@ -1,7 +1,7 @@
 ﻿@model NTSPRODUCT.Models.Category
 @{
-    ViewBag.controller = "Cập nhật danh mục ";
-    ViewBag.Title = "Administrator - Cập nhật danh mục ";
+    ViewBag.controller = "Cập nhật dịch vụ ";
+    ViewBag.Title = "Administrator - Cập nhật dịch vụ ";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -26,15 +26,15 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Tên danh mục</label><span class="text-red">(*)</span>
+                                            <label>Tên dịch vụ</label><span class="text-red">(*)</span>
                                             <input type="hidden" id="catetype" name="catetype" value="1" />
                                             <input type="hidden" id="catepar" name="catepar" value="@Model.catepar_id" />
-                                            <input type="text" class="form-control csinput" maxlength="600" name="catename" placeholder="Tên danh mục" value="@Model.cateName" required />
+                                            <input type="text" class="form-control csinput" maxlength="600" name="catename" placeholder="Tên dịch vụ" value="@Model.cateName" required />
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6"  style="display:none">
                                         <div class="form-group">
                                             <label>Nhóm cha</label>
                                             @Html.Action("GetCateForUpdate", "ImportView", new { type = ClassExten.typeProduct, idUpdate = Model.id })
@@ -50,7 +50,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Ảnh Icon danh mục</label>
+                                            <label>Ảnh Icon dịch vụ</label>
                                             <input type="text" class="form-control csinput" maxlength="450" name="cateImage" id="cateAvata" value="@Model.cateImage" placeholder="Ảnh đại diện" />
                                         </div>
                                     </div>

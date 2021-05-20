@@ -90,11 +90,10 @@ namespace NTSPRODUCT.Controllers.Site
 
             ViewBag.proSale = proSale;
             ViewBag.proBanChay = proBanChay;
-            if (conf.isShowVideoHome == true)
-            {
-                var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
-                ViewBag.videos = videos;
-            }
+
+            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
+            ViewBag.videos = videos;
+
 
             return PartialView(proHome);
         }
