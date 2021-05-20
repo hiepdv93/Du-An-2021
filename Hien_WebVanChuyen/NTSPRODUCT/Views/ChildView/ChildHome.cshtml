@@ -90,10 +90,10 @@
 
                                             <div class="addcart addcart-collection">
                                                 @*<a href="/san-pham/@item.pro_key" title="@item.pro_name">*@
-                                                    <button class="addtocart addcartcollection" type="button"
-                                                            onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
-                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                    </button>
+                                                <button class="addtocart addcartcollection" type="button"
+                                                        onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
+                                                    THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                </button>
                                                 @*</a>*@
                                             </div>
                                         </div>
@@ -162,10 +162,10 @@
 
                                             <div class="addcart addcart-collection">
                                                 @*<a href="/san-pham/@item.pro_key" title="@item.pro_name">*@
-                                                    <button class="addtocart addcartcollection" type="button"
-                                                            onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
-                                                        THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                    </button>
+                                                <button class="addtocart addcartcollection" type="button"
+                                                        onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
+                                                    THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                </button>
                                                 @*</a>*@
                                             </div>
                                         </div>
@@ -237,10 +237,10 @@
                                                     }
                                                     <div class="addcart addcart-collection">
                                                         @*<a href="/san-pham/@item.pro_key" title="@item.pro_name">*@
-                                                            <button class="addtocart addcartcollection" type="button"
-                                                                    onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
-                                                                THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
-                                                            </button>
+                                                        <button class="addtocart addcartcollection" type="button"
+                                                                onclick="showPushPro('@item.id','@item.pro_name','@item.proPrice','@item.proPrice_sale','@item.brank')">
+                                                            THÊM VÀO GIỎ <i class="fa fa-shopping-cart" style="font-size:18px;color:#1bb522"></i>
+                                                        </button>
                                                         @*</a>*@
                                                     </div>
                                                 </div>
@@ -260,34 +260,7 @@
 
 <div class="y-ken">
     <div class="container">
-        @if (conf.isShowVideoHome == true)
-        {
-            <div class="titles">
-                <a href="/video" title="Kênh Youtube Tanson Foods">
-                    <span style="color:red">Kênh Youtube Tanson Foods</span>
-                </a>
-                <span class="pull-right readmore-index"><a href="/video" title="Kênh Youtube Tanson Foods"> &gt;&gt; Xem thêm</a></span>
-            </div>
 
-            <div class="list-video">
-
-                <div class="col-md-12 col-xs-12">
-                    <div id="owl-video-home" class="owl-carousel owl-theme">
-                        @foreach (var item in videos)
-                        {
-                            <div class="item">
-                                <div class="video">
-                                    <iframe allowfullscreen="1" frameborder="0" height="315" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
-                                    </iframe>
-                                </div>
-                            </div>
-                        }
-
-                    </div>
-                </div>
-
-            </div>
-        }
 
         <div class="row intro-fanpage">
             <div class="col-md-9 col-xs-12">
@@ -310,4 +283,469 @@
         </div>
     </div>
 </div>
+
+
+<main id="main" class="main-content home">
+    <section class="extension-wrapper enable-gradient" style="background-image: url(images/bg-extension.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h1 class="heading-title-seo">DỊCH VỤ NHẬP HÀNG TRUNG QUỐC</h1>
+                    <div class="search-wrapper">
+                        <form action="#" method="post" target="_blank" id="search-form" class="search-form">
+                            <div class="search-content">
+                                <div class="fancy-select">
+                                    <select name="type" class="fs-trigger select-form custom-select">
+                                        <option value="2">TAOBAO.COM</option>
+                                        <option value="1">1688.COM</option>
+                                        <option value="3">TMALL.COM</option>
+                                    </select>
+                                </div>
+                                <input type="text" name="query" placeholder="Tìm kiếm sản phẩm" class="search-inp" autocomplete="off">
+                                <button type="submit" name="btn_s" class="search-submit">
+                                    <i class="bx bx-search-alt-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="extension-install">
+                        <div class="heading-title">
+                            <h2 class="title">ĐẶT HÀNG THỦ CÔNG TẠI ĐÂY</h2>
+                            <span class="caption">(Lưu ý: Chỉ sử dụng trên máy tính)</span>
+                        </div>
+                        <div class="extension-content">
+                            <p style="color: #fff">Nhập từ khóa tìm kiếm vào ô tìm kiếm, chọn web bên trung quốc, bấm tìm kiếm Nhập từ khóa tìm kiếm vào ô tìm kiếm, chọn web bên trung quốc, bấm tìm kiếm Nhập từ khóa tìm kiếm vào ô tìm kiếm, chọn web bên trung quốc, bấm tìm kiếm Nhập từ khóa tìm kiếm vào ô tìm kiếm, chọn web bên trung quốc, bấm tìm kiếm</p>
+                            <!-- <div class="extension-item">
+                               <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension Google Chrome" target="_blank" rel="nofollow">
+                               <img src="images/chrome.png" alt="Extension Google Chrome"/>
+                               <span class="txt">Tải về cho trình duyệt <b>Google Chrome</b></span>
+                               </a>
+                            </div>
+                            <div class="extension-item">
+                               <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension CốcCốc" target="_blank" rel="nofollow">
+                               <img src="images/coccoc.png" alt="Extension CốcCốc"/>
+                               <span class="txt">Tải về cho trình duyệt <b>Cốc Cốc</b></span>
+                               </a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="process-wrapper">
+        <div class="container">
+            <div class="inline-hr"></div>
+            <div class="row">
+                <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                    <div class="item">
+                        <div class="item-info">
+                            <div class="process-icon"><img src="images/tracking.png" alt="Tìm kiếm <br/>sản phẩm"></div>
+                            <div class="process-name"><span>Tìm kiếm <br />sản phẩm</span></div>
+                        </div>
+                        <div class="steps-process"><img src="images/steps.png" alt="steps" /></div>
+                    </div>
+                </div>
+                <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                    <div class="item">
+                        <div class="item-info">
+                            <div class="process-icon"><img src="images/packing-list.png" alt="Tạo<br/> đơn hàng" /></div>
+                            <div class="process-name"><span>Tạo<br /> đơn hàng</span></div>
+                        </div>
+                        <div class="steps-process"><img src="images/steps.png" alt="steps" /></div>
+                    </div>
+                </div>
+                <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                    <div class="item">
+                        <div class="item-info">
+                            <div class="process-icon"><img src="images/delivery.png" alt="Đặt cọc<br/> tiền hàng" /></div>
+                            <div class="process-name"><span>Đặt cọc<br /> tiền hàng</span></div>
+                        </div>
+                        <div class="steps-process"><img src="images/steps.png" alt="steps" /></div>
+                    </div>
+                </div>
+                <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                    <div class="item">
+                        <div class="item-info">
+                            <div class="process-icon"><img src="images/delivery-truck.png" alt="Theo dõi đơn hàng" /></div>
+                            <div class="process-name"><span>Theo dõi đơn hàng</span></div>
+                        </div>
+                        <div class="steps-process"><img src="images/steps.png" alt="steps" /></div>
+                    </div>
+                </div>
+                <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                    <div class="item">
+                        <div class="item-info">
+                            <div class="process-icon"><img src="images/package.png" alt="Thanh toán &amp; nhận hàng" /></div>
+                            <div class="process-name"><span>Thanh toán &amp; nhận hàng</span></div>
+                        </div>
+                        <div class="steps-process"><img src="images/checked.png" alt="steps" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h2 class="title">VẬN CHUYỂN HÀNG TRUNG QUỐC</h2>
+                        <p class="subtitle">Nhập hàng China chuyên cung cấp các dịch vụ như Order Taobao, 1688, Tmall, Alibaba, đăt hàng qua Wechat, săn sales Zara, Hm, Bershka, Lining và vận chuyển hàng từ Trung Quốc về Việt Nam với tốc độ nhanh, giá hợp lý, uy tín và đảm bảo. Cam kết đền bù 100% giá trị đơn hàng nếu trong quá trình vận chuyển không may hàng hóa có xảy ra hỏng hóc hay thất lạc. Chúng tôi luôn luôn hướng tới là doanh nghiệp vận chuyển uy tín nhất, chất lượng dịch vụ tốt nhất, mang lại giá trị cao nhất thiết thực tới các khách hàng.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="item" style="background-image: url(images/bg.jpg); background-position: Top Left">
+                        <div class="services-icon"><a href="dich-vu-mua-ho-hang-trung-quoc-uy-tin-duoc-hon-5-trieu-khach-hang-tin-dung/index.html" target="_blank"><img src="images/services-1.png" alt="ORDER HÀNG" /></a></div>
+                        <div class="services-info">
+                            <h3 class="title"><a href="dich-vu-mua-ho-hang-trung-quoc-uy-tin-duoc-hon-5-trieu-khach-hang-tin-dung/index.html" target="_blank">ORDER HÀNG</a></h3>
+                            <p>Dịch vụ order hàng tận gốc trên các trang của Trung Quốc như Taobao, 1688, Tmall, Alibaba, Zara, HM...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="item" style="background-image: url(images/bg.jpg); background-position: Center">
+                        <div class="services-icon"><a href="dich-vu-ky-gui-hang-hoa-trung-quoc-ve-viet-nam-uy-tin-nhat/index.html" target="_blank"><img src="images/services-2.png" alt="KÝ GỬI HÀNG" /></a></div>
+                        <div class="services-info">
+                            <h3 class="title"><a href="dich-vu-ky-gui-hang-hoa-trung-quoc-ve-viet-nam-uy-tin-nhat/index.html" target="_blank">KÝ GỬI HÀNG</a></h3>
+                            <p>Nhận vận chuyển hàng ký gửi với các khách tự thanh toán đơn, các đơn vị không có kho Trung Quốc</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="item" style="background-image: url(images/bg.jpg); background-position: Bottom Left">
+                        <div class="services-icon"><a href="#" target="_blank"><img src="images/services-3.png" alt="ĐỔI TIỀN ALIPAY" /></a></div>
+                        <div class="services-info">
+                            <h3 class="title"><a href="#" target="_blank">ĐỔI TIỀN ALIPAY</a></h3>
+                            <p>Chuyển tiền Alipay nhanh chóng tỷ giá thấp dành cho khách hàng tự mua và thanh toán đơn hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="price-list-wrapper enable-gradient" style="background-image: url(images/commitment.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-10 offset-lg-1">
+                    <div class="heading-title">
+                        <h2 class="title">BẢNG GIÁ DỊCH VỤ ORDER HÀNG TRUNG QUỐC</h2>
+                        <p class="subtitle"></p>
+                    </div>
+                    <div class="price-list-content row">
+                        <div class="content-left col-12 col-md-4">
+                            <img src="images/image-price-list.png" alt="Bảng giá dịch vụ" />
+                        </div>
+                        <div class="conteent-right col-12 col-md-8">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 step step-1">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">1</span></div>
+                                        <div class="step-name">
+                                            <h4>TIỀN HÀNG TRÊN WEB</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-2">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">2</span></div>
+                                        <div class="step-name">
+                                            <h4>PHÍ SHIP TRUNG QUỐC</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-3">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">3</span></div>
+                                        <div class="step-name">
+                                            <h4>PHÍ DỊCH VỤ</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-4">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">4</span></div>
+                                        <div class="step-name">
+                                            <h4>CƯỚC VẬN CHUYỂN</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="btn-more"><a href="bang-gia-van-chuyen/index.html">Chi Tiết Bảng Giá</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-commitment-wrapprt enable-bg-color" style="background-image: url(images/world-map.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h2 class="title">CAM KẾT DỊCH VỤ VẬN CHUYỂN </h2>
+                        <p class="subtitle">Nhập hàng China luôn luôn cố gắng không ngừng nghỉ nhằm mang lại cho khách hàng dịch vụ nhập hàng tốt nhất, uy tín nhất, mang lại sự hài lòng khi khách hàng sử dụng dịch vụ nhập hàng của chúng tôi.</p>
+                    </div>
+                </div>
+                <div class="commitment-content">
+                    <div class="col-12 col-md-10 offset-md-1">
+                        <ul class="commitment-list">
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>CAM KẾT ĐẶT HÀNG</h5>
+                                <p>Đền bù 100% tiền hàng nếu Nhập Hàng China đặt sai link của quý khách. Cam kết mua hàng trong vòng 24h kể từ lúc đơn hàng được đặt cọc.</p>
+                            </li>
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>CAM KẾT BỒI THƯỜNG</h5>
+                                <p>Chúng tôi cam kết đền bù 100% tiền hàng nếu trong quá trình vận chuyển hàng hóa bị thất lạc hoặc hỏng hóc.</p>
+                            </li>
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>CAM KẾT ĐÚNG GIÁ</h5>
+                                <p>Nhập hàng China cam kết mua đúng giá sản phẩm trên website và đúng phí nội địa trên web không gian dối.</p>
+                            </li>
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>THỜI GIAN VẬN CHUYỂN</h5>
+                                <p>Nhập Hàng China luôn luôn cố gắng tối ưu từng công đoạn để hàng hóa của quý khách về nhanh nhất, an toàn nhất có thể.</p>
+                            </li>
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>TỶ GIÁ NHÂN DÂN TỆ</h5>
+                                <p>Tỷ giá công khai minh bạch khớp với hệ thống đặt hàng. Luôn luôn ưu tiên để tỷ giá thấp nhất nhằm mang lại lợi ích tối đa cho khách hàng.</p>
+                            </li>
+                            <li>
+                                <h5><i class="bx bx-chevrons-right"></i>CAM KẾT HỖ TRỢ</h5>
+                                <p>Nhập hàng China luôn luôn cố gắng phục vụ  24/7 nhằm mang lại dịch vụ tốt nhất tới quý khách hàng.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h3 class="title">CÂU HỎI THƯỜNG GẶP</h3>
+                        <p>Danh mục giải đáp các vấn đề thường xuyên xảy ra đối với khách hàng trong quá trình nhập hàng trung quốc, order hàng quảng châu. Nếu khách hàng thắc mắc hay gặp<br> những vấn đề khi nhập hàng hãy gửi email hoặc liên hệ ngay với Nhập Hàng China. Chúng tôi sẽ giải đáp toàn bộ vấn đề mà quý khách gặp phải.</p>
+                    </div>
+                    <div class="faq-info row">
+                        <div class="faq-content col-12 col-md-6">
+                            <ul class="fqa-list">
+                                <li class="item">
+                                    <h4><span>HÀNG ORDER LÀ GÌ?</span></h4>
+                                    <p class="content mb-0">
+                                        Những hàng hóa không được mua trực tiếp tại cửa hàng thường được định nghĩa chung là hàng order. Thông thường loại hàng này được đặt mua qua các website thương mại điện tử hoặc qua các cửa hàng online.
+                                        Với xu thế hội nhập hiện nay của nền kinh tế Việt Nam nhiều khách hàng có xu hướng chọn mua đồ ngoại chính vì vậy nhu cầu order hàng quốc tế đang ngày càng tăng cao. Tuy nhiên các bước giao dịch đa quốc gia thường phức tạp, nếu bạn không biết các thủ tục giao dịch thì cần tìm sự hỗ trợ từ những dịch vụ đặt mua vận chuyển hàng hóa trung gian để thực hiện các giao dịch chính xác và nhanh nhất.
+                                    </p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>ĐẶT HÀNG TỪ CÁC WEBSITE TRUNG QUỐC  NHƯ THẾ NÀO</span></h4>
+                                    <p class="content mb-0">
+                                        Nếu bạn đang có nhu cầu đặt hàng Trung Quốc về Việt Nam trước hết cần truy cập nhaphangchina.vn và đăng ký tài khoản thành viên. Khi có tài khoản đăng nhập bạn thực hiện tìm kiếm nguồn hàng, chọn nhà cung cấp, chọn sản phẩm và lên đơn đặt hàng.
+                                        Để biết chi tiết các bước xem ngay: Hướng dẫn đặt hàng tại NH China chi tiết nhất
+                                    </p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>LÀM THẾ NÀO ĐỂ TÌM ĐÚNG SẢN PHẨM CẦN MUA</span></h4>
+                                    <p class="content mb-0">Hiện nay các sàn thương mại điện tử của Trung Quốc đều chỉ sử dụng tiếng bản địa, nếu muốn tìm đúng nguồn hàng bạn cần sử dụng các công cụ dịch của GG. Tuy nhiên, để hỗ trợ khách hàng tốt nhất, NH China phát triển chức năng dịch tự động, nếu bạn đặt hàng với chúng tôi, công cụ dịch tự động trên thanh tìm kiếm sẽ giúp bạn nhanh chóng tìm kiếm sản phẩm bằng tiếng Việt.</p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>LỰA CHỌN HÀNG NHƯ THẾ NÀO ĐỂ TRÁNH HÀNG GIẢ, HÀNG NHÁI</span></h4>
+                                    <p class="content mb-0">Tại các website TMĐT của Trung Quốc  sẽ có những cách xem chi tiết hàng hóa khác nhau. Việc tìm kiếm nâng cao và tra cứu đánh giá sản phẩm là cách tốt nhất để bạn kiểm tra xem nguồn hàng có chất lượng hay không. Xem ngay cách lựa chọn tìm kiếm nâng cao đánh giá nguồn hàng mà chúng tôi tổng hợp được.</p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>LỰA CHỌN NHÀ CUNG CẤP NHƯ THẾ NÀO</span></h4>
+                                    <p class="content mb-0">
+                                        Thông thường mỗi nhà cung cấp trên sàn TMĐT sẽ được nhiều lượt mua hàng và phản hồi về sản phẩm tích cực hơn những shop còn lại. Nếu muốn chọn đúng nhà cung cấp tốt, bạn nên kiểm tra phản hồi của khách hàng và xem những bình luận sản phẩm bằng ảnh thật để đánh giá và lựa chọn.
+                                        Nhằm giúp bạn có nguồn hàng tốt nhất chúng tôi đã tổng hợp danh sách các nhà cung cấp hàng Trung Quốc uy tín, bạn hãy xem ngay!
+                                    </p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>BẠN CÓ THỂ ĐẶT MUA GÌ VỚI NHẬP HÀNG CHINA</span></h4>
+                                    <p class="content mb-0">Chúng tôi có thể thỏa mãn mọi nhu cầu mua hàng của bạn từ các sản phẩm thời trang, đồ gia dụng, mỹ phẩm, các sản phẩm làm đẹp, thiết bị dân dụng, đồ điện tử,... Bên cạnh đó, chúng tôi tuyệt đối không đặt và vận chuyển các loại hàng hóa thuộc danh sách hàng cấm và những loại mặt hàng dễ cháy nổ, dễ vỡ.</p>
+                                </li>
+                                <li class="item ">
+                                    <h4><span>GIAO DỊCH KHI ĐẶT HÀNG ORDER NHƯ THẾ NÀO LÀ ĐÚNG</span></h4>
+                                    <p class="content mb-0">
+                                        Để đặt hàng order từ Trung Quốc về Việt Nam bạn sẽ chọn sản phẩm và gửi link sản phẩm đó cho NH China. Sau khi nhận link, đội ngũ CSKH của chúng tôi sẽ kết nối 2 chiều cho quý khách và nhà cung cấp để đàm phán giá và chốt đơn hàng.
+                                        Khi đã chốt được đơn hàng, bạn có thể làm theo hướng dẫn đặt hàng chi tiết của chúng tôi và chờ sản phẩm về tay chỉ sau vài ngày.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="faq-banner col-12 col-md-6">
+                            <img src="images/banner-faq.png" alt="Order Taobao, 1688, Tmall" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="block-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div id="testimonials" class="testimonials-wrapper">
+                        <div class="heading-title">
+                            <h3 class="title">Ý KIẾN KHÁCH HÀNG</h3>
+                        </div>
+                        <div class="testimonials-content">
+                            <div class="row mys-slick slick-initialized slick-slider">
+                                <div class="slick-list draggable">
+                                    <div class="slick-track" style="opacity: 1; width: 800px; transform: translate3d(0px, 0px, 0px);">
+                                        <div class="slick-slide slick-current slick-active" style="width: 800px;">
+                                            <div>
+                                                <div class="item col-12" style="width: 100%; display: inline-block;">
+                                                    <div class="item-content">
+                                                        <i class="bx bxs-quote-alt-left"></i>
+                                                        <blockquote>Khi bắt đầu khởi nghiệp tôi rất mơ hồ về nguồn hàng, không biết tìm nguồn hàng ở đâu rẻ và đẹp để mở shop. Rất may mắn khi thấy bài quảng cáo của Nhập Hàng China trên Facebook và cũng nhờ nhân viên của công ty tư vấn nhiệt tình mà tôi đã tìm được đúng nguồn hàng mà mình mong muốn cho Shop của mình</blockquote>
+                                                    </div>
+                                                    <div class="item-info">
+                                                        <div class="item-avt"><img src="images/chi-nguyen-lan-huong.jpg" alt="Chị Nguyễn Lan Hương" /></div>
+                                                        <div class="content">
+                                                            <h5 class="item-name">Chị Nguyễn Lan Hương</h5>
+                                                            <p class="mb-0">Shop Thời Trang</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="support-wrapper">
+                        <div class="heading-title">
+                            <h3 class="title">HỖ TRỢ KHÁCH HÀNG</h3>
+                        </div>
+                        <div class="support-content row">
+                            <div class="item col-6">
+                                <a href="http://zalo.me/096.247.1688" target="_blank" rel="nofollow">
+                                    <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
+                                </a>
+                                <div class="item-info">
+                                    <b>Ms Hương</b>
+                                    <p>096.247.1688</p>
+                                </div>
+                            </div>
+                            <div class="item col-6">
+                                <a href="http://zalo.me/096.827.1688" target="_blank" rel="nofollow">
+                                    <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
+                                </a>
+                                <div class="item-info">
+                                    <b>Ms Diệp</b>
+                                    <p>096.827.1688</p>
+                                </div>
+                            </div>
+                            <div class="item col-6">
+                                <a href="http://zalo.me/0979.239.526" target="_blank" rel="nofollow">
+                                    <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
+                                </a>
+                                <div class="item-info">
+                                    <b>Ms Thoa</b>
+                                    <p>0979.239.526</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-blog-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="blogs-wrapper col-12">
+                    <div class="heading-title custom">
+                        <h3 class="title">TIN MỚI NHẤT</h3>
+                    </div>
+                    <div class="blogs-content row">
+                        <div class="item col-12 col-sm-6 col-md-4">
+                            <div class="item-image">
+                                <a href="thue-nhap-khau-hang-tu-trung-quoc-la-bao-nhieu/index.html" target="_blank">
+                                    <img class="img-rr" src="pictures/news/2021/04/10/kpq1618045008.jpg" alt="Thuế nhập khẩu hàng từ Trung Quốc là bao nhiêu" />
+                                </a>
+                            </div>
+                            <div class="item-content">
+                                <h4 class="title">
+                                    <a href="thue-nhap-khau-hang-tu-trung-quoc-la-bao-nhieu/index.html">Thuế nhập khẩu hàng từ Trung Quốc là bao nhiêu</a>
+                                </h4>
+                                <p class="excerpt">Bạn thắc mắc việc mua hàng Trung Quốc trên các website thương mại điện tử có mất thuế không, vận chuyển về Việt Nam có cần nhiều...</p>
+                                <a class="more" href="thue-nhap-khau-hang-tu-trung-quoc-la-bao-nhieu/index.html" target="_blank">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <div class="item col-12 col-sm-6 col-md-4">
+                            <div class="item-image"><a href="tham-khao-thue-nhap-khau-may-moc-tu-trung-quoc/index.html" target="_blank"><img class="img-rr" src="pictures/news/2021/04/08/ipm1617876223.jpg" alt="Tham khảo thuế nhập khẩu máy móc từ Trung Quốc" /></a></div>
+                            <div class="item-content">
+                                <h4 class="title"><a href="tham-khao-thue-nhap-khau-may-moc-tu-trung-quoc/index.html">Tham khảo thuế nhập khẩu máy móc từ Trung Quốc</a></h4>
+                                <p class="excerpt">Khi mua hàng trên các website nhập hàng Trung Quốc, đôi khi bạn cần quan tâm tới các khoản thuế phải trả, một số mặt hàng cần có...</p>
+                                <a class="more" href="tham-khao-thue-nhap-khau-may-moc-tu-trung-quoc/index.html" target="_blank">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <div class="item col-12 col-sm-6 col-md-4">
+                            <div class="item-image"><a href="nhaphangchina-vn-cong-ty-logistic-trung-quoc-uy-tin/index.html" target="_blank"><img class="img-rr" src="pictures/news/2021/04/07/whp1617783356.jpg" alt="Nhaphangchina.vn công ty Logistic Trung Quốc uy tín" /></a></div>
+                            <div class="item-content">
+                                <h4 class="title"><a href="nhaphangchina-vn-cong-ty-logistic-trung-quoc-uy-tin/index.html">Công ty Logistic Trung Quốc uy tín</a></h4>
+                                <p class="excerpt">Bạn cần tìm đơn vị nhập hàng Trung Quốc, khai thác vận chuyển hàng tuyền Trung Quốc – Việt Nam giá rẻ, tham khảo ngay...</p>
+                                <a class="more" href="nhaphangchina-vn-cong-ty-logistic-trung-quoc-uy-tin/index.html" target="_blank">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-pay-wrapper" style="background-image: url(images/crupto.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h3 class="title">THÔNG TIN NGÂN HÀNG</h3>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="pay-content row">
+                        <div class="item col-12 col-sm-6 col-lg-4">
+                            <div class="item-content">
+                                <div class="item-image"><img src="images/Vietcombank.png" alt="Đặng Anh Tú"></div>
+                                <div class="pay-info">
+                                    <h5 class="pay-info-name mt-0">Ngô Văn Hiền</h5>
+                                    <div class="pay-info-stk"><small>STK:</small>0491000416368</div>
+                                    <div class="pay-info-branch"><small>Chi Nhánh:</small>Hà Nội</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item col-12 col-sm-6 col-lg-4">
+                            <div class="item-content">
+                                <div class="item-image"><img src="images/BIDV.png" alt="Đặng Anh Tú"></div>
+                                <div class="pay-info">
+                                    <h5 class="pay-info-name mt-0">Ngô Văn Hiền</h5>
+                                    <div class="pay-info-stk"><small>STK:</small>12910000225952</div>
+                                    <div class="pay-info-branch"><small>Chi Nhánh:</small>Hà Nội</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item col-12 col-sm-6 col-lg-4">
+                            <div class="item-content">
+                                <div class="item-image"><img src="images/Techcombank.png" alt="Đặng Anh Tú"></div>
+                                <div class="pay-info">
+                                    <h5 class="pay-info-name mt-0">Ngô Văn Hiền</h5>
+                                    <div class="pay-info-stk"><small>STK:</small>19034822822013</div>
+                                    <div class="pay-info-branch"><small>Chi Nhánh:</small>Hà Nội</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
