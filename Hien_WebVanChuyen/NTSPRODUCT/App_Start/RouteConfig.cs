@@ -43,41 +43,24 @@ namespace NTSPRODUCT
             url: "gio-hang",
             defaults: new { controller = "Carts", action = "index", id = UrlParameter.Optional }
         );
-            routes.MapRoute(
-           name: "Video",
-           url: "video",
-           defaults: new { controller = "HomeSite", action = "Video", id = UrlParameter.Optional }
-       );
+   
 
             routes.MapRoute(
             name: "Lien he",
             url: "lien-he",
             defaults: new { controller = "HomeSite", action = "Contact", id = UrlParameter.Optional }
         );
+      
             routes.MapRoute(
-            name: "san pham",
-            url: "san-pham/{id}",
-            defaults: new { controller = "ProductSite", action = "Detail", id = UrlParameter.Optional }
-        );
-            routes.MapRoute(
-            name: "Danh muc",
-            url: "danh-muc/{id}",
+            name: "Dich vu",
+            url: "dich-vu/{id}",
             defaults: new { controller = "ProductSite", action = "Index", id = UrlParameter.Optional }
         );
-            routes.MapRoute(
-            name: "KM",
-            url: "khuyen-mai",
-            defaults: new { controller = "ProductSite", action = "Index", id = "km" }
-        );
-            routes.MapRoute(
-            name: "hot",
-            url: "top-ban-chay",
-            defaults: new { controller = "ProductSite", action = "Index", id = "bc" }
-        );
+          
             routes.MapRoute(
             name: "Tim-kiem tin",
             url: "tim-kiem/{id}",
-            defaults: new { controller = "ProductSite", action = "Search", id = UrlParameter.Optional }
+            defaults: new { controller = "NewSite", action = "Search", id = UrlParameter.Optional }
         );
             routes.MapRoute(
             name: "Thuong-hieu",
@@ -87,7 +70,7 @@ namespace NTSPRODUCT
             routes.MapRoute(
           name: "Tag",
           url: "tag/{id}",
-          defaults: new { controller = "ProductSite", action = "Tags", id = UrlParameter.Optional }
+          defaults: new { controller = "NewSite", action = "Tags", id = UrlParameter.Optional }
       );
             routes.MapRoute(
             name: "Site map",

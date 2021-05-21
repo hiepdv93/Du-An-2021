@@ -32,12 +32,7 @@
                                             @Html.Action("GetCateForCreate", "ImportView", new { type = ClassExten.typeProduct })
                                         </div>
                                     </div>
-                                    <div class="col-md-6" style="display:none">
-                                        <div class="form-group">
-                                            <label> <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Chọn icon</a></label>
-                                            <input type="text" class="form-control csinput" name="cateicon" maxlength="250" placeholder="Chọn icon"  />
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -52,9 +47,16 @@
                                             <input type="number" class="form-control csinput" name="order" value="1" required placeholder="Thứ tự" />
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Mô tả ngắn</label>
+                                            <input type="text" class="form-control csinput" name="shotDes" maxlength="450" id="shotDes" placeholder="Mô tả ngắn" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Mô tả </label>
+                                    <label>Nội dung</label>
                                     <textarea id="cateDescription" name="cateDescription"></textarea>
                                 </div>
                                 <div class="row">

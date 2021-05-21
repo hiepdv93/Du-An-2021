@@ -39,6 +39,10 @@ public class ClassExten
     {
         public const int Slogan = 1;
         public const int Whychoose = 2;
+
+        public const int AdvSlogan = 1;
+        public const int AdvImage = 2;
+
     }
     #endregion
     #region[tao ngon ngu trong admin]
@@ -454,18 +458,18 @@ public class ClassExten
         return rs;
     }
 
-    public static string GetCateSiteLevel2(string idcha, List<Category> list)
+    public static string GetCateSiteLevel2(List<Menu> list, string idcha)
     {
         string rs = "";
         try
         {
-            var cate = list.Where(u => u.catepar_id.Equals(idcha)).OrderBy(u => u.cateOrder).ToList();
+            var cate = list.Where(u => u.par_id.Equals(idcha)).OrderBy(u => u.mOrder).ToList();
             if (cate.Count > 0)
             {
                 rs += "<i class=''fa fa-angle-down></i> <ul class='dropdown-menu'>";
                 foreach (var item in cate)
                 {
-                    rs += " <li class='dropdown-submenu nav-item'><a class='nav-link' href='/danh-muc/" + item.cateKey + "' title='" + item.cateName + "'>" + item.cateName + "</a>";
+                    rs += " <li class='dropdown-submenu nav-item'><a class='nav-link' href='" + item.link + "' title='" + item.name + "'>" + item.name + "</a>";
                     rs += "</li>";
                 }
                 rs += "</ul>";

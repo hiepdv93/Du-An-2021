@@ -1,163 +1,11 @@
-﻿@model IList<NTSPRODUCT.Models.Category>
+﻿@model IList<NTSPRODUCT.Models.Menu>
 @{
     var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
-    var cart = (NTSPRODUCT.Models.ShoppingCartViewModel)ViewBag.cart;
-    var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
-    var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
-    var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+    var cateChild = Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList();
     var isMobile = Request.Browser.IsMobileDevice;
 
 }
-<div class="header-top">
-    <div class="header-destop">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-12">
-                    <div class="logo-top">
-                        <a href="@conf.linkLogo" title="@conf.shopName"><img src="@conf.logoTop" alt="@conf.shopName" width="100%"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <div class="input-group stylish-input-group input-append search">
-                        <input type="text" class="form-control" id="homeSearch1" placeholder="Tìm kiếm..">
-                        <span class="input-group-addon">
-                            <button id="btnHomeSearch1" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <div class="hotline-top">
-                        <div class="right">
-                            <span><img src="~/Content/CssSite/images/Layer-1.png" alt="@conf.hotLine"></span>
-                        </div>
-                        <div class="left">
-                            <p>Giao hàng ngay</p>
-                            <a href="tel:@conf.hotLine" title="@conf.hotLine">@conf.hotLine</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <div class="shoping">
-                        <a href="/gio-hang" title="giỏ hàng">
-                            <img src="~/Content/CssSite/images/Vector-Smart-Object.png" alt="Giỏ hàng">
-                            <span id="total_count_cart">
-                                @ViewBag.countSp
-                            </span>
-                        </a>
-                        <div class="div-cart">
-                            @if (cart != null && cart.CartTotal > 0)
-                            {
-                                foreach (var item in cart.CartItems)
-                                {
-                                    <div class="row">
-                                        <div class="col-md-3 col-xs-12">
-                                            <a href="/san-pham/@item.key" title="@item.productName">
-                                                <img src="@item.productImg"
-                                                     style="width:60px;height:55px;object-fit:contain;border:1px solid #e2d3d3;border-radius:3px" />
-                                            </a>
-                                        </div>
-                                        <div class="col-md-8 col-xs-12">
-                                            <a href="/san-pham/@item.key" title="@item.productName">
-                                                @item.productName
-                                                <b style="float:right">@item.count</b>
-                                            </a>
-                                        </div>
-                                    </div>
-                                }
-
-
-                                <div class="row">
-                                    <div class="col-md-12 col-xs-12">
-                                        <a href="/gio-hang" title="giỏ hàng">
-                                            <button type="button" class="btn btn-cart pull-right"
-                                                    style="width:100%;margin-top:10px;padding:10px 10px;text-transform:uppercase;color:white;background:#12a169">
-                                                Xem giỏ hàng
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="row">
-                                    <div class="col-md-12 col-xs-12">
-                                        Không có sản phẩm nào trong giỏ hàng
-                                    </div>
-                                </div>
-                            }
-
-                        </div>
-                    </div>
-                    <div class="login">
-                        <button type='button' class="btn btn-success" data-toggle="modal" data-target="#popUpWindow">Đăng Nhập</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="header-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-12 left-top">
-                    <div class="nav-left">
-                        <aside class="aside-item collection-category blog-category">
-                            <div class="heading">
-                                <h2 class="title-head"><span><img src="~/Content/CssSite/images/danh-mục.png" alt="Danh mục"></span><span class="hred">Danh mục</span></h2>
-                            </div>
-                            <div class="aside-content">
-
-                                <nav class="nav-category  navbar-toggleable-md">
-                                    <ul class="nav navbar-pills">
-                                        @foreach (var item in cateParent)
-                                        {
-                                            <li class="nav-item ">
-                                                <a class="nav-link" href="/danh-muc/@item.cateKey" title="@item.cateName"><img src="@item.cateImage" alt="@item.cateName"><span>@item.cateName</span></a>
-                                                @Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))
-                                            </li>
-                                        }
-                                    </ul>
-                                </nav>
-
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-                <div class="col-md-9 col-xs-12">
-                    <div class="row">
-                        <div class="nav-right-slide">
-                            <ul class="nav navbar-pills menu-top">
-                                @if (menu.Count > 0)
-                                {
-                                    foreach (var item in menu)
-                                    {
-                                        <li class="nav-sale">
-                                            <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
-                                        </li>
-                                    }
-                                }
-                                else
-                                {
-                                    <li class="nav-sale">
-                                        <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
-                                        <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
-                                    </li>
-                                    <li class="nav-banch">
-                                        <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
-                                        <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="wrapper-start">
     <div class="bg-open-canvas-menu"></div>
@@ -182,35 +30,21 @@
         </div>
         <div class="content-cv">
             <ul id="main-menu" class="canvas-main-menu">
-                <li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-93">
-                    <a href="index.html" aria-current="page">Trang Chủ</a>
-                </li>
-                <li id="menu-item-554" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-554">
-                    <a href="gioi-thieu-ve-nhap-hang-china/index.html">Giới thiệu</a>
-                </li>
-                <li id="menu-item-94" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-94">
-                    <a href="danh-muc-dich-vu.html">Dịch Vụ</a>
-                </li>
-                <li id="menu-item-382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-382">
-                    <a href="bang-gia-van-chuyen/index.html">Bảng Giá</a>
-                </li>
-                <li id="menu-item-99" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-99">
-                    <a href="huong-dan-dat-hang-tren-website-nhap-hang-china/index.html">Hướng Dẫn</a>
-                </li>
-                <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-381">
-                    <a href="danh-muc-kinh-nghiem.html">Kinh nghiệm</a>
-                </li>
-                <li id="menu-item-98" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-98">
-                    <a href="danh-muc-chinh-sach.html">Chính Sách</a>
-                </li>
+                @foreach (var item in cateParent)
+                {
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                        <a href="@item.link" title="@item.name">@item.name</a>
+                        @Html.Raw(ClassExten.GetCateSiteLevel2(cateChild, item.id))
+                    </li>
+                }
             </ul>
         </div>
         <div class="info">
             <div class="exchange-rate">
-                <p>Tỷ giá: <span>3.720</span> </p>
+                <p>Tỷ giá: <span>@conf.phone</span> </p>
             </div>
             <div class="hotline">
-                <p>Hotline: <span>096.247.1688</span></p>
+                <p>Hotline: <span>@conf.hotLine</span></p>
             </div>
         </div>
     </div>
@@ -222,11 +56,11 @@
                 <div class="header-top-left col-12 col-md-6">
                     <div class="exchange-rate">
                         <i class="bx bxs-dollar-circle"></i>
-                        <p>Tỷ giá: <span>3.720</span></p>
+                        <p>Tỷ giá: <span>@conf.phone</span></p>
                     </div>
                     <div class="hotline">
                         <i class="bx bx-support"></i>
-                        <p>Hotline: <span>096.247.1688</span></p>
+                        <p>Hotline: <span>@conf.hotLine</span></p>
                     </div>
                 </div>
                 <div class="header-top-right col-12 col-md-6">
@@ -260,35 +94,22 @@
             <div class="row">
                 <div class="header-left col-8 col-md-3">
                     <div class="logo">
-                        <a href="index.html" title="Trang chủ">
-                            <img src="images/logo-cuoc-van-chuyen.png" style="height: 57px;" alt="Vận chuyển hàng Trung Quốc" />
+                        <a href="@conf.linkLogo" title="@conf.shopName">
+                            <img src="@conf.logoTop" style="height: 57px;" alt="@conf.shopName" />
                         </a>
                     </div>
                 </div>
                 <div class="header-right col-4 col-md-9">
                     <nav class="header-menu">
                         <ul id="main-menu" class="main-menu">
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-93">
-                                <a href="index.html" aria-current="page">Trang Chủ</a>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-554">
-                                <a href="gioi-thieu-ve-nhap-hang-china/index.html">Giới thiệu</a>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-94">
-                                <a href="danh-muc-dich-vu.html">Dịch Vụ</a>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-382">
-                                <a href="bang-gia-van-chuyen/index.html">Bảng Giá</a>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-99">
-                                <a href="huong-dan-dat-hang-tren-website-nhap-hang-china/index.html">Hướng Dẫn</a>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-381">
-                                <a href="danh-muc-kinh-nghiem.html">Kinh nghiệm</a>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-98">
-                                <a href="danh-muc-chinh-sach.html">Chính Sách</a>
-                            </li>
+
+                            @foreach (var item in cateParent)
+                            {
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="@item.link" title="@item.name">@item.name</a>
+                                    @Html.Raw(ClassExten.GetCateSiteLevel2(cateChild, item.id))
+                                </li>
+                            }
                         </ul>
                     </nav>
                     <div class="br-icon-menu">

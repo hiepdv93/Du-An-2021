@@ -70,6 +70,7 @@
           <Property Name="cateActive" Type="bit" />
           <Property Name="createDate" Type="datetime" />
           <Property Name="updateDate" Type="datetime" />
+          <Property Name="shotDes" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -599,6 +600,7 @@
           <Property Name="createDate" Type="DateTime" Precision="3" />
           <Property Name="updateDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="News" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="Category" ToRole="News" />
+          <Property Name="shotDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -1047,6 +1049,7 @@
           <EntitySetMapping Name="Categorys">
             <EntityTypeMapping TypeName="NTSWEBModel.Category">
               <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="shotDes" ColumnName="shotDes" />
                 <ScalarProperty Name="updateDate" ColumnName="updateDate" />
                 <ScalarProperty Name="createDate" ColumnName="createDate" />
                 <ScalarProperty Name="cateActive" ColumnName="cateActive" />

@@ -180,6 +180,7 @@ namespace NTSPRODUCT.Controllers
                 cate.cateicon = fr["cateicon"];
                 cate.cateImage = fr["cateImage"];
                 cate.cateDescription = fr["cateDescription"];
+                cate.shotDes = fr["shotDes"];
                 cate.cateKey = checkTrung(key, ClassExten.typeProduct);
                 cate.cateType = ClassExten.typeProduct;
 
@@ -250,6 +251,7 @@ namespace NTSPRODUCT.Controllers
                 cate.cateicon = fr["cateicon"];
                 cate.cateImage = fr["cateImage"];
                 cate.cateDescription = fr["cateDescription"];
+                cate.shotDes = fr["shotDes"];
                 if (cate.cateKey != key)
                 {
                     cate.cateKey = checkTrungUpdate(key, ClassExten.typeProduct, id);

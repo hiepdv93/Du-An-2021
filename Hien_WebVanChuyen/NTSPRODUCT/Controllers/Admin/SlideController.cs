@@ -64,6 +64,7 @@ namespace NTSPRODUCT.Controllers
                 Slide data = new Slide();
                 data.id = Guid.NewGuid().ToString();
                 data.name = model.name;
+                data.subName = model.subName;
                 data.sLink = model.sLink;
                 data.contents = model.contents;
                 data.images = model.images;
@@ -88,6 +89,7 @@ namespace NTSPRODUCT.Controllers
                 var data = db.Slides.First(u => u.id.Equals(model.id));
 
                 data.name = model.name;
+                data.subName = model.subName;
                 data.sLink = model.sLink;
                 data.contents = model.contents;
                 data.images = model.images;

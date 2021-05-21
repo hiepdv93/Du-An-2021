@@ -49,6 +49,7 @@
     <EntitySetMapping Name="Categorys">
       <EntityTypeMapping TypeName="NTSWEBModel.Category">
         <MappingFragment StoreEntitySet="Categorys">
+          <ScalarProperty Name="shotDes" ColumnName="shotDes" />
           <ScalarProperty Name="updateDate" ColumnName="updateDate" />
           <ScalarProperty Name="createDate" ColumnName="createDate" />
           <ScalarProperty Name="cateActive" ColumnName="cateActive" />

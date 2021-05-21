@@ -125,6 +125,7 @@ function GetbyId(id) {
         type: "POST",
         success: function (data) {
             $('#name').val(data.name);
+            $('#subName').val(data.subName);
             $('#slink').val(data.sLink);
             $('#images').val(data.images);
             $('#contents').val(data.contents);
@@ -151,6 +152,7 @@ function CreateOrUpdate() {
     {
         id: $('#id').val(),
         name: $('#name').val(),
+        subName: $('#subName').val(),
         sLink: $('#slink').val(),
         images: $('#images').val(),
         contents: $('#contents').val(),

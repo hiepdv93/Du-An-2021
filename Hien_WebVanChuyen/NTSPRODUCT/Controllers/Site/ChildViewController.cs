@@ -15,18 +15,6 @@ namespace NTSPRODUCT.Controllers.Site
         // [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHeader(string lang)
         {
-            int countSp = 0;
-            var cartGet = CountCart();
-            ViewBag.cart = cartGet;
-            if (cartGet != null)
-            {
-                if (cartGet.CartItems != null)
-                {
-                    countSp = cartGet.CartItems.Sum(u => u.count);
-                }
-            }
-            ViewBag.countSp = countSp;
-
             Config conf;
             if (ConfigModel.listConfig == null)
             {
@@ -35,11 +23,9 @@ namespace NTSPRODUCT.Controllers.Site
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
 
             var menu = db.Menus.Where(u => u.mPosition == 1 && u.active == true && u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
-            var allCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
             ViewBag.conf = conf;
-            ViewBag.menu = menu;
 
-            return PartialView(allCate);
+            return PartialView(menu);
         }
         private ShoppingCartViewModel CountCart()
         {
@@ -50,52 +36,46 @@ namespace NTSPRODUCT.Controllers.Site
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult ChildHome(string lang)
         {
-            List<Product> lstPro = db.Products.Where(u => u.active == true).ToList();
-            List<Category> lstCate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct).ToList();
-            //danh mục hiển thị trang chủ là nhóm cấp 1 dc check  hiển thị trang chủ
-            //sản phẩm hiển thị theo nhóm là những nhóm cấp 2 check hiển thị trang chủ
             Config conf;
             if (ConfigModel.listConfig == null)
             {
                 ConfigModel.listConfig = db.Configs.ToList();
             }
             conf = ConfigModel.listConfig.FirstOrDefault();
+
             ViewBag.conf = conf;
-
-            int numPro = conf.viewProPageHome != null ? conf.viewProPageHome.Value : 12;
-            int numNew = conf.viewNewPageHome != null ? conf.viewNewPageHome.Value : 5;
-            var newsHot = db.News.Where(u => u.status == Constants.Active && u.newHot == true).OrderBy(u => u.newOrder).Take(numNew).ToList();//tin hot home
-                                                                                                                                              // var SayWe = db.SayWes.Where(u => u.active == true).OrderBy(u => u.numberOder).Take(4).ToList();
-
-            var proBanChay = lstPro.Where(u => u.pro_hot == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
-            var proSale = lstPro.Where(u => u.pro_sale == true && u.active == true).OrderBy(u => u.proOrder).Take(numPro).ToList();
-
-            List<string> cateId = null;
-            List<ProductModel> proHome = new List<ProductModel>();
-            ProductModel productModel;
-            var cateHome = lstCate.Where(u => u.cateActiveHome == true).OrderBy(u => u.cateOrder).ToList();//lấy ra nhóm hiển thị trang chủ
-            foreach (var item in cateHome)
+            int numberNewsHome = 6;
+            if (conf.viewNewPageHome.HasValue)
             {
-                cateId = GetListId(item.id, item.cate_cap.Value, lstCate);
-                productModel = new ProductModel();
-                productModel.cate = item;
-                productModel.pro = lstPro.Where(u => cateId.Contains(u.cateId)).OrderBy(u => u.proOrder).Take(numPro).ToList();
-                proHome.Add(productModel);
+                numberNewsHome = conf.viewNewPageHome.Value;
             }
+            var news = db.News.Where(u => u.status == Constants.Active).OrderBy(u => u.newOrder).Take(numberNewsHome).ToList(); ;
+            ViewBag.news = news;
 
-            ViewBag.newsHot = newsHot;
-            // ViewBag.SayWe = SayWe;
+            var par = db.Partners.OrderBy(u => u.numberOder).Take(6).ToList(); ;
+            ViewBag.par = par;
 
-            ViewBag.lang = lang;
+            var why = db.WhyChooseUsses.Where(u=>u.active==true).OrderBy(u => u.numberOder).Take(6).ToList(); ;
+            ViewBag.why = why;
 
-            ViewBag.proSale = proSale;
-            ViewBag.proBanChay = proBanChay;
+            var sup = db.Supports.OrderBy(u => u.numberOder).Take(4).ToList(); ;
+            ViewBag.sup = sup;
 
-            var videos = db.Advs.Where(u => u.advActive == true && u.advType == 4).OrderBy(u => u.advOrder).Take(8).ToList(); ;
-            ViewBag.videos = videos;
+            var slogan = db.Advs.Where(u => u.advActive == true && u.advType == ClassExten.TableType.AdvSlogan).OrderBy(u => u.advOrder).Take(5).ToList(); ;
+            ViewBag.slogan = slogan;
 
+            var slide = db.Slides.OrderBy(u => u.numberOder).FirstOrDefault(u => u.active == true);
+            ViewBag.slide = slide;
 
-            return PartialView(proHome);
+            var SayWe = db.SayWes.OrderBy(u => u.numberOder).FirstOrDefault(u => u.active == true);
+            ViewBag.SayWe = SayWe;
+
+            var cate = db.Categorys.Where(u => u.cateActive == true && u.cateType == ClassExten.typeProduct && u.cateActiveHome == true).OrderBy(u => u.cateOrder).Take(6).ToList();
+            ViewBag.cate = cate;
+
+            var faq = db.Faqs.OrderBy(u => u.number).ToList();
+
+            return PartialView(faq);
         }
 
         public List<string> GetListId(string idp, int cap, List<Category> allCate)

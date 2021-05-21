@@ -100,6 +100,7 @@
     <Property Name="createDate" Type="DateTime" Precision="3" />
     <Property Name="updateDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="News" Relationship="NTSWEBModel.FK__News__groupid__1BFD2C07" FromRole="Category" ToRole="News" />
+    <Property Name="shotDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>

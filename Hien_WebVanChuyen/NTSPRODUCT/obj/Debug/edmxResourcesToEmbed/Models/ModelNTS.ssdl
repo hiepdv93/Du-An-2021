@@ -65,6 +65,7 @@
     <Property Name="cateActive" Type="bit" />
     <Property Name="createDate" Type="datetime" />
     <Property Name="updateDate" Type="datetime" />
+    <Property Name="shotDes" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>

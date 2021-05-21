@@ -40,12 +40,7 @@
                                             @Html.Action("GetCateForUpdate", "ImportView", new { type = ClassExten.typeProduct, idUpdate = Model.id })
                                         </div>
                                     </div>
-                                    <div class="col-md-6" style="display:none">
-                                        <div class="form-group">
-                                            <label> <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Chọn icon</a></label>
-                                            <input type="text" class="form-control csinput" name="cateicon" maxlength="250" placeholder="Chọn icon" value="@Model.cateicon" />
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -60,9 +55,17 @@
                                             <input type="number" class="form-control csinput" name="order" value="@Model.cateOrder" placeholder="Thứ tự" />
                                         </div>
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả ngắn</label>
+                                            <input type="text" class="form-control csinput" maxlength="450" name="shotDes" id="shotDes" value="@Model.shotDes" placeholder="Mô tả ngắn" />
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="form-group">
-                                    <label>Mô tả </label>
+                                    <label>nội dung</label>
                                     @Html.TextAreaFor(u => u.cateDescription)
                                 </div>
                                 <div class="row">
