@@ -34,7 +34,7 @@ namespace NTSPRODUCT.Controllers.Site
             var all = (from a in db.News.AsNoTracking()
                        where a.newLang.Equals(lang)
                        && a.status == Constants.Active
-                       orderby a.newOrder 
+                       orderby a.newOrder
                        select a).AsQueryable();
 
             List<string> cateid = new List<string>();
@@ -99,6 +99,7 @@ namespace NTSPRODUCT.Controllers.Site
             }
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
             ViewBag.conf = conf;
+
             var newData = db.News.FirstOrDefault(u => u.new_key.Equals(id) && u.newLang.Equals(lang));
             if (newData != null)
             {
@@ -150,6 +151,9 @@ namespace NTSPRODUCT.Controllers.Site
                 ConfigModel.listConfig = db.Configs.ToList();
             }
             conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+
+            ViewBag.conf = conf;
+
             var menu = db.Menus.FirstOrDefault(u => u.link.Equals("/sites/" + id) && u.active == true && u.mtype == 2 && u.mLang.Equals(lang));
             if (menu != null)
             {
@@ -162,7 +166,9 @@ namespace NTSPRODUCT.Controllers.Site
                 ViewBag.favicon = ClassExten.GetUrlHost() + conf.favicon;
                 #endregion
                 #region[lay cac bai lien quan]
+                var menus = db.Menus.Where(u => !u.id.Equals(menu.id) && u.active == true && u.mtype == 2 && u.mLang.Equals(lang));
                 ViewBag.menu = menu;
+                ViewBag.menus = menus;
                 #endregion
             }
             return View();
@@ -219,6 +225,17 @@ namespace NTSPRODUCT.Controllers.Site
             return View(data);
         }
 
+        public ActionResult BangGia()
+        {
+            Config conf;
+            if (ConfigModel.listConfig == null)
+            {
+                ConfigModel.listConfig = db.Configs.ToList();
+            }
+            conf = ConfigModel.listConfig.FirstOrDefault(u => u.conLang.Equals(lang));
+            ViewBag.conf = conf;
 
+            return View();
+        }
     }
 }

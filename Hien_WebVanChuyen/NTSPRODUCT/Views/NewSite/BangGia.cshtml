@@ -1,0 +1,400 @@
+﻿
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+}
+
+<main id="main" class="main-content home">
+    <article id="post-379" class="single-post-article clearfix  post-379 page type-page status-publish hentry">
+        <div class="content-default single-post-wapper">
+            <div class="container">
+                <div class="row">
+                    <div class="content-layout content-blog col-12">
+                        <div class="inner-content-post">
+                            <div class="inner-content-info">
+                                <div class="heading-title custom">
+                                    <h1 class="title mt-0">Bảng Giá Nhập Hàng</h1>
+                                    @Html.Raw(conf.googleAdsense)
+                                </div>
+                            </div>
+                            <div class="entry-content clearfix">
+                                <div class="wrap-bang-gia">
+                                    @Html.Raw(conf.infoPage)
+
+                                    @*<div class="mys-item-table">
+                                            <h2>1. Chi phí một đơn hàng order</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Giải thích</th>
+                                                            <th>Bắt buộc</th>
+                                                            <th>Tùy chọn</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1. Giá sản phẩm</td>
+                                                            <td>Là giá được niêm yết trên website Trung Quốc</td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span data-href="phidichvu" class="ky-gui-anchor">2. Phí dịch vụ</span></td>
+                                                            <td>Phí giao dịch mua hàng khách trả cho Nhập Hàng China</td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span data-href="phishiptq" class="ky-gui-anchor">3. Phí ship Trung Quốc</span></td>
+                                                            <td>Phí chuyển hàng từ nhà cung cấp tới kho của Nhập Hàng China tại Trung Quốc</td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span data-href="phivanchuyen" class="ky-gui-anchor">4. Phí vận chuyển</span></td>
+                                                            <td>Phí vận chuyển từ kho Trung Quốc về kho của Nhập Hàng China tại Việt Nam (Đơn vị Kg)</td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span data-href="phikiemdem" class="ky-gui-anchor">5. Phí kiểm đếm</span></td>
+                                                            <td>Dịch vụ đảm bảo sản phẩm của khách không bị nhà cung cấp giao sai hoặc thiếu</td>
+                                                            <td></td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span data-href="phidonggo" class="ky-gui-anchor">6. Phí đóng gỗ</span></td>
+                                                            <td>Hình thức đảm bảo an toàn, hạn chế rủi ro đối với hàng dễ vỡ, dễ biến dạng</td>
+                                                            <td></td>
+                                                            <td class="txt-center mys-text-success"><i class="bx bx-check-square"></i></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="mys-alert mys-alert-dismissible">
+                                            <i class="bx bxs-help-circle"></i> Lưu ý: Những phí thuộc hình thức
+                                            (*) là phí bắt buộc, còn lại là tùy chọn, quý khách có thể chọn sử dụng hoặc không
+                                        </div>
+                                        <div class="mys-item-table">
+                                            <h2>2. Bảng giá dịch vụ mua hàng</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Giá trị đơn hàng</th>
+                                                            <th>Phí dịch vụ</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Dưới 2 triệu</td>
+                                                            <td>3%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 2 đến 20 triệu</td>
+                                                            <td>2.5%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 20 đến 100 triệu</td>
+                                                            <td>2%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trên 100 triệu</td>
+                                                            <td>1%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="mys-alert mys-alert-dismissible">
+                                                <b>Lưu ý:</b>
+                                                <ol type="number" style="margin-bottom: -10px;">
+                                                    <li>Giá trị tiền hàng để tính phí dịch vụ được tính trên tổng tiền hàng theo đơn hàng từng shop Trung Quốc.</li>
+                                                    <li>Đối với những đơn hàng có phí dịch vụ dưới 5.000đ sẽ được làm tròn thành 5.000đ.</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                        <div class="mys-item-table">
+                                            <h2 id="phivanchuyen">3. Phí vận chuyển quốc tế</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Trọng lượng</th>
+                                                            <th>Hà Nội</th>
+                                                            <th>TP.HCM</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Dưới 30kg</td>
+                                                            <td>32.000<sup>đ</sup></td>
+                                                            <td>40.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 30kg - 70kg</td>
+                                                            <td>31.000<sup>đ</sup></td>
+                                                            <td>39.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 70kg - 200kg</td>
+                                                            <td>30.000<sup>đ</sup></td>
+                                                            <td>38.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 200kg - 500kg</td>
+                                                            <td>29.000<sup>đ</sup></td>
+                                                            <td>37.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trên 500kg</td>
+                                                            <td>28.000<sup>đ</sup></td>
+                                                            <td>36.000<sup>đ</sup></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Khối lượng</th>
+                                                            <th>Hà Nội</th>
+                                                            <th>TP.HCM</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Dưới 10m3</td>
+                                                            <td>3.200.000<sup>đ</sup></td>
+                                                            <td>3.600.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Từ 10m3 - 20 m3</td>
+                                                            <td>3.000.000<sup>đ</sup></td>
+                                                            <td>3.400.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Trên 20m3</td>
+                                                            <td>2.800.000<sup>đ</sup></td>
+                                                            <td>3.200.000<sup>đ</sup></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="mys-alert mys-alert-dismissible">
+                                                <b>Lưu ý: </b>
+                                                <ol type="a">
+                                                    <li>Quy tắc phân biệt hàng nặng và hàng cồng kềnh</li>
+                                                    <div>
+                                                        <div>
+                                                            <i>
+                                                                - Phí vận chuyển được tính theo hai cách là trọng lượng theo hàng nặng, và thể tích cho
+                                                                hàng cồng kềnh/hàng.
+                                                            </i>
+                                                        </div>
+                                                        <div><i> - Hàng nặng và cồng kềnh được phân biệt theo cách sau:</i></div>
+                                                        <div>
+                                                            <ul style="margin-bottom: 0px;">
+                                                                <li><i>Hàng nặng có trọng lượng thực tế lớn hơn cân nặng quy đổi</i></li>
+                                                                <li><i>Hàng cồng kềnh có trọng lượng thực tế nhỏ hơn hoặc bằng cân nặng quy đổi</i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <li>Quy tắc làm tròn</li>
+                                                    <div>
+                                                        <div>- <i>Khối lượng đơn hàng sẽ được làm tròn theo 0.3kg</i></div>
+                                                        <div>
+                                                            <b>
+                                                                <i>
+                                                                    VD: Đơn hàng có trọng lượng: Dưới 0.1kg thì sẽ được làm tròn lên 0.5kg, Đơn hàng có trọng
+                                                                    lượng trên 0.5kg sẽ không làm tròn.
+                                                                </i>
+                                                            </b>
+                                                        </div>
+                                                    </div>
+                                                    <li>Tính giá vận chuyển khi hàng về</li>
+                                                    <div>
+                                                        Khách hàng chú ý, với đơn hàng của quý khách gồm nhiều sản phẩm, và về làm nhiều đợt thì hàng về tới
+                                                        đâu công ty sẽ tính phí tới đó. Phí vận chuyển sẽ tính theo số hàng về của khách trong một thời điểm
+                                                        chứ không tính theo tổng đơn hàng.
+                                                    </div>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                        <div class="mys-item-table">
+                                            <h2 id="phikiemdem">5. Phí kiểm đếm sản phẩm</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Số lượng SP/đơn lớn</th>
+                                                            <th>Mức thu phí (nghìn/1 SP)</th>
+                                                            <th>Mức thu phí SP phụ kiện (giá SP &lt;10 tệ)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1 - 2 sản phẩm</td>
+                                                            <td>5.000<sup>đ</sup></td>
+                                                            <td>1.500<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3 - 10 sản phẩm</td>
+                                                            <td>3.000<sup>đ</sup></td>
+                                                            <td>1.300<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>11 - 100 sản phẩm</td>
+                                                            <td>2.000<sup>đ</sup></td>
+                                                            <td>1.000<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>101 - 500 sản phẩm</td>
+                                                            <td>1.500<sup>đ</sup></td>
+                                                            <td>800<sup>đ</sup></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>501 - 10000 sản phẩm</td>
+                                                            <td>1000<sup>đ</sup></td>
+                                                            <td>700<sup>đ</sup></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="mys-alert mys-alert-dismissible">
+                                            <b>Lưu ý: </b>
+                                            <ul style="margin-bottom:0">
+                                                <li>1. Nhập Hàng China sẽ kiểm tra hàng khi nhận được tại kho Trung Quốc theo số lượng và các thuộc tính cơ bản phân loại hàng hóa mà khách hàng đã thao tác chọn khi đưa vào giỏ hàng (đối với hàng thời trang thường là thuộc tính kích cỡ, màu sắc nhưng loại trừ trường hợp màu sắc sản phẩm thực tế có thể đậm/nhạt hơn so với màu sắc sản phẩm đăng bán trên website)</li>
+                                                <li>2. Nhập Hàng China không cam kết sẽ kiểm tra chất liệu, thông số kỹ thuật, chất lượng sản phẩm, hàng nhái (fake), thương hiệu sản phẩm.</li>
+                                                <li>3. Nhập Hàng China sẽ hoàn 100% tiền hàng cho khách hàng chọn sử dụng dịch vụ kiểm đếm khi khách hàng nhận hàng thấy có sự sai lệch về số lượng và thuộc tính hàng hóa mà Nhập Hàng China đã cam kết kiểm đếm.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="mys-item-table">
+                                            <h2 id="phidonggo">6. Phí đóng gỗ</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Trọng lượng</th>
+                                                            <th>Kg đầu tiên</th>
+                                                            <th>Kg tiếp theo</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Phí đóng kiện</td>
+                                                            <td>20 tệ/ kg đầu</td>
+                                                            <td>1 tệ</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="bang-gia-cap-do" class="mys-item-table">
+                                            <h2>7. Cấp độ thành viên</h2>
+                                            <div class="table-info">
+                                                <table class="mys-table capdo">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tên cấp độ</th>
+                                                            <th>Tổng giá trị giao dịch</th>
+                                                            <th>Chiết khấu phí dịch vụ</th>
+                                                            <th>% đặt cọc</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i></td>
+                                                            <td>100.000.000<sup>đ</sup> - 300.000.000<sup>đ</sup></td>
+                                                            <td>5%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>300.000.000<sup>đ</sup> - 800.000.000<sup>đ</sup></td>
+                                                            <td>10%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>800.000.000<sup>đ</sup> - 1.500.000.000<sup>đ</sup></td>
+                                                            <td>15%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>1.500.000.000<sup>đ</sup> - 2.500.000.000<sup>đ</sup></td>
+                                                            <td>20%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>2.500.000.000<sup>đ</sup> - 5.000.000.000<sup>đ</sup></td>
+                                                            <td>25%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>5.000.000.000<sup>đ</sup> - 10.000.000.000<sup>đ</sup></td>
+                                                            <td>30%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></td>
+                                                            <td>Trên 10.000.000.000<sup>đ</sup></td>
+                                                            <td>35%</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>*@
+
+                                    <div class="mys-bang-gia-option">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12 col-md-5">
+                                                    <div class="option-content">
+                                                        <div class="title h4">Thông tin liên hệ</div>
+                                                        <div class="content">
+                                                            <p>Nếu trong quá trình đặt hàng quý khách quý khách có vấn đề gì khó khắn hãy liên hệ ngay với Nhập Hàng China. Vui lòng gọi tới Holtine sau để được tư vấn miễn phí.</p>
+                                                            <div class="content-link"><a target="_blank" rel="nofollow" href="tel:@conf.hotLine">@conf.hotLine</a><a target="_blank" rel="nofollow" href="tel:@conf.phone">@conf.phone</a></div>
+                                                            <div class="note">Hoặc inbox trực tiếp qua Fanpage tại đây:</div>
+                                                            <div class="link-fanpage"><a target="_blank" rel="nofollow" href=@conf.faceBook" title="Fanpage NhapHangChina">Fanpage</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-7">
+                                                    <div class="item">
+                                                        <div class="thumb">
+                                                            <div class="icon"><img src="~/Content/CssSite/images/icon-1.png" alt="Image Thanh Toán" /></div>
+                                                        </div>
+                                                        <div class="title">Phương thức thanh toán</div>
+                                                        <p>Chúng tôi cung cấp các phương thức thanh toán khác nhau phù hợp với quý khách</p>
+                                                        <div class="link"><a target="_blank" href="@conf.linkHDTT" title="Xem chi tiết">Xem chi tiết</a></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="thumb">
+                                                            <div class="icon"><img src="~/Content/CssSite/images/icon-2.png" alt="Image Đổi Trả" /></div>
+                                                        </div>
+                                                        <div class="title">Hướng dẫn mua hàng</div>
+                                                        <p>Quý khách hãy tham khảo bài viết sau để có thể tự lên đơn và đặt hàng trung quốc.</p>
+                                                        <div class="link"><a target="_blank" href="@conf.linkHDMH" title="Xem chi tiết">Xem chi tiết</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</main>

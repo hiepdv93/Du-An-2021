@@ -116,9 +116,7 @@ namespace NTSPRODUCT.Controllers.Site
         [OutputCache(Duration = ClassExten.timeCacheChild, VaryByParam = "lang")]
         public ActionResult PageNewLeft(string lang)
         {
-            var cateNew = db.Categorys.Where(u => u.cateLang.Equals(lang) && u.cateActive == true && u.cateType == ClassExten.typeNew && u.catepar_id.Equals("-1")).ToList();
-            ViewBag.cateNew = cateNew;
-            var supports = db.Supports.OrderBy(u => u.phone).ToList();
+            var supports = db.Supports.OrderBy(u => u.numberOder).ToList();
             return PartialView(supports);
         }
         #endregion

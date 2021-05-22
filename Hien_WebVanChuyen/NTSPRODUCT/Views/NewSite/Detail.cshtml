@@ -6,59 +6,73 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
 }
-<section class="bread-crumb">
-    <span class="crumb-border"></span>
-    <div class="container">
-        <div class="rows">
-            <div class="col-xs-12 a-left">
-                <ul class="breadcrumb" itemscope="">
-                    <li class="home">
-                        <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
+
+<div class="page-title-wrapper">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ul class="breadcrumbs list-style-type">
+                <li><a href="/" title="Trang chủ" class="home"><i class="bx bxs-home"></i>Trang chủ</a></li>
+                <li><a href="/tin-tuc" title="Tin tức">Tin tức</a></li>
+                @if (cateP != null)
+                {
+                    <li class="">
+                        <a itemprop="url" href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
                     </li>
-                    <li class="home">
-                        <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                    </li>
-                    @if (cateP != null)
-                    {
-                        <li class="home">
-                            <a itemprop="url" href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
-                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                        </li>
-                    }
-                    @if (newData != null)
-                    {
-                        <li><strong><span itemprop="title">@(NTSPRODUCT.Models.StringClass.FormatContentNews(newData.title, 80))</span></strong></li>
-                    }
-                </ul>
-            </div>
+                }
+                <li><span>@(NTSPRODUCT.Models.StringClass.FormatContentNews(newData.title, 80))</span></li>
+            </ul>
         </div>
     </div>
-</section>
+</div>
 
-
-<section class="page-detail">
-    <div class="container">
-        <div class="row">
-            @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
-            <div class="col-md-9 col-xs-12 col-lg-9">
-                <div class="titel-detail">
-                    <h1>@newData.title</h1>
-                </div>
-                <div class="page-detail-text">
-                    @Html.Raw(newData.contents)
-
-                    <hr />
-                    <h2 class="title-news-other">Tin cùng chuyên mục</h2>
-                    <ul class="list-news-other">
-                        @foreach (var item in Model)
-                        {
-                            <li><a href="/dich-vu/@item.new_key" title="@item.title"><i class="fa fa-caret-right" aria-hidden="true"></i> @item.title (@item.updateDate.Value.ToString("dd/MM/yyyy"))</a></li>
-                        }
-                    </ul>
+<main id="main" class="main-content home">
+    <article id="post-555" class="single-post-article clearfix  post-555 post type-post status-publish format-standard has-post-thumbnail hentry category-dich-vu">
+        <div class="content-default single-post-wapper">
+            <div class="container">
+                <div class="row">
+                    <div class="content-layout content-blog col-12 col-md-8 col-lg-9">
+                        <div class="inner-content-post">
+                            <div class="inner-content-info">
+                                <div class="entry-post-title">
+                                    <h1 class="entry-title mt-0 mb-0">@newData.title</h1>
+                                </div>
+                                <div class="post-meta post-meta-entry clearfix">
+                                    <div class="post-meta-author">
+                                        <div class="post-author">Đăng bởi: <b>Manager</b></div>
+                                    </div>
+                                    <div class="post-meta-date">
+                                        <p>Cập Nhật: <b>@newData.updateDate.Value.ToString("dd/MM/yyyy")</b></p>
+                                    </div>
+                                    <div class="post-meta-date">
+                                        <p>Lượt xem: <b>@newData.viewCount</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="entry-content clearfix">
+                                @Html.Raw(newData.contents)
+                            </div>
+                            <div class="single-post-related">
+                                <h2 class="heading-title text-center mt-0">
+                                    <span>Bài Viết Liên Quan</span>
+                                </h2>
+                                <div class="bingo-blogs">
+                                    <ul class="related-list">
+                                        @foreach (var item in Model)
+                                        {
+                                            <li class="item">
+                                                <h4 class="entry-title mt-0">
+                                                    <a title="@item.title" href="/tin/@item.new_key" >@item.title<span class="time_dt"> <i class="bx bx-time" aria-hidden="true"> </i> @item.updateDate.Value.ToString("dd/MM/yyyy")</span></a>
+                                                </h4>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </article>
+</main>

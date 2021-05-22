@@ -1927,6 +1927,7 @@
     <Content Include="Content\CssSite\images\services-1.png" />
     <Content Include="Content\CssSite\images\services-2.png" />
     <Content Include="Content\CssSite\images\services-3.png" />
+    <Content Include="Content\CssSite\images\Skype.png" />
     <Content Include="Content\CssSite\images\steps.png" />
     <Content Include="Content\CssSite\images\Techcombank.png" />
     <Content Include="Content\CssSite\images\tracking.png" />
@@ -2192,6 +2193,7 @@
     <Content Include="Views\ProductSite\Tags.cshtml" />
     <Content Include="Views\ChildView\NavMenu.cshtml" />
     <Content Include="Views\HomeSite\Video.cshtml" />
+    <Content Include="Views\NewSite\BangGia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

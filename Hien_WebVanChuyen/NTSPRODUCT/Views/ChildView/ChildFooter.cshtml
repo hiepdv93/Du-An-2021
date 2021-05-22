@@ -5,64 +5,6 @@
     List<NTSPRODUCT.Models.Menu> lstChild;
 }
 
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="row">
-                    @foreach (var item in cateParent)
-                    {
-                        lstChild = Model.Where(u => u.par_id.Equals(item.id)).OrderBy(u => u.mOrder).ToList();
-
-                        <div class="col-md-2 col-xs-6">
-                            <div class="nav-footer">
-                                <div class="title-nav-footer">
-                                    <h3> <a href="@item.link" title="@item.name">@item.name</a></h3>
-                                </div>
-                                <div class="list-nav-ft">
-                                    <ul>
-                                        @foreach (var itemSub in lstChild)
-                                        {
-                                            <li>
-                                                <a href="@itemSub.link" title="@itemSub.name">@itemSub.name</a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                </div>
-            </div>
-            @*<div class="col-md-4 col-xs-12">
-                <div class="banner-footer">
-                    <a  href="/" title="@conf.shopName"><img src="@conf.linkLogo" alt="@conf.shopName"></a>
-                </div>
-            </div>*@
-        </div>
-        <div class="row">
-            <div class="footer2">
-                <div class="col-md-4 col-xs-12">
-                    <div class="logo-footer">
-                        <a  href="@conf.linkLogo" title="@conf.shopName"><img src="@conf.logoBottom" alt="@conf.shopName"></a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xs-12">
-                    <div class="contact-footer">
-                        @Html.Raw(conf.footer)
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-12">
-                    <div class="bo-cong-thuong">
-                        <a  href="@conf.linkLogo" title="@conf.shopName"><img src="~/Content/CssSite/images/bo-cong-thuong.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 @*<section id="hotline-zalo-fb">
         @if (!string.IsNullOrEmpty(conf.hotLine))
         {
@@ -109,151 +51,11 @@
     </section>*@
 
 
-@*<div class="phone-gif">
-        <div class="fancybox" onclick="window.location='tel: @conf.hotLine'">
-            <div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" id="coccoc-alo-phoneIcon" style="right: 5%; top: 10%;">
-                <div class="coccoc-alo-ph-circle">&nbsp;</div>
-                <div class="coccoc-alo-ph-img-circle">
-                    <img src="https://hangduchaanh.com/Content/CssSite/images/hotline.png" />
-                </div>
-            </div>
-        </div>
-        <div class="clicktocall"><a class="call" href="tel:@conf.hotLine">Gọi ngay<br><b>@conf.hotLine</b></a></div>
-    </div>*@
 
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">
     <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
 </button>
-
-<style>
-    /* .coccoc-alo-phone {
-            visibility: hidden;
-            background-color: transparent;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            z-index: 200000 !important;
-            -webkit-backface-visibility: hidden;
-            -webkit-transform: translateZ(0);
-            -webkit-transition: visibility .5s;
-            -moz-transition: visibility .5s;
-            -o-transition: visibility .5s;
-            transition: visibility .5s;
-            right: 150px;
-            top: 30px;
-        }
-
-        .phone-gif {
-            width: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            background: #d91e1e;
-            border: 3px solid #fff;
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            border-radius: 30px;
-            box-shadow: 0 0 8px #d91e1e;
-            z-index: 5000;
-            cursor: pointer;
-        }
-
-        .clicktocall, .fancybox {
-            display: inline-block;
-            margin: 0 5px 0 0px;
-            padding: 0;
-        }
-
-        .coccoc-alo-phone.coccoc-alo-show {
-            visibility: visible;
-        }
-
-        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle {
-            border-color: white;
-            opacity: .7;
-        }
-
-        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle-fill {
-            background-color: #fde6e8;
-            background-color: #a6e3fa 9;
-            opacity: .75 !important;
-        }
-
-        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
-            background-color: #56ff00;
-        }
-
-        element.style {
-        }
-
-        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
-            background-color: #56ff00;
-        }
-
-        .coccoc-alo-show {
-        }
-
-        .coccoc-alo-ph-img-circle img {
-            -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
-            -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
-            -ms-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
-            -o-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
-            animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
-            -webkit-transform-origin: 50% 50% !important;
-            -moz-transform-origin: 50% 50% !important;
-            -ms-transform-origin: 50% 50% !important;
-            -o-transform-origin: 50% 50% !important;
-            transform-origin: 50% 50% !important;
-            animation-timing-function: ease-in-out;
-        }
-
-        .evo-hotline .fa-phone {
-            animation-name: swing;
-            animation-duration: 1s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-direction: alternate;
-        }
-
-        .coccoc-alo-ph-img-circle {
-            animation-name: swing;
-            animation-duration: 1s;
-            animation-timing-function: ease-in-out;
-            animation-delay: 0s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-direction: alternate;
-            width: 30px;
-            height: 30px;
-            top: 15px;
-            left: 15px;
-            position: absolute;
-            -webkit-border-radius: 100%;
-            -moz-border-radius: 100%;
-            border-radius: 100%;
-            border: 2px solid transparent;
-            opacity: 1;
-        }
-
-        .clicktocall, .fancybox {
-            display: inline-block;
-            margin: 0 5px 0 0px;
-            padding: 0;
-        }
-
-            .clicktocall a {
-                font-size: 16px;
-                font-weight: 700;
-                color: #ffffff !important;
-                text-decoration: none !important;
-            }*/
-</style>
 
 
 <style>
@@ -345,4 +147,115 @@
 </script>
 <!--End footer-->
 @Html.Raw(conf.liveChat)
-@Html.Raw(conf.googleAdsense)
+
+
+
+<footer class="footer-wrapper">
+    <div class="main-footer enable-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="widget-contact">
+                        <div class="widget-title">
+                            <h4 class="title">Thông tin liên hệ</h4>
+                        </div>
+                        <div class="item-list">
+                            @Html.Raw(conf.footer)
+                            @*<div class="item">
+                                    <div class="address">
+                                        <h5>Hà Nội</h5>
+                                        <i class="bx bx-home-alt"></i>
+                                        <div class="address-content">
+                                            <p>Thịnh Liệt - Quận Hoàng Mai - Hà Nội</p>
+                                        </div>
+                                    </div>
+                                    <div class="phone"><i class="bx bx-phone-call"></i>096.247.1234 - 096.827.1234 - 0979.239.526</div>
+                                    <div class="email"><i class="bx bx-envelope"></i><a href="mailto:ordernhaphangchina@gmail.com">ngohienit@gmail.com</a></div>
+                                </div>
+                                <div class="item">
+                                    <div class="address">
+                                        <h5>Hồ Chí Minh</h5>
+                                        <i class="bx bx-home-alt"></i>
+                                        <div class="address-content">
+                                            <p>Phạm Văn Bạch - Phường 15 - Q.Tân Bình - TPHCM</p>
+                                        </div>
+                                    </div>
+                                    <div class="phone"><i class="bx bx-phone-call"></i>0965.234.838</div>
+                                </div>*@
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="row">
+                        <div class="d-flex menu-col-2 col-12">
+                            @for (int i = 0; i < cateParent.Count; i++)
+                            {
+                                lstChild = Model.Where(u => u.par_id.Equals(cateParent[i].id)).ToList();
+                                <div class="widget-menu-@(i+1) flex-50">
+                                    <div class="widget-title">
+                                        <a href="@cateParent[i].link" title="@cateParent[i].name"> <h4 class="title">@cateParent[i].name</h4></a>
+                                    </div>
+                                    <div class="menu-ve-chung-toi-container">
+                                        <ul id="footer-menu-@(i+1)" class="footer-menu-1 list-style-type">
+                                            @foreach (var item in lstChild)
+                                            {
+                                                <li id="menu-item-@item.id" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293">
+                                                    <a href="@item.link" title="@item.name">@item.name</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="footer-socials col-12">
+                            @if (!string.IsNullOrEmpty(conf.faceBook))
+                            {
+                                <a href="@conf.faceBook" rel="nofollow" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            }
+                            @if (!string.IsNullOrEmpty(conf.twiter))
+                            {
+                                <a href="@conf.twiter" rel="nofollow" target="_blank"><i class="bx bxl-twitter"></i></a>
+                            }
+
+                            @if (!string.IsNullOrEmpty(conf.youTube))
+                            {
+                                <a href="@conf.youTube" rel="nofollow" target="_blank"><i class="bx bxl-youtube"></i></a>
+                            }
+
+                            @if (!string.IsNullOrEmpty(conf.linkPrice))
+                            {
+                                <a href="@conf.linkPrice" rel="nofollow" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            }
+                        </div>
+                        <div class="col-12">
+                            <a target="_blank" rel="nofollow" href="@conf.logoBottom" title="DMCA.com Protection Status" class="dmca-badge">
+                                <img src="~/Content/CssSite/images/_dmca_premi_badge_4.png" alt="DMCA.com Protection Status" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="widget-fanpage">
+                        @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='250' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
+                        @Html.Raw(fb)
+                        @*<iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/facebookappVietnam&amp;tabs&amp;width=340&amp;height=230&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="340" height="230" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-0">@conf.copyRight</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

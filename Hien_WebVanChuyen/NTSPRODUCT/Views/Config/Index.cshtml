@@ -85,8 +85,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Logo dưới(bên trái)</label>
-                                        <input type="text" class="form-control csinput" maxlength="256" name="logoBottom" id="logoBottom" placeholder="Chọn ảnh " value="@Model.logoBottom" />
+                                        <label>Protection Status</label>
+                                        <input type="text" class="form-control csinput" maxlength="256" name="logoBottom" id="logoBottom" placeholder="Protection Status " value="@Model.logoBottom" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -115,9 +115,12 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Giới thiệu trang chủ</label>
+                                <label for="exampleInputPassword1">Mô tả ngắn bảng giá</label>
+                                @Html.TextAreaFor(u => u.googleAdsense)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nội dung bảng giá</label>
                                 @Html.TextAreaFor(u => u.infoPage)
                             </div>
                             <div class="form-group">
@@ -267,12 +270,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Link bảng giá</label>
-                                    <input type="text" class="form-control csinput" name="linkPrice" value="@Model.linkPrice" maxlength="350" placeholder="Link bảng giá" />
-                                </div>
-                            </div>
+
 
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -338,6 +336,11 @@
                             <input type="text" class="form-control csinput" name="twiter" maxlength="550" placeholder="Kênh twiter" value="@Model.twiter" />
                         </div>
                         <div class="form-group">
+                            <label>Kênh instagram</label>
+                            <input type="text" class="form-control csinput" name="linkPrice" maxlength="550" placeholder="Kênh linkPrice" value="@Model.linkPrice" />
+                        </div>
+
+                        <div class="form-group">
                             <label>Kênh shoppe</label>
                             <input type="text" class="form-control csinput" name="shoppe" maxlength="550" placeholder="Kênh shoppe" value="@Model.shoppe" />
                         </div>
@@ -369,10 +372,7 @@
                             <label for="exampleInputPassword1">Live chat</label>
                             @Html.TextAreaFor(u => u.liveChat)
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Google Adsense</label>
-                            @Html.TextAreaFor(u => u.googleAdsense)
-                        </div>
+                     
 
                     </div>
                     <div class="box-footer">
@@ -439,15 +439,15 @@
             finder.popup();
         });
     });
-    $(function () {
-        $("#logoBottom").click(function () {
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (fileUrl) {
-                $("#logoBottom").val(fileUrl);
-            };
-            finder.popup();
-        });
-    });
+    //$(function () {
+    //    $("#logoBottom").click(function () {
+    //        var finder = new CKFinder();
+    //        finder.selectActionFunction = function (fileUrl) {
+    //            $("#logoBottom").val(fileUrl);
+    //        };
+    //        finder.popup();
+    //    });
+    //});
     $(function () {
         $("#favicon").click(function () {
             var finder = new CKFinder();

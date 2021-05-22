@@ -68,9 +68,9 @@ namespace NTSPRODUCT.Controllers
                 data.desSeo = f["desseo"];
                 data.keySeo = f["keyseo"];
                 data.titleSeo = f["titleseo"];
-                data.googleAdsense = f["googleAdsense"];
+                data.googleAdsense = f["googleAdsense"];//intro bảng giá
                 data.liveChat = f["liveChat"];
-                data.infoPage = f["infoPage"];
+                data.infoPage = f["infoPage"];//bảng giá
                 data.homeVideo = f["homeVideo"];
                 data.conTact = f["conTact"];
 
@@ -99,7 +99,7 @@ namespace NTSPRODUCT.Controllers
                 data.titlePriceSub3 = f["titlePriceSub3"];
                 data.titlePriceSub4 = f["titlePriceSub4"];
 
-                data.linkPrice = f["linkPrice"];
+                data.linkPrice = f["linkPrice"];//làm kênh instagram 
                 data.linkHDTT = f["linkHDTT"];
                 data.linkHDMH = f["linkHDMH"];
                 data.imgFaq = f["imgFaq"];

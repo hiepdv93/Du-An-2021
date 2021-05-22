@@ -5,236 +5,65 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="bread-crumb">
-    <span class="crumb-border"></span>
-    <div class="container">
-        <div class="rows">
-            <div class="col-xs-12 a-left">
-                <ul class="breadcrumb" itemscope="">
-                    <li class="home">
-                        <a itemprop="url" href="/"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
-                        <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                    </li>
-                    @if (cateP != null)
-                    {
-                        <li class="home">
-                            <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
-                            <span class="mr_lr">&nbsp;<i class="fa fa-caret-right"></i>&nbsp;</span>
-                        </li>
-                        <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
-                    }
-                    else
-                    {
-                        <li><strong><span itemprop="title">@ClassExten.GetLangKey("news")</span></strong></li>
-                    }
-
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="page-detail">
-    <div class="container">
-        <div class="row">
-            @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
-            <div class="col-md-9 col-xs-12 col-lg-9">
-                <div class="box-title">
-                    <span>@(cateP!=null? cateP.cateName: "Danh sách tin tức")</span>
-                    <hr>
-                </div>
-
-                <div class="row">
-                    <section class="list-blogs blog-main flex-margin-20">
-                        @foreach (var item in Model)
-                        {
-                            <article class="blog-item">
-                                <div class="blog-item-thumbnail">
-                                    <a href="/tin/@item.new_key" title="@item.title">
-                                        <img src="@item.newImage" style="max-width:100%;" class="img-responsive" alt="@item.title">
-                                    </a>
-                                </div>
-                                <div class="date">
-                                    <p>
-                                        @("T" + item.createDate.Value.ToString("MM"))
-                                    </p>
-                                    <p>
-                                        @item.createDate.Value.ToString("dd")
-                                    </p>
-                                </div>
-                                <div class="blog-item-info">
-                                    <a href="/tin/@item.new_key" title="@item.title">
-                                        <h3 class="blog-item-name">@item.title</h3>
-                                    </a>
-                                    <p class="blog-item-summary margin-bottom-5">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 100)</p>
-                                </div>
-                            </article>
-                        }
-                    </section>
-                </div>
-                <nav aria-label="Page navigation example">
-                    @Html.Raw(ViewBag.pages)
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <div class="page-title-wrapper">
     <div class="breadcrumbs-wrapper">
         <div class="container">
             <ul class="breadcrumbs list-style-type">
-                <li><a href="index.html" class="home"><i class="bx bxs-home"></i>Trang chủ</a></li>
-                <li><span>Chính sách</span></li>
+                <li><a href="/" class="home" title="@ClassExten.GetLangKey("home")"><i class="bx bxs-home"></i>@ClassExten.GetLangKey("home")</a></li>
+
+                @if (cateP != null)
+                {
+                    <li>
+                        <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
+                    </li>
+                    <li><span>@cateP.cateName</span></li>
+                }
+                else
+                {
+                    <li><span>@ClassExten.GetLangKey("news")</span></li>
+                }
             </ul>
         </div>
     </div>
 </div>
+
 <main id="main" class="main-content home">
     <div class="content-default content-archive-wapper">
         <div class="container">
             <div class="row has-sidebar">
                 <div class="content-archive content-layout col-12 col-md-8 col-lg-9">
                     <div class="row">
-                        <article id="post-108" class="column col-12 col-sm-6 col-lg-4">
-                            <div class=" post post-108 type-post status-publish format-standard hentry">
-                                <div class="post-image">
-                                    <a title="Hình thức thanh toán" href="phuong-thuc-thanh-toan/index.html" style="background-image: url('pictures/news/2020/02/03/dlm1580710840.jpg');">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <div class="post-content-wrapper">
-                                        <h4 class="entry-title mt-0">
-                                            <a title="Hình thức thanh toán" href="phuong-thuc-thanh-toan/index.html">Hình thức thanh toán</a>
-                                        </h4>
-                                        <div class="post-excerpt">
-                                            <p>Sau khi tìm được sản phẩm, lên đơn hàng các bạn hãy làm theo quy trình sau đây để đặt cọc hoặc thanh...</p>
-                                        </div>
-                                        <div class="mys-button button-post">
-                                            <a href="phuong-thuc-thanh-toan/index.html">Xem Chi Tiết</a>
+                        @foreach (var item in Model)
+                        {
+                            <article id="post-108" class="column col-12 col-sm-6 col-lg-4">
+                                <div class=" post post-108 type-post status-publish format-standard hentry">
+                                    <div class="post-image">
+                                        <a title="@item.title" href="/tin/@item.new_key" style="background-image: url('@item.newImage');">
+                                        </a>
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-content-wrapper">
+                                            <h4 class="entry-title mt-0">
+                                                <a title="@item.title" href="/tin/@item.new_key">@item.title</a>
+                                            </h4>
+                                            <div class="post-excerpt">
+                                                <p>@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 135)</p>
+                                            </div>
+                                            <div class="mys-button button-post">
+                                                <a title="@item.title" href="/tin/@item.new_key">Xem Chi Tiết</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
-                        <article id="post-4" class="column col-12 col-sm-6 col-lg-4">
-                            <div class=" post post-4 type-post status-publish format-standard hentry">
-                                <div class="post-image">
-                                    <a title="Quy định mua hàng" href="chinh-sach-van-chuyen/index.html" style="background-image: url('pictures/news/2019/10/16/gsw1571240206.jpg');">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <div class="post-content-wrapper">
-                                        <h4 class="entry-title mt-0">
-                                            <a title="Quy định mua hàng" href="chinh-sach-van-chuyen/index.html">Quy định mua hàng</a>
-                                        </h4>
-                                        <div class="post-excerpt">
-                                            <p>Nhập hàng China là một trong những đơn vị trung gian cung cấp dịch vụ vận chuyển hàng hóa Việt –...</p>
-                                        </div>
-                                        <div class="mys-button button-post">
-                                            <a href="chinh-sach-van-chuyen/index.html">Xem Chi Tiết</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article id="post-3" class="column col-12 col-sm-6 col-lg-4">
-                            <div class=" post post-3 type-post status-publish format-standard hentry">
-                                <div class="post-image">
-                                    <a title="Chính sách khiếu nại" href="chinh-sach-khieu-nai/index.html" style="background-image: url('pictures/news/2019/10/16/cgt1571240089.jpg');">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <div class="post-content-wrapper">
-                                        <h4 class="entry-title mt-0">
-                                            <a title="Chính sách khiếu nại" href="chinh-sach-khieu-nai/index.html">Chính sách khiếu nại</a>
-                                        </h4>
-                                        <div class="post-excerpt">
-                                            <p>Mọi khiếu nại về hàng hóa và đơn hàng sẽ được NH China nhận trong vòng 72 giờ kể từ khi đơn hàng của...</p>
-                                        </div>
-                                        <div class="mys-button button-post">
-                                            <a href="chinh-sach-khieu-nai/index.html">Xem Chi Tiết</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article id="post-2" class="column col-12 col-sm-6 col-lg-4">
-                            <div class=" post post-2 type-post status-publish format-standard hentry">
-                                <div class="post-image">
-                                    <a title="Chính sách bảo mật" href="chinh-sach-bao-mat/index.html" style="background-image: url('pictures/news/2019/10/16/zzs1571239992.jpg');">
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <div class="post-content-wrapper">
-                                        <h4 class="entry-title mt-0">
-                                            <a title="Chính sách bảo mật" href="chinh-sach-bao-mat/index.html">Chính sách bảo mật</a>
-                                        </h4>
-                                        <div class="post-excerpt">
-                                            <p>Khi sử dụng dịch vụ đặt hàng Việt Trung của NH Chia bạn sẽ được hỗ trợ chính sách bảo mật thông tin...</p>
-                                        </div>
-                                        <div class="mys-button button-post">
-                                            <a href="chinh-sach-bao-mat/index.html">Xem Chi Tiết</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                            </article>
+                        }
                     </div>
                     <div class="paging-navigation pagination clearfix">
-                        <span>1</span>
+                        @Html.Raw(ViewBag.pages)
                     </div>
                 </div>
-                <div class="sidebar col-12 col-md-4 col-lg-3">
-                    <div class="main-sidebar">
-                        <aside class="widget-mys-support">
-                            <h5 class="widget-title">Hỗ trợ khách hàng</h5>
-                            <div class="support-content row">
-                                <div class="item col-6">
-                                    <a href="http://zalo.me/096.247.1688" target="_blank" rel="nofollow"><img src="images/zalo.png" alt="Hỗ trợ khách hàng" /></a>
-                                    <div class="item-info">
-                                        <b>Ms Hương</b>
-                                        <p>096.247.1688</p>
-                                    </div>
-                                </div>
-                                <div class="item col-6">
-                                    <a href="http://zalo.me/096.827.1688" target="_blank" rel="nofollow"><img src="images/zalo.png" alt="Hỗ trợ khách hàng" /></a>
-                                    <div class="item-info">
-                                        <b>Ms Diệp</b>
-                                        <p>096.827.1688</p>
-                                    </div>
-                                </div>
-                                <div class="item col-6">
-                                    <a href="http://zalo.me/0979.239.526" target="_blank" rel="nofollow"><img src="images/zalo.png" alt="Hỗ trợ khách hàng" /></a>
-                                    <div class="item-info">
-                                        <b>Ms Thoa</b>
-                                        <p>0979.239.526</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                        <aside class="widget-extension">
-                            <h5 class="widget-title">Extension Đặt hàng</h5>
-                            <div class="extension-content">
-                                <p class="desc">Công cụ đặt hàng taobao, 1688 trên Chrome tiện lợi và nhanh chóng</p>
-                                <div class="item-ext">
-                                    <div class="item">
-                                        <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension Google Chrome" target="_blank" rel="nofollow">
-                                            <img src="images/chrome.png" alt="Extension Google Chrome" />
-                                        </a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension CốcCốc" target="_blank" rel="nofollow">
-                                            <img src="images/coccoc.png" alt="Extension CốcCốc" />
-                                        </a>
-                                    </div>
-                                    <span class="caption">(Lưu ý chỉ sử dụng trên máy tính)</span>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
+                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
             </div>
         </div>
     </div>

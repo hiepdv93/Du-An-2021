@@ -43,20 +43,26 @@ namespace NTSPRODUCT
             url: "gio-hang",
             defaults: new { controller = "Carts", action = "index", id = UrlParameter.Optional }
         );
-   
+
 
             routes.MapRoute(
             name: "Lien he",
             url: "lien-he",
             defaults: new { controller = "HomeSite", action = "Contact", id = UrlParameter.Optional }
         );
-      
+
+            routes.MapRoute(
+            name: "Bang gia",
+            url: "bang-gia",
+            defaults: new { controller = "HomeSite", action = "BangGia", id = UrlParameter.Optional }
+        );
+
             routes.MapRoute(
             name: "Dich vu",
             url: "dich-vu/{id}",
             defaults: new { controller = "ProductSite", action = "Index", id = UrlParameter.Optional }
         );
-          
+
             routes.MapRoute(
             name: "Tim-kiem tin",
             url: "tim-kiem/{id}",

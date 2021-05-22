@@ -94,7 +94,7 @@
                 @foreach (var item in cate)
                 {
                     <div class="col-12 col-md-4">
-                        <div class="item" style="background-image: url(~/Content/CssSite/images/images/bg.jpg);background-position: Top Left">
+                        <div class="item" style="background-image: url(~/Content/CssSite/images/bg.jpg);background-position: Top Left">
                             <div class="services-icon">
                                 <a href="/dich-vu/@item.cateKey" title="@item.cateName">
                                     <img src="@item.cateImage" alt="@item.cateName" />
@@ -269,15 +269,28 @@
                         <div class="support-content row">
                             @foreach (var item in sup)
                             {
-                                <div class="item col-6">
-                                    <a href="http://zalo.me/@item.phone" target="_blank" rel="nofollow">
-                                        <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
-                                    </a>
-                                    <div class="item-info">
-                                        <b>@item.fullName</b>
-                                        <p>@item.phone</p>
+                                if (item.sType == 1)
+                                {
+                                    <div class="item col-6">
+                                        <a href="skype:@item.nick?chat" title="@item.fullName" target="_blank" rel="nofollow"><img src="~/Content/CssSite/images/Skype.png" alt="Hỗ trợ khách hàng" /></a>
+                                        <div class="item-info">
+                                            <b>@item.fullName</b>
+                                            <p>@item.phone</p>
+                                        </div>
                                     </div>
-                                </div>
+                                }
+                                else
+                                {
+                                    <div class="item col-6">
+                                        <a href="http://zalo.me/@item.phone" target="_blank" rel="nofollow">
+                                            <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
+                                        </a>
+                                        <div class="item-info">
+                                            <b>@item.fullName</b>
+                                            <p>@item.phone</p>
+                                        </div>
+                                    </div>
+                                }
                             }
                         </div>
                     </div>
