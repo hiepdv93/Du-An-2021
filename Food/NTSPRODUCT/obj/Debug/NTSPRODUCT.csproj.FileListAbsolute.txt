@@ -1168,6 +1168,8 @@ E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.ApplicationInsights.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Core.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.dll
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -1197,6 +1199,10 @@ E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AI.ServerTelemetryChannel.x
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AI.Web.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AI.WindowsServer.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.ApplicationInsights.xml
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\System.Web.Helpers.xml
 E:\Project Old\DuAnWeb\Food\NTSPRODUCT\bin\System.Web.Mvc.xml
