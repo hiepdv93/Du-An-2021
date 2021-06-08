@@ -1,0 +1,75 @@
+﻿@model NTSPRODUCT.Models.ShoppingCartViewModel
+
+@{var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+
+@if (Model != null)
+{
+    foreach (var item in Model.CartItems)
+    {
+        <tr class="cart_item">
+            <td class="product-remove " style="text-align:center">
+                <i class="fa fa-trash-o" aria-hidden="true" onclick="RemovePro('@item.productId')"></i>
+            </td>
+            <td class="product-thumbnail">
+                <a href="/san-pham/@item.key" title="@item.productName"><img src="@item.productImg" alt="@item.productName"></a>
+            </td>
+            <td class="product-name">
+                <a href="/san-pham/@item.key" title="@item.productName">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.productName, 30)</a>
+            </td>
+            <td class="product-quantity" data-title="Số lượng">
+                <div class="input-quanlity">
+                    <button class="btn left" onclick="DownNumberCart_List('@item.productId')" type="button"><strong>-</strong></button>
+                    <input style="width:40px" type="text" value="@item.count" min="1" max="100" step="1" data-id="@item.productId" id="input_@item.productId" class="quantityCart" />
+                    <button class="btn right" onclick="UpNumberCart_List('@item.productId')" type="button"><strong>+</strong></button>
+                </div>
+            </td>
+
+            <td class="product-price" data-title="Giá">
+                <span class="amount">@item.price.ToString("N0")<span></span></span>
+            </td>
+
+            <td class="product-subtotal">
+                <span class="amount">@item.total.ToString("N0")<span></span></span>
+            </td>
+        </tr>
+    }
+    <tr  >
+        <td></td>
+        <td colspan="4" style="line-height:35px">
+            <b>  Phí giao hàng tạm tính</b>
+        </td>
+        <td class="product-subtotal">
+            <span style="color:orangered" class="amount">@conf.priceShip.Value.ToString("N0")<span></span></span>
+        </td>
+    </tr>
+    <tr class="cart_item" >
+        <td></td>
+        <td colspan="4">
+            <b style="color:orangered">Tổng tiền</b>
+        </td>
+        <td class="product-subtotal">
+            <span style="color:orangered" class="amount">@((Model.CartTotal+ conf.priceShip.Value).ToString("N0"))<span></span></span>
+        </td>
+    </tr>
+
+}
+else
+{
+    <span>Không tìm thấy sản phẩm trong giỏ hàng</span>
+}
+
+<script>
+    $(".quantityCart").on('keyup', function () {
+        var id = $(this).attr("data-id");
+        //Set quantity number to 0 if input value is empty
+        var countToUpdate = $(this).val();
+        if (countToUpdate == '') {
+            countToUpdate = '1';
+        }
+        if (isNaN(countToUpdate)) {
+            countToUpdate = '1';
+        }
+        UpdateCart(id, countToUpdate);
+    });
+
+</script>

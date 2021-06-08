@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="revisit-after" content="1 days" />
+    <link href="@ViewBag.favicon" rel="shortcut icon" type="image/x-icon" />
+
+    <meta property="og:title" content="@ViewBag.title">
+    <meta property="og:url" itemprop="url" content="@ViewBag.url">
+    <meta property="og:image" content="@ViewBag.img">
+    <meta property="og:description" content="@ViewBag.description">
+    <meta property="og:site_name" content="@ViewBag.description">
+    <meta property="og:type" content="website">
+
+
+    <link href="~/Content/CssSite/css/boxicons.min75ca.css?v=1.0" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/bootstrap.min75ca.css?v=1.0" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/style75ca.css?v=1.0" rel="stylesheet" />
+    <link href="~/Content/CssSite/css/mystic75ca.css?v=1.0" rel="stylesheet" />
+    <link type="text/css" href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+
+    <link href="~/Content/CssSite/css/custom.css?v=1.0" rel="stylesheet" />
+    <script src="~/Content/CssSite/js/jquery.min.js" type="text/javascript"></script>
+
+    <style>
+
+        .pagination span {
+            background-color: #0072bc !important;
+            color: #fff !important;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <style>
+        .store-section .section-description {
+            margin-bottom: 40px;
+        }
+
+        element.style {
+        }
+
+        .section-title h4 {
+            margin-bottom: 0;
+        }
+
+        .section-title, .section-title h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .div_banner_fixed {
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+        }
+
+        .box-image img {
+            display: block;
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            border: 1px solid #e4e4e4;
+            background: #fff;
+        }
+    </style>
+    <style>
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0a5236 !important;
+            border-color: #12a169;
+        }
+
+        .store-section .section-description {
+            margin-bottom: 40px;
+        }
+
+        element.style {
+        }
+
+        .section-title h4 {
+            margin-bottom: 0;
+        }
+
+        .section-title, .section-title h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .div_banner_fixed {
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+        }
+
+        .box-image img {
+            display: block;
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            border: 1px solid #e4e4e4;
+            background: #fff;
+        }
+    </style>
+</head>
+<body class="home page-template page-template-home-page page-template-home-page-php page page-id-103">
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+    @{
+        string langSite = ClassExten.GetLangSite();
+        string path = HttpContext.Current.Request.Url.AbsolutePath;
+    }
+    @Html.Action("ChildHeader", "ChildView", new { lang = langSite })
+
+    <div id="wrapper" class="">
+        @RenderBody()
+
+        @Html.Action("ChildFooter", "ChildView", new { lang = langSite })
+    </div>
+
+
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Content/AdminJSController/script_validate.js"></script>
+    <script src="~/Content/SiteJSController/HomeControllers.js?v=1.0"></script>
+
+    <script>
+        PushCount();
+    </script>
+    @if (path.Equals("/") == true || path.Equals("") == true)
+    {
+
+    }
+</body>
+</html>

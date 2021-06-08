@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WEBTPAModelStoreContainer" CdmEntityContainer="WEBTPAEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="WEBTPAModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="addresss" ColumnName="addresss" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="depart" ColumnName="depart" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="siteModul" ColumnName="siteModul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Advs">
+      <EntityTypeMapping TypeName="WEBTPAModel.Adv">
+        <MappingFragment StoreEntitySet="Adv">
+          <ScalarProperty Name="imagesId" ColumnName="imagesId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="advName" ColumnName="advName" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="atype" ColumnName="atype" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="advLang" ColumnName="advLang" />
+          <ScalarProperty Name="advOrder" ColumnName="advOrder" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="advTag" ColumnName="advTag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="WEBTPAModel.Brand">
+        <MappingFragment StoreEntitySet="Brands">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="bkey" ColumnName="bkey" />
+          <ScalarProperty Name="blang" ColumnName="blang" />
+          <ScalarProperty Name="btype" ColumnName="btype" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorys">
+      <EntityTypeMapping TypeName="WEBTPAModel.Category">
+        <MappingFragment StoreEntitySet="Categorys">
+          <ScalarProperty Name="cateAvataId" ColumnName="cateAvataId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="keys" ColumnName="keys" />
+          <ScalarProperty Name="ctype" ColumnName="ctype" />
+          <ScalarProperty Name="activeHome" ColumnName="activeHome" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="cateLang" ColumnName="cateLang" />
+          <ScalarProperty Name="cateLevel" ColumnName="cateLevel" />
+          <ScalarProperty Name="catenote" ColumnName="catenote" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="cateAvata" ColumnName="cateAvata" />
+          <ScalarProperty Name="cateImg" ColumnName="cateImg" />
+          <ScalarProperty Name="cateOrder" ColumnName="cateOrder" />
+          <ScalarProperty Name="cateImg_des" ColumnName="cateImg_des" />
+          <ScalarProperty Name="catepar_id" ColumnName="catepar_id" />
+          <ScalarProperty Name="cate_cap" ColumnName="cate_cap" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configs">
+      <EntityTypeMapping TypeName="WEBTPAModel.Config">
+        <MappingFragment StoreEntitySet="Config">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hotLine" ColumnName="hotLine" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Email_Inbox" ColumnName="Email_Inbox" />
+          <ScalarProperty Name="shopemail" ColumnName="shopemail" />
+          <ScalarProperty Name="emailpass" ColumnName="emailpass" />
+          <ScalarProperty Name="addres" ColumnName="addres" />
+          <ScalarProperty Name="shopname" ColumnName="shopname" />
+          <ScalarProperty Name="logobottom" ColumnName="logobottom" />
+          <ScalarProperty Name="logotop" ColumnName="logotop" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="google" ColumnName="google" />
+          <ScalarProperty Name="twiter" ColumnName="twiter" />
+          <ScalarProperty Name="youTube" ColumnName="youTube" />
+          <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="Footer" ColumnName="Footer" />
+          <ScalarProperty Name="conTact" ColumnName="conTact" />
+          <ScalarProperty Name="map" ColumnName="map" />
+          <ScalarProperty Name="liveChat" ColumnName="liveChat" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="ex1" ColumnName="ex1" />
+          <ScalarProperty Name="ex2" ColumnName="ex2" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="conLang" ColumnName="conLang" />
+          <ScalarProperty Name="conMail_Port" ColumnName="conMail_Port" />
+          <ScalarProperty Name="viewPro" ColumnName="viewPro" />
+          <ScalarProperty Name="viewNews" ColumnName="viewNews" />
+          <ScalarProperty Name="viewVideo" ColumnName="viewVideo" />
+          <ScalarProperty Name="viewYkien" ColumnName="viewYkien" />
+          <ScalarProperty Name="viewCountFrom" ColumnName="viewCountFrom" />
+          <ScalarProperty Name="viewCountTo" ColumnName="viewCountTo" />
+          <ScalarProperty Name="viewNowFrom" ColumnName="viewNowFrom" />
+          <ScalarProperty Name="viewNowTo" ColumnName="viewNowTo" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="googleAnalytics" ColumnName="googleAnalytics" />
+          <ScalarProperty Name="yeuCauBaoGia" ColumnName="yeuCauBaoGia" />
+          <ScalarProperty Name="banCanHoTro" ColumnName="banCanHoTro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="WEBTPAModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="addressIn" ColumnName="addressIn" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="shiping" ColumnName="shiping" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="contents" ColumnName="contents" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="conLang" ColumnName="conLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="WEBTPAModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="addres" ColumnName="addres" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="avata" ColumnName="avata" />
+          <ScalarProperty Name="cusLang" ColumnName="cusLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emails">
+      <EntityTypeMapping TypeName="WEBTPAModel.email">
+        <MappingFragment StoreEntitySet="emails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email1" ColumnName="email" />
+          <ScalarProperty Name="eLang" ColumnName="eLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="WEBTPAModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="langId" ColumnName="langId" />
+          <ScalarProperty Name="langCode" ColumnName="langCode" />
+          <ScalarProperty Name="langName" ColumnName="langName" />
+          <ScalarProperty Name="langImg" ColumnName="langImg" />
+          <ScalarProperty Name="langDefault" ColumnName="langDefault" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="WEBTPAModel.Menu">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="par_id" ColumnName="par_id" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="mtype" ColumnName="mtype" />
+          <ScalarProperty Name="mtypeOf" ColumnName="mtypeOf" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="mOrder" ColumnName="mOrder" />
+          <ScalarProperty Name="ex1" ColumnName="ex1" />
+          <ScalarProperty Name="mcap" ColumnName="mcap" />
+          <ScalarProperty Name="mLang" ColumnName="mLang" />
+          <ScalarProperty Name="mPosition" ColumnName="mPosition" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="WEBTPAModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="imagesId" ColumnName="imagesId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="images" ColumnName="images" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="descript" ColumnName="descript" />
+          <ScalarProperty Name="contents" ColumnName="contents" />
+          <ScalarProperty Name="ntype" ColumnName="ntype" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="new_key" ColumnName="new_key" />
+          <ScalarProperty Name="ex1" ColumnName="ex1" />
+          <ScalarProperty Name="ex2" ColumnName="ex2" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="newOrder" ColumnName="newOrder" />
+          <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+          <ScalarProperty Name="newLang" ColumnName="newLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oderdts">
+      <EntityTypeMapping TypeName="WEBTPAModel.Oderdt">
+        <MappingFragment StoreEntitySet="Oderdt">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="oderid" ColumnName="oderid" />
+          <ScalarProperty Name="proid" ColumnName="proid" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="priceNow" ColumnName="priceNow" />
+          <ScalarProperty Name="priceCount" ColumnName="priceCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oders">
+      <EntityTypeMapping TypeName="WEBTPAModel.Oder">
+        <MappingFragment StoreEntitySet="Oders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cusid" ColumnName="cusid" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="statust" ColumnName="statust" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="oLang" ColumnName="oLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteChildents">
+      <EntityTypeMapping TypeName="WEBTPAModel.SiteChildent">
+        <MappingFragment StoreEntitySet="SiteChildent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="siteName" ColumnName="siteName" />
+          <ScalarProperty Name="siteLang" ColumnName="siteLang" />
+          <ScalarProperty Name="siteImg" ColumnName="siteImg" />
+          <ScalarProperty Name="siteOrder" ColumnName="siteOrder" />
+          <ScalarProperty Name="siteActive" ColumnName="siteActive" />
+          <ScalarProperty Name="siteExten" ColumnName="siteExten" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supports">
+      <EntityTypeMapping TypeName="WEBTPAModel.Support">
+        <MappingFragment StoreEntitySet="Support">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="stype" ColumnName="stype" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="sLang" ColumnName="sLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tagproes">
+      <EntityTypeMapping TypeName="WEBTPAModel.Tagpro">
+        <MappingFragment StoreEntitySet="Tagpro">
+          <ScalarProperty Name="tagId" ColumnName="tagId" />
+          <ScalarProperty Name="tagName" ColumnName="tagName" />
+          <ScalarProperty Name="tagKey" ColumnName="tagKey" />
+          <ScalarProperty Name="tagOrder" ColumnName="tagOrder" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="tagLang" ColumnName="tagLang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="WEBTPAModel.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="vId" ColumnName="vId" />
+          <ScalarProperty Name="cateId" ColumnName="cateId" />
+          <ScalarProperty Name="vName" ColumnName="vName" />
+          <ScalarProperty Name="vKey" ColumnName="vKey" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="vLink" ColumnName="vLink" />
+          <ScalarProperty Name="vOrder" ColumnName="vOrder" />
+          <ScalarProperty Name="vnote" ColumnName="vnote" />
+          <ScalarProperty Name="vimg" ColumnName="vimg" />
+          <ScalarProperty Name="cateView" ColumnName="cateView" />
+          <ScalarProperty Name="vLang" ColumnName="vLang" />
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Config_SelectSeoOk" FunctionName="WEBTPAModel.Store.sp_Config_SelectSeoOk">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEBTPAModel.sp_Config_SelectSeoOk_Result">
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="conLang" ColumnName="conLang" />
+          <ScalarProperty Name="logoTop" ColumnName="logoTop" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Config_SelectViewNumber" FunctionName="WEBTPAModel.Store.sp_Config_SelectViewNumber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEBTPAModel.sp_Config_SelectViewNumber_Result">
+          <ScalarProperty Name="viewPro" ColumnName="viewPro" />
+          <ScalarProperty Name="viewNews" ColumnName="viewNews" />
+          <ScalarProperty Name="viewVideo" ColumnName="viewVideo" />
+          <ScalarProperty Name="viewYkien" ColumnName="viewYkien" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="WEBTPAModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="pTag" ColumnName="pTag" />
+          <ScalarProperty Name="pLang" ColumnName="pLang" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+          <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+          <ScalarProperty Name="ex1" ColumnName="ex1" />
+          <ScalarProperty Name="statust" ColumnName="statust" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+          <ScalarProperty Name="pro_new" ColumnName="pro_new" />
+          <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+          <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+          <ScalarProperty Name="pro_count" ColumnName="pro_count" />
+          <ScalarProperty Name="proFile" ColumnName="proFile" />
+          <ScalarProperty Name="proContents" ColumnName="proContents" />
+          <ScalarProperty Name="proContents2" ColumnName="proContents2" />
+          <ScalarProperty Name="proContents3" ColumnName="proContents3" />
+          <ScalarProperty Name="proContents4" ColumnName="proContents4" />
+          <ScalarProperty Name="proWant" ColumnName="proWant" />
+          <ScalarProperty Name="proImagesId" ColumnName="proImagesId" />
+          <ScalarProperty Name="proImages" ColumnName="proImages" />
+          <ScalarProperty Name="proAvataId" ColumnName="proAvataId" />
+          <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+          <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+          <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+          <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="proCode" ColumnName="proCode" />
+          <ScalarProperty Name="brandid" ColumnName="brandid" />
+          <ScalarProperty Name="cateid" ColumnName="cateid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductExtens">
+      <EntityTypeMapping TypeName="WEBTPAModel.ProductExten">
+        <MappingFragment StoreEntitySet="ProductExten">
+          <ScalarProperty Name="siteTPA" ColumnName="siteTPA" />
+          <ScalarProperty Name="pTag" ColumnName="pTag" />
+          <ScalarProperty Name="pLang" ColumnName="pLang" />
+          <ScalarProperty Name="desSeo" ColumnName="desSeo" />
+          <ScalarProperty Name="keySeo" ColumnName="keySeo" />
+          <ScalarProperty Name="titleSeo" ColumnName="titleSeo" />
+          <ScalarProperty Name="proOrder" ColumnName="proOrder" />
+          <ScalarProperty Name="prodescription" ColumnName="prodescription" />
+          <ScalarProperty Name="ex1" ColumnName="ex1" />
+          <ScalarProperty Name="statust" ColumnName="statust" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="pro_sale" ColumnName="pro_sale" />
+          <ScalarProperty Name="pro_new" ColumnName="pro_new" />
+          <ScalarProperty Name="pro_hot" ColumnName="pro_hot" />
+          <ScalarProperty Name="pro_view" ColumnName="pro_view" />
+          <ScalarProperty Name="pro_count" ColumnName="pro_count" />
+          <ScalarProperty Name="proFile" ColumnName="proFile" />
+          <ScalarProperty Name="proContents" ColumnName="proContents" />
+          <ScalarProperty Name="proContents2" ColumnName="proContents2" />
+          <ScalarProperty Name="proContents3" ColumnName="proContents3" />
+          <ScalarProperty Name="proContents4" ColumnName="proContents4" />
+          <ScalarProperty Name="proWant" ColumnName="proWant" />
+          <ScalarProperty Name="proImagesId" ColumnName="proImagesId" />
+          <ScalarProperty Name="proImages" ColumnName="proImages" />
+          <ScalarProperty Name="proAvataId" ColumnName="proAvataId" />
+          <ScalarProperty Name="proAvata" ColumnName="proAvata" />
+          <ScalarProperty Name="proPrice_sale" ColumnName="proPrice_sale" />
+          <ScalarProperty Name="proPrice" ColumnName="proPrice" />
+          <ScalarProperty Name="pro_key" ColumnName="pro_key" />
+          <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+          <ScalarProperty Name="proCode" ColumnName="proCode" />
+          <ScalarProperty Name="brandid" ColumnName="brandid" />
+          <ScalarProperty Name="cateid" ColumnName="cateid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ykiens">
+      <EntityTypeMapping TypeName="WEBTPAModel.Ykien">
+        <MappingFragment StoreEntitySet="Ykien">
+          <ScalarProperty Name="pId" ColumnName="pId" />
+          <ScalarProperty Name="yActive" ColumnName="yActive" />
+          <ScalarProperty Name="yCreateDate" ColumnName="yCreateDate" />
+          <ScalarProperty Name="yPhone" ColumnName="yPhone" />
+          <ScalarProperty Name="yEmailAdd" ColumnName="yEmailAdd" />
+          <ScalarProperty Name="yName" ColumnName="yName" />
+          <ScalarProperty Name="ynote" ColumnName="ynote" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="yId" ColumnName="yId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

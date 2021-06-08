@@ -1,0 +1,360 @@
+﻿@model IList<NTSPRODUCT.Models.Faq>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var slide = (NTSPRODUCT.Models.Slide)ViewBag.slide;
+    var SayWe = (NTSPRODUCT.Models.SayWe)ViewBag.SayWe;
+
+    var why = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.why;
+    var news = (List<NTSPRODUCT.Models.News>)ViewBag.news;
+    var par = (List<NTSPRODUCT.Models.Partner>)ViewBag.par;
+    var sup = (List<NTSPRODUCT.Models.Support>)ViewBag.sup;
+    var slogan = (List<NTSPRODUCT.Models.Adv>)ViewBag.slogan;
+    var cate = (List<NTSPRODUCT.Models.Category>)ViewBag.cate;
+
+}
+
+<main id="main" class="main-content home">
+    <section class="extension-wrapper enable-gradient" style="background-image: url(@(slide!=null?slide.images:""));">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h1 class="heading-title-seo">@conf.shopName</h1>
+                    <div class="search-wrapper">
+                        <form action="#" method="post" target="_blank" id="search-form" class="search-form">
+                            <div class="search-content">
+                                @*<div class="fancy-select">
+                                        <select name="type" class="fs-trigger select-form custom-select">
+                                            <option value="2">TAOBAO.COM</option>
+                                            <option value="1">1688.COM</option>
+                                            <option value="3">TMALL.COM</option>
+                                        </select>
+                                    </div>*@
+                                <input type="text" name="query" id="homeSearch1" placeholder="Tìm kiếm.." class="search-inp" autocomplete="off">
+                                <button type="button" id="btnHomeSearch1" name="btn_s" class="search-submit">
+                                    <i class="bx bx-search-alt-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    @if (slide != null)
+                    {
+                        <div class="extension-install">
+                            <div class="heading-title">
+                                <h2 class="title">@slide.name</h2>
+                                <span class="caption">@slide.subName</span>
+                            </div>
+                            <div class="extension-content">
+                                <p style="color: #fff">@slide.contents</p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="process-wrapper">
+        <div class="container">
+            <div class="inline-hr"></div>
+            <div class="row">
+                @for (int i = 0; i < slogan.Count; i++)
+                {
+                    <div class="column col-12 col-sm-6 col-md-4 cols-lg-5">
+                        <div class="item">
+                            <div class="item-info">
+                                <div class="process-icon"><img src="@slogan[i].advImage" alt="@slogan[i].advName"></div>
+                                <div class="process-name"><span>@slogan[i].advName</span></div>
+                            </div>
+                            @if (i == slogan.Count - 1)
+                            {
+                                <div class="steps-process"><img src="images/checked.png" alt="steps" /></div>
+                            }
+                            else
+                            {
+                                <div class="steps-process"><img src="images/steps.png" alt="steps" /></div>
+                            }
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+    <section class="services-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h2 class="title">@conf.titleService</h2>
+                        @Html.Raw(conf.introService)
+                    </div>
+                </div>
+                @foreach (var item in cate)
+                {
+                    <div class="col-12 col-md-4">
+                        <div class="item" style="background-image: url(~/Content/CssSite/images/bg.jpg);background-position: Top Left">
+                            <div class="services-icon">
+                                <a href="/dich-vu/@item.cateKey" title="@item.cateName">
+                                    <img src="@item.cateImage" alt="@item.cateName" />
+                                </a>
+                            </div>
+                            <div class="services-info">
+                                <h3 class="title"><a href="/dich-vu/@item.cateKey" title="@item.cateName">@item.cateName</a></h3>
+                                <p>@item.shotDes</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+    <section class="price-list-wrapper enable-gradient" style="background-image: url(images/commitment.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-10 offset-lg-1">
+                    <div class="heading-title">
+                        <h2 class="title">@conf.titlePrice</h2>
+                        <p class="subtitle"></p>
+                    </div>
+                    <div class="price-list-content row">
+                        <div class="content-left col-12 col-md-4">
+                            <img src="@conf.imgPrice" alt="Bảng giá dịch vụ" />
+                        </div>
+                        <div class="conteent-right col-12 col-md-8">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 step step-1">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">1</span></div>
+                                        <div class="step-name">
+                                            <h4>@conf.titlePriceSub1</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-2">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">2</span></div>
+                                        <div class="step-name">
+                                            <h4>@conf.titlePriceSub2</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-3">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">3</span></div>
+                                        <div class="step-name">
+                                            <h4>@conf.titlePriceSub3</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 step step-4">
+                                    <div class="step-item">
+                                        <div class="step-icon"><span class="outer-circle"></span><span class="outer-circle outer-delay"></span><span class="step-number">4</span></div>
+                                        <div class="step-name">
+                                            <h4>@conf.titlePriceSub4</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="btn-more"><a href="@conf.linkPrice" title="Chi Tiết Bảng Giá">Chi Tiết Bảng Giá</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-commitment-wrapprt enable-bg-color" style="background-image: url(images/world-map.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h2 class="title">@conf.titleWhychoose</h2>
+                        @Html.Raw(conf.introWhychoose)
+                    </div>
+                </div>
+                <div class="commitment-content">
+                    <div class="col-12 col-md-10 offset-md-1">
+                        <ul class="commitment-list">
+                            @foreach (var item in why)
+                            {
+                                <li>
+                                    <h5><i class="bx bx-chevrons-right"></i>@item.title</h5>
+                                    <p>@item.contents</p>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h2 class="title">@conf.titleFAQ</h2>
+                        @Html.Raw(conf.introFAQ)
+                    </div>
+                    <div class="faq-info row">
+                        <div class="faq-content col-12 col-md-6">
+                            <ul class="fqa-list">
+                                @foreach (var item in Model)
+                                {
+                                    <li class="item">
+                                        <h4><span>@item.name</span></h4>
+                                        <p class="content mb-0">
+                                            @Html.Raw(item.contents)
+                                        </p>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="faq-banner col-12 col-md-6">
+                            <img src="@conf.imgFaq" alt="@conf.titleFAQ" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="block-wrapper">
+        <div class="container">
+            <div class="row">
+                @if (SayWe != null)
+                {
+                    <div class="col-12 col-md-8">
+                        <div id="testimonials" class="testimonials-wrapper">
+                            <div class="heading-title">
+                                <h3 class="title">Ý KIẾN KHÁCH HÀNG</h3>
+                            </div>
+                            <div class="testimonials-content">
+                                <div class="row mys-slick slick-initialized slick-slider">
+                                    <div class="slick-list draggable">
+                                        <div class="slick-track" style="opacity: 1; width: 800px; transform: translate3d(0px, 0px, 0px);">
+                                            <div class="slick-slide slick-current slick-active" style="width: 800px;">
+                                                <div>
+                                                    <div class="item col-12" style="width: 100%; display: inline-block;">
+                                                        <div class="item-content">
+                                                            <i class="bx bxs-quote-alt-left"></i>
+                                                            <blockquote>@SayWe.contents</blockquote>
+                                                        </div>
+                                                        <div class="item-info">
+                                                            <div class="item-avt"><img src="images/chi-nguyen-lan-huong.jpg" alt="Chị Nguyễn Lan Hương" /></div>
+                                                            <div class="content">
+                                                                <h5 class="item-name">@SayWe.fullName</h5>
+                                                                <p class="mb-0">@SayWe.job</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="col-12 col-md-4">
+                    <div class="support-wrapper">
+                        <div class="heading-title">
+                            <h3 class="title">HỖ TRỢ KHÁCH HÀNG</h3>
+                        </div>
+                        <div class="support-content row">
+                            @foreach (var item in sup)
+                            {
+                                if (item.sType == 1)
+                                {
+                                    <div class="item col-6">
+                                        <a href="skype:@item.nick?chat" title="@item.fullName" target="_blank" rel="nofollow"><img src="~/Content/CssSite/images/Skype.png" alt="Hỗ trợ khách hàng" /></a>
+                                        <div class="item-info">
+                                            <b>@item.fullName</b>
+                                            <p>@item.phone</p>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="item col-6">
+                                        <a href="http://zalo.me/@item.phone" target="_blank" rel="nofollow">
+                                            <img src="images/zalo.png" alt="Hỗ trợ khách hàng" />
+                                        </a>
+                                        <div class="item-info">
+                                            <b>@item.fullName</b>
+                                            <p>@item.phone</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-blog-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="blogs-wrapper col-12">
+                    <div class="heading-title custom">
+                        <h3 class="title">TIN MỚI NHẤT</h3>
+                    </div>
+                    <div class="blogs-content row">
+                        @foreach (var item in news)
+                        {
+                            <div class="item col-12 col-sm-6 col-md-4">
+                                <div class="item-image">
+                                    <a href="/tin/@item.new_key" title="@item.title">
+                                        <img class="img-rr" src="pictures/news/2021/04/10/kpq1618045008.jpg" alt="Thuế nhập khẩu hàng từ Trung Quốc là bao nhiêu" />
+                                    </a>
+                                </div>
+                                <div class="item-content">
+                                    <h4 class="title">
+                                        <a href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.title, 68)</a>
+                                    </h4>
+                                    <p class="excerpt">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.contents, 180)</p>
+                                    <a class="more" href="/tin/@item.new_key" title="@item.title">Xem Chi Tiết</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-pay-wrapper" style="background-image: url(images/crupto.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-title custom">
+                        <h3 class="title">THÔNG TIN NGÂN HÀNG</h3>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="pay-content row">
+                        @foreach (var item in par)
+                        {
+                            <div class="item col-12 col-sm-6 col-lg-4">
+                                <div class="item-content">
+                                    <div class="item-image"><img src="@item.pImage" alt="@item.pName"></div>
+                                    <div class="pay-info">
+                                        <h5 class="pay-info-name mt-0">@item.pName</h5>
+                                        <div class="pay-info-stk"><small>STK:</small>@item.bankNumber</div>
+                                        <div class="pay-info-branch"><small>Chi Nhánh:</small>@item.bankName</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

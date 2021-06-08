@@ -1,0 +1,70 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-title-wrapper">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ul class="breadcrumbs list-style-type">
+                <li><a href="/" class="home" title="@ClassExten.GetLangKey("home")"><i class="bx bxs-home"></i>@ClassExten.GetLangKey("home")</a></li>
+
+                @if (cateP != null)
+                {
+                    <li>
+                        <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
+                    </li>
+                    <li><span>@cateP.cateName</span></li>
+                }
+                else
+                {
+                    <li><span>@ClassExten.GetLangKey("news")</span></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<main id="main" class="main-content home">
+    <div class="content-default content-archive-wapper">
+        <div class="container">
+            <div class="row has-sidebar">
+                <div class="content-archive content-layout col-12 col-md-8 col-lg-9">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <article id="post-108" class="column col-12 col-sm-6 col-lg-4">
+                                <div class=" post post-108 type-post status-publish format-standard hentry">
+                                    <div class="post-image">
+                                        <a title="@item.title" href="/tin/@item.new_key" style="background-image: url('@item.newImage');">
+                                        </a>
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-content-wrapper">
+                                            <h4 class="entry-title mt-0">
+                                                <a title="@item.title" href="/tin/@item.new_key">@item.title</a>
+                                            </h4>
+                                            <div class="post-excerpt">
+                                                <p>@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 135)</p>
+                                            </div>
+                                            <div class="mys-button button-post">
+                                                <a title="@item.title" href="/tin/@item.new_key">Xem Chi Tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                    <div class="paging-navigation pagination clearfix">
+                        @Html.Raw(ViewBag.pages)
+                    </div>
+                </div>
+                @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+            </div>
+        </div>
+    </div>
+</main>

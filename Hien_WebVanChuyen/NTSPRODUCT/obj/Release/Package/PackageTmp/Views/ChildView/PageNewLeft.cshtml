@@ -1,0 +1,55 @@
+﻿@model IList<NTSPRODUCT.Models.Support>
+
+<div class="sidebar col-12 col-md-4 col-lg-3">
+    <div class="main-sidebar">
+        <aside class="widget-mys-support">
+            <h5 class="widget-title">Hỗ trợ khách hàng</h5>
+            <div class="support-content row">
+                @foreach (var item in Model)
+                {
+                    if (item.sType == 1)
+                    {
+                        <div class="item col-6">
+                            <a href="skype:@item.nick?chat" title="@item.fullName" target="_blank" rel="nofollow"><img src="~/Content/CssSite/images/Skype.png" alt="Hỗ trợ khách hàng" /></a>
+                            <div class="item-info">
+                                <b>@item.fullName</b>
+                                <p>@item.phone</p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item col-6">
+                            <a href="http://zalo.me/@item.phone" title="@item.fullName" target="_blank" rel="nofollow"><img src="~/Content/CssSite/images/zalo.png" alt="Hỗ trợ khách hàng" /></a>
+                            <div class="item-info">
+                                <b>@item.fullName</b>
+                                <p>@item.phone</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </aside>
+        <aside class="widget-extension">
+            <h5 class="widget-title">Extension Đặt hàng</h5>
+            <div class="extension-content">
+                <p class="desc">Công cụ đặt hàng taobao, 1688 trên Chrome tiện lợi và nhanh chóng</p>
+                <div class="item-ext">
+                    <div class="item">
+                        <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension Google Chrome" target="_blank" rel="nofollow">
+                            <img src="images/chrome.png" alt="Extension Google Chrome" />
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-trung-qu/ehdmdmdeiigdjfclmgenojncmpofclhm" title="Extension CốcCốc" target="_blank" rel="nofollow">
+                            <img src="images/coccoc.png" alt="Extension CốcCốc" />
+                        </a>
+                    </div>
+                    <span class="caption">(Lưu ý chỉ sử dụng trên máy tính)</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

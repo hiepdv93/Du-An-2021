@@ -1,0 +1,78 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var newData = (NTSPRODUCT.Models.News)ViewBag.newData;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cateP = (NTSPRODUCT.Models.Category)ViewBag.cateP;
+}
+
+<div class="page-title-wrapper">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <ul class="breadcrumbs list-style-type">
+                <li><a href="/" title="Trang chủ" class="home"><i class="bx bxs-home"></i>Trang chủ</a></li>
+                <li><a href="/tin-tuc" title="Tin tức">Tin tức</a></li>
+                @if (cateP != null)
+                {
+                    <li class="">
+                        <a itemprop="url" href="/tin-tuc/@cateP.cateKey" title="@cateP.cateName"><span itemprop="title">@cateP.cateName</span></a>
+                    </li>
+                }
+                <li><span>@(NTSPRODUCT.Models.StringClass.FormatContentNews(newData.title, 80))</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<main id="main" class="main-content home">
+    <article id="post-555" class="single-post-article clearfix  post-555 post type-post status-publish format-standard has-post-thumbnail hentry category-dich-vu">
+        <div class="content-default single-post-wapper">
+            <div class="container">
+                <div class="row">
+                    <div class="content-layout content-blog col-12 col-md-8 col-lg-9">
+                        <div class="inner-content-post">
+                            <div class="inner-content-info">
+                                <div class="entry-post-title">
+                                    <h1 class="entry-title mt-0 mb-0">@newData.title</h1>
+                                </div>
+                                <div class="post-meta post-meta-entry clearfix">
+                                    <div class="post-meta-author">
+                                        <div class="post-author">Đăng bởi: <b>Manager</b></div>
+                                    </div>
+                                    <div class="post-meta-date">
+                                        <p>Cập Nhật: <b>@newData.updateDate.Value.ToString("dd/MM/yyyy")</b></p>
+                                    </div>
+                                    <div class="post-meta-date">
+                                        <p>Lượt xem: <b>@newData.viewCount</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="entry-content clearfix">
+                                @Html.Raw(newData.contents)
+                            </div>
+                            <div class="single-post-related">
+                                <h2 class="heading-title text-center mt-0">
+                                    <span>Bài Viết Liên Quan</span>
+                                </h2>
+                                <div class="bingo-blogs">
+                                    <ul class="related-list">
+                                        @foreach (var item in Model)
+                                        {
+                                            <li class="item">
+                                                <h4 class="entry-title mt-0">
+                                                    <a title="@item.title" href="/tin/@item.new_key" >@item.title<span class="time_dt"> <i class="bx bx-time" aria-hidden="true"> </i> @item.updateDate.Value.ToString("dd/MM/yyyy")</span></a>
+                                                </h4>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+                </div>
+            </div>
+        </div>
+    </article>
+</main>

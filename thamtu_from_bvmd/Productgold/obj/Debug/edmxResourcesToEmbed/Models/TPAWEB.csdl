@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WEBTPAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="depart" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="siteTPA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="siteModul" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Adv">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="advName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="atype" Type="Int32" />
+    <Property Name="width" Type="Int32" />
+    <Property Name="height" Type="Int32" />
+    <Property Name="advLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="advOrder" Type="Int32" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="advTag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="imagesId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="bkey" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="blang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="btype" Type="Int32" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="WEBTPAModel.FK__Products__brandi__300424B4" FromRole="Brand" ToRole="Product" />
+    <NavigationProperty Name="ProductExtens" Relationship="WEBTPAModel.FK__ProductEx__brand__76619304" FromRole="Brand" ToRole="ProductExten" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="keys" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ctype" Type="Int32" />
+    <Property Name="activeHome" Type="Boolean" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="cateLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cateLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="catenote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="cateAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="cateImg" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="cateOrder" Type="Int32" />
+    <Property Name="cateImg_des" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="catepar_id" Type="Int32" />
+    <Property Name="cate_cap" Type="Int32" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="News" Relationship="Self.FK__News__groupid__1BFD2C07" FromRole="Categorys" ToRole="News" />
+    <Property Name="cateAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="WEBTPAModel.FK__Products__cateid__2F10007B" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="ProductExtens" Relationship="WEBTPAModel.FK__ProductEx__catei__756D6ECB" FromRole="Category" ToRole="ProductExten" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hotLine" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email_Inbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shopemail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emailpass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="shopname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="logobottom" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="logotop" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="google" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="twiter" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="youTube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="faceBook" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Footer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="conTact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="map" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="liveChat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="ex1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ex2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="conLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="conMail_Port" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="viewPro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="viewNews" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="viewVideo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="viewYkien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="viewCountFrom" Type="Int32" />
+    <Property Name="viewCountTo" Type="Int32" />
+    <Property Name="viewNowFrom" Type="Int32" />
+    <Property Name="viewNowTo" Type="Int32" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="googleAnalytics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="yeuCauBaoGia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="banCanHoTro" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cusid" Type="Int32" />
+    <Property Name="fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="addressIn" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="shiping" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="contents" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="conLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="avata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="cusLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Oders" Relationship="Self.FK__Oders__cusid__36B12243" FromRole="Customers" ToRole="Oders" />
+  </EntityType>
+  <EntityType Name="email">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="eLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="langId" />
+    </Key>
+    <Property Name="langId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="langCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="langName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="langImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="langDefault" Type="Boolean" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="par_id" Type="Int32" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="mtype" Type="Int32" />
+    <Property Name="mtypeOf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="mOrder" Type="Int32" />
+    <Property Name="ex1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="mcap" Type="Int32" />
+    <Property Name="mLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mPosition" Type="Int32" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupid" Type="Int32" />
+    <Property Name="images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="descript" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ntype" Type="Int32" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="new_key" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ex2" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="newOrder" Type="Int32" />
+    <Property Name="viewCount" Type="Int32" />
+    <Property Name="newLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__News__groupid__1BFD2C07" FromRole="News" ToRole="Categorys" />
+    <Property Name="imagesId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Oderdt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oderid" Type="Int32" />
+    <Property Name="proid" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="priceNow" Type="Double" />
+    <Property Name="priceCount" Type="Double" />
+    <NavigationProperty Name="Oder" Relationship="Self.FK__Oderdt__oderid__34C8D9D1" FromRole="Oderdt" ToRole="Oders" />
+    <NavigationProperty Name="Product" Relationship="WEBTPAModel.FK__Oderdt__proid__45F365D3" FromRole="Oderdt" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Oder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cusid" Type="Int32" />
+    <Property Name="total" Type="Double" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="statust" Type="Int32" />
+    <Property Name="fullName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="oLang" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Oders__cusid__36B12243" FromRole="Oders" ToRole="Customers" />
+    <NavigationProperty Name="Oderdts" Relationship="Self.FK__Oderdt__oderid__34C8D9D1" FromRole="Oders" ToRole="Oderdt" />
+  </EntityType>
+  <EntityType Name="SiteChildent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="siteName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="siteLang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="siteImg" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="siteOrder" Type="Int32" />
+    <Property Name="siteActive" Type="Boolean" />
+    <Property Name="siteExten" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stype" Type="Boolean" />
+    <Property Name="nick" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="sLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tagpro">
+    <Key>
+      <PropertyRef Name="tagId" />
+    </Key>
+    <Property Name="tagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tagName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="tagKey" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="tagOrder" Type="Int32" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tagLang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="vId" />
+    </Key>
+    <Property Name="vId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cateId" Type="Int32" />
+    <Property Name="vName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="vKey" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="titleSeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="vLink" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="vOrder" Type="Int32" />
+    <Property Name="vnote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="vimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="cateView" Type="Int32" />
+    <Property Name="vLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__News__groupid__1BFD2C07">
+    <End Role="Categorys" Type="Self.Category" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oders__cusid__36B12243">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oders" Type="Self.Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oders">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oderdt__oderid__34C8D9D1">
+    <End Role="Oders" Type="Self.Oder" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oderdt">
+        <PropertyRef Name="oderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WEBTPAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Advs" EntityType="Self.Adv" />
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categorys" EntityType="Self.Category" />
+    <EntitySet Name="Configs" EntityType="Self.Config" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="emails" EntityType="Self.email" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="Oderdts" EntityType="Self.Oderdt" />
+    <EntitySet Name="Oders" EntityType="Self.Oder" />
+    <EntitySet Name="SiteChildents" EntityType="Self.SiteChildent" />
+    <EntitySet Name="Supports" EntityType="Self.Support" />
+    <EntitySet Name="Tagproes" EntityType="Self.Tagpro" />
+    <EntitySet Name="Videos" EntityType="Self.Video" />
+    <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+      <End Role="Categorys" EntitySet="Categorys" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oders__cusid__36B12243" Association="Self.FK__Oders__cusid__36B12243">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Oders" EntitySet="Oders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="Self.FK__Oderdt__oderid__34C8D9D1">
+      <End Role="Oders" EntitySet="Oders" />
+      <End Role="Oderdt" EntitySet="Oderdts" />
+    </AssociationSet>
+    <FunctionImport Name="sp_Config_SelectSeoOk" ReturnType="Collection(WEBTPAModel.sp_Config_SelectSeoOk_Result)">
+      <Parameter Name="conLang" Mode="In" Type="String" />
+      <Parameter Name="site" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Config_SelectViewNumber" ReturnType="Collection(WEBTPAModel.sp_Config_SelectViewNumber_Result)">
+      <Parameter Name="conLang" Mode="In" Type="String" />
+      <Parameter Name="site" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Products" EntityType="WEBTPAModel.Product" />
+    <AssociationSet Name="FK__Products__brandi__300424B4" Association="WEBTPAModel.FK__Products__brandi__300424B4">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__cateid__2F10007B" Association="WEBTPAModel.FK__Products__cateid__2F10007B">
+      <End Role="Category" EntitySet="Categorys" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oderdt__proid__45F365D3" Association="WEBTPAModel.FK__Oderdt__proid__45F365D3">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Oderdt" EntitySet="Oderdts" />
+    </AssociationSet>
+    <EntitySet Name="ProductExtens" EntityType="WEBTPAModel.ProductExten" />
+    <AssociationSet Name="FK__ProductEx__brand__76619304" Association="WEBTPAModel.FK__ProductEx__brand__76619304">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="ProductExten" EntitySet="ProductExtens" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductEx__catei__756D6ECB" Association="WEBTPAModel.FK__ProductEx__catei__756D6ECB">
+      <End Role="Category" EntitySet="Categorys" />
+      <End Role="ProductExten" EntitySet="ProductExtens" />
+    </AssociationSet>
+    <EntitySet Name="Ykiens" EntityType="WEBTPAModel.Ykien" />
+  </EntityContainer>
+  <ComplexType Name="sp_Config_SelectSeoOk_Result">
+    <Property Type="String" Name="titleSeo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="keySeo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="desSeo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="conLang" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="logoTop" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="sp_Config_SelectViewNumber_Result">
+    <Property Type="String" Name="viewPro" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="viewNews" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="viewVideo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="viewYkien" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cateid" Type="Int32" />
+    <Property Name="brandid" Type="Int32" />
+    <Property Name="proCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pro_name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="pro_key" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="proPrice" Type="Double" />
+    <Property Name="proPrice_sale" Type="Double" />
+    <Property Name="proAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proImages" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="proImagesId" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="proWant" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proContents4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="pro_count" Type="Int32" />
+    <Property Name="pro_view" Type="Int32" />
+    <Property Name="pro_hot" Type="Boolean" />
+    <Property Name="pro_new" Type="Boolean" />
+    <Property Name="pro_sale" Type="Boolean" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="statust" Type="Boolean" />
+    <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="prodescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="proOrder" Type="Int32" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="pLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pTag" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Brand" Relationship="WEBTPAModel.FK__Products__brandi__300424B4" FromRole="Product" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="WEBTPAModel.FK__Products__cateid__2F10007B" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Oderdts" Relationship="WEBTPAModel.FK__Oderdt__proid__45F365D3" FromRole="Product" ToRole="Oderdt" />
+  </EntityType>
+  <Association Name="FK__Products__brandi__300424B4">
+    <End Type="WEBTPAModel.Brand" Role="Brand" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__cateid__2F10007B">
+    <End Type="WEBTPAModel.Category" Role="Category" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="cateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oderdt__proid__45F365D3">
+    <End Type="WEBTPAModel.Product" Role="Product" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WEBTPAModel.Oderdt" Role="Oderdt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oderdt">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductExten">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cateid" Type="Int32" />
+    <Property Name="brandid" Type="Int32" />
+    <Property Name="proCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="pro_name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="pro_key" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="proPrice" Type="Double" />
+    <Property Name="proPrice_sale" Type="Double" />
+    <Property Name="proAvata" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proAvataId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proImages" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="proImagesId" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+    <Property Name="proWant" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="proContents4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proContents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="proFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="pro_count" Type="Int32" />
+    <Property Name="pro_view" Type="Int32" />
+    <Property Name="pro_hot" Type="Boolean" />
+    <Property Name="pro_new" Type="Boolean" />
+    <Property Name="pro_sale" Type="Boolean" />
+    <Property Name="active" Type="Boolean" />
+    <Property Name="statust" Type="Boolean" />
+    <Property Name="ex1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="prodescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="proOrder" Type="Int32" />
+    <Property Name="titleSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="keySeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="desSeo" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="pLang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pTag" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="siteTPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Brand" Relationship="WEBTPAModel.FK__ProductEx__brand__76619304" FromRole="ProductExten" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="WEBTPAModel.FK__ProductEx__catei__756D6ECB" FromRole="ProductExten" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK__ProductEx__brand__76619304">
+    <End Type="WEBTPAModel.Brand" Role="Brand" Multiplicity="0..1" />
+    <End Type="WEBTPAModel.ProductExten" Role="ProductExten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductExten">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductEx__catei__756D6ECB">
+    <End Type="WEBTPAModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="WEBTPAModel.ProductExten" Role="ProductExten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductExten">
+        <PropertyRef Name="cateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Ykien">
+    <Key>
+      <PropertyRef Name="yId" />
+    </Key>
+    <Property Name="yId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ynote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="yName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="yEmailAdd" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="yPhone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="yCreateDate" Type="DateTime" Precision="3" />
+    <Property Name="yActive" Type="Boolean" />
+    <Property Name="pId" Type="Int32" />
+  </EntityType>
+</Schema>

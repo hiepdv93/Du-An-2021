@@ -329,6 +329,15 @@ namespace Productgold.Controllers.HomeTPA
             ViewBag.navTin = nav;
             ViewBag.dataNews = data;
             var lstNew = db.News.Where(u => u.newLang == lang && u.groupid == data.groupid && u.id != data.id).OrderBy(u => u.newOrder).Take(number).ToList();
+
+
+            #region[load seo]
+            ViewBag.title = data.titleSeo;
+            ViewBag.description = data.desSeo;
+            ViewBag.keywords = data.keySeo;
+            ViewBag.url = HttpContext.Request.Url.AbsoluteUri;
+            ViewBag.img = ClassExten.GetUrlHost() + data.images;
+            #endregion
             return View(lstNew);
         }
 

@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WEBTPAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+    <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" />
+    <Property Name="depart" Type="nvarchar" MaxLength="150" />
+    <Property Name="active" Type="bit" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="150" />
+    <Property Name="siteModul" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Adv">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="advName" Type="nvarchar" MaxLength="250" />
+    <Property Name="images" Type="nvarchar" MaxLength="250" />
+    <Property Name="imagesId" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="nvarchar" MaxLength="500" />
+    <Property Name="active" Type="bit" />
+    <Property Name="atype" Type="int" />
+    <Property Name="width" Type="int" />
+    <Property Name="height" Type="int" />
+    <Property Name="advLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="advOrder" Type="int" />
+    <Property Name="note" Type="ntext" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+    <Property Name="advTag" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Brands">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" />
+    <Property Name="images" Type="nvarchar" MaxLength="250" />
+    <Property Name="bkey" Type="nvarchar" MaxLength="250" />
+    <Property Name="blang" Type="nvarchar" MaxLength="50" />
+    <Property Name="btype" Type="int" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Categorys">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="350" />
+    <Property Name="keys" Type="nvarchar" MaxLength="400" />
+    <Property Name="ctype" Type="int" />
+    <Property Name="activeHome" Type="bit" />
+    <Property Name="active" Type="bit" />
+    <Property Name="cateLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="cateLevel" Type="nvarchar" MaxLength="250" />
+    <Property Name="catenote" Type="ntext" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="cateAvata" Type="nvarchar" MaxLength="250" />
+    <Property Name="cateAvataId" Type="nvarchar" MaxLength="250" />
+    <Property Name="cateImg" Type="nvarchar" MaxLength="650" />
+    <Property Name="cateOrder" Type="int" />
+    <Property Name="cateImg_des" Type="nvarchar" MaxLength="400" />
+    <Property Name="catepar_id" Type="int" />
+    <Property Name="cate_cap" Type="int" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hotLine" Type="nvarchar" MaxLength="150" />
+    <Property Name="phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email_Inbox" Type="nvarchar" MaxLength="50" />
+    <Property Name="shopemail" Type="nvarchar" MaxLength="50" />
+    <Property Name="emailpass" Type="nvarchar" MaxLength="50" />
+    <Property Name="addres" Type="nvarchar" MaxLength="100" />
+    <Property Name="shopname" Type="nvarchar" MaxLength="50" />
+    <Property Name="logobottom" Type="nvarchar" MaxLength="256" />
+    <Property Name="logotop" Type="nvarchar" MaxLength="256" />
+    <Property Name="fax" Type="nvarchar" MaxLength="250" />
+    <Property Name="google" Type="nvarchar" MaxLength="250" />
+    <Property Name="twiter" Type="nvarchar" MaxLength="250" />
+    <Property Name="youTube" Type="nvarchar" MaxLength="250" />
+    <Property Name="faceBook" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="varchar" MaxLength="100" />
+    <Property Name="Footer" Type="ntext" />
+    <Property Name="conTact" Type="ntext" />
+    <Property Name="map" Type="ntext" />
+    <Property Name="liveChat" Type="ntext" />
+    <Property Name="active" Type="bit" />
+    <Property Name="ex1" Type="ntext" />
+    <Property Name="ex2" Type="ntext" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="conLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="conMail_Port" Type="nvarchar" MaxLength="50" />
+    <Property Name="viewPro" Type="nvarchar" MaxLength="100" />
+    <Property Name="viewNews" Type="nvarchar" MaxLength="100" />
+    <Property Name="viewVideo" Type="nvarchar" MaxLength="100" />
+    <Property Name="viewYkien" Type="nvarchar" MaxLength="100" />
+    <Property Name="viewCountFrom" Type="int" />
+    <Property Name="viewCountTo" Type="int" />
+    <Property Name="viewNowFrom" Type="int" />
+    <Property Name="viewNowTo" Type="int" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+    <Property Name="googleAnalytics" Type="ntext" />
+    <Property Name="yeuCauBaoGia" Type="ntext" />
+    <Property Name="banCanHoTro" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cusid" Type="int" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="25" />
+    <Property Name="addressIn" Type="nvarchar" MaxLength="450" />
+    <Property Name="address" Type="nvarchar" MaxLength="450" />
+    <Property Name="shiping" Type="nvarchar" MaxLength="450" />
+    <Property Name="title" Type="nvarchar" MaxLength="450" />
+    <Property Name="contents" Type="nvarchar" MaxLength="800" />
+    <Property Name="createdate" Type="datetime" />
+    <Property Name="active" Type="bit" />
+    <Property Name="conLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="int" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="varchar" MaxLength="12" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="addres" Type="nvarchar" MaxLength="100" />
+    <Property Name="active" Type="bit" />
+    <Property Name="type" Type="int" />
+    <Property Name="avata" Type="nvarchar" MaxLength="250" />
+    <Property Name="cusLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="emails">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="eLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="langId" />
+    </Key>
+    <Property Name="langId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="langCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="langName" Type="nvarchar" MaxLength="50" />
+    <Property Name="langImg" Type="nvarchar" MaxLength="250" />
+    <Property Name="langDefault" Type="bit" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="nvarchar" MaxLength="250" />
+    <Property Name="par_id" Type="int" />
+    <Property Name="active" Type="bit" />
+    <Property Name="mtype" Type="int" />
+    <Property Name="mtypeOf" Type="nvarchar" MaxLength="50" />
+    <Property Name="note" Type="ntext" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="mOrder" Type="int" />
+    <Property Name="ex1" Type="nvarchar" MaxLength="250" />
+    <Property Name="mcap" Type="int" />
+    <Property Name="mLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="mPosition" Type="int" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="groupid" Type="int" />
+    <Property Name="images" Type="nvarchar" MaxLength="250" />
+    <Property Name="imagesId" Type="nvarchar" MaxLength="250" />
+    <Property Name="title" Type="nvarchar" MaxLength="350" />
+    <Property Name="descript" Type="nvarchar" MaxLength="400" />
+    <Property Name="contents" Type="ntext" />
+    <Property Name="ntype" Type="int" />
+    <Property Name="active" Type="bit" />
+    <Property Name="createdate" Type="datetime" />
+    <Property Name="new_key" Type="nvarchar" MaxLength="400" />
+    <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+    <Property Name="ex2" Type="nvarchar" MaxLength="400" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="newOrder" Type="int" />
+    <Property Name="viewCount" Type="int" />
+    <Property Name="newLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Oderdt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oderid" Type="int" />
+    <Property Name="proid" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="priceNow" Type="float" />
+    <Property Name="priceCount" Type="float" />
+  </EntityType>
+  <EntityType Name="Oders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cusid" Type="int" />
+    <Property Name="total" Type="float" />
+    <Property Name="createdate" Type="datetime" />
+    <Property Name="statust" Type="int" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="250" />
+    <Property Name="email" Type="nvarchar" MaxLength="250" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="oLang" Type="nvarchar" MaxLength="450" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductExten">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cateid" Type="int" />
+    <Property Name="brandid" Type="int" />
+    <Property Name="proCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="pro_name" Type="nvarchar" MaxLength="350" />
+    <Property Name="pro_key" Type="nvarchar" MaxLength="350" />
+    <Property Name="proPrice" Type="float" />
+    <Property Name="proPrice_sale" Type="float" />
+    <Property Name="proAvata" Type="nvarchar" MaxLength="250" />
+    <Property Name="proAvataId" Type="nvarchar" MaxLength="250" />
+    <Property Name="proImages" Type="nvarchar" MaxLength="650" />
+    <Property Name="proImagesId" Type="nvarchar" MaxLength="650" />
+    <Property Name="proWant" Type="nvarchar" MaxLength="250" />
+    <Property Name="proContents4" Type="ntext" />
+    <Property Name="proContents3" Type="ntext" />
+    <Property Name="proContents2" Type="ntext" />
+    <Property Name="proContents" Type="ntext" />
+    <Property Name="proFile" Type="nvarchar" MaxLength="256" />
+    <Property Name="pro_count" Type="int" />
+    <Property Name="pro_view" Type="int" />
+    <Property Name="pro_hot" Type="bit" />
+    <Property Name="pro_new" Type="bit" />
+    <Property Name="pro_sale" Type="bit" />
+    <Property Name="active" Type="bit" />
+    <Property Name="statust" Type="bit" />
+    <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+    <Property Name="prodescription" Type="nvarchar" MaxLength="600" />
+    <Property Name="proOrder" Type="int" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="pLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="pTag" Type="nvarchar" MaxLength="600" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cateid" Type="int" />
+    <Property Name="brandid" Type="int" />
+    <Property Name="proCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="pro_name" Type="nvarchar" MaxLength="350" />
+    <Property Name="pro_key" Type="nvarchar" MaxLength="350" />
+    <Property Name="proPrice" Type="float" />
+    <Property Name="proPrice_sale" Type="float" />
+    <Property Name="proAvata" Type="nvarchar" MaxLength="250" />
+    <Property Name="proAvataId" Type="nvarchar" MaxLength="250" />
+    <Property Name="proImages" Type="nvarchar" MaxLength="650" />
+    <Property Name="proImagesId" Type="nvarchar" MaxLength="650" />
+    <Property Name="proWant" Type="nvarchar" MaxLength="250" />
+    <Property Name="proContents4" Type="ntext" />
+    <Property Name="proContents3" Type="ntext" />
+    <Property Name="proContents2" Type="ntext" />
+    <Property Name="proContents" Type="ntext" />
+    <Property Name="proFile" Type="nvarchar" MaxLength="256" />
+    <Property Name="pro_count" Type="int" />
+    <Property Name="pro_view" Type="int" />
+    <Property Name="pro_hot" Type="bit" />
+    <Property Name="pro_new" Type="bit" />
+    <Property Name="pro_sale" Type="bit" />
+    <Property Name="active" Type="bit" />
+    <Property Name="statust" Type="bit" />
+    <Property Name="ex1" Type="nvarchar" MaxLength="200" />
+    <Property Name="prodescription" Type="nvarchar" MaxLength="600" />
+    <Property Name="proOrder" Type="int" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="400" />
+    <Property Name="pLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="pTag" Type="nvarchar" MaxLength="600" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SiteChildent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="siteName" Type="nvarchar" MaxLength="350" />
+    <Property Name="siteLang" Type="varchar" MaxLength="50" />
+    <Property Name="siteImg" Type="nvarchar" MaxLength="350" />
+    <Property Name="siteOrder" Type="int" />
+    <Property Name="siteActive" Type="bit" />
+    <Property Name="siteExten" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="Support">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stype" Type="bit" />
+    <Property Name="nick" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="100" />
+    <Property Name="sLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tagpro">
+    <Key>
+      <PropertyRef Name="tagId" />
+    </Key>
+    <Property Name="tagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tagName" Type="nvarchar" MaxLength="150" />
+    <Property Name="tagKey" Type="nvarchar" MaxLength="150" />
+    <Property Name="tagOrder" Type="int" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+    <Property Name="tagLang" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Videos">
+    <Key>
+      <PropertyRef Name="vId" />
+    </Key>
+    <Property Name="vId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cateId" Type="int" />
+    <Property Name="vName" Type="nvarchar" MaxLength="350" />
+    <Property Name="vKey" Type="nvarchar" MaxLength="350" />
+    <Property Name="titleSeo" Type="nvarchar" MaxLength="350" />
+    <Property Name="keySeo" Type="nvarchar" MaxLength="350" />
+    <Property Name="desSeo" Type="nvarchar" MaxLength="350" />
+    <Property Name="vLink" Type="nvarchar" MaxLength="350" />
+    <Property Name="vOrder" Type="int" />
+    <Property Name="vnote" Type="ntext" />
+    <Property Name="vimg" Type="nvarchar" MaxLength="250" />
+    <Property Name="cateView" Type="int" />
+    <Property Name="vLang" Type="nvarchar" MaxLength="50" />
+    <Property Name="siteTPA" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ykien">
+    <Key>
+      <PropertyRef Name="yId" />
+    </Key>
+    <Property Name="yId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminId" Type="nvarchar" MaxLength="150" />
+    <Property Name="ynote" Type="nvarchar(max)" />
+    <Property Name="yName" Type="nvarchar" MaxLength="250" />
+    <Property Name="yEmailAdd" Type="nvarchar" MaxLength="450" />
+    <Property Name="yPhone" Type="nvarchar" MaxLength="250" />
+    <Property Name="yCreateDate" Type="datetime" />
+    <Property Name="yActive" Type="bit" />
+    <Property Name="pId" Type="int" />
+  </EntityType>
+  <Association Name="FK__News__groupid__1BFD2C07">
+    <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oderdt__oderid__34C8D9D1">
+    <End Role="Oders" Type="Self.Oders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oderdt">
+        <PropertyRef Name="oderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oderdt__proid__45F365D3">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oderdt" Type="Self.Oderdt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oderdt">
+        <PropertyRef Name="proid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oders__cusid__36B12243">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Oders" Type="Self.Oders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Oders">
+        <PropertyRef Name="cusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductEx__brand__3D5E1FD2">
+    <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />
+    <End Role="ProductExten" Type="Self.ProductExten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductExten">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductEx__catei__3E52440B">
+    <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1" />
+    <End Role="ProductExten" Type="Self.ProductExten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProductExten">
+        <PropertyRef Name="cateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__brandi__300424B4">
+    <End Role="Brands" Type="Self.Brands" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__cateid__2F10007B">
+    <End Role="Categorys" Type="Self.Categorys" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="cateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_Config_SelectSeoOk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="conLang" Type="nvarchar" Mode="In" />
+    <Parameter Name="site" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Config_SelectViewNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="conLang" Type="nvarchar" Mode="In" />
+    <Parameter Name="site" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="WEBTPAModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adv" EntityType="Self.Adv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oderdt" EntityType="Self.Oderdt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oders" EntityType="Self.Oders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductExten" EntityType="Self.ProductExten" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteChildent" EntityType="Self.SiteChildent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tagpro" EntityType="Self.Tagpro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ykien" EntityType="Self.Ykien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__News__groupid__1BFD2C07" Association="Self.FK__News__groupid__1BFD2C07">
+      <End Role="Categorys" EntitySet="Categorys" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oderdt__oderid__34C8D9D1" Association="Self.FK__Oderdt__oderid__34C8D9D1">
+      <End Role="Oders" EntitySet="Oders" />
+      <End Role="Oderdt" EntitySet="Oderdt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oderdt__proid__45F365D3" Association="Self.FK__Oderdt__proid__45F365D3">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Oderdt" EntitySet="Oderdt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oders__cusid__36B12243" Association="Self.FK__Oders__cusid__36B12243">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Oders" EntitySet="Oders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductEx__brand__3D5E1FD2" Association="Self.FK__ProductEx__brand__3D5E1FD2">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="ProductExten" EntitySet="ProductExten" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductEx__catei__3E52440B" Association="Self.FK__ProductEx__catei__3E52440B">
+      <End Role="Categorys" EntitySet="Categorys" />
+      <End Role="ProductExten" EntitySet="ProductExten" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__brandi__300424B4" Association="Self.FK__Products__brandi__300424B4">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__cateid__2F10007B" Association="Self.FK__Products__cateid__2F10007B">
+      <End Role="Categorys" EntitySet="Categorys" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

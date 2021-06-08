@@ -6,7 +6,10 @@
     var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
     var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
     var isMobile = Request.Browser.IsMobileDevice;
-
+    string path = HttpContext.Current.Request.Url.AbsolutePath;
+    bool isTrangchu = false;
+    if (path.Equals("/") || path.Equals(""))
+    { isTrangchu = true; }
 }
 
 
@@ -101,30 +104,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12">
-                    <div id="DHS_megamenu">
-                        <div class="title_block">
-                            <span>danh mục</span>
-                        </div>
-                        <div class="block_conten navbar_menuvertical">
-                            <ul class="nav navbar-nav nav_verticalmenu" role="navigation">
+                    @if (isTrangchu)
+                    {
+                        <div id="DHS_megamenu" class="menu-home">
+                            <div class="title_block">
+                                <span>danh mục</span>
+                            </div>
+                            <div class="block_conten navbar_menuvertical">
+                                <ul class="nav navbar-nav nav_verticalmenu" role="navigation">
 
-                                @foreach (var item in cateParent)
-                                {
-                                    <li class="item-vertical">
-                                        <a href="/danh-muc/@item.cateKey" title="@item.cateName">
-                                            @if (!string.IsNullOrEmpty(item.cateImage))
-                                            {
-                                                <img class="image_fresh" src="@item.cateImage" alt="@item.cateName">
-                                            }
-                                            <span class="title_menu">@item.cateName</span>
-                                        </a>
-                                    </li>
-                                }
-                                @*@Html.Raw(ClassExten.GetCateNewChild(item.id, cateChild))*@
-
-                            </ul>
+                                    @foreach (var item in cateParent)
+                                    {
+                                        <li class="item-vertical">
+                                            <a href="/danh-muc/@item.cateKey" title="@item.cateName">
+                                                @if (!string.IsNullOrEmpty(item.cateImage))
+                                                {
+                                                    <img class="image_fresh" src="@item.cateImage" alt="@item.cateName">
+                                                }
+                                                <span class="title_menu">@item.cateName</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    }
+                    else
+                    {
+                        <div id="DHS_megamenu" class="menu-page-child">
+                            <div class="title_block">
+                                <span>Danh mục</span>
+                            </div>
+                            <div class="block_conten navbar_menuvertical box-other-page">
+                                <ul class="nav navbar-nav nav_verticalmenu" role="navigation">
+
+                                    @foreach (var item in cateParent)
+                                    {
+                                        <li class="item-vertical">
+                                            <a href="/danh-muc/@item.cateKey" title="@item.cateName">
+                                                @if (!string.IsNullOrEmpty(item.cateImage))
+                                                {
+                                                    <img class="image_fresh" src="@item.cateImage" alt="@item.cateName">
+                                                }
+                                                <span class="title_menu">@item.cateName</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+
                 </div>
                 <div class="col-md-9 col-xs-12">
                     <div class="row">

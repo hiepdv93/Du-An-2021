@@ -1,0 +1,261 @@
+﻿﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+    List<NTSPRODUCT.Models.Menu> lstChild;
+}
+
+@*<section id="hotline-zalo-fb">
+        @if (!string.IsNullOrEmpty(conf.hotLine))
+        {
+            <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+                <img src="~/Content/CssSite/images/hotline.png" />
+                <span>Hotline</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.zaloChat))
+        {
+            <a href="@("http://zalo.me/"+conf.zaloChat)" class="zalo">
+                <img src="~/Content/CssSite/images/zalo.png" />
+                <span>Zalo</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.faceBook))
+        {
+            <a href="@conf.faceBook" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/fb.png" />
+                <span>Facebook</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.youTube))
+        {
+            <a href="@conf.youTube" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/youTube.png" />
+                <span>YouTube</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.shoppe))
+        {
+            <a href="@conf.shoppe" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/shoppe.png" />
+                <span>Shoppe</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.tiki))
+        {
+            <a href="@conf.tiki" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/tiki.png" />
+                <span>Tiki</span>
+            </a>
+        }
+    </section>*@
+
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+</button>
+
+
+<style>
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: darkgray;
+        color: white;
+        cursor: pointer;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+
+        #myBtn:hover {
+            background-color: darkgray;
+        }
+
+    .level0 .level1 a span:hover {
+        color: #e33725 !important
+    }
+
+    section#hotline-zalo-fb {
+        position: fixed;
+        top: 25%;
+        right: 10px;
+        z-index: 9999;
+    }
+
+    #hotline-zalo-fb a {
+        display: block;
+    }
+
+    .call-icon img {
+        border-radius: 50%;
+        background: #64bc46;
+        padding: 6px;
+    }
+
+    #hotline-zalo-fb a img {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    #hotline-zalo-fb a.call-icon {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    #hotline-zalo-fb a span {
+        display: none;
+    }
+
+    .smalltext {
+        padding-top: 1px;
+        font-size: 14px;
+        color: #000;
+    }
+</style>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!--End footer-->
+@Html.Raw(conf.liveChat)
+
+
+
+<footer class="footer-wrapper">
+    <div class="main-footer enable-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="widget-contact">
+                        <div class="widget-title">
+                            <h4 class="title">Thông tin liên hệ</h4>
+                        </div>
+                        <div class="item-list">
+                            @Html.Raw(conf.footer)
+                            @*<div class="item">
+                                    <div class="address">
+                                        <h5>Hà Nội</h5>
+                                        <i class="bx bx-home-alt"></i>
+                                        <div class="address-content">
+                                            <p>Thịnh Liệt - Quận Hoàng Mai - Hà Nội</p>
+                                        </div>
+                                    </div>
+                                    <div class="phone"><i class="bx bx-phone-call"></i>096.247.1234 - 096.827.1234 - 0979.239.526</div>
+                                    <div class="email"><i class="bx bx-envelope"></i><a href="mailto:ordernhaphangchina@gmail.com">ngohienit@gmail.com</a></div>
+                                </div>
+                                <div class="item">
+                                    <div class="address">
+                                        <h5>Hồ Chí Minh</h5>
+                                        <i class="bx bx-home-alt"></i>
+                                        <div class="address-content">
+                                            <p>Phạm Văn Bạch - Phường 15 - Q.Tân Bình - TPHCM</p>
+                                        </div>
+                                    </div>
+                                    <div class="phone"><i class="bx bx-phone-call"></i>0965.234.838</div>
+                                </div>*@
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="row">
+                        <div class="d-flex menu-col-2 col-12">
+                            @for (int i = 0; i < cateParent.Count; i++)
+                            {
+                                lstChild = Model.Where(u => u.par_id.Equals(cateParent[i].id)).ToList();
+                                <div class="widget-menu-@(i+1) flex-50">
+                                    <div class="widget-title">
+                                        <a href="@cateParent[i].link" title="@cateParent[i].name"> <h4 class="title">@cateParent[i].name</h4></a>
+                                    </div>
+                                    <div class="menu-ve-chung-toi-container">
+                                        <ul id="footer-menu-@(i+1)" class="footer-menu-1 list-style-type">
+                                            @foreach (var item in lstChild)
+                                            {
+                                                <li id="menu-item-@item.id" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293">
+                                                    <a href="@item.link" title="@item.name">@item.name</a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="footer-socials col-12">
+                            @if (!string.IsNullOrEmpty(conf.faceBook))
+                            {
+                                <a href="@conf.faceBook" rel="nofollow" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            }
+                            @if (!string.IsNullOrEmpty(conf.twiter))
+                            {
+                                <a href="@conf.twiter" rel="nofollow" target="_blank"><i class="bx bxl-twitter"></i></a>
+                            }
+
+                            @if (!string.IsNullOrEmpty(conf.youTube))
+                            {
+                                <a href="@conf.youTube" rel="nofollow" target="_blank"><i class="bx bxl-youtube"></i></a>
+                            }
+
+                            @if (!string.IsNullOrEmpty(conf.linkPrice))
+                            {
+                                <a href="@conf.linkPrice" rel="nofollow" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            }
+                        </div>
+                        <div class="col-12">
+                            <a target="_blank" rel="nofollow" href="@conf.logoBottom" title="DMCA.com Protection Status" class="dmca-badge">
+                                <img src="~/Content/CssSite/images/_dmca_premi_badge_4.png" alt="DMCA.com Protection Status" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="widget-fanpage">
+                        @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='250' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='100%'></iframe>";}
+                        @Html.Raw(fb)
+                        @*<iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/facebookappVietnam&amp;tabs&amp;width=340&amp;height=230&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="340" height="230" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-0">@conf.copyRight</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
