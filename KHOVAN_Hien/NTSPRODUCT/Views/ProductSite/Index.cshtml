@@ -35,20 +35,7 @@
                         <h2 class="uppercase text-center">@(cateP != null ? cateP.cateName : ClassExten.GetLangKey("key_sanpham"))</h2>
                     </div>
                     <section class="products-view products-view-grid">
-
                         <div class="row">
-                            @if (cateP != null)
-                            {
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="product-description">
-                                        @Html.Raw(cateP.cateDescription)
-                                    </div>
-                                </div>
-                            }
-                        </div>
-
-                        <div class="row">
-
                             @foreach (var item in Model)
                             {
                                 <div class="col-6 col-sm-4 col-md-3 col-lg-4">

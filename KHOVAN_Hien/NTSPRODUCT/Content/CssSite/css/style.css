@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=vietnamese";
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&amp;subset=vietnamese";
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +9,22 @@ iframe,
 table {
     max-width: 100%;
 }
-
+.lightSlider img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+.lightSlider li.lslide {
+    text-align: center;
+}
+.section_service .service-icon img:hover{
+	animation: roll 1s;
+}
+.section_service .content-service:hover{
+	background: #c1dbe0;
+}
 body {
-    font-family: "Roboto","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-family: "Josefin Sans","HelveticaNeue","Helvetica Neue",sans-serif;
     font-size: 14px;
     color: #333;
     overflow-x: hidden;
@@ -636,9 +649,11 @@ ul.tabs li {
     margin: 25px 0;
 }
 .section_why_choose .section_why_choose_content .why_choose_item img {
-    width: 70px;
+    width: 50px;
     float: left;
     margin-right: 10px;
+    height: 50px;
+    object-fit: contain;
 }
 .section_why_choose .section_why_choose_content .why_choose_item .choose-right {
     padding-left: 80px;
@@ -674,15 +689,20 @@ ul.tabs li {
     float: left;
     position: relative;
     background: #f2f7f8;
+transition: all 0.3s ease;
 }
 .section_service .col-service {
-    padding-right: 150px;
+    padding-right: 70px;
 }
 .section_service .content-service .title-service {
     font-size: 18px;
     color: #3c4550;
     font-weight: 700;
-    margin: 110px 0 30px;
+    margin: 25px 0 25px;
+}
+.section_vaitro iframe {
+    width: 100% !important;
+    height: 276px !important;
 }
 .section_service .content-service .service-sumary {
     font-size: 16px;
@@ -700,7 +720,7 @@ ul.tabs li {
 .section_service .service-image .banner {
     position: relative;
     max-width: max-content;
-    min-height: 462px;
+    height: 462px;
 }
 .section_service .service-icon {
     position: absolute;
@@ -722,6 +742,10 @@ ul.tabs li {
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
+transition: all 0.3s ease;
+}
+.section_service .content-service:hover .service-icon:before {
+background-color: #a0ecfb;
 }
 .section_service .service-icon img {
     display: block;
@@ -2292,4 +2316,49 @@ h4.panel-title {
 .c-address-list h3 {
     font-weight: 600;
     font-size: 22px;
+}
+section#hotline-zalo-fb {
+    position: fixed;
+    top: 25%;
+    right: 10px;
+    z-index: 9999;
+    float: inherit;
+    width: inherit;
+}
+#hotline-zalo-fb a.call-icon {
+    animation-name: swing;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#hotline-zalo-fb a {
+    display: block;
+}
+#hotline-zalo-fb a img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.call-icon img {
+    border-radius: 50%;
+    background: #64bc46;
+    padding: 6px;
+}
+#hotline-zalo-fb a span {
+    display: none;
+}
+.items-product img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+border-radius: 5px;
+}
+.items-product p {
+    padding: 5px;
+    color: #0072bc;
+    font-weight: 500;
+    font-size: 15px;
 }

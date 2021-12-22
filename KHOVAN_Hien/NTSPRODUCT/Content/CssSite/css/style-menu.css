@@ -1,4 +1,3 @@
-
 a#toggle {
     position: fixed;
     top: 10px;
@@ -109,7 +108,7 @@ main#content {
     color: #ffffff;
     font-weight: 600;
     line-height: 33px;
-    font-family: "Roboto","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-family: "Josefin Sans","HelveticaNeue","Helvetica Neue",sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }

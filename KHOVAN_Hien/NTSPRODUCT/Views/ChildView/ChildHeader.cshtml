@@ -7,7 +7,7 @@
 }
 @if (isHome)
 {
-    @*<header class="header">
+    <header class="header">
         <div class="container">
             <div class="header-main">
                 <div class="row">
@@ -76,82 +76,7 @@
                 </nav>
             </div>
         </div>
-    </header>*@
-
-
-    <header class="header header-page">
-        <div class="container">
-            <div class="header-main">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-full-function">
-                        <a id="toggle" href="#"><i class="fa fa-bars"></i></a>
-                        <div id="overlay"></div>
-                        <div class="logo">
-                            <a href="@conf.linkLogo" class="logo-wrapper" title="@conf.shopName">
-                                <img src="@conf.logoBottom" alt="@conf.shopName">
-                            </a>
-                        </div>
-                        <a href="tel:@conf.hotLine" title="@conf.hotLine" class="icon-option-cart hidden-lg hidden-md"></a>
-                    </div>
-                    <div class="col-lg-5 col-md-4">
-                        <div class="search">
-                            <div class="header_search search_form">
-                                <form class="input-group search-bar search_form has-validation-callback" action="/search" method="get" role="search">
-                                    <input type="search" name="query" id="homeSearch1" placeholder="@ClassExten.GetLangKey("key_timkiem")" class="input-group-field st-default-search-input search-text" autocomplete="off">
-                                    <span class="input-group-btn">
-                                        <button class="btn icon-fallback-text" id="btnHomeSearch1">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 hidden-sm hidden-xs">
-                        <div class="top-fun">
-                            <div class="hotline">
-                                <img src="~/Content/CssSite/images/hotline.svg" alt="@ClassExten.GetLangKey("key_dienthoai247")">
-                                <div class="hotline-text">
-                                    <a href="tel:@conf.hotLine">@conf.hotLine</a>
-                                    <span>@ClassExten.GetLangKey("key_dienthoai247")</span>
-                                </div>
-                            </div>
-                            <div class="translate">
-                                <ul>
-                                    <li class="active">
-                                        <span class="span-lang" id="btnLangVN">
-                                            <img src="~/Content/CssSite/images/flag_vi.gif" class="img-fluid" alt="lang">
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="span-lang" id="btnLangEN">
-                                            <img src="~/Content/CssSite/images/flag_en.gif" class="img-fluid" alt="lang">
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="nav-top">
-            <div class="container">
-                <nav id="menu">
-                    <ul>
-                        @foreach (var item in cateParent)
-                        {
-                            <li>
-                                <a @(string.IsNullOrEmpty(item.link) ? "" : "href=" + item.link + "") title="@item.name">@item.name</a>
-                                @Html.Raw(ClassExten.GetMenuSiteLevel2(item.id, Model.Where(u => !u.par_id.Equals(ClassExten.cateParent)).ToList()))
-                            </li>
-                        }
-                    </ul>
-                </nav>
-            </div>
-        </div>
     </header>
-
     <section id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:500px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
