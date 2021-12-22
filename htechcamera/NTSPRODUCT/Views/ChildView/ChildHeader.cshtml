@@ -1,0 +1,214 @@
+﻿@model IList<NTSPRODUCT.Models.Category>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cart = (NTSPRODUCT.Models.ShoppingCartViewModel)ViewBag.cart;
+    var menu = (List<NTSPRODUCT.Models.Menu>)ViewBag.menu;
+    var cateParent = Model.Where(u => u.catepar_id.Equals(ClassExten.cateParent)).OrderBy(u => u.cateOrder).ToList();
+    var cateChild = Model.Where(u => !u.catepar_id.Equals(ClassExten.cateParent)).ToList();
+    var isMobile = Request.Browser.IsMobileDevice;
+    string path = HttpContext.Current.Request.Url.AbsolutePath;
+    bool isTrangchu = false;
+    if (path.Equals("/") || path.Equals(""))
+    { isTrangchu = true; }
+}
+
+
+<div class="header-top" style="position: fixed;top: 0px;z-index: 1000;left: 0px;width: 100%;">
+    <div class="header-destop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-12">
+                    <div class="logo-top">
+                        <a href="@conf.linkLogo" title="@conf.shopName"><img src="@conf.logoTop" alt="@conf.shopName" width="100%"></a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <div class="input-group stylish-input-group input-append search">
+                        <input type="text" class="form-control" id="homeSearch1" placeholder="Tìm kiếm..">
+                        <span class="input-group-addon">
+                            <button id="btnHomeSearch1" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <div class="hotline-top">
+                        <div class="right">
+                            <span><img src="~/Content/CssSite/images/Layer-1.png" alt="@conf.hotLine"></span>
+                        </div>
+                        <div class="left">
+                            <p>Giao hàng ngay</p>
+                            <a href="tel:@conf.hotLine" title="@conf.hotLine">@conf.hotLine</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <div class="shoping">
+                        <a href="/gio-hang" title="giỏ hàng">
+                            <img src="~/Content/CssSite/images/Vector-Smart-Object.png" alt="Giỏ hàng">
+                            <span id="total_count_cart">
+                                @ViewBag.countSp
+                            </span>
+                        </a>
+                        <div class="div-cart">
+                            @if (cart != null && cart.CartTotal > 0)
+                            {
+                                foreach (var item in cart.CartItems)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="/san-pham/@item.key" title="@item.productName">
+                                                <img src="@item.productImg"
+                                                     style="width:60px;height:55px;object-fit:contain;border:1px solid #e2d3d3;border-radius:3px" />
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8 col-xs-12">
+                                            <a href="/san-pham/@item.key" title="@item.productName">
+                                                @item.productName
+                                                <b style="float:right">@item.count</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <a href="/gio-hang" title="giỏ hàng">
+                                            <button type="button" class="btn btn-cart pull-right"
+                                                    style="width:100%;margin-top:10px;padding:10px 10px;text-transform:uppercase;color:white;background:#12a169">
+                                                Xem giỏ hàng
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        Không có sản phẩm nào trong giỏ hàng
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="login">
+                        <button type='button' class="btn btn-success" data-toggle="modal" data-target="#popUpWindow">Đăng Nhập</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu hidden-sm hidden-xs" id="main_nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    @if (isTrangchu)
+                    {
+                        <div id="DHS_megamenu" class="menu-home">
+                            <div class="title_block">
+                                <span>danh mục</span>
+                            </div>
+                            <div class="block_conten navbar_menuvertical">
+                                <ul class="nav navbar-nav nav_verticalmenu" role="navigation">
+
+                                    @foreach (var item in cateParent)
+                                    {
+                                        <li class="item-vertical">
+                                            <a href="/danh-muc/@item.cateKey" title="@item.cateName">
+                                                @if (!string.IsNullOrEmpty(item.cateImage))
+                                                {
+                                                    <img class="image_fresh" src="@item.cateImage" alt="@item.cateName">
+                                                }
+                                                <span class="title_menu">@item.cateName</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="DHS_megamenu" class="menu-page-child">
+                            <div class="title_block">
+                                <span>Danh mục</span>
+                            </div>
+                            <div class="block_conten box-other-page">
+                                <ul class="nav navbar-nav nav_verticalmenu" role="navigation">
+
+                                    @foreach (var item in cateParent)
+                                    {
+                                        <li class="item-vertical">
+                                            <a href="/danh-muc/@item.cateKey" title="@item.cateName">
+                                                @if (!string.IsNullOrEmpty(item.cateImage))
+                                                {
+                                                    <img class="image_fresh" src="@item.cateImage" alt="@item.cateName">
+                                                }
+                                                <span class="title_menu">@item.cateName</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <div class="col-md-9 col-xs-12">
+                    <div class="row">
+                        <div class="nav-right-slide">
+                            <ul class="nav navbar-pills menu-top">
+
+                                @if (menu.Count > 0)
+                                {
+                                    foreach (var item in menu)
+                                    {
+                                        <li class="nav-sale">
+                                            <a href="@item.link" title="@item.name">@Html.Raw(isMobile ? string.Empty : item.icon) @item.name</a>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li class="nav-sale">
+                                        <span><img src="~/Content/CssSite/images/icon-hot.png" alt="khuyến mãi"></span>
+                                        <a href="/khuyen-mai" title="Sản phẩm khuyến mãi">Khuyến mãi hot</a>
+                                    </li>
+                                    <li class="nav-banch">
+                                        <span><img src="~/Content/CssSite/images/Vector-Smart-Object1.png" alt="khuyến mãi"></span>
+                                        <a href="/top-ban-chay" title="Sản phẩm bán chạy">Bán chạy nhất</a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .div-cart {
+        min-height: 50px;
+        height: auto;
+        width: 350px;
+        background: white;
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        border: 1px solid #808080;
+        z-index: 1000;
+        padding: 10px;
+        box-shadow: 31px;
+        border-radius: 6px;
+    }
+
+    .shoping:hover .div-cart {
+        display: block !important
+    }
+</style>

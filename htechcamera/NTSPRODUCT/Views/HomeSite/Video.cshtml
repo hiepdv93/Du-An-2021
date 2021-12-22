@@ -1,0 +1,52 @@
+﻿@{
+    var newsHot = (List<NTSPRODUCT.Models.News>)ViewBag.newsHot;
+    var videos = (List<NTSPRODUCT.Models.Adv>)ViewBag.videos;
+
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var isMobile = Request.Browser.IsMobileDevice;
+}
+
+
+<div class="list-prodcut-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="news-left">
+                    <h4 class="menu-content">Tin tức</h4>
+                    @foreach (var item in newsHot)
+                    {
+                        <div class="item-news">
+                            <a class="news-img" href="/tin/@item.new_key" title="@item.title"><img src="@item.newImage" alt="@item.title"></a>
+                            <a class="news-nanme" href="/tin/@item.new_key" title="@item.title">@NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 35)</a>
+                            <div class="news-time">
+                                <span><i class="fa fa-calendar"></i> @item.createDate.Value.ToString("dd/MM/yyyy HH:mm")</span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="titles">
+                    <a href="/video" title="Kênh Youtube Tanson Foods">
+                        <span style="color:red">Kênh Youtube Tanson Foods</span>
+                    </a>
+                </div>
+                <div class="list-video">
+
+                        @foreach (var item in videos)
+                        {
+                            <div class="col-md-4 col-xs-12">
+                                <div class="item">
+                                    <div class="video">
+                                        <iframe allowfullscreen="1" height="220" frameborder="0" src="//www.youtube.com/embed/@ClassExten.GetIdVideo(item.advLink)?rel=0" width="100%">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

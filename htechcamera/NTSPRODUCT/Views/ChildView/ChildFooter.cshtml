@@ -1,0 +1,351 @@
+﻿﻿@model IList<NTSPRODUCT.Models.Menu>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var cateParent = Model.Where(u => u.par_id.Equals(ClassExten.cateParent)).OrderBy(u => u.mOrder).ToList();
+    List<NTSPRODUCT.Models.Menu> lstChild;
+}
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="row">
+                    @foreach (var item in cateParent)
+                    {
+                        lstChild = Model.Where(u => u.par_id.Equals(item.id)).OrderBy(u => u.mOrder).ToList();
+
+                        <div class="col-md-2 col-xs-6">
+                            <div class="nav-footer">
+                                <div class="title-nav-footer">
+                                    <h3> <a href="@item.link" title="@item.name">@item.name</a></h3>
+                                </div>
+                                <div class="list-nav-ft">
+                                    <ul>
+                                        @foreach (var itemSub in lstChild)
+                                        {
+                                            <li>
+                                                <a href="@itemSub.link" title="@itemSub.name">@itemSub.name</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            @*<div class="col-md-4 col-xs-12">
+                <div class="banner-footer">
+                    <a  href="/" title="@conf.shopName"><img src="@conf.linkLogo" alt="@conf.shopName"></a>
+                </div>
+            </div>*@
+        </div>
+        <div class="row">
+            <div class="footer2">
+                <div class="col-md-4 col-xs-12">
+                    <div class="logo-footer">
+                        <p id="count_online"></p>
+                        <p id="counterAll"></p>
+                        <p id="counterMonth"></p>
+                        <a  href="@conf.linkLogo" title="@conf.shopName"><img src="@conf.logoBottom" alt="@conf.shopName"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="contact-footer">
+                        @Html.Raw(conf.footer)
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="bo-cong-thuong">
+                        <a  href="@conf.linkLogo" title="@conf.shopName"><img src="~/Content/CssSite/images/bo-cong-thuong.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="hotline-zalo-fb">
+        @if (!string.IsNullOrEmpty(conf.hotLine))
+        {
+            <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+                <img src="~/Content/CssSite/images/hotline.png" />
+                <span>Hotline</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.zaloChat))
+        {
+            <a href="@("http://zalo.me/"+conf.zaloChat)" class="zalo">
+                <img src="~/Content/CssSite/images/zalo.png" />
+                <span>Zalo</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.faceBook))
+        {
+            <a href="@conf.faceBook" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/fb.png" />
+                <span>Facebook</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.youTube))
+        {
+            <a href="@conf.youTube" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/youTube.png" />
+                <span>YouTube</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.shoppe))
+        {
+            <a href="@conf.shoppe" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/shoppe.png" />
+                <span>Shoppe</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(conf.tiki))
+        {
+            <a href="@conf.tiki" target="_blank" class="mes">
+                <img src="~/Content/CssSite/images/tiki.png" />
+                <span>Tiki</span>
+            </a>
+        }
+    </section>
+
+
+@*<div class="phone-gif">
+        <div class="fancybox" onclick="window.location='tel: @conf.hotLine'">
+            <div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" id="coccoc-alo-phoneIcon" style="right: 5%; top: 10%;">
+                <div class="coccoc-alo-ph-circle">&nbsp;</div>
+                <div class="coccoc-alo-ph-img-circle">
+                    <img src="https://hangduchaanh.com/Content/CssSite/images/hotline.png" />
+                </div>
+            </div>
+        </div>
+        <div class="clicktocall"><a class="call" href="tel:@conf.hotLine">Gọi ngay<br><b>@conf.hotLine</b></a></div>
+    </div>*@
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i style="color: darkgreen; font-size: 30px;" class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+</button>
+
+<style>
+    /* .coccoc-alo-phone {
+            visibility: hidden;
+            background-color: transparent;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 200000 !important;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            -webkit-transition: visibility .5s;
+            -moz-transition: visibility .5s;
+            -o-transition: visibility .5s;
+            transition: visibility .5s;
+            right: 150px;
+            top: 30px;
+        }
+
+        .phone-gif {
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background: #d91e1e;
+            border: 3px solid #fff;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 8px #d91e1e;
+            z-index: 5000;
+            cursor: pointer;
+        }
+
+        .clicktocall, .fancybox {
+            display: inline-block;
+            margin: 0 5px 0 0px;
+            padding: 0;
+        }
+
+        .coccoc-alo-phone.coccoc-alo-show {
+            visibility: visible;
+        }
+
+        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle {
+            border-color: white;
+            opacity: .7;
+        }
+
+        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-circle-fill {
+            background-color: #fde6e8;
+            background-color: #a6e3fa 9;
+            opacity: .75 !important;
+        }
+
+        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
+            background-color: #56ff00;
+        }
+
+        element.style {
+        }
+
+        .coccoc-alo-phone.coccoc-alo-green .coccoc-alo-ph-img-circle {
+            background-color: #56ff00;
+        }
+
+        .coccoc-alo-show {
+        }
+
+        .coccoc-alo-ph-img-circle img {
+            -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+            -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+            -ms-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+            -o-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+            animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out !important;
+            -webkit-transform-origin: 50% 50% !important;
+            -moz-transform-origin: 50% 50% !important;
+            -ms-transform-origin: 50% 50% !important;
+            -o-transform-origin: 50% 50% !important;
+            transform-origin: 50% 50% !important;
+            animation-timing-function: ease-in-out;
+        }
+
+        .evo-hotline .fa-phone {
+            animation-name: swing;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-direction: alternate;
+        }
+
+        .coccoc-alo-ph-img-circle {
+            animation-name: swing;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-direction: alternate;
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            left: 15px;
+            position: absolute;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            border: 2px solid transparent;
+            opacity: 1;
+        }
+
+        .clicktocall, .fancybox {
+            display: inline-block;
+            margin: 0 5px 0 0px;
+            padding: 0;
+        }
+
+            .clicktocall a {
+                font-size: 16px;
+                font-weight: 700;
+                color: #ffffff !important;
+                text-decoration: none !important;
+            }*/
+</style>
+
+
+<style>
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: darkgray;
+        color: white;
+        cursor: pointer;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+
+        #myBtn:hover {
+            background-color: darkgray;
+        }
+
+    .level0 .level1 a span:hover {
+        color: #e33725 !important
+    }
+
+    section#hotline-zalo-fb {
+        position: fixed;
+        top: 25%;
+        right: 10px;
+        z-index: 9999;
+    }
+
+    #hotline-zalo-fb a {
+        display: block;
+    }
+
+    .call-icon img {
+        border-radius: 50%;
+        background: #64bc46;
+        padding: 6px;
+    }
+
+    #hotline-zalo-fb a img {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    #hotline-zalo-fb a.call-icon {
+        animation-name: swing;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    #hotline-zalo-fb a span {
+        display: none;
+    }
+
+    .smalltext {
+        padding-top: 1px;
+        font-size: 14px;
+        color: #000;
+    }
+</style>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!--End footer-->
+@Html.Raw(conf.liveChat)
+@Html.Raw(conf.googleAdsense)

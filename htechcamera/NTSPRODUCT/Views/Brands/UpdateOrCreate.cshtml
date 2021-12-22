@@ -1,0 +1,71 @@
+﻿<div id="modamBrand" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog w700">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #5db2ff; color: white">
+                <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="titleBrand"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Tên thương hiệu<span class="text-red">(*)</span></label>
+                                <input type="hidden" value="" id="idBrands" />
+                                <input type="text" class="form-control" name="advName"  maxlength="450" id="bkName" placeholder="Tên thương hiệu.." required="required">
+                            </span>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Hình ảnh</label><span class="text-red">(*)</span>
+                                <input type="text" class="form-control "  maxlength="250" name="img" id="bkImage" placeholder="Chọn ảnh" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Thứ tự<span class="text-red">(*)</span></label>
+                                <input type="number" value="1" class="form-control" name="numberOder" id="numberOder" required="required">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Mô tả</label>
+                                <textarea type="text" rows="3" class="form-control csinput" name="note" id="note" placeholder="Mô tả.." />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="modal-footer" style="margin-top: -20px;">
+                    <button type="button" class="btn btn-primary" onclick="CreateOrUpdate()"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //up ảnh
+    $(function () {
+        $("#bkImage").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#bkImage").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>

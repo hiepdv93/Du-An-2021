@@ -1,0 +1,369 @@
+﻿@model NTSPRODUCT.Models.Config
+@{
+
+    ViewBag.Title = "Administrator - Cấu hình website";
+    ViewBag.controller = "Cấu hình website";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Cấu hình chung</a></li>
+                    <li><a href="#tab_2" data-toggle="tab"> Cấu hình sản phẩm, tin tức</a></li>
+                    <li><a href="#tab_6" data-toggle="tab">Cấu hình mạng xã hội</a></li>
+                    <li><a href="#tab_5" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Tên công ty/tổ chức</label>
+                                        <input type="text" class="form-control csinput" name="shopname" maxlength="350" placeholder="Tên.." value="@Model.shopName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Số phone</label>
+                                        <input type="text" class="form-control csinput" maxlength="250" name="phone" placeholder="Số phone" value="@Model.phone" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Zalo chat</label>
+                                        <input type="text" class="form-control csinput" maxlength="750" name="zaloChat" placeholder="Zalo chat.." value="@Model.zaloChat" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Số hot line</label>
+                                        <input type="text" class="form-control csinput" maxlength="250" name="hotLine" placeholder="Số hot line" value="@Model.hotLine" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Bản quyền</label>
+                                        <input type="text" class="form-control csinput" name="copyRight" maxlength="250" placeholder="Bản quyền.." value="@Model.copyRight" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email nhận tin</label>
+                                        <input type="email" class="form-control csinput" name="email_Inbox" maxlength="50" placeholder="Email nhận" value="@Model.email_Inbox" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email gửi tin </label>
+                                        <input type="hidden" value="@Model.id" name="idupdate" />
+                                        <input type="email" class="form-control csinput" name="email_Send" maxlength="50" placeholder="Email gửi tin" value="@Model.email_Send" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Mật khẩu email</label>
+                                        <input type="password" class="form-control csinput" name="emailPass" maxlength="50" placeholder="Mật khẩu email" value="@Model.emailPass" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Cổng gửi mail</label>
+                                        <input type="number" class="form-control csinput" name="mail_Port" placeholder="Cổng gửi mail" value="@Model.mail_Port" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Logo dưới(bên trái)</label>
+                                        <input type="text" class="form-control csinput" maxlength="256" name="logoBottom" id="logoBottom" placeholder="Chọn ảnh " value="@Model.logoBottom" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Logo trên</label>
+                                        <input type="text" class="form-control csinput" maxlength="256" name="logoTop" id="logoTop" placeholder="Chọn ảnh " value="@Model.logoTop" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Link click vào logo</label>
+                                        <input type="text" class="form-control csinput" name="linkLogo" id="linkLogo" maxlength="300" placeholder="Link click vào logo" value="@Model.linkLogo" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Favicon</label>
+                                        <input type="text" class="form-control csinput" name="favicon" id="favicon" maxlength="350" placeholder="favicon" value="@Model.favicon" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Địa chỉ cửa hàng/công ty</label>
+                                        <input type="text" class="form-control csinput" name="addresss" maxlength="350" placeholder="Địa chỉ/Intro giới thiệu.." value="@Model.addresss" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="display:none">
+                                <label for="exampleInputPassword1">Video trang chủ</label>
+                                @Html.TextAreaFor(u => u.homeVideo)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Giới thiệu trang chủ</label>
+                                @Html.TextAreaFor(u => u.infoPage)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Thông tin chân trang</label>
+                                @Html.TextAreaFor(u => u.footer)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Cấu hình mô tả giỏ hàng</label>
+                                @Html.TextAreaFor(u => u.footerExten)
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Thông tin trang liên hệ</label>
+                                @Html.TextAreaFor(u => u.conTact)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab_2">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số sản phẩm trang chủ</label>
+                                        <input type="number" class="form-control csinput" name="viewProPageHome" placeholder="" required="required" value="@Model.viewProPageHome" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số sản phẩm trang danh sách</label>
+                                        <input type="number" class="form-control csinput" name="viewProPageList" placeholder="" required="required" value="@Model.viewProPageList" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số sản phẩm cùng nhóm trang chi tiết</label>
+                                        <input type="number" class="form-control csinput" name="viewProPageDetail" placeholder="" required="required" value="@Model.viewProPageDetail" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số tin tức hiện trang chủ</label>
+                                        <input type="number" class="form-control csinput" name="viewNewPageHome" placeholder="" required="required" value="@Model.viewNewPageHome" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số tin tức trang danh sách</label>
+                                        <input type="number" class="form-control csinput" name="viewNewPageList" placeholder="" required="required" value="@Model.viewNewPageList" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Số tin tức trang chi tiết</label>
+                                        <input type="number" class="form-control csinput" name="viewNewPageDetail" placeholder="" required="required" value="@Model.viewNewPageDetail" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phí ship</label>
+                                        <input type="number" class="form-control csinput" name="priceShip" placeholder="" required="required" value="@Model.priceShip" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Sắp xếp sản phẩm quản trị</label>
+                                        <select name="viewProBy" id="viewProBy" class="form-control">
+                                            <option value="1">Thứ tự</option>
+                                            <option value="2">Ngày tạo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Gửi mail khi mua hàng</label>
+                                        <select name="typeSendMail" id="typeSendMail" class="form-control">
+                                            <option value="1">Không gửi mail</option>
+                                            <option value="2">Chỉ gửi Admin</option>
+                                            <option value="3">Chỉ gửi cho khách</option>
+                                            <option value="4">Gửi cho cả 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Kênh video trang chủ</label>
+                                        <select name="isShowVideoHome" id="isShowVideoHome" class="form-control">
+                                            <option value="1">Hiện thị video</option>
+                                            <option value="0">Ẩn video</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_6">
+                        <div class="form-group">
+                            <label>Kênh facebook</label>
+                            <input type="text" class="form-control csinput" name="facebook" maxlength="550" placeholder="Kênh facebook" value="@Model.faceBook" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh youtube</label>
+                            <input type="text" class="form-control csinput" name="youtube" maxlength="550" placeholder="Kênh youtube" value="@Model.youTube" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh google</label>
+                            <input type="text" class="form-control csinput" name="google" maxlength="550" placeholder="Kênh google" value="@Model.google" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh twiter</label>
+                            <input type="text" class="form-control csinput" name="twiter" maxlength="550" placeholder="Kênh twiter" value="@Model.twiter" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh shoppe</label>
+                            <input type="text" class="form-control csinput" name="shoppe" maxlength="550" placeholder="Kênh shoppe" value="@Model.shoppe" />
+                        </div>
+                        <div class="form-group">
+                            <label>Kênh tiki</label>
+                            <input type="text" class="form-control csinput" name="tiki" maxlength="550" placeholder="Kênh tiki" value="@Model.tiki" />
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab_5">
+                        <div class="form-group">
+                            <label>Title seo</label>
+                            <textarea type="text" class="form-control" name="titleseo" maxlength="800" rows="2" placeholder="Title seo">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo</label>
+                            <textarea type="text" class="form-control" name="keyseo" maxlength="800" rows="2" placeholder="Keyword seo">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo</label>
+                            <textarea type="text" class="form-control" name="desseo" maxlength="800" rows="2" placeholder="Description seo">@Model.desSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Bản đồ trang liên hệ</label>
+                            @Html.TextAreaFor(u => u.mapBig)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Bản đồ nhỏ chân trang</label>
+                            @Html.TextAreaFor(u => u.mapSmall)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Live chat</label>
+                            @Html.TextAreaFor(u => u.liveChat)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Google Adsense</label>
+                            @Html.TextAreaFor(u => u.googleAdsense)
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>Lưu lại</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+    </div>
+}
+@if (Session["ok"] != null)
+{
+    <script type="text/javascript">
+        toastr.success('@Session["ok"].ToString()');
+    </script>
+}
+@if (Session["ok"] != null) { Session["ok"] = null; }
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }
+
+<script type="text/javascript">
+    $('#viewProBy').val('@Model.viewProBy');
+    $('#isShowVideoHome').val('@(Model.isShowVideoHome==true?'1':'0')');
+    $('#typeSendMail').val('@Model.typeSendMail');
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+
+    $(function () {
+
+        createEditor('vi', 'liveChat');
+        createEditor('vi', 'conTact');
+        createEditor('vi', 'googleAdsense');
+
+        createEditor('vi', 'infoPage');
+        createEditor('vi', 'footer');
+        createEditor('vi', 'footerExten');
+        createEditor('vi', 'mapSmall');
+        createEditor('vi', 'mapBig');
+        createEditor('vi', 'homeVideo');
+
+    });
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#logoTop").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#logoTop").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#logoBottom").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#logoBottom").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#favicon").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#favicon").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+   
+
+</script>

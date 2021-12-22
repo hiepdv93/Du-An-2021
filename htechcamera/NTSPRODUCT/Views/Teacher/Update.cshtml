@@ -1,0 +1,204 @@
+﻿@model NTSPRODUCT.Models.Teacher
+@{
+    ViewBag.Title = "Administrator - Cập nhật lĩnh vực hoạt động";
+    ViewBag.controller = "Cập nhật lĩnh vực hoạt động";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <!-- general form elements -->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Tên lĩnh vực</label><span class="text-red">(*)</span>
+                                    <input name="teacherName" id="teacherName" value="@Model.name" maxlength="800" placeholder="Tên lĩnh vực..." class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ảnh đại diện</label><span class="text-red">(*)</span>
+                                    <input type="text" value="@Model.avata" maxlength="256" class="form-control " name="img" id="img" placeholder="Chọn ảnh" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Thứ tự</label><span class="text-red">(*)</span>
+                                    <input type="number" value="@Model.tOrder" class="form-control " name="tOrder" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="display-block">Hiển thị</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="teacherStatus" @(Model.status == true ? "checked" : "")>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="display-block">Hiện trang chủ</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="tHot" @(Model.thot == true ? "checked" : "")>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Url lĩnh vực</label><span class="text-red">(*)</span>
+                            <input name="teacher_key" maxlength="800" id="teacher_key" value="@Model.tkey" placeholder="Url lĩnh vực.." class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả ngắn</label>
+                            <textarea name="descript" maxlength="800" placeholder="Nội dung mô tả..." class="form-control" rows="3">@Model.descript</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung giới thiệu</label>
+                            @Html.TextAreaFor(u => u.note)
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <textarea name="titleSeo" placeholder="Tile seo" class="form-control" maxlength="800" rows="2">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <textarea name="keySeo" placeholder="Keyword seo" class="form-control" maxlength="800" rows="2">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <textarea name="desSeo" placeholder="Description seo" class="form-control" maxlength="800" rows="2">@Model.desSeo</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <input type="submit" hidden id="teacher-Submit" />
+                    <button type="button" onclick="CheckKey()" class="btn btn-primary  margin-r-5"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <a href="/Teacher/Index" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.box -->
+            <!--/.col (left) -->
+        </div>
+    </div>
+}
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }
+<script type="text/javascript">
+    $('#teacherName').on('keyup', function () {
+        $.ajax({
+            url: "/Teacher/GenTeacherKey?name=" + $('#teacherName').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#teacher_key').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    $('#teacherName').on('change', function () {
+        $.ajax({
+            url: "/Teacher/GenTeacherKey?name=" + $('#teacherName').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#teacher_key').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    function CheckKey() {
+        var id = '@Model.id';
+        var teacher_key = $('#teacher_key').val();
+        if (teacher_key == '' || teacher_key == ' ') {
+            toastr.error("Chưa nhập url lĩnh vực", { timeOut: 5000 }); return;
+        }
+        var model = {
+            id: id,
+            tkey: teacher_key
+        };
+        OpenWaiting();
+        $.ajax({
+            url: "/Teacher/CheckKeyUpdate",
+            type: "POST",
+            data: model,
+            success: function (data) {
+                CloseWaiting();
+                if (data.ok === 2) {
+                    toastr.error('Url lĩnh vực đã tồn tại', { timeOut: 5000 }); return ;
+                } else if (data.ok === 3) {
+                    toastr.error('Đã xảy ra lỗi vui lòng thử lại', { timeOut: 5000 }); return ;
+                } else {
+                    $('#teacher-Submit').click();
+                }
+
+            },
+            error: function (response) {
+                CloseWaiting();
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+    }
+
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'note');
+
+    });
+
+    //up ảnh
+    $(function () {
+        $("#img").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#img").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#teacherFile").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#teacherFile").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>
