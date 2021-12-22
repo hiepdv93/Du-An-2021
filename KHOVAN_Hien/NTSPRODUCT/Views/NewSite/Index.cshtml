@@ -1,0 +1,76 @@
+﻿@model IList<NTSPRODUCT.Models.News>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    NTSPRODUCT.Models.Category cateP = ViewBag.cateP;
+}
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb">
+                        <li class="home">
+                            <a itemprop="url" href="/" title="@ClassExten.GetLangKey("home")"><span itemprop="title">@ClassExten.GetLangKey("home")</span></a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </li>
+                        @if (cateP != null)
+                        {
+                            <li>
+                                <a itemprop="url" href="/tin-tuc" title="@ClassExten.GetLangKey("news")"><span itemprop="title">@ClassExten.GetLangKey("news")</span></a>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </li>
+                            <li><strong><span itemprop="title">@cateP.cateName</span></strong></li>
+                        }
+                        else
+                        {
+                            <li><strong><span itemprop="title">@ClassExten.GetLangKey("news")</span></strong></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="page-detail">
+    <div class="container">
+        <div class="row flex-wrap">
+            @Html.Action("PageNewLeft", "ChildView", new { lang = ViewBag.lang })
+            <section class="main_container collection col-lg-9 col-md-9 col-md-push-3 col-lg-push-3">
+                <div class="titel-home">
+                    <h2 class="uppercase text-center">@(cateP != null ? cateP.cateName : @ClassExten.GetLangKey("news"))</h2>
+                </div>
+                <section class="list-blogs blog-main flex-margin-20">
+                    @foreach (var item in Model)
+                    {
+                        <article class="blog-item">
+                            <div class="blog-item-thumbnail">
+                                <a href="/tin/@item.new_key" title="@item.title">
+                                    <img src="@item.newImage.Replace("uploads", "uploads/_thumbs")" style="max-width:100%;" class="img-responsive" alt="@item.title">
+                                </a>
+                            </div>
+                            <div class="date">
+                                <p>
+                                    @("T" + item.createDate.Value.Month)
+                                </p>
+                                <p>
+                                    @item.createDate.Value.ToString("dd")
+                                </p>
+                            </div>
+                            <div class="blog-item-info">
+                                <a href="/tin/@item.new_key" title="@item.title">
+                                    <h3 class="blog-item-name">@item.title</h3>
+                                </a>
+                                <p class="blog-item-summary margin-bottom-5">@(NTSPRODUCT.Models.StringClass.FormatContentNews(item.descript, 100))</p>
+                            </div>
+                        </article>
+                    }
+                </section>
+                <nav aria-label="Page navigation example">
+                    @Html.Raw(ViewBag.pages)
+                </nav>
+            </section>
+        </div>
+    </div>
+</section>

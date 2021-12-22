@@ -1,0 +1,85 @@
+﻿@{
+    bool subAdmin = false;
+    var loginInfo = ClassExten.GetCokies();
+    string uName = "";
+    if (loginInfo != null)
+    {
+        uName = loginInfo.FullName;
+        subAdmin = loginInfo.subAdmin;
+    }
+}
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="~/Content/CssAdmin/dist/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p>@uName</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+    </div>
+    <ul class="sidebar-menu">
+        <li><a href="/HomeSite/SiteMap" target="_blank"><i class="fa fa-book"></i> <span>Sitemap</span></a></li>
+        @if (subAdmin)
+        {
+            <li><a href="/Admins/Index"><i class="fa fa-book"></i> <span>Tài khoản</span></a></li>
+        }
+        <li><a href="/Config/Index"><i class="fa fa-book"></i> <span>Cấu hình</span></a></li>
+        <li><a href="/Menus/Index"><i class="fa fa-book"></i> <span>Menu</span></a></li>
+        <li><a href="/Slide/Index"><i class="fa fa-book"></i> <span>Slide</span></a></li>
+        <li><a href="/Sologan/Index"><i class="fa fa-book"></i> <span>Sologan</span></a></li>
+        <li><a href="/Solution/Index"><i class="fa fa-book"></i> <span>Giải pháp kho</span></a></li>
+        <li><a href="/FieldActivity/Index"><i class="fa fa-book"></i> <span>Lĩnh vực ứng dụng</span></a></li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Sản phẩm Moduler</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/Categorys/Catepro/"><i class="fa fa-circle-o"></i>Danh mục Moduler</a></li>
+                <li><a href="/Prodcuts/Index/"><i class="fa fa-circle-o"></i>Sản phẩm </a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Thiết bị vận hành</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/Categorys/Catedevice/"><i class="fa fa-circle-o"></i>Danh mục thiết bị</a></li>
+                <li><a href="/Device/Index/"><i class="fa fa-circle-o"></i>Thiết bị</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Quản trị tin tức</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/Categorys/Catenew"><i class="fa fa-circle-o"></i>Nhóm tin</a></li>
+                <li><a href="/News/Index"><i class="fa fa-circle-o"></i>Tin tức</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Khách hàng- Đối tác</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+               @* <li><a href="/PartnerCustomer/Index"><i class="fa fa-book"></i> <span>Khách hàng</span></a></li>*@
+                <li><a href="/Partner/Index"><i class="fa fa-book"></i> <span>Khách hàng - Đối tác</span></a></li>
+            </ul>
+        </li>
+        <li><a href="/Contacts/Index"><i class="fa fa-book"></i> <span>Liên hệ</span></a></li>
+        <li><a href="/WhyChooseUss/Index"><i class="fa fa-book"></i> <span>Vì sao chọn chúng tôi</span></a></li>
+    </ul>
+</section>

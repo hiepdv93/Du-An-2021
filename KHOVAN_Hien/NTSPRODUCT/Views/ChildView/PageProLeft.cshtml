@@ -1,0 +1,88 @@
+﻿@model IList<NTSPRODUCT.Models.Product>
+@{
+    var catepro = (List<NTSPRODUCT.Models.Category>)ViewBag.catepro;
+    var cateParent = catepro.Where(u => u.catepar_id.Equals("-1")).OrderBy(u => u.cateOrder).ToList();
+    string pType = ViewBag.pType;
+}
+<aside class="dqdt-sidebar sidebar left left-content col-lg-3 col-md-3 col-lg-pull-9 col-md-pull-9 space-30">
+    <aside class="aside-item collection-category">
+        <div class="aside-title">
+            <h2 class="title-head margin-top-0"><span>@ClassExten.GetLangKey("key_danhmuc")</span></h2>
+        </div>
+        <div class="categories-box">
+            <ul class="nav navbar-pills">
+                @if (pType.Equals(Constants.Product))
+                {
+                    foreach (var item in cateParent)
+                    {
+                        <li class="nav-item ">
+                            <a href="/moduler/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    foreach (var item in cateParent)
+                    {
+                        <li class="nav-item ">
+                            <a href="/danh-muc/@item.cateKey" title="@item.cateName" class="nav-link">@item.cateName</a>
+                        </li>
+                    }
+                }
+
+            </ul>
+        </div>
+    </aside>
+    <aside class="aside-item wrap-product-hot style-scroll">
+        <div class="aside-title">
+            <h2 class="title-head margin-top-0"><a href="#" title="">@ClassExten.GetLangKey("key_spnoibat")</a></h2>
+        </div>
+        <div class="list-product-slidebar">
+            @if (pType.Equals(Constants.Product))
+            {
+                foreach (var item in Model)
+                {
+                    <div class="list-item">
+                        <div class="thumb-imagtes">
+                            <a href="/san-pham/@item.pro_key" title="@item.pro_name">
+                                <img src="@item.proAvata.Replace("uploads", "uploads/_thumbs")" alt="@item.pro_name">
+                            </a>
+                        </div>
+                        <div class="product-info-text">
+                            <h3 class="product-name text2line"><a href="/san-pham/@item.pro_key" title="@item.pro_name">@item.pro_name</a></h3>
+                            <div class="price-box clearfix">
+                                <div class="special-price f-left">
+                                    <span class="gia-goc">@ClassExten.GetLangKey("key_gia"): </span>
+                                    <span class="price product-price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : @ClassExten.GetLangKey("contact"))</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <div class="list-item">
+                        <div class="thumb-imagtes">
+                            <a href="/thiet-bi/@item.pro_key" title="@item.pro_name">
+                                <img src="@item.proAvata.Replace("uploads", "uploads/_thumbs")" alt="@item.pro_name">
+                            </a>
+                        </div>
+                        <div class="product-info-text">
+                            <h3 class="product-name text2line"><a href="/thiet-bi/@item.pro_key" title="@item.pro_name">@item.pro_name</a></h3>
+                            <div class="price-box clearfix">
+                                <div class="special-price f-left">
+                                    <span class="gia-goc">@ClassExten.GetLangKey("key_gia"): </span>
+                                    <span class="price product-price">@(item.proPrice_sale != 0 ? item.proPrice_sale.Value.ToString("N0") : @ClassExten.GetLangKey("contact"))</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </aside>
+</aside>
+

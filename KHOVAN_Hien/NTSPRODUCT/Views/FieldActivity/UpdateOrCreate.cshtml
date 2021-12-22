@@ -1,0 +1,73 @@
+﻿<div id="modamAdv" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog w700">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #5db2ff; color: white">
+                <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="titleAdv"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Lĩnh vực ứng dụng<span class="text-red">(*)</span></label>
+                                <input type="hidden" value="" id="idAdv" />
+                                <input type="text" class="form-control" name="name" id="name" maxlength="250" placeholder="Lĩnh vực ứng dụng.." required>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="display-block">Trạng thái</label>
+                            <label class="switch">
+                                <input type="checkbox" name="active" checked id="active">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <span class="input-icon icon-right">
+                                <label>Thứ tự <span class="text-red">(*)</span></label>
+                                <input type="number" value="1" class="form-control" placeholder="Thứ tự" id="numberOder" name="numberOder" required>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <input type="text" class="form-control csinput" name="image" id="image" maxlength="450" placeholder="Chọn ảnh" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea type="text" rows="3" class="form-control csinput" name="contents" maxlength="800" id="contents" placeholder="Nhập nội dung.." />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="modal-footer" style="margin-top: -20px;">
+                    <button type="submit" class="btn btn-primary" onclick="CreateOrUpdate()"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#image").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#image").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+</script>

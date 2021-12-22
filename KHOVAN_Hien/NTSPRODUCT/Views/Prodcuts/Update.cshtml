@@ -1,0 +1,343 @@
+﻿@model NTSPRODUCT.Models.Product
+@{
+    ViewBag.Title = "Administrator - Cập nhật sản phẩm";
+    ViewBag.controller = "Cập nhật sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //List<NTSPRODUCT.Models.Tagpro> tags = ViewBag.tags;
+    //List<string> tagSelect = ViewBag.tagSelect;
+    //  var checkFaq = "";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Thông tin chung</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">Hình ảnh</a></li>
+                    <li><a href="#tab_3" data-toggle="tab" style="display:none">Thẻ Tag</a></li>
+                    <li><a href="#tab_4" data-toggle="tab">Cấu hình seo</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên sản phẩm</label><span class="text-red">(*)</span>
+                                    <input type="text" class="form-control " value="@Model.pro_name" maxlength="800" id="proName" name="proName" placeholder="Tên sản phẩm" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Danh mục</label>
+                                    <select name="cateId" id="cateId" required class="form-control">
+                                        @Html.Action("GetCateForProduct", "ImportView", new { type = ClassExten.typePro })
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Url</label>
+                                    <input type="text" class="form-control " placeholder="Url sản phẩm" value="@Model.pro_key" maxlength="800" id="pro_key" name="pro_key" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Giá gốc</label><span class="text-red">(*)</span>
+                                    <input type="number" value="@Model.proPrice" class="form-control " name="price" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Giá KM(nhập 0 nếu muốn giá liên hệ)</label><span class="text-red">(*)</span>
+                                    <input type="number" value="@Model.proPrice_sale" class="form-control " name="priceSale" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Thương hiệu</label>
+                                    <input type="text" class="form-control " placeholder="Thương hiệu" value="@Model.brank" maxlength="250" name="brank" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label>Thứ tự</label><span class="text-red">(*)</span>
+                                    <input type="number" value="@Model.proOrder" class="form-control " name="proOrder" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="display-block">Hiển thị</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="proStatus" @(Model.active == true ? "checked" : "")>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="display-block">Sản phẩm hot</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="proHot" @(Model.pro_hot == true ? "checked" : "")>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="display:none">
+                                <div class="form-group">
+                                    <label class="display-block">Hiện trang chủ</label>
+                                    <label class="switch">
+                                        <input type="checkbox" name="proHome" @(Model.pro_home == true ? "checked" : "")>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Giới thiệu ngắn</label>
+                            @Html.TextAreaFor(u => u.introContent)
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung tab1</label>
+                            @Html.TextAreaFor(u => u.proContentTab1)
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung tab2</label>
+                            @Html.TextAreaFor(u => u.proContentTab2)
+                        </div>
+                        
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        <div class="form-group">
+                            <label>Ảnh đại diện </label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata" id="proAvata" value="@Model.proAvata" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh số 1</label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata1" id="proAvata1" value="@Model.proImages1" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh số 2</label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata2" id="proAvata2" value="@Model.proImages2" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh số 3</label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata3" id="proAvata3" value="@Model.proImages3" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh số 4</label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata4" id="proAvata4" value="@Model.proImages4" placeholder="Chọn ảnh" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ảnh số 5</label>
+                            <input type="text" class="form-control csinput" maxlength="250" name="proAvata5" id="proAvata5" value="@Model.proImages5" placeholder="Chọn ảnh" />
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_3" style="display:none">
+                        @*<input type="hidden" name="Tagnumber" value="@tags.Count" />
+                            <table class="table table-bordered table-hover" >
+                                <thead>
+                                    <tr>
+                                        <th width="50px" class="text-center">STT</th>
+                                        <th width="60px" class="text-center">Chọn</th>
+                                        <th>Tên thẻ tag</th>
+                                        <th width="300px">Url</th>
+                                        <th width="100px" class="text-center">Thứ tự</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < tags.Count; i++)
+                                    {
+                                          if (tagSelect.Contains(tags[i].tagId))
+                                        {
+                                            checkFaq = "checked='checked'";
+                                        }
+                                        else { checkFaq = ""; }
+                                    <tr>
+                                        <td class="text-center">@(i + 1)</td>
+                                        <td class="text-center">
+                                            <input type="hidden" id="valueTag_@i" name="valueTag_@i" value="@tags[i].tagId" />
+                                            <input @checkFaq type="checkbox" id="ckTag_@i" name="ckTag_@i" />
+                                        </td>
+                                        <td>@tags[i].tagName</td>
+                                        <td>@tags[i].tagKey</td>
+                                        <td>@tags[i].tagOrder</td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>*@
+                    </div>
+                    <div class="tab-pane" id="tab_4">
+                        <div class="form-group">
+                            <label>Tile seo </label>
+                            <textarea type="text" class="form-control" name="titleSeo" rows="2" maxlength="800" placeholder="Tile seo">@Model.titleSeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Keyword seo </label>
+                            <textarea type="text" class="form-control" name="keySeo" rows="2" maxlength="800" placeholder="Keyword seo">@Model.keySeo</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description seo </label>
+                            <textarea type="text" class="form-control" name="desSeo" rows="2" maxlength="800" placeholder="Description seo">@Model.desSeo</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <input type="submit" hidden id="news-Submit" />
+                    <button type="button" onclick="CheckKey()" class="btn btn-primary  margin-r-5"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại</button>
+                    <a href="/Prodcuts/Index" class="btn btn-default"><i class="fa fa-mail-reply-all"></i> Trở về</a>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+            <!-- /.box -->
+        </div>
+    </div>
+}
+
+
+@if (Session["erro"] != null)
+{
+    <script type="text/javascript">
+        toastr.error('@Session["erro"].ToString()');
+    </script>
+}
+@if (Session["erro"] != null) { Session["erro"] = null; }
+<script type="text/javascript">
+
+    $('#cateId').val('@Model.cateId');
+    $('#proName').on('keyup', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#proName').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#pro_key').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+    $('#proName').on('change', function () {
+        $.ajax({
+            url: "/Home/GenKey?name=" + $('#proName').val(),
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    $('#pro_key').val(data.rs);
+                }
+            },
+            error: function (response) {
+
+            },
+        });
+    });
+
+    function CheckKey() {
+        var id = '@Model.id';
+        var pro_key = $('#pro_key').val();
+        if (pro_key == '' || pro_key == ' ') {
+            toastr.error("Chưa nhập url sản phẩm", { timeOut: 5000 }); return;
+        }
+        var model = {
+            id: id,
+            pro_key: pro_key
+        };
+        OpenWaiting();
+        $.ajax({
+            url: "/Prodcuts/CheckKeyUpdate",
+            type: "POST",
+            data: model,
+            success: function (data) {
+                CloseWaiting();
+                if (data.ok === 2) {
+                    toastr.error('Url sản phẩm đã tồn tại', { timeOut: 5000 }); return ;
+                } else if (data.ok === 3) {
+                    toastr.error('Đã xảy ra lỗi vui lòng thử lại', { timeOut: 5000 }); return ;
+                } else {
+                    $('#news-Submit').click();
+                }
+
+            },
+            error: function (response) {
+                CloseWaiting();
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            },
+        });
+    }
+
+    var editor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode
+        });
+    }
+    $(function () {
+        createEditor('vi', 'proContentTab1');
+        createEditor('vi', 'proContentTab2');
+        createEditor('vi', 'introContent');
+
+    });
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#proAvata").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata1").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata1").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata2").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata2").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata3").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata3").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata4").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata4").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+    $(function () {
+        $("#proAvata5").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#proAvata5").val(fileUrl);
+            };
+            finder.popup();
+        });
+    });
+
+</script>

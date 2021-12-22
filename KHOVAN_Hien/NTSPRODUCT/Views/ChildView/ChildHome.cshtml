@@ -1,0 +1,232 @@
+﻿@model IList<NTSPRODUCT.Models.Sologan>
+@{
+    var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;
+    var whyChoose = (List<NTSPRODUCT.Models.WhyChooseUss>)ViewBag.whyChoose;
+    var pn = (List<NTSPRODUCT.Models.Partner>)ViewBag.pn;
+    var sl = (List<NTSPRODUCT.Models.Solution>)ViewBag.sl;
+}
+<section class="awe-section-2">
+    <div class="section_service">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 service-bg">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="item">
+                                    <div class="slz-icon-box-2 theme-style-3 ">
+                                        <div class="icon-cell ">
+                                            <div class="wrapper-icon-image">
+                                                <img src="@item.avata.Replace("uploads", "uploads/_thumbs")" class="slz-icon-img" alt="@item.name">
+                                            </div>
+                                        </div>
+                                        <div class="service-content-wrap">
+                                            <div class="content-cell">
+                                                <a class="title text-uppercase">@item.name</a>
+                                                <div class="wrapper-info">
+                                                    <div class="description">@item.descript</div>
+                                                    @*<a href="" class="slz-btn">
+                                                            <span class="text">Chi tiết</span>
+                                                        </a>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="awe-section-3">
+    <section id="dich-vu" class="section section_service">
+        <div class="container">
+            <div class="service-title text-center">
+                <h2>@conf.lableSolutionName</h2>
+                <div class="service-subtitle">
+                    @conf.lableSolutionDes
+                </div>
+            </div>
+        </div>
+        <div class="service-pc">
+            @for (int i = 0; i < sl.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    <div class="content-service">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-12 col-service">
+                                    <h3 class="title-service">
+                                        <a href="/giai-phap/@sl[i].name_url" title="@sl[i].name">@sl[i].name</a>
+                                    </h3>
+                                    <div class="service-sumary">@Html.Raw(sl[i].solutionDescription)</div>
+                                </div>
+                                <div class="col-lg-6 col-12 col-service-img">
+                                    <div class="service-image wow fadeInLeft img-why-viwebsite" style="visibility: visible; animation-name: fadeInLeft;">
+                                        <img class="banner" src="@sl[i].solutionImage" alt="@sl[i].name">
+                                        <div class="service-icon">
+                                            <img class="img-1" src="@sl[i].solutionIcon" alt="@sl[i].name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="content-service content-service-2">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col-lg-6 col-12 col-service-img-2">
+                                    <div class="service-image wow fadeInRight img-why-viwebsite" style="visibility: visible; animation-name: fadeInLeft;">
+                                        <img class="banner" src="@sl[i].solutionImage" alt="@sl[i].name">
+                                        <div class="service-icon">
+                                            <img class="img-2" src="@sl[i].solutionIcon" alt="@sl[i].name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12 col-service-2">
+                                    <h3 class="title-service">
+                                        <a href="/giai-phap/@sl[i].name_url" title="@sl[i].name">@sl[i].name</a>
+                                    </h3>
+                                    <div class="service-sumary">@Html.Raw(sl[i].solutionDescription)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</section>
+<section class="awe-section-5">
+    <div class="container">
+        <div class="service-title text-center">
+            <h2>@conf.lableSayName</h2>
+            <div class="service-subtitle">
+                @conf.lableSayDes
+            </div>
+        </div>
+    </div>
+    <section class="section_vaitro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                    <div class="mt-thum-bx mt-img-effect mt-img-overlay2 a-center">
+                        @Html.Raw(conf.homeVideo)
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                    <div class="mt-box m-b25">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="item">
+                                    <div class="counter">@conf.countRow1+</div>
+                                    <h4 class="m-tb0">@conf.lableRow1</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="item">
+                                    <div class="counter">@conf.countRow2+</div>
+                                    <h4 class="m-tb0">@conf.lableRow2</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="item">
+                                    <div class="counter">@conf.countRow3+</div>
+                                    <h4 class="m-tb0">@conf.lableRow3</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="item">
+                                    <div class="counter">@conf.countRow4+</div>
+                                    <h4 class="m-tb0">@conf.lableRow4</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="myModalYoutube" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="wrap_youtube_modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="awe-section-4">
+    <div class="section_why_choose">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="service-title text-center">
+                        <h2>@conf.lableWhyName</h2>
+                        <div class="service-subtitle">
+                            @conf.lableWhyDes
+                        </div>
+                    </div>
+                    <div class="section_why_choose_content">
+                        <div class="row">
+                            @foreach (var item in whyChoose)
+                            {
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <div class="why_choose_item">
+                                        <a title="@item.title">
+                                            <img src="@item.image.Replace("uploads", "uploads/_thumbs")" alt="@item.title" class="bottom20">
+                                            <div class="choose-right">
+                                                <h4 class="bottom10">@item.title</h4>
+                                                <p>@item.contents</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="partner-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="service-title text-center">
+                    <h2>@conf.lablePartnerName</h2>
+                    <div class="service-subtitle">
+                        @conf.lablePartnerDes
+                    </div>
+                </div>
+                <div id="owl-partner-home" class="owl-carousel owl-theme">
+                    @foreach (var item in pn)
+                    {
+                        <div class="item">
+                            <div class="col-inner">
+                                <div class="box has-hover gallery-box box-none">
+                                    <div class="box-image">
+                                        <img src="@item.pImage" class="attachment-medium size-medium" alt="@item.pName">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

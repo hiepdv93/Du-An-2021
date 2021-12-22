@@ -1,0 +1,80 @@
+﻿@model IList<NTSPRODUCT.Models.Menu>
+@{ var conf = (NTSPRODUCT.Models.Config)ViewBag.conf;}
+<section id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 box box-1">
+                    <h3>@ClassExten.GetLangKey("key_vechungtoi")</h3>
+                    <div class="desc" style="text-align: justify;"> @Html.Raw(conf.infoPage)</div>
+                </div>
+                <div class="col-md-3 col-sm-6 box box-2">
+                    <h3>@ClassExten.GetLangKey("key_tskt")</h3>
+                    @Html.Raw(conf.footer)
+                </div>
+                <div class="col-md-2 col-sm-6 box box-3">
+                    <h3>@ClassExten.GetLangKey("key_lienket")</h3>
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li><a href="@item.link" title="@item.name">@item.name</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 box box-4">
+                    <h3>Facebook Page</h3>
+                    <div class="page-fb">
+                        @{ string fb = "<iframe allow='encrypted - media' allowtransparency='true' frameborder='0' height='270' scrolling='no' src='https://www.facebook.com/plugins/page.php?href=" + conf.faceBook + "%2F&amp;tabs=timeline&amp;width=262&amp;height=270&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId' style='border:none;overflow:hidden' width='262'></iframe>";}
+                        @Html.Raw(fb)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="coppyright text-center">
+        <div class="container">
+            <div class="row">
+                <p>@conf.copyright</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hotline-zalo-fb">
+    @if (!string.IsNullOrEmpty(conf.hotLine))
+    {
+        <a href="tel:@conf.hotLine" class="call-icon" rel="nofollow">
+            <img src="~/Content/CssSite/images/hotline.png" />
+            <span>Hotline</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.zaloChat))
+    {
+        <a href="@("http://zalo.me/"+conf.zaloChat)" class="zalo">
+            <img src="~/Content/CssSite/images/zalo.png" />
+            <span>Zalo</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.fbChat))
+    {
+        <a target="_blank" href="@conf.fbChat" class="mes">
+            <img src="~/Content/CssSite/images/fb.png" />
+            <span>Facebook</span>
+        </a>
+    }
+    @if (!string.IsNullOrEmpty(conf.youTube))
+    {
+        <a target="_blank" href="@conf.youTube" class="mes">
+            <img src="~/Content/CssSite/images/youTube.png" />
+            <span>YouTube</span>
+        </a>
+    }
+</section>
+@if (!Request.Browser.IsMobileDevice)
+{
+    @Html.Raw(conf.liveChat);
+}
+<!--End footer-->
+@Html.Raw(conf.googleAnalytics)
+@Html.Raw(conf.googleAdsense)
+<div id="fb-root"></div>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+	<loc>http://localhost</loc>
+	<changefreq>weekly</changefreq>
+	<priority>1.00</priority>
+</url>
+<url>
+	<loc>http://localhost/danh-muc/dinh-huong-nghe</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/danh-muc/cap-thpt</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/danh-muc/cap-thcs</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/danh-muc/cap-tieu-hoc</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo-stem-robotics-tpa--mrt-duino</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo--stem-robotics-tpa--brain-a</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo-stem-robotics-tpabrain-b-</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo--stem-robotics-tpa-mrt-31</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo-stem-robotics-tpa-mrt-32</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo-san-pham-stem-robotics-mrt3fullkit</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/san-pham/bo-stem-robotics-tpa--kicky-</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+<url>
+	<loc>http://localhost/tin-tuc/dinh-huong-nghe</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/tin-tuc/cap-thpt</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/tin-tuc/cap-thcs</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/tin-tuc/cap-tieu-hoc</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.60</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/viet-nam-voi-4-cuoc-cach-mang-cong-nghiep</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/tiec-tri-an-tpa-cuoi-nam-va-chao-don-nam-moi-canh-ty-2020</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/lieu-phap-de-thich-ung-voi-thoi-dai-40</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/nen-giao-duc-code-tu-lop-1-quoc-gia-thanh-lap-doanh-nghiep-chi-mat-20s</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/nhung-loi-ich-vang-cua-stem--robotics</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/7-cach-hieu-sai-ve-giao-duc-stem</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/tpa-tham-du-hoi-thao-nhu-cau-su-phat-trien-cua-tu-dong-hoa-va-nang-luong-moi-trong-doi-song-nam-2019</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/tpa-cung-cap-he-thong-robot-lap-rap-bong-den-tu-dong-ung-dung-trong-dao-tao</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/giao-duc-stem-moi-lien-he-cua-cac-mon-hoc</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/stem-robotics-trong-giao-duc-stem</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/tu-vnen-den-giao-duc-stem--buoc-chuyen-dem-can-thiet</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/giao-duc-vnen-va-thuc-te-trien-khai-tai-viet-nam</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/ngon-ngu-lap-trinh-scratch-trong-giao-duc-stem</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/nhung-nguoi-cheo-lai-con-thuyen-tpa</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/top-10-nganh-nghe-cua-tuong-lai--nghe-stem</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/hieu-the-nao-cho-dung-ve-giao-duc-stem</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/con-duong-giao-duc-stem-den-voi-viet-nam</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/tin/stem-la-gi</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.70</priority>
+</url>
+<url>
+	<loc>http://localhost/sites/gioi-thieu</loc>
+	<changefreq>weekly</changefreq>
+	<priority>0.80</priority>
+</url>
+</urlset>
