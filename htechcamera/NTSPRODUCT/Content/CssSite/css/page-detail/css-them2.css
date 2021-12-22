@@ -1,5 +1,5 @@
 #main_nav {
-    background: red;
+    background: #03c2fc;
     color: #fff;
     border-top: 1px solid #fff;
 }
@@ -11,6 +11,12 @@
     position: relative;
     text-align: left;
 }
+.pro-content .cont ul li {
+    list-style: disc;
+}
+.info-cont table tr td img {
+    width: inherit;
+}
 .title_block {
     font-size: 15px;
     font-weight: 700;
@@ -18,10 +24,14 @@
     margin: 0px;
     color: #FFFFFF;
     display: block;
-    background: #f36523;
+    background: #22a8d1;
     -webkit-box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
     box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
     cursor: pointer;
+}
+.navbar_menuvertical .nav_verticalmenu>li>a:hover{
+background-color: #22a8d1;
+color:#fff;
 }
 .title_block:before {
     color: #FFFFFF;

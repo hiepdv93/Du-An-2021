@@ -46,7 +46,7 @@ h2.title-head {
     float: left;
 }
 .nav-right-slide ul li a {
-    padding: 8px 20px;
+    padding: 10px 20px;
     top: 0 !important;
 }
 .nav-right-slide ul li a:hover{
@@ -59,7 +59,7 @@ background: #eda400;
 }
 .logo-footer img {
     width: 390px;
-    height: 100px;
+    height: 108px;
     object-fit: contain;
 }
 .nav-right-slide-top .col-md-9.col-xs-12.slide-left {
@@ -138,7 +138,7 @@ background: #eda400;
 }
 button.owl-prev {
     position: absolute;
-    top: 50%;
+    top: 36%;
     left: -17px;
 }
 button.owl-prev span, button.owl-next span {
@@ -149,7 +149,7 @@ button.owl-prev span, button.owl-next span {
 }
 button.owl-next {
     position: absolute;
-    top: 50%;
+    top: 36%;
     right: -17px;
 }
 #owl-demo .item{
