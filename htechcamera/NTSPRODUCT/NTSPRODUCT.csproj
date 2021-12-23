@@ -221,6 +221,7 @@
     <Compile Include="Controllers\Admin\AdminsController.cs" />
     <Compile Include="Controllers\Admin\BrandsController.cs" />
     <Compile Include="Controllers\Admin\CommentsController.cs" />
+    <Compile Include="Controllers\Admin\CusInfoController.cs" />
     <Compile Include="Controllers\Admin\HinhAnhController.cs" />
     <Compile Include="Controllers\Admin\DepartmentController.cs" />
     <Compile Include="Controllers\Admin\OdersController.cs" />
@@ -276,6 +277,9 @@
     <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Contact.cs">
+      <DependentUpon>ModelNTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CusInfo.cs">
       <DependentUpon>ModelNTS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
@@ -2252,6 +2256,7 @@
     <Content Include="Views\ProductSite\Tags.cshtml" />
     <Content Include="Views\ChildView\NavMenu.cshtml" />
     <Content Include="Views\HomeSite\Video.cshtml" />
+    <Content Include="Views\CusInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

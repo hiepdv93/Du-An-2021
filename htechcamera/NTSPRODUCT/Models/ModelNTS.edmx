@@ -138,6 +138,7 @@
           <Property Name="viewPrice" Type="int" />
           <Property Name="typeSendMail" Type="int" />
           <Property Name="isShowVideoHome" Type="bit" />
+          <Property Name="conHang" Type="bit" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -153,6 +154,17 @@
           <Property Name="createDate" Type="datetime" />
           <Property Name="active" Type="bit" />
           <Property Name="referencesId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CusInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="250" />
+          <Property Name="phone" Type="varchar" MaxLength="250" />
+          <Property Name="ex" Type="varchar" MaxLength="250" />
+          <Property Name="active" Type="bit" />
+          <Property Name="createDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -452,6 +464,7 @@
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CusInfo" EntityType="Self.CusInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emails" EntityType="Self.emails" Schema="dbo" store:Type="Tables" />
@@ -515,6 +528,7 @@
           <EntitySet Name="LichSuTruyCaps" EntityType="NTSWEBModel.LichSuTruyCap" />
           <EntitySet Name="Configs" EntityType="NTSWEBModel.Config" />
           <EntitySet Name="Products" EntityType="NTSWEBModel.Product" />
+          <EntitySet Name="CusInfoes" EntityType="NTSWEBModel.CusInfo" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -921,6 +935,7 @@
           <Property Name="viewPrice" Type="Int32" />
           <Property Name="typeSendMail" Type="Int32" />
           <Property Name="isShowVideoHome" Type="Boolean" />
+          <Property Name="conHang" Type="Boolean" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -958,6 +973,17 @@
           <Property Name="updateDate" Type="DateTime" Precision="3" />
           <Property Name="brandId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="conHang" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CusInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ex" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1312,6 +1338,7 @@
           <EntitySetMapping Name="Configs">
             <EntityTypeMapping TypeName="NTSWEBModel.Config">
               <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="conHang" ColumnName="conHang" />
                 <ScalarProperty Name="isShowVideoHome" ColumnName="isShowVideoHome" />
                 <ScalarProperty Name="typeSendMail" ColumnName="typeSendMail" />
                 <ScalarProperty Name="viewPrice" ColumnName="viewPrice" />
@@ -1396,6 +1423,18 @@
                 <ScalarProperty Name="proPrice" ColumnName="proPrice" />
                 <ScalarProperty Name="pro_key" ColumnName="pro_key" />
                 <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CusInfoes">
+            <EntityTypeMapping TypeName="NTSWEBModel.CusInfo">
+              <MappingFragment StoreEntitySet="CusInfo">
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="ex" ColumnName="ex" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
